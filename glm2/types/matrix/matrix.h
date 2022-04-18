@@ -20,12 +20,16 @@ namespace glm2
     template<>
     class mat<2, 2, float>
     {
-    private:
+    public:
         using col_type = vec<2, float>;
         using row_type = vec<2, float>;
+        using transpose_type = mat<2, 2, float>;
+
+    private:
         alignas(8) col_type _M[2];
 
     public:
+
         /* default constructors */
         inline mat(void);
         inline mat(float f);
@@ -132,9 +136,12 @@ namespace glm2
     template<>
     class mat<2, 3, float>
     {
-    private:
+    public:
         using col_type = vec<3, float>;
         using row_type = vec<2, float>;
+        using transpose_type = mat<3, 2, float>;
+
+    private:
         alignas(16) col_type _M[2];
 
     public:
@@ -241,9 +248,12 @@ namespace glm2
     template<>
     class mat<2, 4, float>
     {
-    private:
+    public:
         using col_type = vec<4, float>;
         using row_type = vec<2, float>;
+        using transpose_type = mat<4, 2, float>;
+
+    private:
         alignas(16) col_type _M[2];
 
     public:
@@ -350,9 +360,12 @@ namespace glm2
     template<>
     class mat<3, 2, float>
     {
-    private:
+    public:
         using col_type = vec<2, float>;
         using row_type = vec<3, float>;
+        using transpose_type = mat<2, 3, float>;
+
+    private:
         alignas(8) col_type _M[3];
 
     public:
@@ -461,9 +474,12 @@ namespace glm2
     template<>
     class mat<3, 3, float>
     {
-    private:
+    public:
         using col_type = vec<3, float>;
         using row_type = vec<3, float>;
+        using transpose_type = mat<3, 3, float>;
+
+    private:
         alignas(16) col_type _M[3];
 
     public:
@@ -575,9 +591,12 @@ namespace glm2
     template<>
     class mat<3, 4, float>
     {
-    private:
+    public:
         using col_type = vec<4, float>;
         using row_type = vec<3, float>;
+        using transpose_type = mat<4, 3, float>;
+
+    private:
         alignas(16) col_type _M[3];
 
     public:
@@ -686,9 +705,12 @@ namespace glm2
     template<>
     class mat<4, 2, float>
     {
-    private:
+    public:
         using col_type = vec<2, float>;
         using row_type = vec<4, float>;
+        using transpose_type = mat<2, 4, float>;
+
+    private:
         alignas(8) col_type _M[4];
 
     public:
@@ -801,9 +823,12 @@ namespace glm2
     template<>
     class mat<4, 3, float>
     {
-    private:
+    public:
         using col_type = vec<3, float>;
         using row_type = vec<4, float>;
+        using transpose_type = mat<3, 4, float>;
+
+    private:
         alignas(16) col_type _M[4];
 
     public:
@@ -914,9 +939,12 @@ namespace glm2
     template<>
     class mat<4, 4, float>
     {
-    private:
+    public:
         using col_type = vec<4, float>;
         using row_type = vec<4, float>;
+        using transpose_type = mat<4, 4, float>;
+
+    private:
         alignas(16) col_type _M[4];
 
     public:
@@ -1031,9 +1059,12 @@ namespace glm2
     template<>
     class mat<2, 2, double>
     {
-    private:
+    public:
         using col_type = vec<2, double>;
         using row_type = vec<2, double>;
+        using transpose_type = mat<2, 2, double>;
+
+    private:
         alignas(16) col_type _M[2];
 
     public:
@@ -1143,9 +1174,12 @@ namespace glm2
     template<>
     class mat<2, 3, double>
     {
-    private:
+    public:
         using col_type = vec<3, double>;
         using row_type = vec<2, double>;
+        using transpose_type = mat<3, 2, double>;
+
+    private:
         alignas(32) col_type _M[2];
 
     public:
@@ -1250,9 +1284,12 @@ namespace glm2
     template<>
     class mat<2, 4, double>
     {
-    private:
+    public:
         using col_type = vec<4, double>;
         using row_type = vec<2, double>;
+        using transpose_type = mat<4, 2, double>;
+
+    private:
         alignas(32) col_type _M[2];
 
     public:
@@ -1357,9 +1394,12 @@ namespace glm2
     template<>
     class mat<3, 2, double>
     {
-    private:
+    public:
         using col_type = vec<2, double>;
         using row_type = vec<3, double>;
+        using transpose_type = mat<2, 3, double>;
+
+    private:
         alignas(16) col_type _M[3];
 
     public:
@@ -1468,9 +1508,12 @@ namespace glm2
     template<>
     class mat<3, 3, double>
     {
-    private:
+    public:
         using col_type = vec<3, double>;
         using row_type = vec<3, double>;
+        using transpose_type = mat<3, 3, double>;
+
+    private:
         alignas(32) col_type _M[3];
 
     public:
@@ -1580,9 +1623,12 @@ namespace glm2
     template<>
     class mat<3, 4, double>
     {
-    private:
+    public:
         using col_type = vec<4, double>;
         using row_type = vec<3, double>;
+        using transpose_type = mat<4, 3, double>;
+
+    private:
         alignas(32) col_type _M[3];
 
     public:
@@ -1692,9 +1738,12 @@ namespace glm2
     template<>
     class mat<4, 2, double>
     {
-    private:
+    public:
         using col_type = vec<2, double>;
         using row_type = vec<4, double>;
+        using transpose_type = mat<2, 4, double>;
+
+    private:
         alignas(16) col_type _M[4];
 
         public:
@@ -1805,9 +1854,12 @@ namespace glm2
     template<>
     class mat<4, 3, double>
     {
-    private:
+    public:
         using col_type = vec<3, double>;
         using row_type = vec<4, double>;
+        using transpose_type = mat<3, 4, double>;
+
+    private:
         alignas(32) col_type _M[4];
 
     public:
@@ -1916,9 +1968,12 @@ namespace glm2
     template<>
     class mat<4, 4, double>
     {
-    private:
+    public:
         using col_type = vec<4, double>;
         using row_type = vec<4, double>;
+        using transpose_type = mat<4, 4, double>;
+
+    private:
         alignas(32) col_type _M[4];
 
     public:

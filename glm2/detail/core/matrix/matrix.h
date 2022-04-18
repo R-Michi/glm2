@@ -22,10 +22,22 @@ namespace glm2
                 namespace transpose
                 {
                     inline void _default_fm2x2(const __m64* M_in, __m128* M_out);
+                    inline void _default_fm2x3(const __m128* M_in, __m128* M_out);
+                    inline void _default_fm2x4(const __m128* M_in, __m256* M_out);
+                    inline void _default_fm3x2(const __m64* M_in, __m128* M_out);
                     inline void _default_fm3x3(const __m128* M_in, __m256* M_out);
+                    inline void _default_fm3x4(const __m128* M_in, __m256* M_out);
+                    inline void _default_fm4x2(const __m64* M_in, __m256* M_out);
+                    inline void _default_fm4x3(const __m128* M_in, __m256* M_out);
                     inline void _default_fm4x4(const __m128* M_in, __m256* M_out);
                     inline void _default_dm2x2(const __m128d* M_in, __m256d* M_out);
+                    inline void _default_dm2x3(const __m256d* M_in, __m256d* M_out);
+                    inline void _default_dm2x4(const __m256d* M_in, __m256d* M_out);
+                    inline void _default_dm3x2(const __m128d* M_in, __m256d* M_out);
                     inline void _default_dm3x3(const __m256d* M_in, __m256d* M_out);
+                    inline void _default_dm3x4(const __m256d* M_in, __m256d* M_out);
+                    inline void _default_dm4x2(const __m128d* M_in, __m256d* M_out);
+                    inline void _default_dm4x3(const __m256d* M_in, __m256d* M_out);
                     inline void _default_dm4x4(const __m256d* M_in, __m256d* M_out);
                 }
 

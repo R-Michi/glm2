@@ -6,7 +6,7 @@ project ("glm2")
 
 # set comiler flags
 set(CMAKE_CXX_STANDARD 17)
-add_compile_options(-save-temps -mfma -mavx2 -msse)
+add_compile_options(-save-temps -mfma -mavx2)
 
 # add subdirectories
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/test")

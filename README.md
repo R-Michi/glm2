@@ -5,7 +5,7 @@ As this library is header only, it allowes the compiler to inline very aggressiv
 Nearly all functions combute faster then the glm counterparts (NOTE: all benchmarks were only run on my PC !!!).
 
 # building
-The library is header only, so it doesn't have to be built.
+This library is header only, so it doesn't have to be built.
 All the sources, as well as the main include file, are located inside the "./glm2" folder.
 The main include file is also named "glm2".
 If you want to run the test or benchmark, you have to install the glm and google benchmark library.
@@ -31,7 +31,12 @@ If you want to run the test or benchmark, you have to install the glm and google
 
 # version
 Version: 1.0.0-dev-1
-NOTE: This library hasn't been completed yet, not even it it's core functionality!
+NOTE: This library hasn't been completed yet, not even it's core functionality!
+
+# requirements
+- To run this library your CPU must at least be capable of AVX2 and FMA!
+  If your CPU does not support AVX2 or FMA you will not be able to execute every function.
+- For compilation you must enable AVX2 and FMA via the compiler flags "-mavx2" and "-mfma"!
 
 # TODO
 - implement all functions that require integer vectors

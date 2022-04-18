@@ -29,7 +29,7 @@
 //#define GLM2_BENCHMARK_COMMON
 //#define GLM2_BENCHMARK_EXPONENTIAL
 //#define GLM2_BENCHMARK_GEOMETRIC
-//#define GLM2_BENCHMARK_MATRIX
+#define GLM2_BENCHMARK_MATRIX
 
 #ifdef GLM2_BENCHMARK_DOUBLE
     #define GLM2_VALUE_ZERO 0.0
@@ -3866,10 +3866,40 @@ static void glm__mat2x2_transpose(benchmark::State& state)
     while(state.KeepRunning())
         m1221 = glm::transpose(m1222);
 }
+static void glm__mat2x3_transpose(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        m1321 = glm::transpose(m1232);
+}
+static void glm__mat2x4_transpose(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        m1421 = glm::transpose(m1242);
+}
+static void glm__mat3x2_transpose(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        m1231 = glm::transpose(m1322);
+}
 static void glm__mat3x3_transpose(benchmark::State& state)
 {
     while(state.KeepRunning())
         m1331 = glm::transpose(m1332);
+}
+static void glm__mat3x4_transpose(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        m1431 = glm::transpose(m1432);
+}
+static void glm__mat4x2_transpose(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        m1241 = glm::transpose(m1422);
+}
+static void glm__mat4x3_transpose(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        m1341 = glm::transpose(m1432);
 }
 static void glm__mat4x4_transpose(benchmark::State& state)
 {
@@ -3881,10 +3911,40 @@ static void glm2_mat2x2_transpose(benchmark::State& state)
     while(state.KeepRunning())
         m2221 = glm2::transpose(m2222);
 }
+static void glm2_mat2x3_transpose(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        m2321 = glm2::transpose(m2232);
+}
+static void glm2_mat2x4_transpose(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        m2421 = glm2::transpose(m2242);
+}
+static void glm2_mat3x2_transpose(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        m2231 = glm2::transpose(m2322);
+}
 static void glm2_mat3x3_transpose(benchmark::State& state)
 {
     while(state.KeepRunning())
         m2331 = glm2::transpose(m2332);
+}
+static void glm2_mat3x4_transpose(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        m2431 = glm2::transpose(m2342);
+}
+static void glm2_mat4x2_transpose(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        m2241 = glm2::transpose(m2422);
+}
+static void glm2_mat4x3_transpose(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        m2341 = glm2::transpose(m2432);
 }
 static void glm2_mat4x4_transpose(benchmark::State& state)
 {
@@ -3893,8 +3953,20 @@ static void glm2_mat4x4_transpose(benchmark::State& state)
 }
 BENCHMARK(glm__mat2x2_transpose);
 BENCHMARK(glm2_mat2x2_transpose);
+BENCHMARK(glm__mat2x3_transpose);
+BENCHMARK(glm2_mat2x3_transpose);
+BENCHMARK(glm__mat2x4_transpose);
+BENCHMARK(glm2_mat2x4_transpose);
+BENCHMARK(glm__mat3x2_transpose);
+BENCHMARK(glm2_mat3x2_transpose);
 BENCHMARK(glm__mat3x3_transpose);
 BENCHMARK(glm2_mat3x3_transpose);
+BENCHMARK(glm__mat3x4_transpose);
+BENCHMARK(glm2_mat3x4_transpose);
+BENCHMARK(glm__mat4x2_transpose);
+BENCHMARK(glm2_mat4x2_transpose);
+BENCHMARK(glm__mat4x3_transpose);
+BENCHMARK(glm2_mat4x3_transpose);
 BENCHMARK(glm__mat4x4_transpose);
 BENCHMARK(glm2_mat4x4_transpose);
 

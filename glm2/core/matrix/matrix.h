@@ -17,13 +17,25 @@
 namespace glm2
 {
     /*------------------------------ Function: transpose ------------------------------*/
-    template<> inline mat<2, 2, float> transpose(const mat<2, 2, float>& m);
-    template<> inline mat<3, 3, float> transpose(const mat<3, 3, float>& m);
-    template<> inline mat<4, 4, float> transpose(const mat<4, 4, float>& m);
+    template<> inline mat<2, 2, float>::transpose_type transpose(const mat<2, 2, float>& m);
+    template<> inline mat<2, 3, float>::transpose_type transpose(const mat<2, 3, float>& m);
+    template<> inline mat<2, 4, float>::transpose_type transpose(const mat<2, 4, float>& m);
+    template<> inline mat<3, 2, float>::transpose_type transpose(const mat<3, 2, float>& m);
+    template<> inline mat<3, 3, float>::transpose_type transpose(const mat<3, 3, float>& m);
+    template<> inline mat<3, 4, float>::transpose_type transpose(const mat<3, 4, float>& m);
+    template<> inline mat<4, 2, float>::transpose_type transpose(const mat<4, 2, float>& m);
+    template<> inline mat<4, 3, float>::transpose_type transpose(const mat<4, 3, float>& m);
+    template<> inline mat<4, 4, float>::transpose_type transpose(const mat<4, 4, float>& m);
 
-    template<> inline mat<2, 2, double> transpose(const mat<2, 2, double>& m);
-    template<> inline mat<3, 3, double> transpose(const mat<3, 3, double>& m);
-    template<> inline mat<4, 4, double> transpose(const mat<4, 4, double>& m);
+    template<> inline mat<2, 2, double>::transpose_type transpose(const mat<2, 2, double>& m);
+    template<> inline mat<2, 3, double>::transpose_type transpose(const mat<2, 3, double>& m);
+    template<> inline mat<2, 4, double>::transpose_type transpose(const mat<2, 4, double>& m);
+    template<> inline mat<3, 2, double>::transpose_type transpose(const mat<3, 2, double>& m);
+    template<> inline mat<3, 3, double>::transpose_type transpose(const mat<3, 3, double>& m);
+    template<> inline mat<3, 4, double>::transpose_type transpose(const mat<3, 4, double>& m);
+    template<> inline mat<4, 2, double>::transpose_type transpose(const mat<4, 2, double>& m);
+    template<> inline mat<4, 3, double>::transpose_type transpose(const mat<4, 3, double>& m);
+    template<> inline mat<4, 4, double>::transpose_type transpose(const mat<4, 4, double>& m);
 
     /*------------------------------ Function: determinant ------------------------------*/
     template<> inline float determinant(const mat<2, 2, float>& m);

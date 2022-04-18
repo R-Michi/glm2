@@ -15,7 +15,7 @@ namespace glm2
 {
     /*------------------------------ Function: transpose ------------------------------*/
     template<length_t N, length_t M, typename T>
-    inline mat<N, M, T> transpose(const mat<N, M, T>& m);
+    inline typename mat<N, M, T>::transpose_type transpose(const mat<N, M, T>& m);
 
     /*------------------------------ Function: determinant ------------------------------*/
     template<length_t N, length_t M, typename T>
