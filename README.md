@@ -40,7 +40,6 @@ NOTE: This library hasn't been completed yet, not even it's core functionality!
 
 # TODO
 - implement all functions that require integer vectors
-- implement transpose of 2x3-, 2x4-, 3x2-, 3x4-, 4x2-, 4x3 matrix
 - implement matrix transformation functions (perspective, lookAt, etc.)
 - implement packing functions
 - implement vector relational functions
