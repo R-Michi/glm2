@@ -31,6 +31,17 @@ inline double glm2::detail::core::common::sign::_default_d(double x)
     return detail::util::bit_cast<double, int64_t>(a & b);
 }
 
+inline int32_t glm2::detail::core::common::sign::_default_i32(int32_t x)
+{
+    int32_t ret;
+    __m128i xmm0, xmm1;
+    xmm0 = _mm_set_epi32(0, 0, 0, 1);
+    xmm1 = _mm_loadu_si32(&x);
+    xmm0 = _mm_sign_epi32(xmm0, xmm1);
+    _mm_storeu_si32(&ret, xmm0);
+    return ret;
+}
+
 inline __m128 glm2::detail::core::common::sign::_default_fv(__m128 x)
 {
     __m128i xmm0 = _mm_set1_epi32(0x1);
@@ -60,4 +71,11 @@ inline __m256d glm2::detail::core::common::sign::_default_dv(__m256d x)
     ymm1 = _mm256_set1_epi64x(0x3ff0000000000000);
     ymm2 = _mm256_or_si256(ymm2, ymm1);             // set sign bit of value 1.0 -> -1.0 or 1.0 depending on the sign bit
     return _mm256_andnot_si256(ymm0, ymm2);         // set bits to zero if x is 0.0
+}
+
+inline __m128i glm2::detail::core::common::sign::_default_i32(__m128i x)
+{
+    __m128i xmm0;
+    xmm0 = _mm_set1_epi32(0x1);
+    return _mm_sign_epi32(xmm0, x);
 }

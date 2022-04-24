@@ -23,9 +23,11 @@ namespace glm2
                 {
                     inline float _default_f(float x);
                     inline double _default_d(double x);
+                    inline int32_t _default_i32(int32_t x);
                     inline __m128 _default_fv(__m128 x);
                     inline __m128d _default_dv2(__m128d x);
                     inline __m256d _default_dv(__m256d x);
+                    inline __m128i _default_i32v(__m128i x);
                 }
 
                 namespace ceil
@@ -41,9 +43,11 @@ namespace glm2
                 {
                     inline float _default_f(float x, float minVal, float maxVal);
                     inline double _default_d(double x, double minVal, double maxVal);
+                    inline __m128i _default_i32(__m128i x, __m128i minVal, __m128i maxVal);
                     inline __m128 _default_fv(__m128 x, __m128 minVal, __m128 maxVal);
                     inline __m128d _default_dv2(__m128d x, __m128d minVal, __m128d maxVal);
                     inline __m256d _default_dv(__m256d x, __m256d minVal, __m256d maxVal);
+                    inline __m128i _default_i32v(__m128i x, __m128i minVal, __m128i maxVal);
                 }
 
                 namespace floor
@@ -82,22 +86,38 @@ namespace glm2
                     inline __m256d _default_dv(__m256d x);
                 }
 
+                namespace frexp
+                {
+                    template<typename T>
+                    inline void _default(const T* x, T* fract, int32_t* exp, uint32_t n);
+                }
+
+                namespace ldexp
+                {
+                    template<typename T>
+                    inline void _default(const T* x, T* fract, int32_t* exp, uint32_t n);
+                }
+
                 namespace max
                 {
                     inline float _default_f(float x, float y);
                     inline double _default_d(double x, double y);
+                    inline __m128i _default_i32(__m128i x, __m128i y);
                     inline __m128 _default_fv(__m128 x, __m128 y);
                     inline __m128d _default_dv2(__m128d x, __m128d y);
                     inline __m256d _default_dv(__m256d x, __m256d y);
+                    inline __m128i _default_i32v(__m128i x, __m128i y);
                 }
 
                 namespace min
                 {
                     inline float _default_f(float x, float y);
                     inline double _default_d(double x, double y);
+                    inline __m128i _default_i32(__m128i x, __m128i y);
                     inline __m128 _default_fv(__m128 x, __m128 y);
                     inline __m128d _default_dv2(__m128d x, __m128d y);
                     inline __m256d _default_dv(__m256d x, __m256d y);
+                    inline __m128i _default_i32v(__m128i x, __m128i y);
                 }
 
                 namespace mix
@@ -140,9 +160,11 @@ namespace glm2
                 {
                     inline float _default_f(float x);
                     inline double _default_d(double x);
+                    inline int32_t _default_i32(int32_t x);
                     inline __m128 _default_fv(__m128 x);
                     inline __m128d _default_dv2(__m128d x);
                     inline __m256d _default_dv(__m256d x);
+                    inline __m128i _default_i32(__m128i x);
                 }
 
                 namespace smoothstep
@@ -171,6 +193,48 @@ namespace glm2
                     inline __m128d _default_dv2(__m128d x);
                     inline __m256d _default_dv(__m256d x);
                 }
+
+                namespace isinf
+                {
+                    inline bool _default_f(float x);
+                    inline bool _default_d(double x);
+                    inline __m128i _default_fv(__m128 x);
+                    inline __m128i _default_dv2(__m128d x);
+                    inline __m128i _default_dv(__m256d x);
+                }
+
+                namespace isnan
+                {
+                    inline bool _default_f(float x);
+                    inline bool _default_d(double x);
+                    inline __m128i _default_fv(__m128 x);
+                    inline __m128i _default_dv2(__m128d x);
+                    inline __m128i _default_dv(__m256d x);
+                }
+
+                namespace floatBitsToInt
+                {
+                    inline int32_t _default_i32(float x);
+                    inline __m128i _default_i32v(__m128 x);
+                }
+
+                namespace floatBitsToUint
+                {
+                    inline uint32_t _default_u32(float x);
+                    inline __m128i _default_i32v(__m128 x);
+                }
+
+                namespace intBitsToFloat
+                {
+                    inline float _default_f(int32_t x);
+                    inline __m128 _default_fv(__m128i x);
+                }
+
+                namespace uintBitsToFloat
+                {
+                    inline float _default_f(uint32_t x);
+                    inline __m128 _default_fv(__m128i x);
+                }
             }
         }
     }
@@ -183,6 +247,8 @@ namespace glm2
 #include "fma_impl.inl"
 #include "fms_impl.inl"
 #include "fract_impl.inl"
+#include "frexp_impl.inl"
+#include "ldexp_impl.inl"
 #include "max_impl.inl"
 #include "min_impl.inl"
 #include "mix_impl.inl"
@@ -193,3 +259,9 @@ namespace glm2
 #include "smoothstep_impl.inl"
 #include "step_impl.inl"
 #include "trunc_impl.inl"
+#include "isinf_impl.inl"
+#include "isnan_impl.inl"
+#include "floatBitsToInt_impl.inl"
+#include "floatBitsToUint_impl.inl"
+#include "intBitsToFloat_impl.inl"
+#include "uintBitsToFloat_impl.inl"

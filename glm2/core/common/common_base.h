@@ -38,8 +38,28 @@ namespace glm2
     inline vec<L, T> clamp(const vec<L, T>& x, const vec<L, T>& minVal, const vec<L, T>& maxVal);
 
     /*------------------------------ Function: floatBitsToInt ------------------------------*/
+    inline int32_t floatBitsToInt(float v);
+
+    template<length_t L>
+    inline vec<L, int32_t> floatBitsToInt(const vec<L, float>& v);
 
     /*------------------------------ Function: floatBitsToUint ------------------------------*/
+    inline uint32_t floatBitsToUint(float v);
+
+    template<length_t L>
+    inline vec<L, uint32_t> floatBitsToUint(const vec<L, float>& v);
+
+    /*------------------------------ Function: intBitsToFloat ------------------------------*/
+    float intBitsToFloat(int32_t x);
+
+    template<length_t L>
+    inline vec<L, float> intBitsToFloat(const vec<L, int32_t>& v);
+
+    /*------------------------------ Function: uintBitsToFloat ------------------------------*/
+    float uintBitsToFloat(uint32_t x);
+
+    template<length_t L>
+    inline vec<L, float> uintBitsToFloat(const vec<L, uint32_t>& v);
 
     /*------------------------------ Function: floor ------------------------------*/
     template<typename genType>
@@ -70,14 +90,32 @@ namespace glm2
     inline vec<L, T> fract(const vec<L, T>& x);
 
     /*------------------------------ Function: frexp ------------------------------*/
+    template<typename genType, typename genIType>
+    inline genType frexp(genType x, genIType exp);
 
-    /*------------------------------ Function: intBitsToFloat ------------------------------*/
+    template<length_t L, typename T, typename Ti>
+    inline vec<L, T> frexp(const vec<L, T>& x, const vec<L, Ti>& exp);
 
     /*------------------------------ Function: isinf ------------------------------*/
+    template<typename genType>
+    inline bool isinf(genType x);
+
+    template<length_t L, typename T>
+    inline vec<L, bool32_t> isinf(const vec<L, T>& v);
 
     /*------------------------------ Function: isnan ------------------------------*/
+    template<typename genType>
+    inline bool isnan(genType x);
+
+    template<length_t L, typename T>
+    inline vec<L, bool32_t> isnan(const vec<L, T>& v);
 
     /*------------------------------ Function: ldexp ------------------------------*/
+    template<typename genType, typename genIType>
+    inline genType ldexp(genType x, genIType exp);
+
+    template<length_t L, typename T, typename Ti>
+    inline vec<L, T> ldexp(const vec<L, T>& x, const vec<L, Ti>& exp);
 
     /*------------------------------ Function: max ------------------------------*/
     template<typename genType>
@@ -120,6 +158,11 @@ namespace glm2
     inline vec<L, T> mod(const vec<L, T>& x, const vec<L, T>& y);
 
     /*------------------------------ Function: modf ------------------------------*/
+    template<typename genType>
+    inline genType modf(genType x, genType& i);
+
+    template<length_t L, typename T>
+    inline vec<L, T> modf(const vec<L, T>& x, vec<L, T>& i);
 
     /*------------------------------ Function: round ------------------------------*/
     template<typename genType>
@@ -168,6 +211,4 @@ namespace glm2
 
     template<length_t L, typename T>
     inline vec<L, T> trunc(const vec<L, T>& x);
-
-    /*------------------------------ Function: uintBitsToFloat ------------------------------*/
 }

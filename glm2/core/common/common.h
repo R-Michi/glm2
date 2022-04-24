@@ -19,6 +19,7 @@ namespace glm2
     /*------------------------------ Function: abs ------------------------------*/
     template<> inline float abs(float x);
     template<> inline double abs(double x);
+    template<> inline int32_t abs(int32_t x);
 
 
     template<> inline vec<2, float> abs(const vec<2, float>& x);
@@ -28,6 +29,10 @@ namespace glm2
     template<> inline vec<2, double> abs(const vec<2, double>& x);
     template<> inline vec<3, double> abs(const vec<3, double>& x);
     template<> inline vec<4, double> abs(const vec<4, double>& x);
+
+    template<> inline vec<2, int32_t> abs(const vec<2, int32_t>& x);
+    template<> inline vec<3, int32_t> abs(const vec<3, int32_t>& x);
+    template<> inline vec<4, int32_t> abs(const vec<4, int32_t>& x);
 
     /*------------------------------ Function: ceil ------------------------------*/
     template<> inline float ceil(float x);
@@ -45,6 +50,7 @@ namespace glm2
     /*------------------------------ Function: clamp ------------------------------*/
     template<> inline float clamp(float x, float minVal, float maxVal);
     template<> inline double clamp(double x, double minVal, double maxVal);
+    template<> inline int32_t clamp(int32_t x, int32_t minVal, int32_t maxVal);
 
 
     template<> inline vec<2, float> clamp(const vec<2, float>& x, float minVal, float maxVal);
@@ -55,6 +61,10 @@ namespace glm2
     template<> inline vec<3, double> clamp(const vec<3, double>& x, double minVal, double maxVal);
     template<> inline vec<4, double> clamp(const vec<4, double>& x, double minVal, double maxVal);
 
+    template<> inline vec<2, int32_t> clamp(const vec<2, int32_t>& x, int32_t minVal, int32_t maxVal);
+    template<> inline vec<3, int32_t> clamp(const vec<3, int32_t>& x, int32_t minVal, int32_t maxVal);
+    template<> inline vec<4, int32_t> clamp(const vec<4, int32_t>& x, int32_t minVal, int32_t maxVal);
+
 
     template<> inline vec<2, float> clamp(const vec<2, float>& x, const vec<2, float>& minVal, const vec<2, float>& maxVal);
     template<> inline vec<3, float> clamp(const vec<3, float>& x, const vec<3, float>& minVal, const vec<3, float>& maxVal);
@@ -63,6 +73,10 @@ namespace glm2
     template<> inline vec<2, double> clamp(const vec<2, double>& x, const vec<2, double>& minVal, const vec<2, double>& maxVal);
     template<> inline vec<3, double> clamp(const vec<3, double>& x, const vec<3, double>& minVal, const vec<3, double>& maxVal);
     template<> inline vec<4, double> clamp(const vec<4, double>& x, const vec<4, double>& minVal, const vec<4, double>& maxVal);
+
+    template<> inline vec<2, int32_t> clamp(const vec<2, int32_t>& x, const vec<2, int32_t>& minVal, const vec<2, int32_t>& maxVal);
+    template<> inline vec<3, int32_t> clamp(const vec<3, int32_t>& x, const vec<3, int32_t>& minVal, const vec<3, int32_t>& maxVal);
+    template<> inline vec<4, int32_t> clamp(const vec<4, int32_t>& x, const vec<4, int32_t>& minVal, const vec<4, int32_t>& maxVal);
 
     /*------------------------------ Function: floatBitsToInt ------------------------------*/
 
@@ -132,6 +146,7 @@ namespace glm2
 
     /*------------------------------ Function: max ------------------------------*/
     template<> inline float max(float x, float y);
+    template<> inline double max(double x, double y);
     template<> inline double max(double x, double y);
 
 
