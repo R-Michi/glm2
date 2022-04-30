@@ -1,6 +1,7 @@
 /**
 * @file     common.h
 * @brief    Template specialization of all common functions.
+*           NOTE: Partial template specialization is for functions not allowed!
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *
@@ -51,6 +52,7 @@ namespace glm2
     template<> inline float clamp(float x, float minVal, float maxVal);
     template<> inline double clamp(double x, double minVal, double maxVal);
     template<> inline int32_t clamp(int32_t x, int32_t minVal, int32_t maxVal);
+    template<> inline uint32_t clamp(uint32_t x, uint32_t minVal, uint32_t maxVal);
 
 
     template<> inline vec<2, float> clamp(const vec<2, float>& x, float minVal, float maxVal);
@@ -65,6 +67,10 @@ namespace glm2
     template<> inline vec<3, int32_t> clamp(const vec<3, int32_t>& x, int32_t minVal, int32_t maxVal);
     template<> inline vec<4, int32_t> clamp(const vec<4, int32_t>& x, int32_t minVal, int32_t maxVal);
 
+    template<> inline vec<2, uint32_t> clamp(const vec<2, uint32_t>& x, uint32_t minVal, uint32_t maxVal);
+    template<> inline vec<3, uint32_t> clamp(const vec<3, uint32_t>& x, uint32_t minVal, uint32_t maxVal);
+    template<> inline vec<4, uint32_t> clamp(const vec<4, uint32_t>& x, uint32_t minVal, uint32_t maxVal);
+
 
     template<> inline vec<2, float> clamp(const vec<2, float>& x, const vec<2, float>& minVal, const vec<2, float>& maxVal);
     template<> inline vec<3, float> clamp(const vec<3, float>& x, const vec<3, float>& minVal, const vec<3, float>& maxVal);
@@ -77,10 +83,10 @@ namespace glm2
     template<> inline vec<2, int32_t> clamp(const vec<2, int32_t>& x, const vec<2, int32_t>& minVal, const vec<2, int32_t>& maxVal);
     template<> inline vec<3, int32_t> clamp(const vec<3, int32_t>& x, const vec<3, int32_t>& minVal, const vec<3, int32_t>& maxVal);
     template<> inline vec<4, int32_t> clamp(const vec<4, int32_t>& x, const vec<4, int32_t>& minVal, const vec<4, int32_t>& maxVal);
-
-    /*------------------------------ Function: floatBitsToInt ------------------------------*/
-
-    /*------------------------------ Function: floatBitsToUint ------------------------------*/
+    
+    template<> inline vec<2, uint32_t> clamp(const vec<2, uint32_t>& x, const vec<2, uint32_t>& minVal, const vec<2, uint32_t>& maxVal);
+    template<> inline vec<3, uint32_t> clamp(const vec<3, uint32_t>& x, const vec<3, uint32_t>& minVal, const vec<3, uint32_t>& maxVal);
+    template<> inline vec<4, uint32_t> clamp(const vec<4, uint32_t>& x, const vec<4, uint32_t>& minVal, const vec<4, uint32_t>& maxVal);
 
     /*------------------------------ Function: floor ------------------------------*/
     template<> inline float floor(float x);
@@ -135,14 +141,10 @@ namespace glm2
     template<> inline vec<4, double> fract(const vec<4, double>& x);
 
     /*------------------------------ Function: frexp ------------------------------*/
-
-    /*------------------------------ Function: intBitsToFloat ------------------------------*/
-
-    /*------------------------------ Function: isinf ------------------------------*/
-
-    /*------------------------------ Function: isnan ------------------------------*/
+    // NO SPECIALIZATION
 
     /*------------------------------ Function: ldexp ------------------------------*/
+    // NO SPECIALIZATION
 
     /*------------------------------ Function: max ------------------------------*/
     template<> inline float max(float x, float y);
@@ -158,6 +160,14 @@ namespace glm2
     template<> inline vec<3, double> max(const vec<3, double>& x, double y);
     template<> inline vec<4, double> max(const vec<4, double>& x, double y);
 
+    template<> inline vec<2, int32_t> max(const vec<2, int32_t>& x, int32_t y);
+    template<> inline vec<3, int32_t> max(const vec<3, int32_t>& x, int32_t y);
+    template<> inline vec<4, int32_t> max(const vec<4, int32_t>& x, int32_t y);
+
+    template<> inline vec<2, uint32_t> max(const vec<2, uint32_t>& x, uint32_t y);
+    template<> inline vec<3, uint32_t> max(const vec<3, uint32_t>& x, uint32_t y);
+    template<> inline vec<4, uint32_t> max(const vec<4, uint32_t>& x, uint32_t y);
+
 
     template<> inline vec<2, float> max(const vec<2, float>& x, const vec<2, float>& y);
     template<> inline vec<3, float> max(const vec<3, float>& x, const vec<3, float>& y);
@@ -166,6 +176,14 @@ namespace glm2
     template<> inline vec<2, double> max(const vec<2, double>& x, const vec<2, double>& y);
     template<> inline vec<3, double> max(const vec<3, double>& x, const vec<3, double>& y);
     template<> inline vec<4, double> max(const vec<4, double>& x, const vec<4, double>& y);
+
+    template<> inline vec<2, int32_t> max(const vec<2, int32_t>& x, const vec<2, int32_t>& y);
+    template<> inline vec<3, int32_t> max(const vec<3, int32_t>& x, const vec<3, int32_t>& y);
+    template<> inline vec<4, int32_t> max(const vec<4, int32_t>& x, const vec<4, int32_t>& y);
+
+    template<> inline vec<2, uint32_t> max(const vec<2, uint32_t>& x, const vec<2, uint32_t>& y);
+    template<> inline vec<3, uint32_t> max(const vec<3, uint32_t>& x, const vec<3, uint32_t>& y);
+    template<> inline vec<4, uint32_t> max(const vec<4, uint32_t>& x, const vec<4, uint32_t>& y);
 
     /*------------------------------ Function: min ------------------------------*/
     template<> inline float min(float x, float y);
@@ -180,6 +198,14 @@ namespace glm2
     template<> inline vec<3, double> min(const vec<3, double>& x, double y);
     template<> inline vec<4, double> min(const vec<4, double>& x, double y);
 
+    template<> inline vec<2, int32_t> min(const vec<2, int32_t>& x, int32_t y);
+    template<> inline vec<3, int32_t> min(const vec<3, int32_t>& x, int32_t y);
+    template<> inline vec<4, int32_t> min(const vec<4, int32_t>& x, int32_t y);
+
+    template<> inline vec<2, uint32_t> min(const vec<2, uint32_t>& x, uint32_t y);
+    template<> inline vec<3, uint32_t> min(const vec<3, uint32_t>& x, uint32_t y);
+    template<> inline vec<4, uint32_t> min(const vec<4, uint32_t>& x, uint32_t y);
+
 
     template<> inline vec<2, float> min(const vec<2, float>& x, const vec<2, float>& y);
     template<> inline vec<3, float> min(const vec<3, float>& x, const vec<3, float>& y);
@@ -188,6 +214,14 @@ namespace glm2
     template<> inline vec<2, double> min(const vec<2, double>& x, const vec<2, double>& y);
     template<> inline vec<3, double> min(const vec<3, double>& x, const vec<3, double>& y);
     template<> inline vec<4, double> min(const vec<4, double>& x, const vec<4, double>& y);
+
+    template<> inline vec<2, int32_t> min(const vec<2, int32_t>& x, const vec<2, int32_t>& y);
+    template<> inline vec<3, int32_t> min(const vec<3, int32_t>& x, const vec<3, int32_t>& y);
+    template<> inline vec<4, int32_t> min(const vec<4, int32_t>& x, const vec<4, int32_t>& y);
+
+    template<> inline vec<2, uint32_t> min(const vec<2, uint32_t>& x, const vec<2, uint32_t>& y);
+    template<> inline vec<3, uint32_t> min(const vec<3, uint32_t>& x, const vec<3, uint32_t>& y);
+    template<> inline vec<4, uint32_t> min(const vec<4, uint32_t>& x, const vec<4, uint32_t>& y);
 
     /*------------------------------ Function: mix ------------------------------*/
     template<> inline float mix(float x, float y, float a);
@@ -234,6 +268,17 @@ namespace glm2
     template<> inline vec<4, double> mod(const vec<4, double>& x, const vec<4, double>& y);
 
     /*------------------------------ Function: modf ------------------------------*/
+    template<> inline float modf(float x, float& i);
+    template<> inline double modf(double x, double& i);
+
+
+    template<> inline vec<2, float> modf(const vec<2, float>& x, vec<2, float>& i);
+    template<> inline vec<3, float> modf(const vec<3, float>& x, vec<3, float>& i);
+    template<> inline vec<4, float> modf(const vec<4, float>& x, vec<4, float>& i);
+
+    template<> inline vec<2, double> modf(const vec<2, double>& x, vec<2, double>& i);
+    template<> inline vec<3, double> modf(const vec<3, double>& x, vec<3, double>& i);
+    template<> inline vec<4, double> modf(const vec<4, double>& x, vec<4, double>& i);
 
     /*------------------------------ Function: round ------------------------------*/
     template<> inline float round(float x);
@@ -270,6 +315,10 @@ namespace glm2
     template<> inline vec<2, double> sign(const vec<2, double>& x);
     template<> inline vec<3, double> sign(const vec<3, double>& x);
     template<> inline vec<4, double> sign(const vec<4, double>& x);
+
+    template<> inline vec<2, int32_t> sign(const vec<2, int32_t>& x);
+    template<> inline vec<3, int32_t> sign(const vec<3, int32_t>& x);
+    template<> inline vec<4, int32_t> sign(const vec<4, int32_t>& x);
 
     /*------------------------------ Function: smoothstep ------------------------------*/
     template<> inline float smoothstep(float edge0, float edge1, float x);
@@ -327,7 +376,51 @@ namespace glm2
     template<> inline vec<3, double> trunc(const vec<3, double>& x);
     template<> inline vec<4, double> trunc(const vec<4, double>& x);
 
+    /*------------------------------ Function: isinf ------------------------------*/
+    template<> inline bool isinf(float x);
+    template<> inline bool isinf(double x);
+
+
+    template<> inline vec<2, bool32_t> isinf(const vec<2, float>& x);
+    template<> inline vec<3, bool32_t> isinf(const vec<3, float>& x);
+    template<> inline vec<4, bool32_t> isinf(const vec<4, float>& x);
+
+    template<> inline vec<2, bool32_t> isinf(const vec<2, double>& x);
+    template<> inline vec<3, bool32_t> isinf(const vec<3, double>& x);
+    template<> inline vec<4, bool32_t> isinf(const vec<4, double>& x);
+
+    /*------------------------------ Function: isnan ------------------------------*/
+    template<> inline bool isnan(float x);
+    template<> inline bool isnan(double x);
+
+
+    template<> inline vec<2, bool32_t> isnan(const vec<2, float>& x);
+    template<> inline vec<3, bool32_t> isnan(const vec<3, float>& x);
+    template<> inline vec<4, bool32_t> isnan(const vec<4, float>& x);
+
+    template<> inline vec<2, bool32_t> isnan(const vec<2, double>& x);
+    template<> inline vec<3, bool32_t> isnan(const vec<3, double>& x);
+    template<> inline vec<4, bool32_t> isnan(const vec<4, double>& x);
+
+    /*------------------------------ Function: floatBitsToInt ------------------------------*/
+    template<> inline vec<2, int32_t> floatBitsToInt(const vec<2, float>& v);
+    template<> inline vec<3, int32_t> floatBitsToInt(const vec<3, float>& v);
+    template<> inline vec<4, int32_t> floatBitsToInt(const vec<4, float>& v);
+
+    /*------------------------------ Function: floatBitsToUint ------------------------------*/
+    template<> inline vec<2, uint32_t> floatBitsToUint(const vec<2, float>& v);
+    template<> inline vec<3, uint32_t> floatBitsToUint(const vec<3, float>& v);
+    template<> inline vec<4, uint32_t> floatBitsToUint(const vec<4, float>& v);
+
+    /*------------------------------ Function: intBitsToFloat ------------------------------*/
+    template<> inline vec<2, float> intBitsToFloat(const vec<2, int32_t>& v);
+    template<> inline vec<3, float> intBitsToFloat(const vec<3, int32_t>& v);
+    template<> inline vec<4, float> intBitsToFloat(const vec<4, int32_t>& v);
+
     /*------------------------------ Function: uintBitsToFloat ------------------------------*/
+    template<> inline vec<2, float> uintBitsToFloat(const vec<2, uint32_t>& v);
+    template<> inline vec<3, float> uintBitsToFloat(const vec<3, uint32_t>& v);
+    template<> inline vec<4, float> uintBitsToFloat(const vec<4, uint32_t>& v);
 }
 
 #include "abs_impl.inl"
@@ -337,13 +430,23 @@ namespace glm2
 #include "fma_impl.inl"
 #include "fms_impl.inl"
 #include "fract_impl.inl"
+#include "frexp_impl.inl"
+#include "ldexp_impl.inl"
 #include "max_impl.inl"
 #include "min_impl.inl"
 #include "mix_impl.inl"
 #include "mod_impl.inl"
+#include "modf_impl.inl"
 #include "round_impl.inl"
 #include "roundEven_impl.inl"
 #include "sign_impl.inl"
 #include "smoothstep_impl.inl"
 #include "step_impl.inl"
 #include "trunc_impl.inl"
+#include "isinf_impl.inl"
+#include "isnan_impl.inl"
+#include "floatBitsToInt_impl.inl"
+#include "floatBitsToUint_impl.inl"
+#include "intBitsToFloat_impl.inl"
+#include "uintBitsToFloat_impl.inl"
+

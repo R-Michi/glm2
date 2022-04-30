@@ -19,6 +19,20 @@ template<> inline double glm2::clamp(double x, double minVal, double maxVal)
 {
     return detail::core::common::clamp::_default_d(x, minVal, maxVal);
 }
+template<> inline int32_t glm2::clamp(int32_t x, int32_t minVal, int32_t maxVal)
+{
+    int32_t ret;
+    __m128i xmm0 = detail::core::common::clamp::_default_i32(_mm_loadu_si32(&x), _mm_loadu_si32(&minVal), _mm_loadu_si32(&maxVal));
+    _mm_storeu_si32(&ret, xmm0);
+    return ret;
+}
+template<> inline uint32_t glm2::clamp(uint32_t x, uint32_t minVal, uint32_t maxVal)
+{
+    uint32_t ret;
+    __m128i xmm0 = detail::core::common::clamp::_default_i32(_mm_loadu_si32(&x), _mm_loadu_si32(&minVal), _mm_loadu_si32(&maxVal));
+    _mm_storeu_si32(&ret, xmm0);
+    return ret;
+}
 
 
 template<> inline glm2::vec<2, float> glm2::clamp(const vec<2, float>& x, float minVal, float maxVal)
@@ -48,6 +62,33 @@ template<> inline glm2::vec<4, double> glm2::clamp(const vec<4, double>& x, doub
 }
 
 
+template<> inline glm2::vec<2, int32_t> glm2::clamp(const glm2::vec<2, int32_t>& x, int32_t minVal, int32_t maxVal)
+{
+    return detail::core::common::clamp::_default_i32v(x.si128(), _mm_set1_epi32(minVal), _mm_set1_epi32(maxVal));
+}
+template<> inline glm2::vec<3, int32_t> glm2::clamp(const glm2::vec<3, int32_t>& x, int32_t minVal, int32_t maxVal)
+{
+    return detail::core::common::clamp::_default_i32v(x(), _mm_set1_epi32(minVal), _mm_set1_epi32(maxVal));
+}
+template<> inline glm2::vec<4, int32_t> glm2::clamp(const glm2::vec<4, int32_t>& x, int32_t minVal, int32_t maxVal)
+{
+    return detail::core::common::clamp::_default_i32v(x(), _mm_set1_epi32(minVal), _mm_set1_epi32(maxVal));
+}
+
+template<> inline glm2::vec<2, uint32_t> glm2::clamp(const glm2::vec<2, uint32_t>& x, uint32_t minVal, uint32_t maxVal)
+{
+    return detail::core::common::clamp::_default_i32v(x.si128(), _mm_set1_epi32(minVal), _mm_set1_epi32(maxVal));
+}
+template<> inline glm2::vec<3, uint32_t> glm2::clamp(const glm2::vec<3, uint32_t>& x, uint32_t minVal, uint32_t maxVal)
+{
+    return detail::core::common::clamp::_default_i32v(x(), _mm_set1_epi32(minVal), _mm_set1_epi32(maxVal));
+}
+template<> inline glm2::vec<4, uint32_t> glm2::clamp(const glm2::vec<4, uint32_t>& x, uint32_t minVal, uint32_t maxVal)
+{
+    return detail::core::common::clamp::_default_i32v(x(), _mm_set1_epi32(minVal), _mm_set1_epi32(maxVal));
+}
+
+
 template<> inline glm2::vec<2, float> glm2::clamp(const vec<2, float>& x, const vec<2, float>& minVal, const vec<2, float>& maxVal)
 {
     return detail::core::common::clamp::_default_fv(x.si128(), minVal.si128(), maxVal.si128());
@@ -72,4 +113,31 @@ template<> inline glm2::vec<3, double> glm2::clamp(const vec<3, double>& x, cons
 template<> inline glm2::vec<4, double> glm2::clamp(const vec<4, double>& x, const vec<4, double>& minVal, const vec<4, double>& maxVal)
 {
     return detail::core::common::clamp::_default_dv(x(), minVal(), maxVal());
+}
+
+
+template<> inline glm2::vec<2, int32_t> glm2::clamp(const glm2::vec<2, int32_t>& x, const glm2::vec<2, int32_t>& minVal, const glm2::vec<2, int32_t>& maxVal)
+{
+    return detail::core::common::clamp::_default_i32v(x.si128(), minVal.si128(), maxVal.si128());
+}
+template<> inline glm2::vec<3, int32_t> glm2::clamp(const glm2::vec<3, int32_t>& x, const glm2::vec<3, int32_t>& minVal, const glm2::vec<3, int32_t>& maxVal)
+{
+    return detail::core::common::clamp::_default_i32v(x(), minVal(), maxVal());
+}
+template<> inline glm2::vec<4, int32_t> glm2::clamp(const glm2::vec<4, int32_t>& x, const glm2::vec<4, int32_t>& minVal, const glm2::vec<4, int32_t>& maxVal)
+{
+    return detail::core::common::clamp::_default_i32v(x(), minVal(), maxVal());
+}
+
+template<> inline glm2::vec<2, uint32_t> glm2::clamp(const glm2::vec<2, uint32_t>& x, const glm2::vec<2, uint32_t>& minVal, const glm2::vec<2, uint32_t>& maxVal)
+{
+    return detail::core::common::clamp::_default_i32v(x.si128(), minVal.si128(), maxVal.si128());
+}
+template<> inline glm2::vec<3, uint32_t> glm2::clamp(const glm2::vec<3, uint32_t>& x, const glm2::vec<3, uint32_t>& minVal, const glm2::vec<3, uint32_t>& maxVal)
+{
+    return detail::core::common::clamp::_default_i32v(x(), minVal(), maxVal());
+}
+template<> inline glm2::vec<4, uint32_t> glm2::clamp(const glm2::vec<4, uint32_t>& x, const glm2::vec<4, uint32_t>& minVal, const glm2::vec<4, uint32_t>& maxVal)
+{
+    return detail::core::common::clamp::_default_i32v(x(), minVal(), maxVal());
 }

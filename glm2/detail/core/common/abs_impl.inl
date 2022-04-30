@@ -1,6 +1,6 @@
 /**
 * @file     abs_impl.inl
-* @brief    Deailed implementation of the abs function.
+* @brief    Detailed implementation of the abs function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *
@@ -10,6 +10,12 @@
 */
 
 #pragma once
+
+template<typename T>
+inline T glm2::detail::core::common::abs::_default(T x)
+{
+    return std::abs(x);
+}
 
 inline float glm2::detail::core::common::abs::_default_f(float x)
 {

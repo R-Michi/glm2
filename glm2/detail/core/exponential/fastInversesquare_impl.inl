@@ -1,6 +1,6 @@
 /**
 * @file     fastInversesquare_impl.inl
-* @brief    Deailed implementation of the fastInversesqrt function.
+* @brief    Detailed implementation of the fastInversesqrt function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *

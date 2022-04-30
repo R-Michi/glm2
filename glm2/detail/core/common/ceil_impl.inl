@@ -1,6 +1,6 @@
 /**
 * @file     ceil_impl.inl
-* @brief    Deailed implementation of the ceil function.
+* @brief    Detailed implementation of the ceil function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *

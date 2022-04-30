@@ -48,6 +48,33 @@ template<> inline glm2::vec<4, double> glm2::max(const vec<4, double>& x, double
 }
 
 
+template<> inline glm2::vec<2, int32_t> glm2::max(const glm2::vec<2, int32_t>& x, int32_t y)
+{
+    return detail::core::common::max::_default_i32v(x.si128(), _mm_set1_epi32(y));
+}
+template<> inline glm2::vec<3, int32_t> glm2::max(const glm2::vec<3, int32_t>& x, int32_t y)
+{
+    return detail::core::common::max::_default_i32v(x(), _mm_set1_epi32(y));
+}
+template<> inline glm2::vec<4, int32_t> glm2::max(const glm2::vec<4, int32_t>& x, int32_t y)
+{
+    return detail::core::common::max::_default_i32v(x(), _mm_set1_epi32(y));
+}
+
+template<> inline glm2::vec<2, uint32_t> glm2::max(const glm2::vec<2, uint32_t>& x, uint32_t y)
+{
+    return detail::core::common::max::_default_i32v(x.si128(), _mm_set1_epi32(y));
+}
+template<> inline glm2::vec<3, uint32_t> glm2::max(const glm2::vec<3, uint32_t>& x, uint32_t y)
+{
+    return detail::core::common::max::_default_i32v(x(), _mm_set1_epi32(y));
+}
+template<> inline glm2::vec<4, uint32_t> glm2::max(const glm2::vec<4, uint32_t>& x, uint32_t y)
+{
+    return detail::core::common::max::_default_i32v(x(), _mm_set1_epi32(y));
+}
+
+
 template<> inline glm2::vec<2, float> glm2::max(const vec<2, float>& x, const vec<2, float>& y)
 {
     return detail::core::common::max::_default_fv(x.si128(), y.si128());
@@ -72,4 +99,31 @@ template<> inline glm2::vec<3, double> glm2::max(const vec<3, double>& x, const 
 template<> inline glm2::vec<4, double> glm2::max(const vec<4, double>& x, const vec<4, double>& y)
 {
     return detail::core::common::max::_default_dv(x(), y());
+}
+
+
+template<> inline glm2::vec<2, int32_t> glm2::max(const glm2::vec<2, int32_t>& x, const glm2::vec<2, int32_t>& y)
+{
+    return detail::core::common::max::_default_i32v(x.si128(), y.si128());
+}
+template<> inline glm2::vec<3, int32_t> glm2::max(const glm2::vec<3, int32_t>& x, const glm2::vec<3, int32_t>& y)
+{
+    return detail::core::common::max::_default_i32v(x(), y());
+}
+template<> inline glm2::vec<4, int32_t> glm2::max(const glm2::vec<4, int32_t>& x, const glm2::vec<4, int32_t>& y)
+{
+    return detail::core::common::max::_default_i32v(x(), y());
+}
+
+template<> inline glm2::vec<2, uint32_t> glm2::max(const glm2::vec<2, uint32_t>& x, const glm2::vec<2, uint32_t>& y)
+{
+    return detail::core::common::max::_default_i32v(x.si128(), y.si128());
+}
+template<> inline glm2::vec<3, uint32_t> glm2::max(const glm2::vec<3, uint32_t>& x, const glm2::vec<3, uint32_t>& y)
+{
+    return detail::core::common::max::_default_i32v(x(), y());
+}
+template<> inline glm2::vec<4, uint32_t> glm2::max(const glm2::vec<4, uint32_t>& x, const glm2::vec<4, uint32_t>& y)
+{
+    return detail::core::common::max::_default_i32v(x(), y());
 }

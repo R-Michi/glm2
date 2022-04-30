@@ -1,6 +1,6 @@
 /**
 * @file     sin_impl.inl
-* @brief    Deailed implementation of the sin function.
+* @brief    Detailed implementation of the sin function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *

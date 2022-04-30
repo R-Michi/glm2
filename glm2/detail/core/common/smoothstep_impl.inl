@@ -1,6 +1,6 @@
 /**
 * @file     smoothstep_impl.inl
-* @brief    Deailed implementation of the smoothstep function.
+* @brief    Detailed implementation of the smoothstep function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *

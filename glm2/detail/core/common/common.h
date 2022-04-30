@@ -21,6 +21,8 @@ namespace glm2
             {
                 namespace abs
                 {
+                    template<typename T>
+                    inline T _default(T x);
                     inline float _default_f(float x);
                     inline double _default_d(double x);
                     inline int32_t _default_i32(int32_t x);
@@ -138,6 +140,15 @@ namespace glm2
                     inline __m256d _default_dv(__m256d x, __m256d y);
                 }
 
+                namespace modf
+                {
+                    inline float _default_f(float x, float* i);
+                    inline double _default_d(double x, double* i);
+                    inline __m128 _default_fv(__m128 x, __m128* i);
+                    inline __m128d _default_dv2(__m128d x, __m128d* i);
+                    inline __m256d _default_dv(__m256d x, __m256d* i);
+                }
+
                 namespace round
                 {
                     inline float _default_f(float x);
@@ -164,7 +175,7 @@ namespace glm2
                     inline __m128 _default_fv(__m128 x);
                     inline __m128d _default_dv2(__m128d x);
                     inline __m256d _default_dv(__m256d x);
-                    inline __m128i _default_i32(__m128i x);
+                    inline __m128i _default_i32v(__m128i x);
                 }
 
                 namespace smoothstep
@@ -221,7 +232,7 @@ namespace glm2
                 namespace floatBitsToUint
                 {
                     inline uint32_t _default_u32(float x);
-                    inline __m128i _default_i32v(__m128 x);
+                    inline __m128i _default_u32v(__m128 x);
                 }
 
                 namespace intBitsToFloat
@@ -253,6 +264,7 @@ namespace glm2
 #include "min_impl.inl"
 #include "mix_impl.inl"
 #include "mod_impl.inl"
+#include "modf_impl.inl"
 #include "round_impl.inl"
 #include "roundEven_impl.inl"
 #include "sign_impl.inl"

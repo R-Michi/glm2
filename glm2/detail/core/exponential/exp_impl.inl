@@ -1,6 +1,6 @@
 /**
 * @file     exp_impl.inl
-* @brief    Deailed implementation of the exp function.
+* @brief    Detailed implementation of the exp function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *

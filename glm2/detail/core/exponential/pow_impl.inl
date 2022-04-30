@@ -1,6 +1,6 @@
 /**
 * @file     pow_impl.inl
-* @brief    Deailed implementation of the pow function.
+* @brief    Detailed implementation of the pow function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *

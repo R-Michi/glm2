@@ -1,6 +1,6 @@
 /**
 * @file     sign_impl.inl
-* @brief    Deailed implementation of the sign function.
+* @brief    Detailed implementation of the sign function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *
@@ -73,7 +73,7 @@ inline __m256d glm2::detail::core::common::sign::_default_dv(__m256d x)
     return _mm256_andnot_si256(ymm0, ymm2);         // set bits to zero if x is 0.0
 }
 
-inline __m128i glm2::detail::core::common::sign::_default_i32(__m128i x)
+inline __m128i glm2::detail::core::common::sign::_default_i32v(__m128i x)
 {
     __m128i xmm0;
     xmm0 = _mm_set1_epi32(0x1);

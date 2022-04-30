@@ -1,6 +1,6 @@
 /**
 * @file     acosh_impl.inl
-* @brief    Deailed implementation of the acosh function.
+* @brief    Detailed implementation of the acosh function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *

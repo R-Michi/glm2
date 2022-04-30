@@ -1,6 +1,6 @@
 /**
 * @file     asinh_impl.inl
-* @brief    Deailed implementation of the asinh function.
+* @brief    Detailed implementation of the asinh function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *

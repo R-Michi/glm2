@@ -15,5 +15,8 @@
 
 int main()
 {
+    float i;
+    float fract = std::modff(6.879f, &i);
+    std::cout << fract << "   " << i << std::endl;
     return 0;
 }

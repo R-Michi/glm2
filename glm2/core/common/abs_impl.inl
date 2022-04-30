@@ -19,6 +19,19 @@ template<> inline double glm2::abs(double x)
 {
     return detail::core::common::abs::_default_d(x);
 }
+template<> inline int32_t glm2::abs(int32_t x)
+{
+    return detail::core::common::abs::_default_i32(x);
+}
+
+template<typename genType>
+inline genType glm2::abs(genType x)
+{
+    static_assert(std::is_floating_point<genType>::value || (std::is_integral<genType>::value && std::is_signed<genType>::value), 
+    "[glm2::abs]: " GLM2_ASSERT_MSG_FLOAT_SIGNED);
+    return detail::core::common::abs::_default<genType>(x);
+}
+
 
 template<> inline glm2::vec<2, float> glm2::abs(const vec<2, float>& x)
 {
@@ -33,7 +46,6 @@ template<> inline glm2::vec<4, float> glm2::abs(const vec<4, float>& x)
     return detail::core::common::abs::_default_fv(x());
 }
 
-
 template<> inline glm2::vec<2, double> glm2::abs(const vec<2, double>& x)
 {
     return detail::core::common::abs::_default_dv2(x());
@@ -45,4 +57,17 @@ template<> inline glm2::vec<3, double> glm2::abs(const vec<3, double>& x)
 template<> inline glm2::vec<4, double> glm2::abs(const vec<4, double>& x)
 {
     return detail::core::common::abs::_default_dv(x());
+}
+
+template<> inline glm2::vec<2, int32_t> glm2::abs(const vec<2, int32_t>& x)
+{
+    return detail::core::common::abs::_default_i32v(x.si128());
+}
+template<> inline glm2::vec<3, int32_t> glm2::abs(const vec<3, int32_t>& x)
+{
+    return detail::core::common::abs::_default_i32v(x());
+}
+template<> inline glm2::vec<4, int32_t> glm2::abs(const vec<4, int32_t>& x)
+{
+    return detail::core::common::abs::_default_i32v(x());
 }

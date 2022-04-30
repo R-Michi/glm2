@@ -11,6 +11,8 @@
 
 #pragma once
 
+#define GLM2_ASSERT_MSG_FLOAT_SIGNED "Only floating point or signed integer inputs are accepted."
+
 namespace glm2
 {
     namespace detail
@@ -35,12 +37,6 @@ namespace glm2
             template<> struct vec_false_helper<2, double>   { static const bool value = true; };
             template<> struct vec_false_helper<3, double>   { static const bool value = true; };
             template<> struct vec_false_helper<4, double>   { static const bool value = true; };
-
-            template<length_t L_cast, typename T_cast>
-            struct vec2_cast_helper                         { static const bool value = false; };
-            template<> struct vec2_cast_helper<2, double>   { static const bool value = true; };
-            template<> struct vec2_cast_helper<2, int32_t>  { static const bool value = true; };
-            template<> struct vec2_cast_helper<2, uint32_t> { static const bool value = true; };
 
             template<length_t N, length_t M, typename T> 
             struct mat_false_helper                         { static const bool value = false; };

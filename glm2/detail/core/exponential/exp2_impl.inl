@@ -1,6 +1,6 @@
 /**
 * @file     exp2_impl.inl
-* @brief    Deailed implementation of the exp2 function.
+* @brief    Detailed implementation of the exp2 function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *

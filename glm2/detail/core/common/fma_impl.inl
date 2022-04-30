@@ -1,6 +1,6 @@
 /**
 * @file     fma_impl.inl
-* @brief    Deailed implementation of the fma function.
+* @brief    Detailed implementation of the fma function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *

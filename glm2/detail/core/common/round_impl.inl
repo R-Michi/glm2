@@ -1,6 +1,6 @@
 /**
 * @file     round_impl.inl
-* @brief    Deailed implementation of the round function.
+* @brief    Detailed implementation of the round function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *

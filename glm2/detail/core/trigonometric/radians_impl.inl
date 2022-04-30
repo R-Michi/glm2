@@ -1,6 +1,6 @@
 /**
 * @file     radians_impl.inl
-* @brief    Deailed implementation of the radians function.
+* @brief    Detailed implementation of the radians function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *

@@ -1,6 +1,6 @@
 /**
 * @file     cosh_impl.inl
-* @brief    Deailed implementation of the cosh function.
+* @brief    Detailed implementation of the cosh function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *

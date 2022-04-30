@@ -1,6 +1,6 @@
 /**
 * @file     asin_impl.inl
-* @brief    Deailed implementation of the asin function.
+* @brief    Detailed implementation of the asin function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *

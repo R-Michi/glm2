@@ -1,6 +1,6 @@
 /**
 * @file     max_impl.inl
-* @brief    Deailed implementation of the max function.
+* @brief    Detailed implementation of the max function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *

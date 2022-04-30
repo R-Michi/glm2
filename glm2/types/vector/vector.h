@@ -608,7 +608,7 @@ namespace glm2
 
     /// Integer and Boolean vectors (32 bit per component)
     template<typename T>
-    class vec<2, T, 4>
+    class vec<2, T, sizeof(int32_t)>
     {
         static_assert(detail::util::is_integer_32bit<T>::value, "[glm2::vec]: Vetcor-type is not asserted to 32 bit integer!");
 
@@ -728,7 +728,7 @@ namespace glm2
     };
 
     template<typename T>
-    class vec<3, T, 4>
+    class vec<3, T, sizeof(int32_t)>
     {
         static_assert(detail::util::is_integer_32bit<T>::value, "[glm2::vec]: Vetcor-type is not asserted to 32 bit integer!");
 
@@ -855,7 +855,7 @@ namespace glm2
     };
 
     template<typename T>
-    class vec<4, T, 4>
+    class vec<4, T, sizeof(int32_t)>
     {
         static_assert(detail::util::is_integer_32bit<T>::value, "[glm2::vec]: Vetcor-type is not asserted to 32 bit integer!");
     private:

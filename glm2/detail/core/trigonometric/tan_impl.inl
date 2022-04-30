@@ -1,6 +1,6 @@
 /**
 * @file     tan_impl.inl
-* @brief    Deailed implementation of the tan function.
+* @brief    Detailed implementation of the tan function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *

@@ -19,6 +19,10 @@ template<> inline double glm2::sign(double x)
 {
     return detail::core::common::sign::_default_d(x);
 }
+template<> inline int32_t glm2::sign(int32_t x)
+{
+    return detail::core::common::sign::_default_i32(x);
+}
 
 template<> inline glm2::vec<2, float> glm2::sign(const vec<2, float>& x)
 {
@@ -44,4 +48,17 @@ template<> inline glm2::vec<3, double> glm2::sign(const vec<3, double>& x)
 template<> inline glm2::vec<4, double> glm2::sign(const vec<4, double>& x)
 {
     return detail::core::common::sign::_default_dv(x());
+}
+
+template<> inline glm2::vec<2, int32_t> glm2::sign(const vec<2, int32_t>& x)
+{
+    return detail::core::common::sign::_default_i32v(x.si128());
+}
+template<> inline glm2::vec<3, int32_t> glm2::sign(const vec<3, int32_t>& x)
+{
+    return detail::core::common::sign::_default_i32v(x());
+}
+template<> inline glm2::vec<4, int32_t> glm2::sign(const vec<4, int32_t>& x)
+{
+    return detail::core::common::sign::_default_i32v(x());
 }

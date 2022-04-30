@@ -1,6 +1,6 @@
 /**
 * @file     refract_impl.inl
-* @brief    Deailed implementation of the refract function.
+* @brief    Detailed implementation of the refract function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *

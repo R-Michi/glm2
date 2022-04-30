@@ -1,6 +1,6 @@
 /**
 * @file     transpose_impl.inl
-* @brief    Deailed implementation of the transpose function.
+* @brief    Detailed implementation of the transpose function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *
