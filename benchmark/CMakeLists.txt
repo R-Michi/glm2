@@ -6,7 +6,7 @@ project ("glm2_benchmark")
 
 # set comiler flags
 set(CMAKE_CXX_STANDARD 17)
-add_compile_options(-save-temps -mfma -mavx2 -msse)
+add_compile_options(-save-temps -mfma -mavx2 -mf16c)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../lib/glm)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../lib/benchmark/include)

@@ -11,7 +11,7 @@
 
 #pragma once
 
-float glm2::intBitsToFloat(int32_t x)
+inline float glm2::intBitsToFloat(int32_t x)
 {
     return detail::core::common::intBitsToFloat::_default_f(x);
 }

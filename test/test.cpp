@@ -11,21 +11,22 @@
 
 #include "test.h"
 
-#define GLM2_TEST_VECTOR_ARITHMETIC_OPERATORS
-#define GLM2_TEST_VECTOR_CMP_OPERATORS
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT2
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT3
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT4
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT2
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT3
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT4
-#define GLM2_TEST_MATRIX_CMP_OPERATORS
-#define GLM2_TEST_MATRIX_EXT_ARITHMETIC
-#define GLM2_TEST_COMMON
-#define GLM2_TEST_EXPONENTIAL
-#define GLM2_TEST_TRIGONOMETRIC
-#define GLM2_TEST_GEOMETRIC
-#define GLM2_TEST_MATRIX
+//#define GLM2_TEST_VECTOR_ARITHMETIC_OPERATORS
+//#define GLM2_TEST_VECTOR_CMP_OPERATORS
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT2
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT3
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT4
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT2
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT3
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT4
+//#define GLM2_TEST_MATRIX_CMP_OPERATORS
+//#define GLM2_TEST_MATRIX_EXT_ARITHMETIC
+//#define GLM2_TEST_COMMON
+//#define GLM2_TEST_EXPONENTIAL
+//#define GLM2_TEST_TRIGONOMETRIC
+//#define GLM2_TEST_GEOMETRIC
+//#define GLM2_TEST_MATRIX
+#define GLM2_TEST_INTEGER
 
 namespace glm2
 {
@@ -3231,6 +3232,18 @@ void glm2::test::run_test(void)
         m244d[3] = inverse(m244d[2]);
         print_mat<4, 4, double>(m144d[3], m244d[3], "dmat4x4 inverse");
     }
+#endif
+
+#ifdef GLM2_TEST_INTEGER
+
+    uint32_t v1 = 1658723058;
+    uint32_t v2 = 32;
+    uint32_t a = glm::bitfieldExtract(v1, 40, 20);
+    __m128i b = glm2::detail::core::integer::bitfieldExtract::_default_u32v(_mm_loadu_si32(&v1), 40, 20);
+    uint32_t c;
+    _mm_storeu_si32(&c, b);
+    print_single<uint32_t>(a, c, "bitfieldExtract 1");
+
 #endif
 
     std::cout << ATTRIBUTE_UNDERLINE COLOR_GREEN << "TRUE: " << count_true << COLOR_RESET "   " << ATTRIBUTE_UNDERLINE COLOR_RED << "FALSE: " << count_false << COLOR_RESET << std::endl;

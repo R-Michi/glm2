@@ -149,7 +149,8 @@ namespace glm2
     /*------------------------------ Function: max ------------------------------*/
     template<> inline float max(float x, float y);
     template<> inline double max(double x, double y);
-    template<> inline double max(double x, double y);
+    template<> inline int32_t max(int32_t x, int32_t y);
+    template<> inline uint32_t max(uint32_t x, uint32_t y);
 
 
     template<> inline vec<2, float> max(const vec<2, float>& x, float y);
@@ -188,6 +189,8 @@ namespace glm2
     /*------------------------------ Function: min ------------------------------*/
     template<> inline float min(float x, float y);
     template<> inline double min(double x, double y);
+    template<> inline int32_t min(int32_t x, int32_t y);
+    template<> inline uint32_t min(uint32_t x, uint32_t y);
 
 
     template<> inline vec<2, float> min(const vec<2, float>& x, float y);
@@ -307,6 +310,7 @@ namespace glm2
     /*------------------------------ Function: sign ------------------------------*/
     template<> inline float sign(float x);
     template<> inline double sign(double x);
+    template<> inline int32_t sign(int32_t x);
 
     template<> inline vec<2, float> sign(const vec<2, float>& x);
     template<> inline vec<3, float> sign(const vec<3, float>& x);

@@ -19,6 +19,20 @@ template<> inline double glm2::min(double x, double y)
 {
     return detail::core::common::min::_default_d(x, y);
 }
+template<> inline int32_t glm2::min(int32_t x, int32_t y)
+{
+    int32_t ret;
+    __m128i xmm0 = detail::core::common::min::_default_i32(_mm_loadu_si32(&x), _mm_loadu_si32(&y));
+    _mm_storeu_si32(&ret, xmm0);
+    return ret;
+}
+template<> inline uint32_t glm2::min(uint32_t x, uint32_t y)
+{
+    uint32_t ret;
+    __m128i xmm0 = detail::core::common::min::_default_i32(_mm_loadu_si32(&x), _mm_loadu_si32(&y));
+    _mm_storeu_si32(&ret, xmm0);
+    return ret;
+}
 
 
 template<> inline glm2::vec<2, float> glm2::min(const vec<2, float>& x, float y)

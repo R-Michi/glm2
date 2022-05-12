@@ -48,9 +48,9 @@ inline __m128i glm2::detail::core::common::isinf::_default_dv(__m256d x)
     __m256i ymm0, ymm1, ymm2;
     ymm0 = _mm256_castpd_si256(x);
     ymm1 = _mm256_set1_epi64x(0x7FF0000000000000);
-    ymm2 = _mm256_cmpeq_epi32(ymm0, ymm1);
+    ymm2 = _mm256_cmpeq_epi64(ymm0, ymm1);
     ymm1 = _mm256_set1_epi64x(0xFFF0000000000000);
-    ymm0 = _mm256_cmpeq_epi32(ymm0, ymm1);
+    ymm0 = _mm256_cmpeq_epi64(ymm0, ymm1);
     ymm0 = _mm256_or_si256(ymm0, ymm2);
     ymm1 = _mm256_set_epi32(0, 0, 0, 0, 6, 4, 2, 0);
     ymm0 = _mm256_permutevar8x32_epi32(ymm0, ymm1);

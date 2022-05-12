@@ -201,13 +201,13 @@ namespace glm2
     inline vec<L, uint32_t> floatBitsToUint(const vec<L, float>& v);
 
     /*------------------------------ Function: intBitsToFloat ------------------------------*/
-    float intBitsToFloat(int32_t x);
+    inline float intBitsToFloat(int32_t x);
 
     template<length_t L>
     inline vec<L, float> intBitsToFloat(const vec<L, int32_t>& v);
 
     /*------------------------------ Function: uintBitsToFloat ------------------------------*/
-    float uintBitsToFloat(uint32_t x);
+    inline float uintBitsToFloat(uint32_t x);
 
     template<length_t L>
     inline vec<L, float> uintBitsToFloat(const vec<L, uint32_t>& v);

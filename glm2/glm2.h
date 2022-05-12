@@ -37,3 +37,6 @@
 #include "core/trigonometric/trigonometric.h"
 #include "core/geometric/geometric.h"
 #include "core/matrix/matrix.h"
+#include "core/integer/integer.h"
+#include "core/packing/packing.h"
+#include "core/vector_relational/vector_relational.h"
