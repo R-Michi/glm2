@@ -38,5 +38,5 @@
 #include "core/geometric/geometric.h"
 #include "core/matrix/matrix.h"
 #include "core/integer/integer.h"
-#include "core/packing/packing.h"
+#include "core/packing/packing_impl.inl"
 #include "core/vector_relational/vector_relational.h"

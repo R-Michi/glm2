@@ -1,3 +1,14 @@
+/**
+* @file     packing_base.h
+* @brief    Declaration of all packing functions.
+* @author   Github: R-Michi
+* Copyright (c) 2022 by R-Michi
+*
+* This code is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+*/
+
 #pragma once
 
 namespace glm2
@@ -12,7 +23,7 @@ namespace glm2
     inline uint32_t packSnorm2x16(const vec<2, float>& x);
 
     /*------------------------------ Function: packSnorm4x8 ------------------------------*/
-    inline uint32_t packSnorm4x8(const vec<2, float>& x);
+    inline uint32_t packSnorm4x8(const vec<4, float>& x);
 
     /*------------------------------ Function: packUnorm2x16 ------------------------------*/
     inline uint32_t packUnorm2x16(const vec<2, float>& x);
@@ -36,6 +47,6 @@ namespace glm2
     inline vec<2, float> unpackUnorm2x16(uint32_t x);
 
     /*------------------------------ Function: unpackUnorm4x8 ------------------------------*/
-    inline vec<2, float> unpackUnorm4x8(uint32_t x);
+    inline vec<4, float> unpackUnorm4x8(uint32_t x);
 
 } // namespace glm2

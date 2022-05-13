@@ -1,3 +1,14 @@
+/**
+* @file     vector_relational_base.h
+* @brief    Declaration of all vector relational functions.
+* @author   Github: R-Michi
+* Copyright (c) 2022 by R-Michi
+*
+* This code is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+*/
+
 #pragma once
 
 namespace glm2
@@ -36,6 +47,6 @@ namespace glm2
 
     /*------------------------------ Function: not_ ------------------------------*/
     template<length_t L>
-    inline vec<L, bool32_t> all(const vec<L, bool32_t>& x);
+    inline vec<L, bool32_t> not_(const vec<L, bool32_t>& x);
 
 } // namespace glm2

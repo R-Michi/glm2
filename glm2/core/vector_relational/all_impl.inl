@@ -1,6 +1,6 @@
 /**
-* @file     not_impl.inl
-* @brief    Detailed implementation of the not_ function.
+* @file     all_impl.inl
+* @brief    Implementation of all function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *
@@ -11,7 +11,7 @@
 
 #pragma once
 
-inline __m128i glm2::detail::core::vector_relational::not_::_default(__m128i x)
+template<glm2::length_t L> inline bool glm2::all(const vec<L, bool32_t>& x)
 {
-    return _mm_xor_si128(x, _mm_set1_epi32(0xFFFFFFFF));
+    return detail::core::vector_relational::all::_default(vec<L, bool32_t>::value_ptr(x), L);
 }

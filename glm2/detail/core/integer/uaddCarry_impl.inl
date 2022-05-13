@@ -1,3 +1,14 @@
+/**
+* @file     uaddCarry_impl.inl
+* @brief    Detailed implementation of the uaddCarry function.
+* @author   Github: R-Michi
+* Copyright (c) 2022 by R-Michi
+*
+* This code is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+*/
+
 #pragma once
 
 inline void glm2::detail::core::integer::uaddCarry::_default_u32v(const uint32_t* x, const uint32_t* y, uint32_t* res, uint32_t* carry, const uint32_t n)

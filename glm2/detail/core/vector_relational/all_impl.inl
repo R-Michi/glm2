@@ -1,3 +1,14 @@
+/**
+* @file     all_impl.inl
+* @brief    Detailed implementation of the all function.
+* @author   Github: R-Michi
+* Copyright (c) 2022 by R-Michi
+*
+* This code is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+*/
+
 #pragma once
 
 inline bool glm2::detail::core::vector_relational::all::_default(bool32_t* x, const uint32_t n)

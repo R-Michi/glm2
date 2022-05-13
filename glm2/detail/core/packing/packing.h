@@ -1,3 +1,14 @@
+/**
+* @file     packing.h
+* @brief    Detailed declaration of all packing functions.
+* @author   Github: R-Michi
+* Copyright (c) 2022 by R-Michi
+*
+* This code is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+*/
+
 #pragma once
 
 namespace glm2

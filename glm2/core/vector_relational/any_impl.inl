@@ -1,6 +1,6 @@
 /**
 * @file     any_impl.inl
-* @brief    Detailed implementation of the any function.
+* @brief    Implementation of any function.
 * @author   Github: R-Michi
 * Copyright (c) 2022 by R-Michi
 *
@@ -11,11 +11,7 @@
 
 #pragma once
 
-inline bool glm2::detail::core::vector_relational::any::_default(bool32_t* x, const uint32_t n)
+template<glm2::length_t L> inline bool glm2::any(const vec<L, bool32_t>& x)
 {
-    uint32_t a = x[0];
-    #pragma unroll_completely
-    for(uint32_t i = 1; i < n; i++)
-        a |= x[i];
-    return (a == GLM2_TRUE);
+    return detail::core::vector_relational::any::_default(vec<L, bool32_t>::value_ptr(x), L);
 }

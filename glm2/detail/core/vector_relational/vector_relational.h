@@ -1,3 +1,14 @@
+/**
+* @file     vector_relational.h
+* @brief    Detailed declaration of all vector relational functions.
+* @author   Github: R-Michi
+* Copyright (c) 2022 by R-Michi
+*
+* This code is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+*/
+
 #pragma once
 
 namespace glm2
@@ -21,6 +32,7 @@ namespace glm2
                 namespace equal
                 {
                     inline __m128i _default_fv(__m128 x, __m128 y);
+                    inline __m128i _default_dv2(__m128d x, __m128d y);
                     inline __m128i _default_dv(__m256d x, __m256d y);
                     inline __m128i _default_i32v(__m128i x, __m128i y);
                 } // namespace equal
@@ -28,6 +40,7 @@ namespace glm2
                 namespace greaterThan
                 {
                     inline __m128i _default_fv(__m128 x, __m128 y);
+                    inline __m128i _default_dv2(__m128d x, __m128d y);
                     inline __m128i _default_dv(__m256d x, __m256d y);
                     inline __m128i _default_i32v(__m128i x, __m128i y);
                 } // namespace greaterThan
@@ -35,6 +48,7 @@ namespace glm2
                 namespace greaterThanEqual
                 {
                     inline __m128i _default_fv(__m128 x, __m128 y);
+                    inline __m128i _default_dv2(__m128d x, __m128d y);
                     inline __m128i _default_dv(__m256d x, __m256d y);
                     inline __m128i _default_i32v(__m128i x, __m128i y);
                 } // namespace greaterThanEqual
@@ -42,6 +56,7 @@ namespace glm2
                 namespace lessThan
                 {
                     inline __m128i _default_fv(__m128 x, __m128 y);
+                    inline __m128i _default_dv2(__m128d x, __m128d y);
                     inline __m128i _default_dv(__m256d x, __m256d y);
                     inline __m128i _default_i32v(__m128i x, __m128i y);
                 } // namespace lessThan
@@ -49,6 +64,7 @@ namespace glm2
                 namespace lessThanEqual
                 {
                     inline __m128i _default_fv(__m128 x, __m128 y);
+                    inline __m128i _default_dv2(__m128d x, __m128d y);
                     inline __m128i _default_dv(__m256d x, __m256d y);
                     inline __m128i _default_i32v(__m128i x, __m128i y);
                 } // namespace lessThanEqual
@@ -56,6 +72,7 @@ namespace glm2
                 namespace notEqual
                 {
                     inline __m128i _default_fv(__m128 x, __m128 y);
+                    inline __m128i _default_dv2(__m128d x, __m128d y);
                     inline __m128i _default_dv(__m256d x, __m256d y);
                     inline __m128i _default_i32v(__m128i x, __m128i y);
                 } // namespace notEqual

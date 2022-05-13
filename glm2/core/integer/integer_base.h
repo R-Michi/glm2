@@ -1,3 +1,14 @@
+/**
+* @file     integer_base.h
+* @brief    Declaration of all integer functions.
+* @author   Github: R-Michi
+* Copyright (c) 2022 by R-Michi
+*
+* This code is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+*/
+
 #pragma once
 
 namespace glm2
@@ -67,6 +78,6 @@ namespace glm2
     inline uint32_t usubBorrow(uint32_t x, uint32_t y, uint32_t& borrow);
 
     template<length_t L>
-    inline void usubBorrow(const vec<L, uint32_t>& x, const vec<L, uint32_t>& y, vec<L, uint32_t>& borrow);
+    inline vec<L, uint32_t> usubBorrow(const vec<L, uint32_t>& x, const vec<L, uint32_t>& y, vec<L, uint32_t>& borrow);
 
 } // namespace glm2

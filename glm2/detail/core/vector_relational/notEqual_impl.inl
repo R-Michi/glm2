@@ -1,3 +1,14 @@
+/**
+* @file     notEqual_impl.inl
+* @brief    Detailed implementation of the notEqual function.
+* @author   Github: R-Michi
+* Copyright (c) 2022 by R-Michi
+*
+* This code is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+*/
+
 #pragma once
 
 inline __m128i glm2::detail::core::vector_relational::notEqual::_default_fv(__m128 x, __m128 y)
@@ -6,6 +17,15 @@ inline __m128i glm2::detail::core::vector_relational::notEqual::_default_fv(__m1
     xmm0 = _mm_castps_si128(x);
     xmm1 = _mm_castps_si128(y);
     xmm0 = _mm_cmpeq_epi32(xmm0, xmm1);
+    xmm1 = _mm_set1_epi32(0xFFFFFFFF);
+    return _mm_xor_si128(xmm0, xmm1);
+}
+inline __m128i glm2::detail::core::vector_relational::notEqual::_default_dv2(__m128d x, __m128d y)
+{
+    __m128i xmm0, xmm1;
+    xmm0 = _mm_castpd_si128(x);
+    xmm1 = _mm_castpd_si128(y);
+    xmm0 = _mm_cmpeq_epi64(xmm0, xmm1);
     xmm1 = _mm_set1_epi32(0xFFFFFFFF);
     return _mm_xor_si128(xmm0, xmm1);
 }
