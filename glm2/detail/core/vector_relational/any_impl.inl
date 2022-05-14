@@ -11,7 +11,7 @@
 
 #pragma once
 
-inline bool glm2::detail::core::vector_relational::any::_default(bool32_t* x, const uint32_t n)
+inline bool glm2::detail::core::vector_relational::any::_default(const bool32_t* x, const uint32_t n)
 {
     uint32_t a = x[0];
     #pragma unroll_completely

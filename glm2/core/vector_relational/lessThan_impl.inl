@@ -52,13 +52,13 @@ template<> inline glm2::vec<4, glm2::bool32_t> glm2::lessThan(const vec<4, int32
 
 template<> inline glm2::vec<2, glm2::bool32_t> glm2::lessThan(const vec<2, uint32_t>& x, const vec<2, uint32_t>& y)
 {
-    return detail::core::vector_relational::lessThan::_default_i32v(x.si128(), y.si128());
+    return detail::core::vector_relational::lessThan::_default_u32v(x.si128(), y.si128());
 }
 template<> inline glm2::vec<3, glm2::bool32_t> glm2::lessThan(const vec<3, uint32_t>& x, const vec<3, uint32_t>& y)
 {
-    return detail::core::vector_relational::lessThan::_default_i32v(x(), y());
+    return detail::core::vector_relational::lessThan::_default_u32v(x(), y());
 }
 template<> inline glm2::vec<4, glm2::bool32_t> glm2::lessThan(const vec<4, uint32_t>& x, const vec<4, uint32_t>& y)
 {
-    return detail::core::vector_relational::lessThan::_default_i32v(x(), y());
+    return detail::core::vector_relational::lessThan::_default_u32v(x(), y());
 }

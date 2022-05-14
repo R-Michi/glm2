@@ -17,7 +17,9 @@ inline __m128i glm2::detail::core::vector_relational::lessThanEqual::_default_fv
 }
 inline __m128i glm2::detail::core::vector_relational::lessThanEqual::_default_dv2(__m128d x, __m128d y)
 {
-    return _mm_castpd_si128(_mm_cmple_pd(x, y));
+    __m128i xmm0;
+    xmm0 = _mm_castpd_si128(_mm_cmple_pd(x, y));
+    return _mm_shuffle_epi32(xmm0, 0x08);
 }
 inline __m128i glm2::detail::core::vector_relational::lessThanEqual::_default_dv(__m256d x, __m256d y)
 {
@@ -32,5 +34,15 @@ inline __m128i glm2::detail::core::vector_relational::lessThanEqual::_default_i3
     __m128i xmm0, xmm1;
     xmm0 = _mm_cmplt_epi32(x, y);
     xmm1 = _mm_cmpeq_epi32(x, y);
+    return _mm_or_si128(xmm0, xmm1);
+}
+inline __m128i glm2::detail::core::vector_relational::lessThanEqual::_default_u32v(__m128i x, __m128i y)
+{
+    __m128i xmm0, xmm1, xmm2;
+    xmm0 = _mm_set1_epi32(0x80000000);  // flip sign bits
+    xmm1 = _mm_xor_si128(xmm0, x);
+    xmm2 = _mm_xor_si128(xmm0, y);
+    xmm0 = _mm_cmplt_epi32(xmm1, xmm2);
+    xmm1 = _mm_cmpeq_epi32(xmm1, xmm2);
     return _mm_or_si128(xmm0, xmm1);
 }

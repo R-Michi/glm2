@@ -22,7 +22,7 @@ inline int32_t glm2::bitCount(genIType x)
 template<glm2::length_t L, typename T>
 inline glm2::vec<L, int32_t> glm2::bitCount(const vec<L, T>& x)
 {
-    uint32_t ret[L];
+    uint32_t ret[4];
     detail::core::integer::bitCount::_default_u32v(reinterpret_cast<const uint32_t*>(vec<L, T>::value_ptr(x)), ret, L);
-    return vec<L, int32_t>(reinterpret_cast<int32_t*>(ret));
+    return vec<L, int32_t>(reinterpret_cast<const int32_t*>(ret));
 }

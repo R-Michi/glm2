@@ -22,6 +22,6 @@ template<glm2::length_t L>
 inline glm2::vec<L, uint32_t> glm2::usubBorrow(const vec<L, uint32_t>& x, const vec<L, uint32_t>& y, vec<L, uint32_t>& borrow)
 {
     uint32_t ret[L];
-    detail::core::integer::uaddCarry::_default_u32v(vec<L, uint32_t>::value_ptr(x), vec<L, uint32_t>::value_ptr(y), ret, vec<L, uint32_t>::value_ptr(borrow), L);
+    detail::core::integer::usubBorrow::_default_u32v(vec<L, uint32_t>::value_ptr(x), vec<L, uint32_t>::value_ptr(y), ret, vec<L, uint32_t>::value_ptr(borrow), L);
     return vec<L, uint32_t>(ret);
 }

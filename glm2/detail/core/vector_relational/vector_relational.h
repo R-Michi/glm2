@@ -21,12 +21,12 @@ namespace glm2
             {
                 namespace all
                 {
-                    inline bool _default(bool32_t* x, const uint32_t n);
+                    inline bool _default(const bool32_t* x, const uint32_t n);
                 } // namespace all
                 
                 namespace any
                 {
-                    inline bool _default(bool32_t* x, const uint32_t n);
+                    inline bool _default(const bool32_t* x, const uint32_t n);
                 } // namespace any
                 
                 namespace equal
@@ -43,6 +43,7 @@ namespace glm2
                     inline __m128i _default_dv2(__m128d x, __m128d y);
                     inline __m128i _default_dv(__m256d x, __m256d y);
                     inline __m128i _default_i32v(__m128i x, __m128i y);
+                    inline __m128i _default_u32v(__m128i x, __m128i y);
                 } // namespace greaterThan
                 
                 namespace greaterThanEqual
@@ -51,6 +52,7 @@ namespace glm2
                     inline __m128i _default_dv2(__m128d x, __m128d y);
                     inline __m128i _default_dv(__m256d x, __m256d y);
                     inline __m128i _default_i32v(__m128i x, __m128i y);
+                    inline __m128i _default_u32v(__m128i x, __m128i y);
                 } // namespace greaterThanEqual
                 
                 namespace lessThan
@@ -59,6 +61,7 @@ namespace glm2
                     inline __m128i _default_dv2(__m128d x, __m128d y);
                     inline __m128i _default_dv(__m256d x, __m256d y);
                     inline __m128i _default_i32v(__m128i x, __m128i y);
+                    inline __m128i _default_u32v(__m128i x, __m128i y);
                 } // namespace lessThan
                 
                 namespace lessThanEqual
@@ -67,6 +70,7 @@ namespace glm2
                     inline __m128i _default_dv2(__m128d x, __m128d y);
                     inline __m128i _default_dv(__m256d x, __m256d y);
                     inline __m128i _default_i32v(__m128i x, __m128i y);
+                    inline __m128i _default_u32v(__m128i x, __m128i y);
                 } // namespace lessThanEqual
                 
                 namespace notEqual

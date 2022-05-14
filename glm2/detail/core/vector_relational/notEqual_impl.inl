@@ -27,7 +27,8 @@ inline __m128i glm2::detail::core::vector_relational::notEqual::_default_dv2(__m
     xmm1 = _mm_castpd_si128(y);
     xmm0 = _mm_cmpeq_epi64(xmm0, xmm1);
     xmm1 = _mm_set1_epi32(0xFFFFFFFF);
-    return _mm_xor_si128(xmm0, xmm1);
+    xmm0 = _mm_xor_si128(xmm0, xmm1);
+    return _mm_shuffle_epi32(xmm0, 0x08);
 }
 inline __m128i glm2::detail::core::vector_relational::notEqual::_default_dv(__m256d x, __m256d y)
 {

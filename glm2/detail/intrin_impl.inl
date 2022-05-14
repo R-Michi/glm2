@@ -32,13 +32,17 @@ inline __m64 glm2::intrin::_m_load_ps(const float* a)
     memcpy(&xmm0, a, sizeof(__m64));
     return xmm0;
 }
-inline __m64 glm2::intrin::_m_load_pi32(const int* a)
+inline __m64 glm2::intrin::_m_load_pi32(const void* a)
 {
     __m64 xmm0;
     memcpy(&xmm0, a, sizeof(__m64));
     return xmm0;
 }
 inline void glm2::intrin::_m_store_ps(float* a, __m64 xmm)
+{
+    memcpy(a, &xmm, sizeof(__m64));
+}
+inline void glm2::intrin::_m_store_pi32(void* a, __m64 xmm)
 {
     memcpy(a, &xmm, sizeof(__m64));
 }

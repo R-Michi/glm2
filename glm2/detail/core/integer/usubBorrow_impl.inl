@@ -17,8 +17,8 @@ inline void glm2::detail::core::integer::usubBorrow::_default_u32v(const uint32_
     for(uint32_t i = 0; i < n; i++)
     {
         const uint32_t a = y[i] - x[i];
-        const uint32_t b = 0x0000000100000000ll + (static_cast<int64_t>(x[i]) - static_cast<int64_t>(y[i]));
-        borrow[i] = (x[i] >= y[i]);
-        res[i] = borrow[i] ? a : b;
+        const uint32_t b = 0x0000000100000000ll + (static_cast<int64_t>(y[i]) - static_cast<int64_t>(x[i]));
+        borrow[i] = (x[i] < y[i]);
+        res[i] = borrow[i] ? b : a;
     }
 }

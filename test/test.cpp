@@ -11,22 +11,25 @@
 
 #include "test.h"
 
-//#define GLM2_TEST_VECTOR_ARITHMETIC_OPERATORS
-//#define GLM2_TEST_VECTOR_CMP_OPERATORS
-//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT2
-//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT3
-//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT4
-//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT2
-//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT3
-//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT4
-//#define GLM2_TEST_MATRIX_CMP_OPERATORS
-//#define GLM2_TEST_MATRIX_EXT_ARITHMETIC
-//#define GLM2_TEST_COMMON
-//#define GLM2_TEST_EXPONENTIAL
-//#define GLM2_TEST_TRIGONOMETRIC
-//#define GLM2_TEST_GEOMETRIC
-//#define GLM2_TEST_MATRIX
+#define GLM2_TEST_VECTOR_ARITHMETIC_OPERATORS
+#define GLM2_TEST_VECTOR_CMP_OPERATORS
+#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT2
+#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT3
+#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT4
+#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT2
+#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT3
+#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT4
+#define GLM2_TEST_MATRIX_CMP_OPERATORS
+#define GLM2_TEST_MATRIX_EXT_ARITHMETIC
+#define GLM2_TEST_COMMON
+#define GLM2_TEST_EXPONENTIAL
+#define GLM2_TEST_TRIGONOMETRIC
+#define GLM2_TEST_GEOMETRIC
+#define GLM2_TEST_MATRIX
 #define GLM2_TEST_INTEGER
+#define GLM2_TEST_PACKING
+#define GLM2_TEST_VECTOR_RELATIONAL
+#define GLM2_TEST_MATRIX_TRANSFORMATION
 
 namespace glm2
 {
@@ -48,6 +51,22 @@ double d1[5] = {
     -0.421f,
     0.5f
 };
+int32_t i321[5] = {
+    10,
+    -10,
+    0,
+    -1265872039
+};
+uint32_t u321[5] = {
+    10,
+    4294967286, // -10
+    0,
+    3029095257
+};
+bool b1[3] = {
+    true,
+    false
+};
 float f2[5] = {
     1.69578f,
     -8.926f,
@@ -59,6 +78,22 @@ double d2[5] = {
     -8.926f,
     -0.421f,
     0.5f
+};
+int32_t i322[5] = {
+    10,
+    -10,
+    0,
+    -1265872039
+};
+uint32_t u322[5] = {
+    10,
+    4294967286, // -10
+    0,
+    3029095257
+};
+glm2::bool32_t b2[3] = {
+    GLM2_TRUE,
+    GLM2_FALSE
 };
 
 glm::vec2 v12f[5] = {
@@ -175,6 +210,57 @@ glm::dmat4x4 m144d[4] = {
     {17,18,19,20, 21,22,23,24, 25,26,27,28, 29,30,31,32},
     {10,5,9,3, 7,11,6,6, 14,23,1,16, 0,17,21,3}
 };
+glm::ivec2 v12i32[5] = {
+    {-10, 10},
+    {0, 0},
+    {-256, 4964265},
+    {578895, -186962364}
+};
+glm::ivec3 v13i32[5] = {
+    {-10, 10, -10},
+    {0, 0, 0},
+    {-256, 4964265, -95236},
+    {578895, -186962364, 45856564}
+};
+glm::ivec4 v14i32[5] = {
+    {-10, 10, -10, 10},
+    {0, 0, 0, 0},
+    {-256, 4964265, -95236, 844556564},
+    {578895, -186962364, 45856564, -334564566}
+};
+glm::uvec2 v12u32[5] = {
+    {4294967286, 10},
+    {0, 0},
+    {0xFFFFFF00, 4964265},
+    {578895, 0xF4DB2E44}
+};
+glm::uvec3 v13u32[5] = {
+    {4294967286, 10, 4294967286},
+    {0, 0, 0},
+    {0xFFFFFF00, 4964265, 0xFFF6ADCA},
+    {578895, 0xF4DB2E44, 45856564}
+};
+glm::uvec4 v14u32[5] = {
+    {4294967286, 10, 4294967286, 10},
+    {0, 0, 0, 0},
+    {0xFFFFFF00, 4964265, 0xFFF6ADCA, 844556564},
+    {578895, 0xF4DB2E44, 45856564, 0xEC0EF32A}
+};
+glm::bvec2 v12b[5] = {
+    {true, false},
+    {true, true},
+    {false, false}
+};
+glm::bvec3 v13b[5] = {
+    {true, false, true},
+    {true, true, true},
+    {false, false, false}
+};
+glm::bvec4 v14b[5] = {
+    {true, false, true, false},
+    {true, true, true, true},
+    {false, false, false, false}
+};
 
 glm2::vec2 v22f[5] = {
     {0.707f, -0.707f},
@@ -289,6 +375,57 @@ glm2::dmat4x4 m244d[4] = {
     {1,2,3,4, 5,6,7,8, 9,10,11,12, 13,14,15,16},
     {17,18,19,20, 21,22,23,24, 25,26,27,28, 29,30,31,32},
     {10,5,9,3, 7,11,6,6, 14,23,1,16, 0,17,21,3}
+};
+glm2::ivec2 v22i32[5] = {
+    {-10, 10},
+    {0, 0},
+    {-256, 4964265},
+    {578895, -186962364}
+};
+glm2::ivec3 v23i32[5] = {
+    {-10, 10, -10},
+    {0, 0, 0},
+    {-256, 4964265, -95236},
+    {578895, -186962364, 45856564}
+};
+glm2::ivec4 v24i32[5] = {
+    {-10, 10, -10, 10},
+    {0, 0, 0, 0},
+    {-256, 4964265, -95236, 844556564},
+    {578895, -186962364, 45856564, -334564566}
+};
+glm2::uvec2 v22u32[5] = {
+    {4294967286, 10},
+    {0, 0},
+    {0xFFFFFF00, 4964265},
+    {578895, 0xF4DB2E44}
+};
+glm2::uvec3 v23u32[5] = {
+    {4294967286, 10, 4294967286},
+    {0, 0, 0},
+    {0xFFFFFF00, 4964265, 0xFFF6ADCA},
+    {578895, 0xF4DB2E44, 45856564}
+};
+glm2::uvec4 v24u32[5] = {
+    {4294967286, 10, 4294967286, 10},
+    {0, 0, 0, 0},
+    {0xFFFFFF00, 4964265, 0xFFF6ADCA, 844556564},
+    {578895, 0xF4DB2E44, 45856564, 0xEC0EF32A}
+};
+glm2::bvec2 v22b[5] = {
+    {GLM2_TRUE, GLM2_FALSE},
+    {GLM2_TRUE, GLM2_TRUE},
+    {GLM2_FALSE, GLM2_FALSE}
+};
+glm2::bvec3 v23b[5] = {
+    {GLM2_TRUE, GLM2_FALSE, GLM2_TRUE},
+    {GLM2_TRUE, GLM2_TRUE, GLM2_TRUE},
+    {GLM2_FALSE, GLM2_FALSE, GLM2_FALSE}
+};
+glm2::bvec4 v24b[5] = {
+    {GLM2_TRUE, GLM2_FALSE, GLM2_TRUE, GLM2_FALSE},
+    {GLM2_TRUE, GLM2_TRUE, GLM2_TRUE, GLM2_TRUE},
+    {GLM2_FALSE, GLM2_FALSE, GLM2_FALSE, GLM2_FALSE}
 };
 
 void glm2::test::run_test(void)
@@ -527,6 +664,318 @@ void glm2::test::run_test(void)
         print_vec<2, double>(v14d[4], v24d[4], "dvec4 postdec_res");
         print_vec<2, double>(tmp1, tmp2, "dvec4 postdec_param");
     }
+
+    // ivec2
+    {
+        glm::ivec2 tmp1; ivec2 tmp2;
+        print_vec<2, int32_t>((v12i32[0] + i321[0]), (v22i32[0] + i322[0]), "ivec2 adds");
+        print_vec<2, int32_t>((v12i32[0] - i321[0]), (v22i32[0] - i322[0]), "ivec2 subs");
+        print_vec<2, int32_t>((v12i32[0] * i321[0]), (v22i32[0] * i322[0]), "ivec2 muls");
+        print_vec<2, int32_t>((v12i32[0] / i321[0]), (v22i32[0] / i322[0]), "ivec2 divs");
+        print_vec<2, int32_t>((v12i32[2] % i321[0]), (v22i32[2] % i322[0]), "ivec2 mods");
+        print_vec<2, int32_t>((v12i32[0] + v12i32[3]), (v22i32[0] + v22i32[3]), "ivec2 addv");
+        print_vec<2, int32_t>((v12i32[0] - v12i32[3]), (v22i32[0] - v22i32[3]), "ivec2 subv");
+        print_vec<2, int32_t>((v12i32[0] * v12i32[3]), (v22i32[0] * v22i32[3]), "ivec2 mulv");
+        print_vec<2, int32_t>((v12i32[0] / v12i32[3]), (v22i32[0] / v22i32[3]), "ivec2 divv");
+        print_vec<2, int32_t>((v12i32[0] % v12i32[3]), (v22i32[0] % v22i32[3]), "ivec2 modv");
+        print_vec<2, int32_t>((+v12i32[0]), (+v22i32[0]), "ivec2 pos");
+        print_vec<2, int32_t>((-v12i32[0]), (-v22i32[0]), "ivec2 neg");
+        tmp1 = v12i32[0];
+        tmp2 = v22i32[0];
+        v12i32[4] = ++tmp1;
+        v22i32[4] = ++tmp2;
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 preinc_res");
+        print_vec<2, int32_t>(tmp1, tmp2, "ivec2 preinc_param");
+        tmp1 = v12i32[0];
+        tmp2 = v22i32[0];
+        v12i32[4] = tmp1++;
+        v22i32[4] = tmp2++;
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 postinc_res");
+        print_vec<2, int32_t>(tmp1, tmp2, "ivec2 postinc_param");
+        tmp1 = v12i32[0];
+        tmp2 = v22i32[0];
+        v12i32[4] = --tmp1;
+        v22i32[4] = --tmp2;
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 predec_res");
+        print_vec<2, int32_t>(tmp1, tmp2, "ivec2 predec_param");
+        tmp1 = v12i32[0];
+        tmp2 = v22i32[0];
+        v12i32[4] = tmp1--;
+        v22i32[4] = tmp2--;
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 postdec_res");
+        print_vec<2, int32_t>(tmp1, tmp2, "ivec2 postdec_param");
+        print_vec<2, int32_t>((~v12i32[0]), (~v22i32[0]), "ivec2 invert");
+        print_vec<2, int32_t>((v12i32[0] & i321[1]), (v22i32[0] & i322[1]), "ivec2 ands");
+        print_vec<2, int32_t>((v12i32[0] | i321[1]), (v22i32[0] | i322[1]), "ivec2 ors");
+        print_vec<2, int32_t>((v12i32[0] ^ i321[1]), (v22i32[0] ^ i322[1]), "ivec2 xors");
+        print_vec<2, int32_t>((v12i32[0] << 12), (v22i32[0] << 12), "ivec2 lss");
+        print_vec<2, int32_t>((v12i32[0] >> 12), (v22i32[0] >> 12), "ivec2 rss");
+        print_vec<2, int32_t>((v12i32[0] & v12i32[2]), (v22i32[0] & v22i32[2]), "ivec2 andv");
+        print_vec<2, int32_t>((v12i32[0] | v12i32[2]), (v22i32[0] | v22i32[2]), "ivec2 orv");
+        print_vec<2, int32_t>((v12i32[0] ^ v12i32[2]), (v22i32[0] ^ v22i32[2]), "ivec2 xorv");
+        print_vec<2, int32_t>((v12i32[0] << glm::ivec2(2, 4)), (v22i32[0] << glm2::ivec2(2, 4)), "ivec2 lsv");
+        print_vec<2, int32_t>((v12i32[0] >> glm::ivec2(2, 4)), (v22i32[0] >> glm2::ivec2(2, 4)), "ivec2 rsv");
+    }
+
+    // ivec3
+    {
+        glm::ivec3 tmp1; ivec3 tmp2;
+        print_vec<3, int32_t>((v13i32[0] + i321[0]), (v23i32[0] + i322[0]), "ivec3 adds");
+        print_vec<3, int32_t>((v13i32[0] - i321[0]), (v23i32[0] - i322[0]), "ivec3 subs");
+        print_vec<3, int32_t>((v13i32[0] * i321[0]), (v23i32[0] * i322[0]), "ivec3 muls");
+        print_vec<3, int32_t>((v13i32[0] / i321[0]), (v23i32[0] / i322[0]), "ivec3 divs");
+        print_vec<3, int32_t>((v13i32[2] % i321[0]), (v23i32[2] % i322[0]), "ivec3 mods");
+        print_vec<3, int32_t>((v13i32[0] + v13i32[3]), (v23i32[0] + v23i32[3]), "ivec3 addv");
+        print_vec<3, int32_t>((v13i32[0] - v13i32[3]), (v23i32[0] - v23i32[3]), "ivec3 subv");
+        print_vec<3, int32_t>((v13i32[0] * v13i32[3]), (v23i32[0] * v23i32[3]), "ivec3 mulv");
+        print_vec<3, int32_t>((v13i32[0] / v13i32[3]), (v23i32[0] / v23i32[3]), "ivec3 divv");
+        print_vec<3, int32_t>((v13i32[0] % v13i32[3]), (v23i32[0] % v23i32[3]), "ivec3 modv");
+        print_vec<3, int32_t>((+v13i32[0]), (+v23i32[0]), "ivec3 pos");
+        print_vec<3, int32_t>((-v13i32[0]), (-v23i32[0]), "ivec3 neg");
+        tmp1 = v13i32[0];
+        tmp2 = v23i32[0];
+        v13i32[4] = ++tmp1;
+        v23i32[4] = ++tmp2;
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 preinc_res");
+        print_vec<3, int32_t>(tmp1, tmp2, "ivec3 preinc_param");
+        tmp1 = v13i32[0];
+        tmp2 = v23i32[0];
+        v13i32[4] = tmp1++;
+        v23i32[4] = tmp2++;
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 postinc_res");
+        print_vec<3, int32_t>(tmp1, tmp2, "ivec3 postinc_param");
+        tmp1 = v13i32[0];
+        tmp2 = v23i32[0];
+        v13i32[4] = --tmp1;
+        v23i32[4] = --tmp2;
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 predec_res");
+        print_vec<3, int32_t>(tmp1, tmp2, "ivec3 predec_param");
+        tmp1 = v13i32[0];
+        tmp2 = v23i32[0];
+        v13i32[4] = tmp1--;
+        v23i32[4] = tmp2--;
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 postdec_res");
+        print_vec<3, int32_t>(tmp1, tmp2, "ivec3 postdec_param");
+        print_vec<3, int32_t>((~v13i32[0]), (~v23i32[0]), "ivec3 invert");
+        print_vec<3, int32_t>((v13i32[0] & i321[1]), (v23i32[0] & i322[1]), "ivec3 ands");
+        print_vec<3, int32_t>((v13i32[0] | i321[1]), (v23i32[0] | i322[1]), "ivec3 ors");
+        print_vec<3, int32_t>((v13i32[0] ^ i321[1]), (v23i32[0] ^ i322[1]), "ivec3 xors");
+        print_vec<3, int32_t>((v13i32[0] << 12), (v23i32[0] << 12), "ivec3 lss");
+        print_vec<3, int32_t>((v13i32[0] >> 12), (v23i32[0] >> 12), "ivec3 rss");
+        print_vec<3, int32_t>((v13i32[0] & v13i32[2]), (v23i32[0] & v23i32[2]), "ivec3 andv");
+        print_vec<3, int32_t>((v13i32[0] | v13i32[2]), (v23i32[0] | v23i32[2]), "ivec3 orv");
+        print_vec<3, int32_t>((v13i32[0] ^ v13i32[2]), (v23i32[0] ^ v23i32[2]), "ivec3 xorv");
+        print_vec<3, int32_t>((v13i32[0] << glm::ivec3(2, 4, 8)), (v23i32[0] << glm2::ivec3(2, 4, 8)), "ivec3 lsv");
+        print_vec<3, int32_t>((v13i32[0] >> glm::ivec3(2, 4, 8)), (v23i32[0] >> glm2::ivec3(2, 4, 8)), "ivec3 rsv");
+    }
+
+    // ivec4
+    {
+        glm::ivec4 tmp1; ivec4 tmp2;
+        print_vec<4, int32_t>((v14i32[0] + i321[0]), (v24i32[0] + i322[0]), "ivec4 adds");
+        print_vec<4, int32_t>((v14i32[0] - i321[0]), (v24i32[0] - i322[0]), "ivec4 subs");
+        print_vec<4, int32_t>((v14i32[0] * i321[0]), (v24i32[0] * i322[0]), "ivec4 muls");
+        print_vec<4, int32_t>((v14i32[0] / i321[0]), (v24i32[0] / i322[0]), "ivec4 divs");
+        print_vec<4, int32_t>((v14i32[2] % i321[0]), (v24i32[2] % i322[0]), "ivec4 mods");
+        print_vec<4, int32_t>((v14i32[0] + v14i32[3]), (v24i32[0] + v24i32[3]), "ivec4 addv");
+        print_vec<4, int32_t>((v14i32[0] - v14i32[3]), (v24i32[0] - v24i32[3]), "ivec4 subv");
+        print_vec<4, int32_t>((v14i32[0] * v14i32[3]), (v24i32[0] * v24i32[3]), "ivec4 mulv");
+        print_vec<4, int32_t>((v14i32[0] / v14i32[3]), (v24i32[0] / v24i32[3]), "ivec4 divv");
+        print_vec<4, int32_t>((v14i32[0] % v14i32[3]), (v24i32[0] % v24i32[3]), "ivec4 modv");
+        print_vec<4, int32_t>((+v14i32[0]), (+v24i32[0]), "ivec4 pos");
+        print_vec<4, int32_t>((-v14i32[0]), (-v24i32[0]), "ivec4 neg");
+        tmp1 = v14i32[0];
+        tmp2 = v24i32[0];
+        v14i32[4] = ++tmp1;
+        v24i32[4] = ++tmp2;
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 preinc_res");
+        print_vec<4, int32_t>(tmp1, tmp2, "ivec4 preinc_param");
+        tmp1 = v14i32[0];
+        tmp2 = v24i32[0];
+        v14i32[4] = tmp1++;
+        v24i32[4] = tmp2++;
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 postinc_res");
+        print_vec<4, int32_t>(tmp1, tmp2, "ivec4 postinc_param");
+        tmp1 = v14i32[0];
+        tmp2 = v24i32[0];
+        v14i32[4] = --tmp1;
+        v24i32[4] = --tmp2;
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 predec_res");
+        print_vec<4, int32_t>(tmp1, tmp2, "ivec4 predec_param");
+        tmp1 = v14i32[0];
+        tmp2 = v24i32[0];
+        v14i32[4] = tmp1--;
+        v24i32[4] = tmp2--;
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 postdec_res");
+        print_vec<4, int32_t>(tmp1, tmp2, "ivec4 postdec_param");
+        print_vec<4, int32_t>((~v14i32[0]), (~v24i32[0]), "ivec4 invert");
+        print_vec<4, int32_t>((v14i32[0] & i321[1]), (v24i32[0] & i322[1]), "ivec4 ands");
+        print_vec<4, int32_t>((v14i32[0] | i321[1]), (v24i32[0] | i322[1]), "ivec4 ors");
+        print_vec<4, int32_t>((v14i32[0] ^ i321[1]), (v24i32[0] ^ i322[1]), "ivec4 xors");
+        print_vec<4, int32_t>((v14i32[0] << 12), (v24i32[0] << 12), "ivec4 lss");
+        print_vec<4, int32_t>((v14i32[0] >> 12), (v24i32[0] >> 12), "ivec4 rss");
+        print_vec<4, int32_t>((v14i32[0] & v14i32[2]), (v24i32[0] & v24i32[2]), "ivec4 andv");
+        print_vec<4, int32_t>((v14i32[0] | v14i32[2]), (v24i32[0] | v24i32[2]), "ivec4 orv");
+        print_vec<4, int32_t>((v14i32[0] ^ v14i32[2]), (v24i32[0] ^ v24i32[2]), "ivec4 xorv");
+        print_vec<4, int32_t>((v14i32[0] << glm::ivec4(2, 4, 8, 16)), (v24i32[0] << glm2::ivec4(2, 4, 8, 16)), "ivec4 lsv");
+        print_vec<4, int32_t>((v14i32[0] >> glm::ivec4(2, 4, 8, 16)), (v24i32[0] >> glm2::ivec4(2, 4, 8, 16)), "ivec4 rsv");
+    }
+
+    // uvec2
+    {
+        glm::uvec2 tmp1; uvec2 tmp2;
+        print_vec<2, uint32_t>((v12u32[0] + u321[0]), (v22u32[0] + u322[0]), "uvec2 adds");
+        print_vec<2, uint32_t>((v12u32[0] - u321[0]), (v22u32[0] - u322[0]), "uvec2 subs");
+        print_vec<2, uint32_t>((v12u32[0] * u321[0]), (v22u32[0] * u322[0]), "uvec2 muls");
+        print_vec<2, uint32_t>((v12u32[0] / u321[0]), (v22u32[0] / u322[0]), "uvec2 divs");
+        print_vec<2, uint32_t>((v12u32[0] % u321[0]), (v22u32[0] % u322[0]), "uvec2 mods");
+        print_vec<2, uint32_t>((v12u32[0] + v12u32[3]), (v22u32[0] + v22u32[3]), "uvec2 addv");
+        print_vec<2, uint32_t>((v12u32[0] - v12u32[3]), (v22u32[0] - v22u32[3]), "uvec2 subv");
+        print_vec<2, uint32_t>((v12u32[0] * v12u32[3]), (v22u32[0] * v22u32[3]), "uvec2 mulv");
+        print_vec<2, uint32_t>((v12u32[0] / v12u32[3]), (v22u32[0] / v22u32[3]), "uvec2 divv");
+        print_vec<2, uint32_t>((v12u32[0] % v12u32[3]), (v22u32[0] % v22u32[3]), "uvec2 modv");
+        print_vec<2, uint32_t>((+v12u32[0]), (+v22u32[0]), "uvec2 pos");
+        print_vec<2, uint32_t>((-v12u32[0]), (-v22u32[0]), "uvec2 neg");
+        tmp1 = v12u32[0];
+        tmp2 = v22u32[0];
+        v12u32[4] = ++tmp1;
+        v22u32[4] = ++tmp2;
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 preinc_res");
+        print_vec<2, uint32_t>(tmp1, tmp2, "uvec2 preinc_param");
+        tmp1 = v12u32[0];
+        tmp2 = v22u32[0];
+        v12u32[4] = tmp1++;
+        v22u32[4] = tmp2++;
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 postinc_res");
+        print_vec<2, uint32_t>(tmp1, tmp2, "uvec2 postinc_param");
+        tmp1 = v12u32[0];
+        tmp2 = v22u32[0];
+        v12u32[4] = --tmp1;
+        v22u32[4] = --tmp2;
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 predec_res");
+        print_vec<2, uint32_t>(tmp1, tmp2, "uvec2 predec_param");
+        tmp1 = v12u32[0];
+        tmp2 = v22u32[0];
+        v12u32[4] = tmp1--;
+        v22u32[4] = tmp2--;
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 postdec_res");
+        print_vec<2, uint32_t>(tmp1, tmp2, "uvec2 postdec_param");
+        print_vec<2, uint32_t>((~v12u32[0]), (~v22u32[0]), "uvec2 invert");
+        print_vec<2, uint32_t>((v12u32[0] & u321[1]), (v22u32[0] & u322[1]), "uvec2 ands");
+        print_vec<2, uint32_t>((v12u32[0] | u321[1]), (v22u32[0] | u322[1]), "uvec2 ors");
+        print_vec<2, uint32_t>((v12u32[0] ^ u321[1]), (v22u32[0] ^ u322[1]), "uvec2 xors");
+        print_vec<2, uint32_t>((v12u32[0] << 12u), (v22u32[0] << 12u), "uvec2 lss");
+        print_vec<2, uint32_t>((v12u32[0] >> 12u), (v22u32[0] >> 12u), "uvec2 rss");
+        print_vec<2, uint32_t>((v12u32[0] & v12u32[2]), (v22u32[0] & v22u32[2]), "uvec2 andv");
+        print_vec<2, uint32_t>((v12u32[0] | v12u32[2]), (v22u32[0] | v22u32[2]), "uvec2 orv");
+        print_vec<2, uint32_t>((v12u32[0] ^ v12u32[2]), (v22u32[0] ^ v22u32[2]), "uvec2 xorv");
+        print_vec<2, uint32_t>((v12u32[0] << glm::uvec2(2, 4)), (v22u32[0] << glm2::uvec2(2, 4)), "uvec2 lsv");
+        print_vec<2, uint32_t>((v12u32[0] >> glm::uvec2(2, 4)), (v22u32[0] >> glm2::uvec2(2, 4)), "uvec2 rsv");
+    }
+
+    // uvec3
+    {
+        glm::uvec3 tmp1; uvec3 tmp2;
+        print_vec<3, uint32_t>((v13u32[0] + u321[0]), (v23u32[0] + u322[0]), "uvec3 adds");
+        print_vec<3, uint32_t>((v13u32[0] - u321[0]), (v23u32[0] - u322[0]), "uvec3 subs");
+        print_vec<3, uint32_t>((v13u32[0] * u321[0]), (v23u32[0] * u322[0]), "uvec3 muls");
+        print_vec<3, uint32_t>((v13u32[0] / u321[0]), (v23u32[0] / u322[0]), "uvec3 divs");
+        print_vec<3, uint32_t>((v13u32[0] % u321[0]), (v23u32[0] % u322[0]), "uvec3 mods");
+        print_vec<3, uint32_t>((v13u32[0] + v13u32[3]), (v23u32[0] + v23u32[3]), "uvec3 addv");
+        print_vec<3, uint32_t>((v13u32[0] - v13u32[3]), (v23u32[0] - v23u32[3]), "uvec3 subv");
+        print_vec<3, uint32_t>((v13u32[0] * v13u32[3]), (v23u32[0] * v23u32[3]), "uvec3 mulv");
+        print_vec<3, uint32_t>((v13u32[0] / v13u32[3]), (v23u32[0] / v23u32[3]), "uvec3 divv");
+        print_vec<3, uint32_t>((v13u32[0] % v13u32[3]), (v23u32[0] % v23u32[3]), "uvec3 modv");
+        print_vec<3, uint32_t>((+v13u32[0]), (+v23u32[0]), "uvec3 pos");
+        print_vec<3, uint32_t>((-v13u32[0]), (-v23u32[0]), "uvec3 neg");
+        tmp1 = v13u32[0];
+        tmp2 = v23u32[0];
+        v13u32[4] = ++tmp1;
+        v23u32[4] = ++tmp2;
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 preinc_res");
+        print_vec<3, uint32_t>(tmp1, tmp2, "uvec3 preinc_param");
+        tmp1 = v13u32[0];
+        tmp2 = v23u32[0];
+        v13u32[4] = tmp1++;
+        v23u32[4] = tmp2++;
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 postinc_res");
+        print_vec<3, uint32_t>(tmp1, tmp2, "uvec3 postinc_param");
+        tmp1 = v13u32[0];
+        tmp2 = v23u32[0];
+        v13u32[4] = --tmp1;
+        v23u32[4] = --tmp2;
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 predec_res");
+        print_vec<3, uint32_t>(tmp1, tmp2, "uvec3 predec_param");
+        tmp1 = v13u32[0];
+        tmp2 = v23u32[0];
+        v13u32[4] = tmp1--;
+        v23u32[4] = tmp2--;
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 postdec_res");
+        print_vec<3, uint32_t>(tmp1, tmp2, "uvec3 postdec_param");
+        print_vec<3, uint32_t>((~v13u32[0]), (~v23u32[0]), "uvec3 invert");
+        print_vec<3, uint32_t>((v13u32[0] & u321[1]), (v23u32[0] & u322[1]), "uvec3 ands");
+        print_vec<3, uint32_t>((v13u32[0] | u321[1]), (v23u32[0] | u322[1]), "uvec3 ors");
+        print_vec<3, uint32_t>((v13u32[0] ^ u321[1]), (v23u32[0] ^ u322[1]), "uvec3 xors");
+        print_vec<3, uint32_t>((v13u32[0] << 12u), (v23u32[0] << 12u), "uvec3 lss");
+        print_vec<3, uint32_t>((v13u32[0] >> 12u), (v23u32[0] >> 12u), "uvec3 rss");
+        print_vec<3, uint32_t>((v13u32[0] & v13u32[2]), (v23u32[0] & v23u32[2]), "uvec3 andv");
+        print_vec<3, uint32_t>((v13u32[0] | v13u32[2]), (v23u32[0] | v23u32[2]), "uvec3 orv");
+        print_vec<3, uint32_t>((v13u32[0] ^ v13u32[2]), (v23u32[0] ^ v23u32[2]), "uvec3 xorv");
+        print_vec<3, uint32_t>((v13u32[0] << glm::uvec3(2, 4, 8)), (v23u32[0] << glm2::uvec3(2, 4, 8)), "uvec3 lsv");
+        print_vec<3, uint32_t>((v13u32[0] >> glm::uvec3(2, 4, 8)), (v23u32[0] >> glm2::uvec3(2, 4, 8)), "uvec3 rsv");
+    }
+
+    // uvec4
+    {
+        glm::uvec4 tmp1; uvec4 tmp2;
+        print_vec<4, uint32_t>((v14u32[0] + u321[0]), (v24u32[0] + u322[0]), "uvec4 adds");
+        print_vec<4, uint32_t>((v14u32[0] - u321[0]), (v24u32[0] - u322[0]), "uvec4 subs");
+        print_vec<4, uint32_t>((v14u32[0] * u321[0]), (v24u32[0] * u322[0]), "uvec4 muls");
+        print_vec<4, uint32_t>((v14u32[0] / u321[0]), (v24u32[0] / u322[0]), "uvec4 divs");
+        print_vec<4, uint32_t>((v14u32[0] % u321[0]), (v24u32[0] % u322[0]), "uvec4 mods");
+        print_vec<4, uint32_t>((v14u32[0] + v14u32[3]), (v24u32[0] + v24u32[3]), "uvec4 addv");
+        print_vec<4, uint32_t>((v14u32[0] - v14u32[3]), (v24u32[0] - v24u32[3]), "uvec4 subv");
+        print_vec<4, uint32_t>((v14u32[0] * v14u32[3]), (v24u32[0] * v24u32[3]), "uvec4 mulv");
+        print_vec<4, uint32_t>((v14u32[0] / v14u32[3]), (v24u32[0] / v24u32[3]), "uvec4 divv");
+        print_vec<4, uint32_t>((v14u32[0] % v14u32[3]), (v24u32[0] % v24u32[3]), "uvec4 modv");
+        print_vec<4, uint32_t>((+v14u32[0]), (+v24u32[0]), "uvec4 pos");
+        print_vec<4, uint32_t>((-v14u32[0]), (-v24u32[0]), "uvec4 neg");
+        tmp1 = v14u32[0];
+        tmp2 = v24u32[0];
+        v14u32[4] = ++tmp1;
+        v24u32[4] = ++tmp2;
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 preinc_res");
+        print_vec<4, uint32_t>(tmp1, tmp2, "uvec4 preinc_param");
+        tmp1 = v14u32[0];
+        tmp2 = v24u32[0];
+        v14u32[4] = tmp1++;
+        v24u32[4] = tmp2++;
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 postinc_res");
+        print_vec<4, uint32_t>(tmp1, tmp2, "uvec4 postinc_param");
+        tmp1 = v14u32[0];
+        tmp2 = v24u32[0];
+        v14u32[4] = --tmp1;
+        v24u32[4] = --tmp2;
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 predec_res");
+        print_vec<4, uint32_t>(tmp1, tmp2, "uvec4 predec_param");
+        tmp1 = v14u32[0];
+        tmp2 = v24u32[0];
+        v14u32[4] = tmp1--;
+        v24u32[4] = tmp2--;
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 postdec_res");
+        print_vec<4, uint32_t>(tmp1, tmp2, "uvec4 postdec_param");
+        print_vec<4, uint32_t>((~v14u32[0]), (~v24u32[0]), "uvec4 invert");
+        print_vec<4, uint32_t>((v14u32[0] & u321[1]), (v24u32[0] & u322[1]), "uvec4 ands");
+        print_vec<4, uint32_t>((v14u32[0] | u321[1]), (v24u32[0] | u322[1]), "uvec4 ors");
+        print_vec<4, uint32_t>((v14u32[0] ^ u321[1]), (v24u32[0] ^ u322[1]), "uvec4 xors");
+        print_vec<4, uint32_t>((v14u32[0] << 12u), (v24u32[0] << 12u), "uvec4 lss");
+        print_vec<4, uint32_t>((v14u32[0] >> 12u), (v24u32[0] >> 12u), "uvec4 rss");
+        print_vec<4, uint32_t>((v14u32[0] & v14u32[2]), (v24u32[0] & v24u32[2]), "uvec4 andv");
+        print_vec<4, uint32_t>((v14u32[0] | v14u32[2]), (v24u32[0] | v24u32[2]), "uvec4 orv");
+        print_vec<4, uint32_t>((v14u32[0] ^ v14u32[2]), (v24u32[0] ^ v24u32[2]), "uvec4 xorv");
+        print_vec<4, uint32_t>((v14u32[0] << glm::uvec4(2, 4, 8, 16)), (v24u32[0] << glm2::uvec4(2, 4, 8, 16)), "uvec4 lsv");
+        print_vec<4, uint32_t>((v14u32[0] >> glm::uvec4(2, 4, 8, 16)), (v24u32[0] >> glm2::uvec4(2, 4, 8, 16)), "uvec4 rsv");
+    }
 #endif
 
 #ifdef GLM2_TEST_VECTOR_CMP_OPERATORS
@@ -594,6 +1043,70 @@ void glm2::test::run_test(void)
         print_single<bool>((glm::dvec4(1.0, 0.0, 0.0, 0.0) != glm::dvec4(0.0, 0.0, 0.0, 0.0)), (dvec4(_mm256_set_pd(0.0, 0.0, 0.0, 1.0)) != dvec4(_mm256_set_pd(0.0, 0.0, 0.0, 0.0))), "dvec4 cmpneq");
         print_single<bool>((glm::dvec4(0.0, 0.0, 0.0, 0.0) == glm::dvec4(0.0, 0.0, 0.0, 1.0)), (dvec4(_mm256_set_pd(0.0, 0.0, 0.0, 0.0)) == dvec4(_mm256_set_pd(1.0, 0.0, 0.0, 0.0))), "dvec4 cmpeq");
         print_single<bool>((glm::dvec4(0.0, 0.0, 0.0, 0.0) != glm::dvec4(0.0, 0.0, 0.0, 1.0)), (dvec4(_mm256_set_pd(0.0, 0.0, 0.0, 0.0)) != dvec4(_mm256_set_pd(1.0, 0.0, 0.0, 0.0))), "dvec4 cmpneq");
+    }
+
+    // ivec2
+    {
+        print_single<bool>((glm::ivec2(0, 0) == glm::ivec2(0, 0)), (ivec2(_mm_set_pd(0, 0)) == ivec2(_mm_set_pd(0, 0))), "ivec2 cmpeq");
+        print_single<bool>((glm::ivec2(0, 0) != glm::ivec2(0, 0)), (ivec2(_mm_set_pd(0, 0)) != ivec2(_mm_set_pd(0, 0))), "ivec2 cmpneq");
+        print_single<bool>((glm::ivec2(1, 0) == glm::ivec2(0, 0)), (ivec2(_mm_set_pd(0, 1)) == ivec2(_mm_set_pd(0, 0))), "ivec2 cmpeq");
+        print_single<bool>((glm::ivec2(1, 0) != glm::ivec2(0, 0)), (ivec2(_mm_set_pd(0, 1)) != ivec2(_mm_set_pd(0, 0))), "ivec2 cmpneq");
+        print_single<bool>((glm::ivec2(0, 0) == glm::ivec2(1, 0)), (ivec2(_mm_set_pd(0, 0)) == ivec2(_mm_set_pd(0, 1))), "ivec2 cmpeq");
+        print_single<bool>((glm::ivec2(0, 0) != glm::ivec2(1, 0)), (ivec2(_mm_set_pd(0, 0)) != ivec2(_mm_set_pd(0, 1))), "ivec2 cmpneq");
+    }
+
+    // ivec3
+    {
+        print_single<bool>((glm::ivec3(0, 0, 0) == glm::ivec3(0, 0, 0)), (ivec3(_mm_set_epi32(0, 0, 0, 0)) == ivec3(_mm_set_epi32(0, 0, 0, 0))), "ivec3 cmpeq");
+        print_single<bool>((glm::ivec3(0, 0, 0) != glm::ivec3(0, 0, 0)), (ivec3(_mm_set_epi32(0, 0, 0, 0)) != ivec3(_mm_set_epi32(0, 0, 0, 0))), "ivec3 cmpneq");
+        print_single<bool>((glm::ivec3(1, 0, 0) == glm::ivec3(0, 0, 0)), (ivec3(_mm_set_epi32(0, 0, 0, 1)) == ivec3(_mm_set_epi32(0, 0, 0, 0))), "ivec3 cmpeq");
+        print_single<bool>((glm::ivec3(1, 0, 0) != glm::ivec3(0, 0, 0)), (ivec3(_mm_set_epi32(0, 0, 0, 1)) != ivec3(_mm_set_epi32(0, 0, 0, 0))), "ivec3 cmpneq");
+        print_single<bool>((glm::ivec3(0, 0, 0) == glm::ivec3(0, 0, 1)), (ivec3(_mm_set_epi32(0, 0, 0, 0)) == ivec3(_mm_set_epi32(0, 1, 0, 0))), "ivec3 cmpeq");
+        print_single<bool>((glm::ivec3(0, 0, 0) != glm::ivec3(0, 0, 1)), (ivec3(_mm_set_epi32(0, 0, 0, 0)) != ivec3(_mm_set_epi32(0, 1, 0, 0))), "ivec3 cmpneq");
+        print_single<bool>((glm::ivec3(0, 0, 0) == glm::ivec3(0, 0, 0)), (ivec3(_mm_set_epi32(1, 0, 0, 0)) == ivec3(_mm_set_epi32(1, 0, 0, 0))), "ivec3 cmpeq");
+        print_single<bool>((glm::ivec3(0, 0, 0) != glm::ivec3(0, 0, 0)), (ivec3(_mm_set_epi32(1, 0, 0, 0)) != ivec3(_mm_set_epi32(1, 0, 0, 0))), "ivec3 cmpneq");
+    }
+
+    // ivec4
+    {
+        print_single<bool>((glm::ivec4(0, 0, 0, 0) == glm::ivec4(0, 0, 0, 0)), (ivec4(_mm_set_epi32(0, 0, 0, 0)) == ivec4(_mm_set_epi32(0, 0, 0, 0))), "ivec4 cmpeq");
+        print_single<bool>((glm::ivec4(0, 0, 0, 0) != glm::ivec4(0, 0, 0, 0)), (ivec4(_mm_set_epi32(0, 0, 0, 0)) != ivec4(_mm_set_epi32(0, 0, 0, 0))), "ivec4 cmpneq");
+        print_single<bool>((glm::ivec4(1, 0, 0, 0) == glm::ivec4(0, 0, 0, 0)), (ivec4(_mm_set_epi32(0, 0, 0, 1)) == ivec4(_mm_set_epi32(0, 0, 0, 0))), "ivec4 cmpeq");
+        print_single<bool>((glm::ivec4(1, 0, 0, 0) != glm::ivec4(0, 0, 0, 0)), (ivec4(_mm_set_epi32(0, 0, 0, 1)) != ivec4(_mm_set_epi32(0, 0, 0, 0))), "ivec4 cmpneq");
+        print_single<bool>((glm::ivec4(0, 0, 0, 0) == glm::ivec4(0, 0, 0, 1)), (ivec4(_mm_set_epi32(0, 0, 0, 0)) == ivec4(_mm_set_epi32(1, 0, 0, 0))), "ivec4 cmpeq");
+        print_single<bool>((glm::ivec4(0, 0, 0, 0) != glm::ivec4(0, 0, 0, 1)), (ivec4(_mm_set_epi32(0, 0, 0, 0)) != ivec4(_mm_set_epi32(1, 0, 0, 0))), "ivec4 cmpneq");
+    }
+
+    // uvec2
+    {
+        print_single<bool>((glm::uvec2(0, 0) == glm::uvec2(0, 0)), (uvec2(_mm_set_pd(0, 0)) == uvec2(_mm_set_pd(0, 0))), "uvec2 cmpeq");
+        print_single<bool>((glm::uvec2(0, 0) != glm::uvec2(0, 0)), (uvec2(_mm_set_pd(0, 0)) != uvec2(_mm_set_pd(0, 0))), "uvec2 cmpneq");
+        print_single<bool>((glm::uvec2(1, 0) == glm::uvec2(0, 0)), (uvec2(_mm_set_pd(0, 1)) == uvec2(_mm_set_pd(0, 0))), "uvec2 cmpeq");
+        print_single<bool>((glm::uvec2(1, 0) != glm::uvec2(0, 0)), (uvec2(_mm_set_pd(0, 1)) != uvec2(_mm_set_pd(0, 0))), "uvec2 cmpneq");
+        print_single<bool>((glm::uvec2(0, 0) == glm::uvec2(1, 0)), (uvec2(_mm_set_pd(0, 0)) == uvec2(_mm_set_pd(0, 1))), "uvec2 cmpeq");
+        print_single<bool>((glm::uvec2(0, 0) != glm::uvec2(1, 0)), (uvec2(_mm_set_pd(0, 0)) != uvec2(_mm_set_pd(0, 1))), "uvec2 cmpneq");
+    }
+
+    // uvec3
+    {
+        print_single<bool>((glm::uvec3(0, 0, 0) == glm::uvec3(0, 0, 0)), (uvec3(_mm_set_epi32(0, 0, 0, 0)) == uvec3(_mm_set_epi32(0, 0, 0, 0))), "uvec3 cmpeq");
+        print_single<bool>((glm::uvec3(0, 0, 0) != glm::uvec3(0, 0, 0)), (uvec3(_mm_set_epi32(0, 0, 0, 0)) != uvec3(_mm_set_epi32(0, 0, 0, 0))), "uvec3 cmpneq");
+        print_single<bool>((glm::uvec3(1, 0, 0) == glm::uvec3(0, 0, 0)), (uvec3(_mm_set_epi32(0, 0, 0, 1)) == uvec3(_mm_set_epi32(0, 0, 0, 0))), "uvec3 cmpeq");
+        print_single<bool>((glm::uvec3(1, 0, 0) != glm::uvec3(0, 0, 0)), (uvec3(_mm_set_epi32(0, 0, 0, 1)) != uvec3(_mm_set_epi32(0, 0, 0, 0))), "uvec3 cmpneq");
+        print_single<bool>((glm::uvec3(0, 0, 0) == glm::uvec3(0, 0, 1)), (uvec3(_mm_set_epi32(0, 0, 0, 0)) == uvec3(_mm_set_epi32(0, 1, 0, 0))), "uvec3 cmpeq");
+        print_single<bool>((glm::uvec3(0, 0, 0) != glm::uvec3(0, 0, 1)), (uvec3(_mm_set_epi32(0, 0, 0, 0)) != uvec3(_mm_set_epi32(0, 1, 0, 0))), "uvec3 cmpneq");
+        print_single<bool>((glm::uvec3(0, 0, 0) == glm::uvec3(0, 0, 0)), (uvec3(_mm_set_epi32(1, 0, 0, 0)) == uvec3(_mm_set_epi32(1, 0, 0, 0))), "uvec3 cmpeq");
+        print_single<bool>((glm::uvec3(0, 0, 0) != glm::uvec3(0, 0, 0)), (uvec3(_mm_set_epi32(1, 0, 0, 0)) != uvec3(_mm_set_epi32(1, 0, 0, 0))), "uvec3 cmpneq");
+    }
+
+    // uvec4
+    {
+        print_single<bool>((glm::uvec4(0, 0, 0, 0) == glm::uvec4(0, 0, 0, 0)), (uvec4(_mm_set_epi32(0, 0, 0, 0)) == uvec4(_mm_set_epi32(0, 0, 0, 0))), "uvec4 cmpeq");
+        print_single<bool>((glm::uvec4(0, 0, 0, 0) != glm::uvec4(0, 0, 0, 0)), (uvec4(_mm_set_epi32(0, 0, 0, 0)) != uvec4(_mm_set_epi32(0, 0, 0, 0))), "uvec4 cmpneq");
+        print_single<bool>((glm::uvec4(1, 0, 0, 0) == glm::uvec4(0, 0, 0, 0)), (uvec4(_mm_set_epi32(0, 0, 0, 1)) == uvec4(_mm_set_epi32(0, 0, 0, 0))), "uvec4 cmpeq");
+        print_single<bool>((glm::uvec4(1, 0, 0, 0) != glm::uvec4(0, 0, 0, 0)), (uvec4(_mm_set_epi32(0, 0, 0, 1)) != uvec4(_mm_set_epi32(0, 0, 0, 0))), "uvec4 cmpneq");
+        print_single<bool>((glm::uvec4(0, 0, 0, 0) == glm::uvec4(0, 0, 0, 1)), (uvec4(_mm_set_epi32(0, 0, 0, 0)) == uvec4(_mm_set_epi32(1, 0, 0, 0))), "uvec4 cmpeq");
+        print_single<bool>((glm::uvec4(0, 0, 0, 0) != glm::uvec4(0, 0, 0, 1)), (uvec4(_mm_set_epi32(0, 0, 0, 0)) != uvec4(_mm_set_epi32(1, 0, 0, 0))), "uvec4 cmpneq");
     }
 #endif
 
@@ -3236,14 +3749,951 @@ void glm2::test::run_test(void)
 
 #ifdef GLM2_TEST_INTEGER
 
-    uint32_t v1 = 1658723058;
-    uint32_t v2 = 32;
-    uint32_t a = glm::bitfieldExtract(v1, 40, 20);
-    __m128i b = glm2::detail::core::integer::bitfieldExtract::_default_u32v(_mm_loadu_si32(&v1), 40, 20);
-    uint32_t c;
-    _mm_storeu_si32(&c, b);
-    print_single<uint32_t>(a, c, "bitfieldExtract 1");
+    // bitCount
+    {
+        i321[4] = glm::bitCount(i321[3]);
+        i322[4] = glm2::bitCount(i322[3]);
+        print_single<int32_t>(i321[4], i322[4], "int32_t bitCount");
+        v12i32[4] = glm::bitCount(v12i32[3]);
+        v22i32[4] = glm2::bitCount(v22i32[3]);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 bitCount");
+        v13i32[4] = glm::bitCount(v13i32[3]);
+        v23i32[4] = glm2::bitCount(v23i32[3]);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 bitCount");
+        v14i32[4] = glm::bitCount(v14i32[3]);
+        v24i32[4] = glm2::bitCount(v24i32[3]);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 bitCount");
 
+        u321[4] = glm::bitCount(u321[3]);
+        u322[4] = glm2::bitCount(u322[3]);
+        print_single<uint32_t>(u321[4], u322[4], "uint32_t bitCount");
+        v12u32[4] = glm::bitCount(v12u32[3]);
+        v22u32[4] = glm2::bitCount(v22u32[3]);
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 bitCount");
+        v13u32[4] = glm::bitCount(v13u32[3]);
+        v23u32[4] = glm2::bitCount(v23u32[3]);
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 bitCount");
+        v14u32[4] = glm::bitCount(v14u32[3]);
+        v24u32[4] = glm2::bitCount(v24u32[3]);
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 bitCount");
+    }
+
+    // bitfieldExtract
+    {
+        i321[4] = glm::bitfieldExtract(i321[3], 5, 20);
+        i322[4] = glm2::bitfieldExtract(i322[3], 5, 20);
+        print_single<int32_t>(i321[4], i322[4], "int32_t bitfieldExtract 1");
+        i321[4] = glm::bitfieldExtract(i321[3], 5, 27);
+        i322[4] = glm2::bitfieldExtract(i322[3], 5, 27);
+        print_single<int32_t>(i321[4], i322[4], "int32_t bitfieldExtract 2");
+        i321[4] = glm::bitfieldExtract(i321[3], 0, 32);
+        i322[4] = glm2::bitfieldExtract(i322[3], 0, 32);
+        print_single<int32_t>(i321[4], i322[4], "int32_t bitfieldExtract 3");
+        i321[4] = glm::bitfieldExtract(i321[3], 32, 0);
+        i322[4] = glm2::bitfieldExtract(i322[3], 32, 0);
+        print_single<int32_t>(i321[4], i322[4], "int32_t bitfieldExtract 4");
+        v12i32[4] = glm::bitfieldExtract(v12i32[3], 5, 20);
+        v22i32[4] = glm2::bitfieldExtract(v22i32[3], 5, 20);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 bitfieldExtract 1");
+        v12i32[4] = glm::bitfieldExtract(v12i32[3], 5, 27);
+        v22i32[4] = glm2::bitfieldExtract(v22i32[3], 5, 27);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 bitfieldExtract 2");
+        v12i32[4] = glm::bitfieldExtract(v12i32[3], 0, 32);
+        v22i32[4] = glm2::bitfieldExtract(v22i32[3], 0, 32);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 bitfieldExtract 3");
+        v12i32[4] = glm::bitfieldExtract(v12i32[3], 32, 0);
+        v22i32[4] = glm2::bitfieldExtract(v22i32[3], 32, 0);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 bitfieldExtract 4");
+        v13i32[4] = glm::bitfieldExtract(v13i32[3], 5, 20);
+        v23i32[4] = glm2::bitfieldExtract(v23i32[3], 5, 20);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 bitfieldExtract 1");
+        v13i32[4] = glm::bitfieldExtract(v13i32[3], 5, 27);
+        v23i32[4] = glm2::bitfieldExtract(v23i32[3], 5, 27);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 bitfieldExtract 2");
+        v13i32[4] = glm::bitfieldExtract(v13i32[3], 0, 32);
+        v23i32[4] = glm2::bitfieldExtract(v23i32[3], 0, 32);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 bitfieldExtract 3");
+        v13i32[4] = glm::bitfieldExtract(v13i32[3], 32, 0);
+        v23i32[4] = glm2::bitfieldExtract(v23i32[3], 32, 0);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 bitfieldExtract 4");
+        v14i32[4] = glm::bitfieldExtract(v14i32[3], 5, 20);
+        v24i32[4] = glm2::bitfieldExtract(v24i32[3], 5, 20);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 bitfieldExtract 1");
+        v14i32[4] = glm::bitfieldExtract(v14i32[3], 5, 27);
+        v24i32[4] = glm2::bitfieldExtract(v24i32[3], 5, 27);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 bitfieldExtract 2");
+        v14i32[4] = glm::bitfieldExtract(v14i32[3], 0, 32);
+        v24i32[4] = glm2::bitfieldExtract(v24i32[3], 0, 32);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 bitfieldExtract 3");
+        v14i32[4] = glm::bitfieldExtract(v14i32[3], 32, 0);
+        v24i32[4] = glm2::bitfieldExtract(v24i32[3], 32, 0);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 bitfieldExtract 4");
+
+        u321[4] = glm::bitfieldExtract(u321[3], 5, 20);
+        u322[4] = glm2::bitfieldExtract(u322[3], 5, 20);
+        print_single<uint32_t>(u321[4], u322[4], "uint32_t bitfieldExtract 1");
+        u321[4] = glm::bitfieldExtract(u321[3], 5, 27);
+        u322[4] = glm2::bitfieldExtract(u322[3], 5, 27);
+        print_single<uint32_t>(u321[4], u322[4], "uint32_t bitfieldExtract 2");
+        u321[4] = glm::bitfieldExtract(u321[3], 0, 32);
+        u322[4] = glm2::bitfieldExtract(u322[3], 0, 32);
+        print_single<uint32_t>(u321[4], u322[4], "uint32_t bitfieldExtract 3");
+        u321[4] = glm::bitfieldExtract(u321[3], 32, 0);
+        u322[4] = glm2::bitfieldExtract(u322[3], 32, 0);
+        print_single<uint32_t>(u321[4], u322[4], "uint32_t bitfieldExtract 4");
+        v12u32[4] = glm::bitfieldExtract(v12u32[3], 5, 20);
+        v22u32[4] = glm2::bitfieldExtract(v22u32[3], 5, 20);
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 bitfieldExtract 1");
+        v12u32[4] = glm::bitfieldExtract(v12u32[3], 5, 27);
+        v22u32[4] = glm2::bitfieldExtract(v22u32[3], 5, 27);
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 bitfieldExtract 2");
+        v12u32[4] = glm::bitfieldExtract(v12u32[3], 0, 32);
+        v22u32[4] = glm2::bitfieldExtract(v22u32[3], 0, 32);
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 bitfieldExtract 3");
+        v12u32[4] = glm::bitfieldExtract(v12u32[3], 32, 0);
+        v22u32[4] = glm2::bitfieldExtract(v22u32[3], 32, 0);
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 bitfieldExtract 4");
+        v13u32[4] = glm::bitfieldExtract(v13u32[3], 5, 20);
+        v23u32[4] = glm2::bitfieldExtract(v23u32[3], 5, 20);
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 bitfieldExtract 1");
+        v13u32[4] = glm::bitfieldExtract(v13u32[3], 5, 27);
+        v23u32[4] = glm2::bitfieldExtract(v23u32[3], 5, 27);
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 bitfieldExtract 2");
+        v13u32[4] = glm::bitfieldExtract(v13u32[3], 0, 32);
+        v23u32[4] = glm2::bitfieldExtract(v23u32[3], 0, 32);
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 bitfieldExtract 3");
+        v13u32[4] = glm::bitfieldExtract(v13u32[3], 32, 0);
+        v23u32[4] = glm2::bitfieldExtract(v23u32[3], 32, 0);
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 bitfieldExtract 4");
+        v14u32[4] = glm::bitfieldExtract(v14u32[3], 5, 20);
+        v24u32[4] = glm2::bitfieldExtract(v24u32[3], 5, 20);
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 bitfieldExtract 1");
+        v14u32[4] = glm::bitfieldExtract(v14u32[3], 5, 27);
+        v24u32[4] = glm2::bitfieldExtract(v24u32[3], 5, 27);
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 bitfieldExtract 2");
+        v14u32[4] = glm::bitfieldExtract(v14u32[3], 0, 32);
+        v24u32[4] = glm2::bitfieldExtract(v24u32[3], 0, 32);
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 bitfieldExtract 3");
+        v14u32[4] = glm::bitfieldExtract(v14u32[3], 32, 0);
+        v24u32[4] = glm2::bitfieldExtract(v24u32[3], 32, 0);
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 bitfieldExtract 4");
+    }
+
+    // bitfieldInsert
+    {
+        i321[4] = glm::bitfieldInsert(i321[3], i321[2], 5, 20);
+        i322[4] = glm2::bitfieldInsert(i322[3], i322[2], 5, 20);
+        print_single<int32_t>(i321[4], i322[4], "int32_t bitfieldInsert 1");
+        i321[4] = glm::bitfieldInsert(i321[3], i321[2], 5, 27);
+        i322[4] = glm2::bitfieldInsert(i322[3], i322[2], 5, 27);
+        print_single<int32_t>(i321[4], i322[4], "int32_t bitfieldInsert 2");
+        i321[4] = glm::bitfieldInsert(i321[3], i321[2], 0, 32);
+        i322[4] = glm2::bitfieldInsert(i322[3], i322[2], 0, 32);
+        print_single<int32_t>(i321[4], i322[4], "int32_t bitfieldInsert 3");
+        i321[4] = glm::bitfieldInsert(i321[3], i321[2], 32, 0);
+        i322[4] = glm2::bitfieldInsert(i322[3], i322[2], 32, 0);
+        print_single<int32_t>(i321[4], i322[4], "int32_t bitfieldInsert 4");
+        v12i32[4] = glm::bitfieldInsert(v12i32[3], v12i32[2], 5, 20);
+        v22i32[4] = glm2::bitfieldInsert(v22i32[3], v22i32[2], 5, 20);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 bitfieldInsert 1");
+        v12i32[4] = glm::bitfieldInsert(v12i32[3], v12i32[2], 5, 27);
+        v22i32[4] = glm2::bitfieldInsert(v22i32[3], v22i32[2], 5, 27);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 bitfieldInsert 2");
+        v12i32[4] = glm::bitfieldInsert(v12i32[3], v12i32[2], 0, 32);
+        v22i32[4] = glm2::bitfieldInsert(v22i32[3], v22i32[2], 0, 32);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 bitfieldInsert 3");
+        v12i32[4] = glm::bitfieldInsert(v12i32[3], v12i32[2], 32, 0);
+        v22i32[4] = glm2::bitfieldInsert(v22i32[3], v22i32[2], 32, 0);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 bitfieldInsert 4");
+        v13i32[4] = glm::bitfieldInsert(v13i32[3], v13i32[2], 5, 20);
+        v23i32[4] = glm2::bitfieldInsert(v23i32[3], v23i32[2], 5, 20);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 bitfieldInsert 1");
+        v13i32[4] = glm::bitfieldInsert(v13i32[3], v13i32[2], 5, 27);
+        v23i32[4] = glm2::bitfieldInsert(v23i32[3], v23i32[2], 5, 27);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 bitfieldInsert 2");
+        v13i32[4] = glm::bitfieldInsert(v13i32[3], v13i32[2], 0, 32);
+        v23i32[4] = glm2::bitfieldInsert(v23i32[3], v23i32[2], 0, 32);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 bitfieldInsert 3");
+        v13i32[4] = glm::bitfieldInsert(v13i32[3], v13i32[2], 32, 0);
+        v23i32[4] = glm2::bitfieldInsert(v23i32[3], v23i32[2], 32, 0);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 bitfieldInsert 4");
+        v14i32[4] = glm::bitfieldInsert(v14i32[3], v14i32[2], 5, 20);
+        v24i32[4] = glm2::bitfieldInsert(v24i32[3], v24i32[2], 5, 20);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 bitfieldInsert 1");
+        v14i32[4] = glm::bitfieldInsert(v14i32[3], v14i32[2], 5, 27);
+        v24i32[4] = glm2::bitfieldInsert(v24i32[3], v24i32[2], 5, 27);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 bitfieldInsert 2");
+        v14i32[4] = glm::bitfieldInsert(v14i32[3], v14i32[2], 0, 32);
+        v24i32[4] = glm2::bitfieldInsert(v24i32[3], v24i32[2], 0, 32);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 bitfieldInsert 3");
+        v14i32[4] = glm::bitfieldInsert(v14i32[3], v14i32[2], 32, 0);
+        v24i32[4] = glm2::bitfieldInsert(v24i32[3], v24i32[2], 32, 0);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 bitfieldInsert 4");
+
+        u321[4] = glm::bitfieldInsert(u321[3], u321[2], 5, 20);
+        u322[4] = glm2::bitfieldInsert(u322[3], u322[2], 5, 20);
+        print_single<uint32_t>(u321[4], u322[4], "uint32_t bitfieldInsert 1");
+        u321[4] = glm::bitfieldInsert(u321[3], u321[2], 5, 27);
+        u322[4] = glm2::bitfieldInsert(u322[3], u322[2], 5, 27);
+        print_single<uint32_t>(u321[4], u322[4], "uint32_t bitfieldInsert 2");
+        u321[4] = glm::bitfieldInsert(u321[3], u321[2], 0, 32);
+        u322[4] = glm2::bitfieldInsert(u322[3], u322[2], 0, 32);
+        print_single<uint32_t>(u321[4], u322[4], "uint32_t bitfieldInsert 3");
+        u321[4] = glm::bitfieldInsert(u321[3], u321[2], 32, 0);
+        u322[4] = glm2::bitfieldInsert(u322[3], u322[2], 32, 0);
+        print_single<uint32_t>(u321[4], u322[4], "uint32_t bitfieldInsert 4");
+        v12u32[4] = glm::bitfieldInsert(v12u32[3], v12u32[2], 5, 20);
+        v22u32[4] = glm2::bitfieldInsert(v22u32[3], v22u32[2], 5, 20);
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 bitfieldInsert 1");
+        v12u32[4] = glm::bitfieldInsert(v12u32[3], v12u32[2], 5, 27);
+        v22u32[4] = glm2::bitfieldInsert(v22u32[3], v22u32[2], 5, 27);
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 bitfieldInsert 2");
+        v12u32[4] = glm::bitfieldInsert(v12u32[3], v12u32[2], 0, 32);
+        v22u32[4] = glm2::bitfieldInsert(v22u32[3], v22u32[2], 0, 32);
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 bitfieldInsert 3");
+        v12u32[4] = glm::bitfieldInsert(v12u32[3], v12u32[2], 32, 0);
+        v22u32[4] = glm2::bitfieldInsert(v22u32[3], v22u32[2], 32, 0);
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 bitfieldInsert 4");
+        v13u32[4] = glm::bitfieldInsert(v13u32[3], v13u32[2], 5, 20);
+        v23u32[4] = glm2::bitfieldInsert(v23u32[3], v23u32[2], 5, 20);
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 bitfieldInsert 1");
+        v13u32[4] = glm::bitfieldInsert(v13u32[3], v13u32[2], 5, 27);
+        v23u32[4] = glm2::bitfieldInsert(v23u32[3], v23u32[2], 5, 27);
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 bitfieldInsert 2");
+        v13u32[4] = glm::bitfieldInsert(v13u32[3], v13u32[2], 0, 32);
+        v23u32[4] = glm2::bitfieldInsert(v23u32[3], v23u32[2], 0, 32);
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 bitfieldInsert 3");
+        v13u32[4] = glm::bitfieldInsert(v13u32[3], v13u32[2], 32, 0);
+        v23u32[4] = glm2::bitfieldInsert(v23u32[3], v23u32[2], 32, 0);
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 bitfieldInsert 4");
+        v14u32[4] = glm::bitfieldInsert(v14u32[3], v14u32[2], 5, 20);
+        v24u32[4] = glm2::bitfieldInsert(v24u32[3], v24u32[2], 5, 20);
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 bitfieldInsert 1");
+        v14u32[4] = glm::bitfieldInsert(v14u32[3], v14u32[2], 5, 27);
+        v24u32[4] = glm2::bitfieldInsert(v24u32[3], v24u32[2], 5, 27);
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 bitfieldInsert 2");
+        v14u32[4] = glm::bitfieldInsert(v14u32[3], v14u32[2], 0, 32);
+        v24u32[4] = glm2::bitfieldInsert(v24u32[3], v24u32[2], 0, 32);
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 bitfieldInsert 3");
+        v14u32[4] = glm::bitfieldInsert(v14u32[3], v14u32[2], 32, 0);
+        v24u32[4] = glm2::bitfieldInsert(v24u32[3], v24u32[2], 32, 0);
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 bitfieldInsert 4");
+    }
+
+    // bitfieldReverse
+    {
+#if 0
+        i321[4] = glm::bitfieldReverse(i321[3]);
+        i322[4] = glm2::bitfieldReverse(i322[3]);
+        print_single<int32_t>(i321[4], i322[4], "int32_t bitfieldReverse");
+        v12i32[4] = glm::bitfieldReverse(v12i32[3]);
+        v22i32[4] = glm2::bitfieldReverse(v22i32[3]);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 bitfieldReverse");
+        v13i32[4] = glm::bitfieldReverse(v13i32[3]);
+        v23i32[4] = glm2::bitfieldReverse(v23i32[3]);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 bitfieldReverse");
+        v14i32[4] = glm::bitfieldReverse(v14i32[3]);
+        v24i32[4] = glm2::bitfieldReverse(v24i32[3]);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 bitfieldReverse");
+#endif
+        u321[4] = glm::bitfieldReverse(u321[3]);
+        u322[4] = glm2::bitfieldReverse(u322[3]);
+        print_single<uint32_t>(u321[4], u322[4], "uint32_t bitfieldReverse");
+        v12u32[4] = glm::bitfieldReverse(v12u32[3]);
+        v22u32[4] = glm2::bitfieldReverse(v22u32[3]);
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 bitfieldReverse");
+        v13u32[4] = glm::bitfieldReverse(v13u32[3]);
+        v23u32[4] = glm2::bitfieldReverse(v23u32[3]);
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 bitfieldReverse");
+        v14u32[4] = glm::bitfieldReverse(v14u32[3]);
+        v24u32[4] = glm2::bitfieldReverse(v24u32[3]);
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 bitfieldReverse");
+    }
+
+    // findLSB
+    {
+        i321[4] = glm::findLSB(i321[3]);
+        i322[4] = glm2::findLSB(i322[3]);
+        print_single<int32_t>(i321[4], i322[4], "int32_t findLSB");
+        v12i32[4] = glm::findLSB(v12i32[3]);
+        v22i32[4] = glm2::findLSB(v22i32[3]);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 findLSB");
+        v13i32[4] = glm::findLSB(v13i32[3]);
+        v23i32[4] = glm2::findLSB(v23i32[3]);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 findLSB");
+        v14i32[4] = glm::findLSB(v14i32[3]);
+        v24i32[4] = glm2::findLSB(v24i32[3]);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 findLSB");
+
+        i321[4] = glm::findLSB(i321[3]);
+        i322[4] = glm2::findLSB(i322[3]);
+        print_single<uint32_t>(i321[4], i322[4], "uint32_t findLSB");
+        v12i32[4] = glm::findLSB(v12i32[3]);
+        v22i32[4] = glm2::findLSB(v22i32[3]);
+        print_vec<2, uint32_t>(v12i32[4], v22i32[4], "uvec2 findLSB");
+        v13i32[4] = glm::findLSB(v13i32[3]);
+        v23i32[4] = glm2::findLSB(v23i32[3]);
+        print_vec<3, uint32_t>(v13i32[4], v23i32[4], "uvec3 findLSB");
+        v14i32[4] = glm::findLSB(v14i32[3]);
+        v24i32[4] = glm2::findLSB(v24i32[3]);
+        print_vec<4, uint32_t>(v14i32[4], v24i32[4], "uvec4 findLSB");
+
+        i321[4] = glm::findLSB(i321[2]);
+        i322[4] = glm2::findLSB(i322[2]);
+        print_single<int32_t>(i321[4], i322[4], "int32_t findLSB 0");
+        v12i32[4] = glm::findLSB(v12i32[1]);
+        v22i32[4] = glm2::findLSB(v22i32[1]);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 findLSB 0");
+        v13i32[4] = glm::findLSB(v13i32[1]);
+        v23i32[4] = glm2::findLSB(v23i32[1]);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 findLSB 0");
+        v14i32[4] = glm::findLSB(v14i32[1]);
+        v24i32[4] = glm2::findLSB(v24i32[1]);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 findLSB 0");
+
+        i321[4] = glm::findLSB(i321[2]);
+        i322[4] = glm2::findLSB(i322[2]);
+        print_single<uint32_t>(i321[4], i322[4], "uint32_t findLSB 0");
+        v12i32[4] = glm::findLSB(v12i32[1]);
+        v22i32[4] = glm2::findLSB(v22i32[1]);
+        print_vec<2, uint32_t>(v12i32[4], v22i32[4], "uvec2 findLSB 0");
+        v13i32[4] = glm::findLSB(v13i32[1]);
+        v23i32[4] = glm2::findLSB(v23i32[1]);
+        print_vec<3, uint32_t>(v13i32[4], v23i32[4], "uvec3 findLSB 0");
+        v14i32[4] = glm::findLSB(v14i32[1]);
+        v24i32[4] = glm2::findLSB(v24i32[1]);
+        print_vec<4, uint32_t>(v14i32[4], v24i32[4], "uvec4 findLSB 0");
+    }
+
+    // findMSB
+    {
+        i321[4] = glm::findMSB(i321[3]);
+        i322[4] = glm2::findMSB(i322[3]);
+        print_single<int32_t>(i321[4], i322[4], "int32_t findMSB");
+        v12i32[4] = glm::findMSB(v12i32[3]);
+        v22i32[4] = glm2::findMSB(v22i32[3]);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 findMSB");
+        v13i32[4] = glm::findMSB(v13i32[3]);
+        v23i32[4] = glm2::findMSB(v23i32[3]);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 findMSB");
+        v14i32[4] = glm::findMSB(v14i32[3]);
+        v24i32[4] = glm2::findMSB(v24i32[3]);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 findMSB");
+
+        i321[4] = glm::findMSB(i321[3]);
+        i322[4] = glm2::findMSB(i322[3]);
+        print_single<uint32_t>(i321[4], i322[4], "uint32_t findMSB");
+        v12i32[4] = glm::findMSB(v12i32[3]);
+        v22i32[4] = glm2::findMSB(v22i32[3]);
+        print_vec<2, uint32_t>(v12i32[4], v22i32[4], "uvec2 findMSB");
+        v13i32[4] = glm::findMSB(v13i32[3]);
+        v23i32[4] = glm2::findMSB(v23i32[3]);
+        print_vec<3, uint32_t>(v13i32[4], v23i32[4], "uvec3 findMSB");
+        v14i32[4] = glm::findMSB(v14i32[3]);
+        v24i32[4] = glm2::findMSB(v24i32[3]);
+        print_vec<4, uint32_t>(v14i32[4], v24i32[4], "uvec4 findMSB");
+
+        i321[4] = glm::findMSB(i321[2]);
+        i322[4] = glm2::findMSB(i322[2]);
+        print_single<int32_t>(i321[4], i322[4], "int32_t findMSB 0");
+        v12i32[4] = glm::findMSB(v12i32[1]);
+        v22i32[4] = glm2::findMSB(v22i32[1]);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 findMSB 0");
+        v13i32[4] = glm::findMSB(v13i32[1]);
+        v23i32[4] = glm2::findMSB(v23i32[1]);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 findMSB 0");
+        v14i32[4] = glm::findMSB(v14i32[1]);
+        v24i32[4] = glm2::findMSB(v24i32[1]);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 findMSB 0");
+
+        i321[4] = glm::findMSB(i321[2]);
+        i322[4] = glm2::findMSB(i322[2]);
+        print_single<uint32_t>(i321[4], i322[4], "uint32_t findMSB 0");
+        v12i32[4] = glm::findMSB(v12i32[1]);
+        v22i32[4] = glm2::findMSB(v22i32[1]);
+        print_vec<2, uint32_t>(v12i32[4], v22i32[4], "uvec2 findMSB 0");
+        v13i32[4] = glm::findMSB(v13i32[1]);
+        v23i32[4] = glm2::findMSB(v23i32[1]);
+        print_vec<3, uint32_t>(v13i32[4], v23i32[4], "uvec3 findMSB 0");
+        v14i32[4] = glm::findMSB(v14i32[1]);
+        v24i32[4] = glm2::findMSB(v24i32[1]);
+        print_vec<4, uint32_t>(v14i32[4], v24i32[4], "uvec4 findMSB 0");
+    }
+
+    // imulExtended
+    {
+        glm::ivec4 tmp1, tmp2;
+        ivec4 tmp3, tmp4;
+        glm::imulExtended(v14i32[3], v14i32[2], tmp1, tmp2);
+        glm2::imulExtended(v24i32[3], v24i32[2], tmp3, tmp4);
+        print_vec<4, int32_t>(tmp2, tmp4, "ivec4 imulExtended lsb");
+        print_vec<4, int32_t>(tmp1, tmp3, "ivec4 imulExtended msb");
+    }
+
+    // umulExtended
+    {
+        glm::uvec4 tmp1, tmp2;
+        uvec4 tmp3, tmp4;
+        glm::umulExtended(v14u32[3], v14u32[2], tmp1, tmp2);
+        glm2::umulExtended(v24u32[3], v24u32[2], tmp3, tmp4);
+        print_vec<4, uint32_t>(tmp2, tmp4, "uvec4 umulExtended lsb");
+        print_vec<4, uint32_t>(tmp1, tmp3, "uvec4 umulExtended msb");
+    }
+
+    // uaddCarry
+    {
+        glm::uvec4 carry1;
+        uvec4 carry2;
+        v14u32[4] = glm::uaddCarry(v14u32[0], v14u32[2], carry1);
+        v24u32[4] = glm2::uaddCarry(v24u32[0], v24u32[2], carry2);
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 uaddCarry result");
+        print_vec<4, uint32_t>(carry1, carry2, "uvec4 uaddCarry carry");
+    }
+
+    // uaddCarry
+    {
+        glm::uvec4 borrow1;
+        uvec4 borrow2;
+        v14u32[4] = glm::usubBorrow(v14u32[0], v14u32[3], borrow1);
+        v24u32[4] = glm2::usubBorrow(v24u32[0], v24u32[3], borrow2);
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 usubBorrow result");
+        print_vec<4, uint32_t>(borrow1, borrow2, "uvec4 usubBorrow borrow");
+        v14u32[4] = glm::usubBorrow(v14u32[3], v14u32[0], borrow1);
+        v24u32[4] = glm2::usubBorrow(v24u32[3], v24u32[0], borrow2);
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 usubBorrow result reverse");
+        print_vec<4, uint32_t>(borrow1, borrow2, "uvec4 usubBorrow carry borrow");
+    }
+
+#endif
+
+#ifdef GLM2_TEST_PACKING
+
+    // packDouble2x32
+    {
+        d1[4] = glm::packDouble2x32(v12u32[0]);
+        d2[4] = glm2::packDouble2x32(v22u32[0]);
+        print_single<double>(d1[4], d2[4], "packDouble2x32");   
+    }
+
+    // packHalf2x16
+    {
+        u321[4] = glm::packDouble2x32(v12f[0]);
+        u322[4] = glm2::packDouble2x32(v22f[0]);
+        print_single<uint32_t>(u321[4], u322[4], "packHalf2x16");   
+    }
+
+    // packSnorm2x16
+    {
+        u321[4] = glm::packSnorm2x16(v12f[0]);
+        u322[4] = glm2::packSnorm2x16(v22f[0]);
+        print_single<uint32_t>(u321[4], u322[4], "packSnorm2x16");   
+    }
+
+    // packSnorm4x8
+    {
+        u321[4] = glm::packSnorm4x8(v14f[0]);
+        u322[4] = glm2::packSnorm4x8(v24f[0]);
+        print_single<uint32_t>(u321[4], u322[4], "packSnorm4x8");   
+    }
+
+    // packUnorm2x16
+    {
+        u321[4] = glm::packUnorm2x16(v12f[0]);
+        u322[4] = glm2::packUnorm2x16(v22f[0]);
+        print_single<uint32_t>(u321[4], u322[4], "packUnorm2x16");   
+    }
+
+    // packUnorm4x8
+    {
+        u321[4] = glm::packUnorm4x8(v14f[0]);
+        u322[4] = glm2::packUnorm4x8(v24f[0]);
+        print_single<uint32_t>(u321[4], u322[4], "packUnorm4x8");   
+    }
+
+    // unpackDouble2x32
+    {
+        v12u32[4] = glm::unpackDouble2x32(d1[0]);
+        v22u32[4] = glm2::unpackDouble2x32(d2[0]);
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "unpackDouble2x32");
+    }
+
+    // unpackHalf2x16
+    {
+        v12f[4] = glm::unpackHalf2x16(u321[3]);
+        v22f[4] = glm2::unpackHalf2x16(u322[3]);
+        print_vec<2, float>(v12f[4], v22f[4], "unpackHalf2x16");
+    }
+
+    // unpackSnorm2x16
+    {
+        v12f[4] = glm::unpackSnorm2x16(u321[3]);
+        v22f[4] = glm2::unpackSnorm2x16(u322[3]);
+        print_vec<2, float>(v12f[4], v22f[4], "unpackSnorm2x16");
+    }
+
+    // unpackSnorm4x8
+    {
+        v14f[4] = glm::unpackSnorm4x8(u321[3]);
+        v24f[4] = glm2::unpackSnorm4x8(u322[3]);
+        print_vec<4, float>(v14f[4], v24f[4], "unpackSnorm4x8");
+    }
+
+    // unpackUnorm2x16
+    {
+        v12f[4] = glm::unpackUnorm2x16(u321[3]);
+        v22f[4] = glm2::unpackUnorm2x16(u322[3]);
+        print_vec<2, float>(v12f[4], v22f[4], "unpackUnorm2x16");
+    }
+
+    // unpackUnorm4x8
+    {
+        v14f[4] = glm::unpackUnorm4x8(u321[3]);
+        v24f[4] = glm2::unpackUnorm4x8(u322[3]);
+        print_vec<4, float>(v14f[4], v24f[4], "unpackUnorm4x8");
+    }
+
+#endif
+
+#ifdef GLM2_TEST_VECTOR_RELATIONAL
+
+    // all
+    {
+        b1[2] = glm::all(v14b[0]);
+        b2[2] = glm2::all(v24b[0]);
+        print_single<bool>(b1[2], b2[2], "bvec4 all, different");
+        b1[2] = glm::all(v14b[1]);
+        b2[2] = glm2::all(v24b[1]);
+        print_single<bool>(b1[2], b2[2], "bvec4 all, only true");
+        b1[2] = glm::all(v14b[2]);
+        b2[2] = glm2::all(v24b[2]);
+        print_single<bool>(b1[2], b2[2], "bvec4 all, only false");
+    }
+
+    // all
+    {
+        b1[2] = glm::any(v14b[0]);
+        b2[2] = glm2::any(v24b[0]);
+        print_single<bool>(b1[2], b2[2], "bvec4 any, different");
+        b1[2] = glm::any(v14b[1]);
+        b2[2] = glm2::any(v24b[1]);
+        print_single<bool>(b1[2], b2[2], "bvec4 any, only true");
+        b1[2] = glm::any(v14b[2]);
+        b2[2] = glm2::any(v24b[2]);
+        print_single<bool>(b1[2], b2[2], "bvec4 any, only false");
+    }
+
+    // equal
+    {
+        v12b[4] = glm::equal(v12f[0], v12f[1]);
+        v22b[4] = glm2::equal(v22f[0], v22f[1]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "vec2 equal, different");
+        v12b[4] = glm::equal(v12f[0], v12f[0]);
+        v22b[4] = glm2::equal(v22f[0], v22f[0]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "vec2 equal, equal");
+        v13b[4] = glm::equal(v13f[0], v13f[1]);
+        v23b[4] = glm2::equal(v23f[0], v23f[1]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "vec3 equal, different");
+        v13b[4] = glm::equal(v13f[0], v13f[0]);
+        v23b[4] = glm2::equal(v23f[0], v23f[0]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "vec3 equal, equal");
+        v14b[4] = glm::equal(v14f[0], v14f[1]);
+        v24b[4] = glm2::equal(v24f[0], v24f[1]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "vec4 equal, different");
+        v14b[4] = glm::equal(v14f[0], v14f[0]);
+        v24b[4] = glm2::equal(v24f[0], v24f[0]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "vec4 equal, equal");
+
+        v12b[4] = glm::equal(v12d[0], v12d[1]);
+        v22b[4] = glm2::equal(v22d[0], v22d[1]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "dvec2 equal, different");
+        v12b[4] = glm::equal(v12d[0], v12d[0]);
+        v22b[4] = glm2::equal(v22d[0], v22d[0]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "dvec2 equal, equal");
+        v13b[4] = glm::equal(v13d[0], v13d[1]);
+        v23b[4] = glm2::equal(v23d[0], v23d[1]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "dvec3 equal, different");
+        v13b[4] = glm::equal(v13d[0], v13d[0]);
+        v23b[4] = glm2::equal(v23d[0], v23d[0]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "dvec3 equal, equal");
+        v14b[4] = glm::equal(v14d[0], v14d[1]);
+        v24b[4] = glm2::equal(v24d[0], v24d[1]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "dvec4 equal, different");
+        v14b[4] = glm::equal(v14d[0], v14d[0]);
+        v24b[4] = glm2::equal(v24d[0], v24d[0]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "dvec4 equal, equal");
+
+        v12b[4] = glm::equal(v12i32[0], v12i32[1]);
+        v22b[4] = glm2::equal(v22i32[0], v22i32[1]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "ivec2 equal, different");
+        v12b[4] = glm::equal(v12i32[0], v12i32[0]);
+        v22b[4] = glm2::equal(v22i32[0], v22i32[0]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "ivec2 equal, equal");
+        v13b[4] = glm::equal(v13i32[0], v13i32[1]);
+        v23b[4] = glm2::equal(v23i32[0], v23i32[1]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "ivec3 equal, different");
+        v13b[4] = glm::equal(v13i32[0], v13i32[0]);
+        v23b[4] = glm2::equal(v23i32[0], v23i32[0]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "ivec3 equal, equal");
+        v14b[4] = glm::equal(v14i32[0], v14i32[1]);
+        v24b[4] = glm2::equal(v24i32[0], v24i32[1]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "ivec4 equal, different");
+        v14b[4] = glm::equal(v14i32[0], v14i32[0]);
+        v24b[4] = glm2::equal(v24i32[0], v24i32[0]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "ivec4 equal, equal");
+
+        v12b[4] = glm::equal(v12u32[0], v12u32[1]);
+        v22b[4] = glm2::equal(v22u32[0], v22u32[1]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "uvec2 equal, different");
+        v12b[4] = glm::equal(v12u32[0], v12u32[0]);
+        v22b[4] = glm2::equal(v22u32[0], v22u32[0]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "uvec2 equal, equal");
+        v13b[4] = glm::equal(v13u32[0], v13u32[1]);
+        v23b[4] = glm2::equal(v23u32[0], v23u32[1]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "uvec3 equal, different");
+        v13b[4] = glm::equal(v13u32[0], v13u32[0]);
+        v23b[4] = glm2::equal(v23u32[0], v23u32[0]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "uvec3 equal, equal");
+        v14b[4] = glm::equal(v14u32[0], v14u32[1]);
+        v24b[4] = glm2::equal(v24u32[0], v24u32[1]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "uvec4 equal, different");
+        v14b[4] = glm::equal(v14u32[0], v14u32[0]);
+        v24b[4] = glm2::equal(v24u32[0], v24u32[0]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "uvec4 equal, equal");
+    }
+
+    // notEqual
+    {
+        v12b[4] = glm::notEqual(v12f[0], v12f[1]);
+        v22b[4] = glm2::notEqual(v22f[0], v22f[1]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "vec2 notEqual, different");
+        v12b[4] = glm::notEqual(v12f[0], v12f[0]);
+        v22b[4] = glm2::notEqual(v22f[0], v22f[0]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "vec2 notEqual, equal");
+        v13b[4] = glm::notEqual(v13f[0], v13f[1]);
+        v23b[4] = glm2::notEqual(v23f[0], v23f[1]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "vec3 notEqual, different");
+        v13b[4] = glm::notEqual(v13f[0], v13f[0]);
+        v23b[4] = glm2::notEqual(v23f[0], v23f[0]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "vec3 notEqual, equal");
+        v14b[4] = glm::notEqual(v14f[0], v14f[1]);
+        v24b[4] = glm2::notEqual(v24f[0], v24f[1]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "vec4 notEqual, different");
+        v14b[4] = glm::notEqual(v14f[0], v14f[0]);
+        v24b[4] = glm2::notEqual(v24f[0], v24f[0]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "vec4 notEqual, equal");
+
+        v12b[4] = glm::notEqual(v12d[0], v12d[1]);
+        v22b[4] = glm2::notEqual(v22d[0], v22d[1]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "dvec2 notEqual, different");
+        v12b[4] = glm::notEqual(v12d[0], v12d[0]);
+        v22b[4] = glm2::notEqual(v22d[0], v22d[0]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "dvec2 notEqual, equal");
+        v13b[4] = glm::notEqual(v13d[0], v13d[1]);
+        v23b[4] = glm2::notEqual(v23d[0], v23d[1]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "dvec3 notEqual, different");
+        v13b[4] = glm::notEqual(v13d[0], v13d[0]);
+        v23b[4] = glm2::notEqual(v23d[0], v23d[0]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "dvec3 notEqual, equal");
+        v14b[4] = glm::notEqual(v14d[0], v14d[1]);
+        v24b[4] = glm2::notEqual(v24d[0], v24d[1]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "dvec4 notEqual, different");
+        v14b[4] = glm::notEqual(v14d[0], v14d[0]);
+        v24b[4] = glm2::notEqual(v24d[0], v24d[0]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "dvec4 notEqual, equal");
+
+        v12b[4] = glm::notEqual(v12i32[0], v12i32[1]);
+        v22b[4] = glm2::notEqual(v22i32[0], v22i32[1]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "ivec2 notEqual, different");
+        v12b[4] = glm::notEqual(v12i32[0], v12i32[0]);
+        v22b[4] = glm2::notEqual(v22i32[0], v22i32[0]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "ivec2 notEqual, equal");
+        v13b[4] = glm::notEqual(v13i32[0], v13i32[1]);
+        v23b[4] = glm2::notEqual(v23i32[0], v23i32[1]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "ivec3 notEqual, different");
+        v13b[4] = glm::notEqual(v13i32[0], v13i32[0]);
+        v23b[4] = glm2::notEqual(v23i32[0], v23i32[0]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "ivec3 notEqual, equal");
+        v14b[4] = glm::notEqual(v14i32[0], v14i32[1]);
+        v24b[4] = glm2::notEqual(v24i32[0], v24i32[1]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "ivec4 notEqual, different");
+        v14b[4] = glm::notEqual(v14i32[0], v14i32[0]);
+        v24b[4] = glm2::notEqual(v24i32[0], v24i32[0]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "ivec4 notEqual, equal");
+
+        v12b[4] = glm::notEqual(v12u32[0], v12u32[1]);
+        v22b[4] = glm2::notEqual(v22u32[0], v22u32[1]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "uvec2 notEqual, different");
+        v12b[4] = glm::notEqual(v12u32[0], v12u32[0]);
+        v22b[4] = glm2::notEqual(v22u32[0], v22u32[0]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "uvec2 notEqual, equal");
+        v13b[4] = glm::notEqual(v13u32[0], v13u32[1]);
+        v23b[4] = glm2::notEqual(v23u32[0], v23u32[1]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "uvec3 notEqual, different");
+        v13b[4] = glm::notEqual(v13u32[0], v13u32[0]);
+        v23b[4] = glm2::notEqual(v23u32[0], v23u32[0]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "uvec3 notEqual, equal");
+        v14b[4] = glm::notEqual(v14u32[0], v14u32[1]);
+        v24b[4] = glm2::notEqual(v24u32[0], v24u32[1]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "uvec4 notEqual, different");
+        v14b[4] = glm::notEqual(v14u32[0], v14u32[0]);
+        v24b[4] = glm2::notEqual(v24u32[0], v24u32[0]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "uvec4 notEqual, equal");
+    }
+    
+    // greaterThan
+    {
+        v12b[4] = glm::greaterThan(v12f[1], v12f[3]);
+        v22b[4] = glm2::greaterThan(v22f[1], v22f[3]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "vec2 greaterThan");
+        v13b[4] = glm::greaterThan(v13f[1], v13f[3]);
+        v23b[4] = glm2::greaterThan(v23f[1], v23f[3]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "vec3 greaterThan");
+        v14b[4] = glm::greaterThan(v14f[1], v14f[3]);
+        v24b[4] = glm2::greaterThan(v24f[1], v24f[3]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "vec2 greaterThan");
+
+        v12b[4] = glm::greaterThan(v12d[1], v12d[3]);
+        v22b[4] = glm2::greaterThan(v22d[1], v22d[3]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "dvec2 greaterThan");
+        v13b[4] = glm::greaterThan(v13d[1], v13d[3]);
+        v23b[4] = glm2::greaterThan(v23d[1], v23d[3]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "dvec3 greaterThan");
+        v14b[4] = glm::greaterThan(v14d[1], v14d[3]);
+        v24b[4] = glm2::greaterThan(v24d[1], v24d[3]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "dvec2 greaterThan");
+
+        v12b[4] = glm::greaterThan(v12i32[2], v12i32[3]);
+        v22b[4] = glm2::greaterThan(v22i32[2], v22i32[3]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "ivec2 greaterThan");
+        v13b[4] = glm::greaterThan(v13i32[2], v13i32[3]);
+        v23b[4] = glm2::greaterThan(v23i32[2], v23i32[3]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "ivec3 greaterThan");
+        v14b[4] = glm::greaterThan(v14i32[2], v14i32[3]);
+        v24b[4] = glm2::greaterThan(v24i32[2], v24i32[3]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "ivec2 greaterThan");
+
+        v12b[4] = glm::greaterThan(v12u32[2], v12u32[3]);
+        v22b[4] = glm2::greaterThan(v22u32[2], v22u32[3]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "uvec2 greaterThan");
+        v13b[4] = glm::greaterThan(v13u32[2], v13u32[3]);
+        v23b[4] = glm2::greaterThan(v23u32[2], v23u32[3]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "uvec3 greaterThan");
+        v14b[4] = glm::greaterThan(v14u32[2], v14u32[3]);
+        v24b[4] = glm2::greaterThan(v24u32[2], v24u32[3]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "uvec2 greaterThan");
+    }
+
+    // lessThan
+    {
+        v12b[4] = glm::lessThan(v12f[1], v12f[3]);
+        v22b[4] = glm2::lessThan(v22f[1], v22f[3]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "vec2 lessThan");
+        v13b[4] = glm::lessThan(v13f[1], v13f[3]);
+        v23b[4] = glm2::lessThan(v23f[1], v23f[3]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "vec3 lessThan");
+        v14b[4] = glm::lessThan(v14f[1], v14f[3]);
+        v24b[4] = glm2::lessThan(v24f[1], v24f[3]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "vec2 lessThan");
+
+        v12b[4] = glm::lessThan(v12d[1], v12d[3]);
+        v22b[4] = glm2::lessThan(v22d[1], v22d[3]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "dvec2 lessThan");
+        v13b[4] = glm::lessThan(v13d[1], v13d[3]);
+        v23b[4] = glm2::lessThan(v23d[1], v23d[3]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "dvec3 lessThan");
+        v14b[4] = glm::lessThan(v14d[1], v14d[3]);
+        v24b[4] = glm2::lessThan(v24d[1], v24d[3]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "dvec2 lessThan");
+
+        v12b[4] = glm::lessThan(v12i32[2], v12i32[3]);
+        v22b[4] = glm2::lessThan(v22i32[2], v22i32[3]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "ivec2 lessThan");
+        v13b[4] = glm::lessThan(v13i32[2], v13i32[3]);
+        v23b[4] = glm2::lessThan(v23i32[2], v23i32[3]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "ivec3 lessThan");
+        v14b[4] = glm::lessThan(v14i32[2], v14i32[3]);
+        v24b[4] = glm2::lessThan(v24i32[2], v24i32[3]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "ivec2 lessThan");
+
+        v12b[4] = glm::lessThan(v12u32[2], v12u32[3]);
+        v22b[4] = glm2::lessThan(v22u32[2], v22u32[3]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "uvec2 lessThan");
+        v13b[4] = glm::lessThan(v13u32[2], v13u32[3]);
+        v23b[4] = glm2::lessThan(v23u32[2], v23u32[3]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "uvec3 lessThan");
+        v14b[4] = glm::lessThan(v14u32[2], v14u32[3]);
+        v24b[4] = glm2::lessThan(v24u32[2], v24u32[3]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "uvec2 lessThan");
+    }
+
+    // greaterThanEqual
+    {
+        v12b[4] = glm::greaterThanEqual(v12f[1], v12f[3]);
+        v22b[4] = glm2::greaterThanEqual(v22f[1], v22f[3]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "vec2 greaterThanEqual, different");
+        v12b[4] = glm::greaterThanEqual(v12f[1], v12f[1]);
+        v22b[4] = glm2::greaterThanEqual(v22f[1], v22f[1]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "vec2 greaterThanEqual, equal");
+        v13b[4] = glm::greaterThanEqual(v13f[1], v13f[3]);
+        v23b[4] = glm2::greaterThanEqual(v23f[1], v23f[3]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "vec3 greaterThanEqual, different");
+        v13b[4] = glm::greaterThanEqual(v13f[1], v13f[1]);
+        v23b[4] = glm2::greaterThanEqual(v23f[1], v23f[1]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "vec3 greaterThanEqual, equal");
+        v14b[4] = glm::greaterThanEqual(v14f[1], v14f[3]);
+        v24b[4] = glm2::greaterThanEqual(v24f[1], v24f[3]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "vec4 greaterThanEqual, different");
+        v14b[4] = glm::greaterThanEqual(v14f[1], v14f[1]);
+        v24b[4] = glm2::greaterThanEqual(v24f[1], v24f[1]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "vec4 greaterThanEqual, equal");
+
+        v12b[4] = glm::greaterThanEqual(v12d[1], v12d[3]);
+        v22b[4] = glm2::greaterThanEqual(v22d[1], v22d[3]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "dvec2 greaterThanEqual, different");
+        v12b[4] = glm::greaterThanEqual(v12d[1], v12d[1]);
+        v22b[4] = glm2::greaterThanEqual(v22d[1], v22d[1]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "dvec2 greaterThanEqual, equal");
+        v13b[4] = glm::greaterThanEqual(v13d[1], v13d[3]);
+        v23b[4] = glm2::greaterThanEqual(v23d[1], v23d[3]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "dvec3 greaterThanEqual, different");
+        v13b[4] = glm::greaterThanEqual(v13d[1], v13d[1]);
+        v23b[4] = glm2::greaterThanEqual(v23d[1], v23d[1]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "dvec3 greaterThanEqual, equal");
+        v14b[4] = glm::greaterThanEqual(v14d[1], v14d[3]);
+        v24b[4] = glm2::greaterThanEqual(v24d[1], v24d[3]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "dvec4 greaterThanEqual, different");
+        v14b[4] = glm::greaterThanEqual(v14d[1], v14d[1]);
+        v24b[4] = glm2::greaterThanEqual(v24d[1], v24d[1]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "dvec4 greaterThanEqual, equal");
+
+        v12b[4] = glm::greaterThanEqual(v12i32[2], v12i32[3]);
+        v22b[4] = glm2::greaterThanEqual(v22i32[2], v22i32[3]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "ivec2 greaterThanEqual, different");
+        v12b[4] = glm::greaterThanEqual(v12i32[2], v12i32[2]);
+        v22b[4] = glm2::greaterThanEqual(v22i32[2], v22i32[2]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "ivec2 greaterThanEqual, equal");
+        v13b[4] = glm::greaterThanEqual(v13i32[2], v13i32[3]);
+        v23b[4] = glm2::greaterThanEqual(v23i32[2], v23i32[3]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "ivec3 greaterThanEqual, different");
+        v13b[4] = glm::greaterThanEqual(v13i32[2], v13i32[2]);
+        v23b[4] = glm2::greaterThanEqual(v23i32[2], v23i32[2]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "ivec3 greaterThanEqual, equal");
+        v14b[4] = glm::greaterThanEqual(v14i32[2], v14i32[3]);
+        v24b[4] = glm2::greaterThanEqual(v24i32[2], v24i32[3]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "ivec4 greaterThanEqual, different");
+        v14b[4] = glm::greaterThanEqual(v14i32[2], v14i32[2]);
+        v24b[4] = glm2::greaterThanEqual(v24i32[2], v24i32[2]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "ivec4 greaterThanEqual, equal");
+
+        v12b[4] = glm::greaterThanEqual(v12u32[2], v12u32[3]);
+        v22b[4] = glm2::greaterThanEqual(v22u32[2], v22u32[3]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "uvec2 greaterThanEqual, different");
+        v12b[4] = glm::greaterThanEqual(v12u32[2], v12u32[2]);
+        v22b[4] = glm2::greaterThanEqual(v22u32[2], v22u32[2]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "uvec2 greaterThanEqual, equal");
+        v13b[4] = glm::greaterThanEqual(v13u32[2], v13u32[3]);
+        v23b[4] = glm2::greaterThanEqual(v23u32[2], v23u32[3]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "uvec3 greaterThanEqual, different");
+        v13b[4] = glm::greaterThanEqual(v13u32[2], v13u32[2]);
+        v23b[4] = glm2::greaterThanEqual(v23u32[2], v23u32[2]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "uvec3 greaterThanEqual, equal");
+        v14b[4] = glm::greaterThanEqual(v14u32[2], v14u32[3]);
+        v24b[4] = glm2::greaterThanEqual(v24u32[2], v24u32[3]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "uvec4 greaterThanEqual, different");
+        v14b[4] = glm::greaterThanEqual(v14u32[2], v14u32[2]);
+        v24b[4] = glm2::greaterThanEqual(v24u32[2], v24u32[2]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "uvec4 greaterThanEqual, equal");
+    }
+
+    // lessThanEqual
+    {
+        v12b[4] = glm::lessThanEqual(v12f[1], v12f[3]);
+        v22b[4] = glm2::lessThanEqual(v22f[1], v22f[3]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "vec2 lessThanEqual, different");
+        v12b[4] = glm::lessThanEqual(v12f[1], v12f[1]);
+        v22b[4] = glm2::lessThanEqual(v22f[1], v22f[1]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "vec2 lessThanEqual, equal");
+        v13b[4] = glm::lessThanEqual(v13f[1], v13f[3]);
+        v23b[4] = glm2::lessThanEqual(v23f[1], v23f[3]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "vec3 lessThanEqual, different");
+        v13b[4] = glm::lessThanEqual(v13f[1], v13f[1]);
+        v23b[4] = glm2::lessThanEqual(v23f[1], v23f[1]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "vec3 lessThanEqual, equal");
+        v14b[4] = glm::lessThanEqual(v14f[1], v14f[3]);
+        v24b[4] = glm2::lessThanEqual(v24f[1], v24f[3]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "vec4 lessThanEqual, different");
+        v14b[4] = glm::lessThanEqual(v14f[1], v14f[1]);
+        v24b[4] = glm2::lessThanEqual(v24f[1], v24f[1]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "vec4 lessThanEqual, equal");
+
+        v12b[4] = glm::lessThanEqual(v12d[1], v12d[3]);
+        v22b[4] = glm2::lessThanEqual(v22d[1], v22d[3]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "dvec2 lessThanEqual, different");
+        v12b[4] = glm::lessThanEqual(v12d[1], v12d[1]);
+        v22b[4] = glm2::lessThanEqual(v22d[1], v22d[1]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "dvec2 lessThanEqual, equal");
+        v13b[4] = glm::lessThanEqual(v13d[1], v13d[3]);
+        v23b[4] = glm2::lessThanEqual(v23d[1], v23d[3]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "dvec3 lessThanEqual, different");
+        v13b[4] = glm::lessThanEqual(v13d[1], v13d[1]);
+        v23b[4] = glm2::lessThanEqual(v23d[1], v23d[1]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "dvec3 lessThanEqual, equal");
+        v14b[4] = glm::lessThanEqual(v14d[1], v14d[3]);
+        v24b[4] = glm2::lessThanEqual(v24d[1], v24d[3]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "dvec4 lessThanEqual, different");
+        v14b[4] = glm::lessThanEqual(v14d[1], v14d[1]);
+        v24b[4] = glm2::lessThanEqual(v24d[1], v24d[1]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "dvec4 lessThanEqual, equal");
+
+        v12b[4] = glm::lessThanEqual(v12i32[2], v12i32[3]);
+        v22b[4] = glm2::lessThanEqual(v22i32[2], v22i32[3]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "ivec2 lessThanEqual, different");
+        v12b[4] = glm::lessThanEqual(v12i32[2], v12i32[2]);
+        v22b[4] = glm2::lessThanEqual(v22i32[2], v22i32[2]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "ivec2 lessThanEqual, equal");
+        v13b[4] = glm::lessThanEqual(v13i32[2], v13i32[3]);
+        v23b[4] = glm2::lessThanEqual(v23i32[2], v23i32[3]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "ivec3 lessThanEqual, different");
+        v13b[4] = glm::lessThanEqual(v13i32[2], v13i32[2]);
+        v23b[4] = glm2::lessThanEqual(v23i32[2], v23i32[2]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "ivec3 lessThanEqual, equal");
+        v14b[4] = glm::lessThanEqual(v14i32[2], v14i32[3]);
+        v24b[4] = glm2::lessThanEqual(v24i32[2], v24i32[3]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "ivec4 lessThanEqual, different");
+        v14b[4] = glm::lessThanEqual(v14i32[2], v14i32[2]);
+        v24b[4] = glm2::lessThanEqual(v24i32[2], v24i32[2]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "ivec4 lessThanEqual, equal");
+
+        v12b[4] = glm::lessThanEqual(v12u32[2], v12u32[3]);
+        v22b[4] = glm2::lessThanEqual(v22u32[2], v22u32[3]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "uvec2 lessThanEqual, different");
+        v12b[4] = glm::lessThanEqual(v12u32[2], v12u32[2]);
+        v22b[4] = glm2::lessThanEqual(v22u32[2], v22u32[2]);
+        print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "uvec2 lessThanEqual, equal");
+        v13b[4] = glm::lessThanEqual(v13u32[2], v13u32[3]);
+        v23b[4] = glm2::lessThanEqual(v23u32[2], v23u32[3]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "uvec3 lessThanEqual, different");
+        v13b[4] = glm::lessThanEqual(v13u32[2], v13u32[2]);
+        v23b[4] = glm2::lessThanEqual(v23u32[2], v23u32[2]);
+        print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "uvec3 lessThanEqual, equal");
+        v14b[4] = glm::lessThanEqual(v14u32[2], v14u32[3]);
+        v24b[4] = glm2::lessThanEqual(v24u32[2], v24u32[3]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "uvec4 lessThanEqual, different");
+        v14b[4] = glm::lessThanEqual(v14u32[2], v14u32[2]);
+        v24b[4] = glm2::lessThanEqual(v24u32[2], v24u32[2]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "uvec4 lessThanEqual, equal");
+    }
+
+    // not
+    {
+        v14b[2] = glm::not_(v14b[0]);
+        v24b[2] = glm2::not_(v24b[0]);
+        print_vec<4, uint32_t>((glm::uvec4(v14b[2]) * GLM2_TRUE), v24b[2], "bvec4 not_");
+    }
+
+#endif
+
+#ifdef GLM2_TEST_MATRIX_TRANSFORMATION
 #endif
 
     std::cout << ATTRIBUTE_UNDERLINE COLOR_GREEN << "TRUE: " << count_true << COLOR_RESET "   " << ATTRIBUTE_UNDERLINE COLOR_RED << "FALSE: " << count_false << COLOR_RESET << std::endl;

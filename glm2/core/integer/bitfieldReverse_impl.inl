@@ -16,7 +16,7 @@ inline genIType glm2::bitfieldReverse(genIType x)
 {
     genIType ret;
     __m128 xmm0 = detail::core::integer::bitfieldReverse::_default_u32v(_mm_loadu_si32(&x));
-    _mm_storeu_si32(&ret);
+    _mm_storeu_si32(&ret, xmm0);
     return ret;
 }
 
