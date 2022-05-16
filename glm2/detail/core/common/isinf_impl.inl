@@ -39,8 +39,9 @@ inline __m128i glm2::detail::core::common::isinf::_default_dv2(__m128d x)
     xmm1 = _mm_set1_epi64x(0x7FF0000000000000); // inf 64bit
     xmm2 = _mm_cmpeq_epi64(xmm0, xmm1);
     xmm1 = _mm_set1_epi64x(0xFFF0000000000000); // -inf 64bit
-    xmm0 = _mm_cmpeq_epi32(xmm0, xmm1);
-    return _mm_or_si128(xmm0, xmm2);
+    xmm0 = _mm_cmpeq_epi64(xmm0, xmm1);
+    xmm0 = _mm_or_si128(xmm0, xmm2);
+    return _mm_shuffle_epi32(xmm0, 0x08);
 }
 
 inline __m128i glm2::detail::core::common::isinf::_default_dv(__m256d x)

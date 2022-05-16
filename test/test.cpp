@@ -11,25 +11,28 @@
 
 #include "test.h"
 
-#define GLM2_TEST_VECTOR_ARITHMETIC_OPERATORS
-#define GLM2_TEST_VECTOR_CMP_OPERATORS
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT2
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT3
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT4
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT2
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT3
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT4
-#define GLM2_TEST_MATRIX_CMP_OPERATORS
-#define GLM2_TEST_MATRIX_EXT_ARITHMETIC
-#define GLM2_TEST_COMMON
-#define GLM2_TEST_EXPONENTIAL
-#define GLM2_TEST_TRIGONOMETRIC
-#define GLM2_TEST_GEOMETRIC
-#define GLM2_TEST_MATRIX
-#define GLM2_TEST_INTEGER
-#define GLM2_TEST_PACKING
-#define GLM2_TEST_VECTOR_RELATIONAL
-#define GLM2_TEST_MATRIX_TRANSFORMATION
+#define DOUBLE_INFINITY ((double)(INFINITY))
+#define DOUBLE_NAN ((double)(NAN))
+
+//#define GLM2_TEST_VECTOR_ARITHMETIC_OPERATORS
+//#define GLM2_TEST_VECTOR_CMP_OPERATORS
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT2
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT3
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT4
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT2
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT3
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT4
+//#define GLM2_TEST_MATRIX_CMP_OPERATORS
+//#define GLM2_TEST_MATRIX_EXT_ARITHMETIC
+//#define GLM2_TEST_COMMON
+//#define GLM2_TEST_EXPONENTIAL
+//#define GLM2_TEST_TRIGONOMETRIC
+//#define GLM2_TEST_GEOMETRIC
+//#define GLM2_TEST_MATRIX
+//#define GLM2_TEST_INTEGER
+//#define GLM2_TEST_PACKING
+//#define GLM2_TEST_VECTOR_RELATIONAL
+//#define GLM2_TEST_MATRIX_TRANSFORMATION
 
 namespace glm2
 {
@@ -2360,6 +2363,12 @@ void glm2::test::run_test(void)
         d1[4] = glm::abs(d1[1]);
         d2[4] = glm2::abs(d1[1]);
         print_single<double>(d1[4], d2[4], "abs -d");
+        i321[4] = glm::abs(i321[0]);
+        i322[4] = glm2::abs(i321[0]);
+        print_single<int32_t>(i321[4], i322[4], "abs +i");
+        i321[4] = glm::abs(i321[1]);
+        i322[4] = glm2::abs(i321[1]);
+        print_single<int32_t>(i321[4], i322[4], "abs -i");
         v12f[4] = glm::abs(v12f[0]);
         v22f[4] = glm2::abs(v22f[0]);
         print_vec<2, float>(v12f[4], v22f[4], "abs v2f");
@@ -2378,6 +2387,15 @@ void glm2::test::run_test(void)
         v14d[4] = glm::abs(v14d[0]);
         v24d[4] = glm2::abs(v24d[0]);
         print_vec<4, double>(v14d[4], v24d[4], "abs v4d");
+        v12i32[4] = glm::abs(v12i32[0]);
+        v22i32[4] = glm2::abs(v22i32[0]);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "abs v2d");
+        v13i32[4] = glm::abs(v13i32[0]);
+        v23i32[4] = glm2::abs(v23i32[0]);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "abs v3d");
+        v14i32[4] = glm::abs(v14i32[0]);
+        v24i32[4] = glm2::abs(v24i32[0]);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "abs v4d");
     }
 
     // function ceil
@@ -2564,6 +2582,12 @@ void glm2::test::run_test(void)
         d1[4] = glm::sign(d1[1]);
         d2[4] = glm2::sign(d1[1]);
         print_single<double>(d1[4], d2[4], "sign -d");
+        i321[4] = glm::sign(i321[0]);
+        i322[4] = glm2::sign(i321[0]);
+        print_single<int32_t>(i321[4], i322[4], "sign +i32");
+        i321[4] = glm::sign(i321[1]);
+        i322[4] = glm2::sign(i321[1]);
+        print_single<int32_t>(i321[4], i322[4], "sign -i32");
         v12f[4] = glm::sign(v12f[0]);
         v22f[4] = glm2::sign(v22f[0]);
         print_vec<2, float>(v12f[4], v22f[4], "sign v2f");
@@ -2582,6 +2606,15 @@ void glm2::test::run_test(void)
         v14d[4] = glm::sign(v14d[0]);
         v24d[4] = glm2::sign(v24d[0]);
         print_vec<4, double>(v14d[4], v24d[4], "sign v4d");
+        v12i32[4] = glm::sign(v12i32[0]);
+        v22i32[4] = glm2::sign(v22i32[0]);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "sign v2i32");
+        v13i32[4] = glm::sign(v13i32[0]);
+        v23i32[4] = glm2::sign(v23i32[0]);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "sign v3i32");
+        v14i32[4] = glm::sign(v14i32[0]);
+        v24i32[4] = glm2::sign(v24i32[0]);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "sign v4i32");
     }
 
     // function trunc
@@ -2654,6 +2687,12 @@ void glm2::test::run_test(void)
         d1[4] = glm::min(d1[0], 1.0);
         d2[4] = glm2::min(d2[0], 1.0);
         print_single<double>(d1[4], d2[4], "min d");
+        i321[4] = glm::min(i321[0], 5);
+        i322[4] = glm2::min(i322[0], 5);
+        print_single<int32_t>(i321[4], i322[4], "min i32");
+        u321[4] = glm::min(u321[0], 5u);
+        u322[4] = glm2::min(u322[0], 5u);
+        print_single<uint32_t>(u321[4], u322[4], "min u32");
         v12f[4] = glm::min(v12f[3], 0.5f);
         v22f[4] = glm2::min(v22f[3], 0.5f);
         print_vec<2, float>(v12f[4], v22f[4], "min vs2f");
@@ -2672,6 +2711,24 @@ void glm2::test::run_test(void)
         v14d[4] = glm::min(v14d[3], 0.5);
         v24d[4] = glm2::min(v24d[3], 0.5);
         print_vec<4, double>(v14d[4], v24d[4], "min vs4d");
+        v12i32[4] = glm::min(v12i32[3], 5);
+        v22i32[4] = glm2::min(v22i32[3], 5);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "min vs2i32");
+        v13i32[4] = glm::min(v13i32[3], 5);
+        v23i32[4] = glm2::min(v23i32[3], 5);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "min vs3i32");
+        v14i32[4] = glm::min(v14i32[3], 5);
+        v24i32[4] = glm2::min(v24i32[3], 5);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "min vs4i32");
+        v12u32[4] = glm::min(v12u32[3], 20u);
+        v22u32[4] = glm2::min(v22u32[3], 20u);
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "min vs2u32");
+        v13u32[4] = glm::min(v13u32[3], 20u);
+        v23u32[4] = glm2::min(v23u32[3], 20u);
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "min vs3u32");
+        v14u32[4] = glm::min(v14u32[3], 20u);
+        v24u32[4] = glm2::min(v24u32[3], 20u);
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "min vs4u32");
         v12f[4] = glm::min(v12f[3], glm::vec2(0.5f));
         v22f[4] = glm2::min(v22f[3], glm2::vec2(0.5f));
         print_vec<2, float>(v12f[4], v22f[4], "min vv2f");
@@ -2690,6 +2747,24 @@ void glm2::test::run_test(void)
         v14d[4] = glm::min(v14d[3], glm::dvec4(0.5));
         v24d[4] = glm2::min(v24d[3], glm2::dvec4(0.5));
         print_vec<4, double>(v14d[4], v24d[4], "min vv4d");
+        v12i32[4] = glm::min(v12i32[3], glm::ivec2(5));
+        v22i32[4] = glm2::min(v22i32[3], glm2::ivec2(5));
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "min vv2i32");
+        v13i32[4] = glm::min(v13i32[3], glm::ivec3(5));
+        v23i32[4] = glm2::min(v23i32[3], glm2::ivec3(5));
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "min vv3i32");
+        v14i32[4] = glm::min(v14i32[3], glm::ivec4(5));
+        v24i32[4] = glm2::min(v24i32[3], glm2::ivec4(5));
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "min vv4i32");
+        v12u32[4] = glm::min(v12u32[3], glm::uvec2(20));
+        v22u32[4] = glm2::min(v22u32[3], glm2::uvec2(20));
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "min vv2u32");
+        v13u32[4] = glm::min(v13u32[3], glm::uvec3(20));
+        v23u32[4] = glm2::min(v23u32[3], glm2::uvec3(20));
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "min vv3u32");
+        v14u32[4] = glm::min(v14u32[3], glm::uvec4(20));
+        v24u32[4] = glm2::min(v24u32[3], glm2::uvec4(20));
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "min vv4u32");
     }
 
     // function max
@@ -2700,6 +2775,12 @@ void glm2::test::run_test(void)
         d1[4] = glm::max(d1[0], 1.0);
         d2[4] = glm2::max(d2[0], 1.0);
         print_single<double>(d1[4], d2[4], "max d");
+        i321[4] = glm::max(i321[0], 5);
+        i322[4] = glm2::max(i322[0], 5);
+        print_single<int32_t>(i321[4], i322[4], "max i32");
+        u321[4] = glm::max(u321[0], 5u);
+        u322[4] = glm2::max(u322[0], 5u);
+        print_single<uint32_t>(u321[4], u322[4], "max u32");
         v12f[4] = glm::max(v12f[3], 0.5f);
         v22f[4] = glm2::max(v22f[3], 0.5f);
         print_vec<2, float>(v12f[4], v22f[4], "max vs2f");
@@ -2718,6 +2799,24 @@ void glm2::test::run_test(void)
         v14d[4] = glm::max(v14d[3], 0.5);
         v24d[4] = glm2::max(v24d[3], 0.5);
         print_vec<4, double>(v14d[4], v24d[4], "max vs4d");
+        v12i32[4] = glm::max(v12i32[3], 5);
+        v22i32[4] = glm2::max(v22i32[3], 5);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "max vs2i32");
+        v13i32[4] = glm::max(v13i32[3], 5);
+        v23i32[4] = glm2::max(v23i32[3], 5);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "max vs3i32");
+        v14i32[4] = glm::max(v14i32[3], 5);
+        v24i32[4] = glm2::max(v24i32[3], 5);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "max vs4i32");
+        v12u32[4] = glm::max(v12u32[3], 20u);
+        v22u32[4] = glm2::max(v22u32[3], 20u);
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "max vs2u32");
+        v13u32[4] = glm::max(v13u32[3], 20u);
+        v23u32[4] = glm2::max(v23u32[3], 20u);
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "max vs3u32");
+        v14u32[4] = glm::max(v14u32[3], 20u);
+        v24u32[4] = glm2::max(v24u32[3], 20u);
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "max vs4u32");
         v12f[4] = glm::max(v12f[3], glm::vec2(0.5f));
         v22f[4] = glm2::max(v22f[3], glm2::vec2(0.5f));
         print_vec<2, float>(v12f[4], v22f[4], "max vv2f");
@@ -2736,6 +2835,24 @@ void glm2::test::run_test(void)
         v14d[4] = glm::max(v14d[3], glm::dvec4(0.5));
         v24d[4] = glm2::max(v24d[3], glm2::dvec4(0.5));
         print_vec<4, double>(v14d[4], v24d[4], "max vv4d");
+        v12i32[4] = glm::max(v12i32[3], glm::ivec2(5));
+        v22i32[4] = glm2::max(v22i32[3], glm2::ivec2(5));
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "max vv2i32");
+        v13i32[4] = glm::max(v13i32[3], glm::ivec3(5));
+        v23i32[4] = glm2::max(v23i32[3], glm2::ivec3(5));
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "max vv3i32");
+        v14i32[4] = glm::max(v14i32[3], glm::ivec4(5));
+        v24i32[4] = glm2::max(v24i32[3], glm2::ivec4(5));
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "max vv4i32");
+        v12u32[4] = glm::max(v12u32[3], glm::uvec2(20));
+        v22u32[4] = glm2::max(v22u32[3], glm2::uvec2(20));
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "max vv2u32");
+        v13u32[4] = glm::max(v13u32[3], glm::uvec3(20));
+        v23u32[4] = glm2::max(v23u32[3], glm2::uvec3(20));
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "max vv3u32");
+        v14u32[4] = glm::max(v14u32[3], glm::uvec4(20));
+        v24u32[4] = glm2::max(v24u32[3], glm2::uvec4(20));
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "max vv4u32");
     }
 
     // function mod
@@ -2792,6 +2909,12 @@ void glm2::test::run_test(void)
         d1[4] = glm::clamp(d1[0], 0.0, 1.0);
         d2[4] = glm2::clamp(d2[0], 0.0, 1.0);
         print_single<double>(d1[4], d2[4], "clamp d");
+        i321[4] = glm::clamp(i321[0], 0, 5);
+        i322[4] = glm2::clamp(i322[0], 0, 5);
+        print_single<int32_t>(i321[4], i322[4], "clamp i32");
+        u321[4] = glm::clamp(u321[0], 0u, 5u);
+        u322[4] = glm2::clamp(u322[0], 0u, 5u);
+        print_single<uint32_t>(u321[4], u322[4], "clamp u32");
         v12f[4] = glm::clamp(v12f[3], 0.5f, 0.7f);
         v22f[4] = glm2::clamp(v22f[3], 0.5f, 0.7f);
         print_vec<2, float>(v12f[4], v22f[4], "clamp vs2f");
@@ -2810,6 +2933,24 @@ void glm2::test::run_test(void)
         v14d[4] = glm::clamp(v14d[3], 0.5, 0.7);
         v24d[4] = glm2::clamp(v24d[3], 0.5, 0.7);
         print_vec<4, double>(v14d[4], v24d[4], "clamp vs4d");
+        v12i32[4] = glm::clamp(v12i32[0], -5, 5);
+        v22i32[4] = glm2::clamp(v22i32[0], -5, 5);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "clamp vs2i32");
+        v13i32[4] = glm::clamp(v13i32[0], -5, 5);
+        v23i32[4] = glm2::clamp(v23i32[0], -5, 5);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "clamp vs3i32");
+        v14i32[4] = glm::clamp(v14i32[0], -5, 5);
+        v24i32[4] = glm2::clamp(v24i32[0], -5, 5);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "clamp vs4i32");
+        v12u32[4] = glm::clamp(v12u32[0], 20u, 50u);
+        v22u32[4] = glm2::clamp(v22u32[0], 20u, 50u);
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "clamp vs2u32");
+        v13u32[4] = glm::clamp(v13u32[0], 20u, 50u);
+        v23u32[4] = glm2::clamp(v23u32[0], 20u, 50u);
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "clamp vs3u32");
+        v14u32[4] = glm::clamp(v14u32[0], 20u, 50u);
+        v24u32[4] = glm2::clamp(v24u32[0], 20u, 50u);
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "clamp vs4u32");
         v12f[4] = glm::clamp(v12f[3], glm::vec2(0.5f), glm::vec2(0.7f));
         v22f[4] = glm2::clamp(v22f[3], glm2::vec2(0.5f), glm2::vec2(0.7f));
         print_vec<2, float>(v12f[4], v22f[4], "clamp vv2f");
@@ -2828,6 +2969,24 @@ void glm2::test::run_test(void)
         v14d[4] = glm::clamp(v14d[3], glm::dvec4(0.5), glm::dvec4(0.7));
         v24d[4] = glm2::clamp(v24d[3], glm2::dvec4(0.5), glm2::dvec4(0.7));
         print_vec<4, double>(v14d[4], v24d[4], "clamp vv4d");
+        v12i32[4] = glm::clamp(v12i32[0], glm::ivec2(-5), glm::ivec2(5));
+        v22i32[4] = glm2::clamp(v22i32[0], glm2::ivec2(-5), glm2::ivec2(5));
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "clamp vs2i32");
+        v13i32[4] = glm::clamp(v13i32[0], glm::ivec3(-5), glm::ivec3(5));
+        v23i32[4] = glm2::clamp(v23i32[0], glm2::ivec3(-5), glm2::ivec3(5));
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "clamp vs3i32");
+        v14i32[4] = glm::clamp(v14i32[0], glm::ivec4(-5), glm::ivec4(5));
+        v24i32[4] = glm2::clamp(v24i32[0], glm2::ivec4(-5), glm2::ivec4(5));
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "clamp vs4i32");
+        v12u32[4] = glm::clamp(v12u32[0], glm::uvec2(20), glm::uvec2(50));
+        v22u32[4] = glm2::clamp(v22u32[0], glm2::uvec2(20), glm2::uvec2(50));
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "clamp vs2u32");
+        v13u32[4] = glm::clamp(v13u32[0], glm::uvec3(20), glm::uvec3(50));
+        v23u32[4] = glm2::clamp(v23u32[0], glm2::uvec3(20),  glm2::uvec3(50));
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "clamp vs3u32");
+        v14u32[4] = glm::clamp(v14u32[0], glm::uvec4(20), glm::uvec4(50));
+        v24u32[4] = glm2::clamp(v24u32[0], glm2::uvec4(20),  glm2::uvec4(50));
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "clamp vs4u32");
     }
 
     // function step
@@ -2967,6 +3126,227 @@ void glm2::test::run_test(void)
         v24d[4] = glm2::mix(v24d[0], v24d[1], v24d[3]);
         print_vec<4, double>(v14d[4], v24d[4], "mix vv4d");
     }
+
+    // frexp
+    {
+        glm::ivec4 tmp1; glm2::ivec4 tmp2;
+        v14f[4] = glm::frexp(v14f[2], tmp1);
+        v24f[4] = glm2::frexp(v24f[2], tmp2);
+        print_vec<4, float>(v14f[4], v24f[4], "frexp fractional");
+        print_vec<4, float>(tmp1, tmp2, "frexp exponent");
+    }
+
+    // ldexp
+    {
+        glm::ivec4 tmp1; glm2::ivec4 tmp2;
+        v14f[4] = glm::ldexp(v14f[2], tmp1);
+        v24f[4] = glm2::ldexp(v24f[2], tmp2);
+        print_vec<4, float>(v14f[4], v24f[4], "ldexp fractional");
+        print_vec<4, float>(tmp1, tmp2, "ldexp exponent");
+    }
+
+    // modf
+    {
+        float tmpf1, tmpf2;
+        double tmpd1, tmpd2;
+        glm::vec2 tmpvf21; glm2::vec2 tmpvf22;
+        glm::vec3 tmpvf31; glm2::vec3 tmpvf32;
+        glm::vec4 tmpvf41; glm2::vec4 tmpvf42;
+        glm::dvec2 tmpvd21; glm2::dvec2 tmpvd22;
+        glm::dvec3 tmpvd31; glm2::dvec3 tmpvd32;
+        glm::dvec4 tmpvd41; glm2::dvec4 tmpvd42;
+        f1[4] = glm::modf(f1[2], tmpf1);
+        f2[4] = glm2::modf(f2[2], tmpf2);
+        print_single<float>(f1[4], f2[4], "modf fractional f");
+        print_single<float>(tmpf1, tmpf2, "modf integer f");
+        d1[4] = glm::modf(d1[2], tmpd1);
+        d2[4] = glm2::modf(d2[2], tmpd2);
+        print_single<double>(d1[4], d2[4], "modf fractional d");
+        print_single<double>(tmpf1, tmpf2, "modf integer d");
+        v12f[4] = glm::modf(v12f[2], tmpvf21);
+        v22f[4] = glm2::modf(v22f[2], tmpvf22);
+        print_vec<2, float>(v12f[4], v22f[4], "modf fractional v2f");
+        print_vec<2, float>(tmpvf21, tmpvf22, "modf integer v2f");
+        v13f[4] = glm::modf(v13f[2], tmpvf31);
+        v23f[4] = glm2::modf(v23f[2], tmpvf32);
+        print_vec<3, float>(v13f[4], v23f[4], "modf fractional v3f");
+        print_vec<3, float>(tmpvf31, tmpvf32, "modf integer v3f");
+        v14f[4] = glm::modf(v14f[2], tmpvf41);
+        v24f[4] = glm2::modf(v24f[2], tmpvf42);
+        print_vec<4, float>(v14f[4], v24f[4], "modf fractional v4f");
+        print_vec<4, float>(tmpvf41, tmpvf42, "modf integer v4f");
+        v12d[4] = glm::modf(v12d[2], tmpvd21);
+        v22d[4] = glm2::modf(v22d[2], tmpvd22);
+        print_vec<2, double>(v12d[4], v22d[4], "modf fractional v2d");
+        print_vec<2, double>(tmpvd21, tmpvd22, "modf integer v2d");
+        v13d[4] = glm::modf(v13d[2], tmpvd31);
+        v23d[4] = glm2::modf(v23d[2], tmpvd32);
+        print_vec<3, double>(v13d[4], v23d[4], "modf fractional v3d");
+        print_vec<3, double>(tmpvd31, tmpvd32, "modf integer v3d");
+        v14d[4] = glm::modf(v14d[2], tmpvd41);
+        v24d[4] = glm2::modf(v24d[2], tmpvd42);
+        print_vec<4, double>(v14d[4], v24d[4], "modf fractional v4d");
+        print_vec<4, double>(tmpvd41, tmpvd42, "modf integer v4d");
+    }
+
+    // isinf
+    {
+        b1[2] = glm::isinf(5.0f);
+        b2[2] = glm2::isinf(5.0f);
+        print_single<bool>(b1[2], b2[2], "isinf f 1");
+        b1[2] = glm::isinf(INFINITY);
+        b2[2] = glm2::isinf(INFINITY);
+        print_single<bool>(b1[2], b2[2], "isinf f 2");
+        b1[2] = glm::isinf(-INFINITY);
+        b2[2] = glm2::isinf(-INFINITY);
+        print_single<bool>(b1[2], b2[2], "isinf f 3");
+        v12b[2] = glm::isinf(glm::vec2(5.0f, -INFINITY));
+        v22b[2] = glm2::isinf(glm2::vec2(5.0f, -INFINITY));
+        print_vec<2, uint32_t>((glm::uvec2(v12b[2]) * GLM2_TRUE), v22b[2], "isinf v2f 1");
+        v12b[2] = glm::isinf(glm::vec2(INFINITY, -INFINITY));
+        v22b[2] = glm2::isinf(glm2::vec2(INFINITY, -INFINITY));
+        print_vec<2, uint32_t>((glm::uvec2(v12b[2]) * GLM2_TRUE), v22b[2], "isinf v2f 2");
+        v13b[2] = glm::isinf(glm::vec3(5.0f, INFINITY, -INFINITY));
+        v23b[2] = glm2::isinf(glm2::vec3(5.0f, INFINITY, -INFINITY));
+        print_vec<3, uint32_t>((glm::uvec3(v13b[2]) * GLM2_TRUE), v23b[2], "isinf v3f");
+        v14b[2] = glm::isinf(glm::vec4(5.0f, INFINITY, NAN, -INFINITY));
+        v24b[2] = glm2::isinf(glm2::vec4(5.0f, INFINITY, NAN, -INFINITY));
+        print_vec<4, uint32_t>((glm::uvec4(v14b[2]) * GLM2_TRUE), v24b[2], "isinf v4f");
+
+        b1[2] = glm::isinf(5.0);
+        b2[2] = glm2::isinf(5.0);
+        print_single<bool>(b1[2], b2[2], "isinf d 1");
+        b1[2] = glm::isinf(DOUBLE_INFINITY);
+        b2[2] = glm2::isinf(DOUBLE_INFINITY);
+        print_single<bool>(b1[2], b2[2], "isinf d 2");
+        b1[2] = glm::isinf(-DOUBLE_INFINITY);
+        b2[2] = glm2::isinf(-DOUBLE_INFINITY);
+        print_single<bool>(b1[2], b2[2], "isinf d 3");
+        v12b[2] = glm::isinf(glm::dvec2(5.0, -DOUBLE_INFINITY));
+        v22b[2] = glm2::isinf(glm2::dvec2(5.0, -DOUBLE_INFINITY));
+        print_vec<2, uint32_t>((glm::uvec2(v12b[2]) * GLM2_TRUE), v22b[2], "isinf v2d 1");
+        v12b[2] = glm::isinf(glm::dvec2(DOUBLE_INFINITY, -DOUBLE_INFINITY));
+        v22b[2] = glm2::isinf(glm2::dvec2(DOUBLE_INFINITY, -DOUBLE_INFINITY));
+        print_vec<2, uint32_t>((glm::uvec2(v12b[2]) * GLM2_TRUE), v22b[2], "isinf v2d 2");
+        v13b[2] = glm::isinf(glm::dvec3(5.0, DOUBLE_INFINITY, -DOUBLE_INFINITY));
+        v23b[2] = glm2::isinf(glm2::dvec3(5.0, DOUBLE_INFINITY, -DOUBLE_INFINITY));
+        print_vec<3, uint32_t>((glm::uvec3(v13b[2]) * GLM2_TRUE), v23b[2], "isinf v3d");
+        v14b[2] = glm::isinf(glm::dvec4(5.0, DOUBLE_INFINITY, NAN, -DOUBLE_INFINITY));
+        v24b[2] = glm2::isinf(glm2::dvec4(5.0, DOUBLE_INFINITY, NAN, -DOUBLE_INFINITY));
+        print_vec<4, uint32_t>((glm::uvec4(v14b[2]) * GLM2_TRUE), v24b[2], "isinf v4d");
+    }
+
+    // isnan
+    {
+        b1[2] = glm::isnan(5.0f);
+        b2[2] = glm2::isnan(5.0f);
+        print_single<bool>(b1[2], b2[2], "isnan f 1");
+        b1[2] = glm::isnan(NAN);
+        b2[2] = glm2::isnan(NAN);
+        print_single<bool>(b1[2], b2[2], "isnan f 2");
+        b1[2] = glm::isnan(-NAN);
+        b2[2] = glm2::isnan(-NAN);
+        print_single<bool>(b1[2], b2[2], "isnan f 3");
+        v12b[2] = glm::isnan(glm::vec2(5.0f, -NAN));
+        v22b[2] = glm2::isnan(glm2::vec2(5.0f, -NAN));
+        print_vec<2, uint32_t>((glm::uvec2(v12b[2]) * GLM2_TRUE), v22b[2], "isnan v2f 1");
+        v12b[2] = glm::isnan(glm::vec2(NAN, -NAN));
+        v22b[2] = glm2::isnan(glm2::vec2(NAN, -NAN));
+        print_vec<2, uint32_t>((glm::uvec2(v12b[2]) * GLM2_TRUE), v22b[2], "isnan v2f 2");
+        v13b[2] = glm::isnan(glm::vec3(5.0f, NAN, -NAN));
+        v23b[2] = glm2::isnan(glm2::vec3(5.0f, NAN, -NAN));
+        print_vec<3, uint32_t>((glm::uvec3(v13b[2]) * GLM2_TRUE), v23b[2], "isnan v3f");
+        v14b[2] = glm::isnan(glm::vec4(5.0f, NAN, INFINITY, -NAN));
+        v24b[2] = glm2::isnan(glm2::vec4(5.0f, NAN, INFINITY, -NAN));
+        print_vec<4, uint32_t>((glm::uvec4(v14b[2]) * GLM2_TRUE), v24b[2], "isnan v4f");
+
+        b1[2] = glm::isnan(5.0);
+        b2[2] = glm2::isnan(5.0);
+        print_single<bool>(b1[2], b2[2], "isnan d 1");
+        b1[2] = glm::isnan(DOUBLE_NAN);
+        b2[2] = glm2::isnan(DOUBLE_NAN);
+        print_single<bool>(b1[2], b2[2], "isnan d 2");
+        b1[2] = glm::isnan(-DOUBLE_NAN);
+        b2[2] = glm2::isnan(-DOUBLE_NAN);
+        print_single<bool>(b1[2], b2[2], "isnan d 3");
+        v12b[2] = glm::isnan(glm::dvec2(5.0, -DOUBLE_NAN));
+        v22b[2] = glm2::isnan(glm2::dvec2(5.0, -DOUBLE_NAN));
+        print_vec<2, uint32_t>((glm::uvec2(v12b[2]) * GLM2_TRUE), v22b[2], "isnan v2d 1");
+        v12b[2] = glm::isnan(glm::dvec2(DOUBLE_NAN, -DOUBLE_NAN));
+        v22b[2] = glm2::isnan(glm2::dvec2(DOUBLE_NAN, -DOUBLE_NAN));
+        print_vec<2, uint32_t>((glm::uvec2(v12b[2]) * GLM2_TRUE), v22b[2], "isnan v2d 2");
+        v13b[2] = glm::isnan(glm::dvec3(5.0, DOUBLE_NAN, -DOUBLE_NAN));
+        v23b[2] = glm2::isnan(glm2::dvec3(5.0, DOUBLE_NAN, -DOUBLE_NAN));
+        print_vec<3, uint32_t>((glm::uvec3(v13b[2]) * GLM2_TRUE), v23b[2], "isnan v3d");
+        v14b[2] = glm::isnan(glm::dvec4(5.0, DOUBLE_NAN, INFINITY, -DOUBLE_NAN));
+        v24b[2] = glm2::isnan(glm2::dvec4(5.0, DOUBLE_NAN, INFINITY, -DOUBLE_NAN));
+        print_vec<4, uint32_t>((glm::uvec4(v14b[2]) * GLM2_TRUE), v24b[2], "isnan v4d");
+    }
+
+    // floatBitsToInt
+    {
+        i321[4] = glm::floatBitsToInt(f1[0]);
+        i322[4] = glm2::floatBitsToInt(f2[0]);
+        print_single<int32_t>(i321[4], i322[4], "floatBitsToInt f");
+        v12i32[4] = glm::floatBitsToInt(v12f[0]);
+        v22i32[4] = glm2::floatBitsToInt(v22f[0]);
+        print_vec<2, int32_t>(v12i32[4], v22i32[4], "floatBitsToInt v2f");
+        v13i32[4] = glm::floatBitsToInt(v13f[0]);
+        v23i32[4] = glm2::floatBitsToInt(v23f[0]);
+        print_vec<3, int32_t>(v13i32[4], v23i32[4], "floatBitsToInt v3f");
+        v14i32[4] = glm::floatBitsToInt(v14f[0]);
+        v24i32[4] = glm2::floatBitsToInt(v24f[0]);
+        print_vec<4, int32_t>(v14i32[4], v24i32[4], "floatBitsToInt v4f");
+    }
+
+    // floatBitsToUint
+    {
+        u321[4] = glm::floatBitsToInt(f1[0]);
+        u322[4] = glm2::floatBitsToInt(f2[0]);
+        print_single<uint32_t>(u321[4], u322[4], "floatBitsToUint f");
+        v12u32[4] = glm::floatBitsToInt(v12f[0]);
+        v22u32[4] = glm2::floatBitsToInt(v22f[0]);
+        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "floatBitsToUint v2f");
+        v13u32[4] = glm::floatBitsToInt(v13f[0]);
+        v23u32[4] = glm2::floatBitsToInt(v23f[0]);
+        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "floatBitsToUint v3f");
+        v14u32[4] = glm::floatBitsToInt(v14f[0]);
+        v24u32[4] = glm2::floatBitsToInt(v24f[0]);
+        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "floatBitsToUint v4f");
+    }
+
+    // intBitsToFloat
+    {
+        f1[4] = glm::intBitsToFloat(i321[2]);
+        f2[4] = glm2::intBitsToFloat(i322[2]);
+        print_single<float>(f1[4], f2[4], "intBitsToFloat i32");
+        v12f[4] = glm::intBitsToFloat(v12i32[2]);
+        v22f[4] = glm2::intBitsToFloat(v22i32[2]);
+        print_vec<2, float>(v12f[4], v22f[4], "intBitsToFloat v2i32");
+        v13f[4] = glm::intBitsToFloat(v13i32[2]);
+        v23f[4] = glm2::intBitsToFloat(v23i32[2]);
+        print_vec<3, float>(v13f[4], v23f[4], "intBitsToFloat v3i32");
+        v14f[4] = glm::intBitsToFloat(v14i32[2]);
+        v24f[4] = glm2::intBitsToFloat(v24i32[2]);
+        print_vec<4, float>(v14f[4], v24f[4], "intBitsToFloat v4i32");
+    }
+
+    // uintBitsToFloat
+    {
+        f1[4] = glm::uintBitsToFloat(u321[2]);
+        f2[4] = glm2::uintBitsToFloat(u322[2]);
+        print_single<float>(f1[4], f2[4], "uintBitsToFloat u32");
+        v12f[4] = glm::uintBitsToFloat(v12u32[2]);
+        v22f[4] = glm2::uintBitsToFloat(v22u32[2]);
+        print_vec<2, float>(v12f[4], v22f[4], "uintBitsToFloat v2u32");
+        v13f[4] = glm::uintBitsToFloat(v13u32[2]);
+        v23f[4] = glm2::uintBitsToFloat(v23u32[2]);
+        print_vec<3, float>(v13f[4], v23f[4], "uintBitsToFloat v3u32");
+        v14f[4] = glm::uintBitsToFloat(v14u32[2]);
+        v24f[4] = glm2::uintBitsToFloat(v24u32[2]);
+        print_vec<4, float>(v14f[4], v24f[4], "uintBitsToFloat v4u32");
+    }
+
 #endif
 
 #ifdef GLM2_TEST_EXPONENTIAL
@@ -4472,14 +4852,14 @@ void glm2::test::run_test(void)
         v24b[4] = glm2::greaterThan(v24i32[2], v24i32[3]);
         print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "ivec2 greaterThan");
 
-        v12b[4] = glm::greaterThan(v12u32[2], v12u32[3]);
-        v22b[4] = glm2::greaterThan(v22u32[2], v22u32[3]);
+        v12b[4] = glm::greaterThan(v12u32[0], v12u32[2]);
+        v22b[4] = glm2::greaterThan(v22u32[0], v22u32[3]);
         print_vec<2, uint32_t>((glm::uvec2(v12b[4]) * GLM2_TRUE), v22b[4], "uvec2 greaterThan");
-        v13b[4] = glm::greaterThan(v13u32[2], v13u32[3]);
-        v23b[4] = glm2::greaterThan(v23u32[2], v23u32[3]);
+        v13b[4] = glm::greaterThan(v13u32[0], v13u32[2]);
+        v23b[4] = glm2::greaterThan(v23u32[0], v23u32[2]);
         print_vec<3, uint32_t>((glm::uvec3(v13b[4]) * GLM2_TRUE), v23b[4], "uvec3 greaterThan");
-        v14b[4] = glm::greaterThan(v14u32[2], v14u32[3]);
-        v24b[4] = glm2::greaterThan(v24u32[2], v24u32[3]);
+        v14b[4] = glm::greaterThan(v14u32[0], v14u32[2]);
+        v24b[4] = glm2::greaterThan(v24u32[0], v24u32[2]);
         print_vec<4, uint32_t>((glm::uvec4(v14b[4]) * GLM2_TRUE), v24b[4], "uvec2 greaterThan");
     }
 

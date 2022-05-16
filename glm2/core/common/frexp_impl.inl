@@ -23,6 +23,6 @@ template<glm2::length_t L, typename T>
 inline glm2::vec<L, T> glm2::frexp(const vec<L, T>& x, vec<L, int32_t>& exp)
 {
     vec<L, T> fract;
-    detail::core::common::frexp::_default(&x, &fract, &exp, L);
+    detail::core::common::frexp::_default(vec<L, T>::value_ptr(x), vec<L, T>::value_ptr(fract), vec<L, int32_t>::value_ptr(exp), L);
     return fract;
 }

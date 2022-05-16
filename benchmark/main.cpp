@@ -22,14 +22,21 @@
 //#define GLM2_BENCHMARK_DOUBLE
 
 //#define GLM2_BENCHMARK_VECTOR_ARITHMETIC_OPERATORS
+//#define GLM2_BENCHMARK_VECTOR_ARITHMETIC_OPERATORS_INTEGER
 //#define GLM2_BENCHMARK_VECTOR_CMP_OPERATORS
+//#define GLM2_BENCHMARK_VECTOR_CMP_OPERATORS_INTEGER
 //#define GLM2_BENCHMARK_MATRIX_ARITHMETIC_OPERATORS
 //#define GLM2_BENCHMARK_MATRIX_CMP_OPERATORS
 //#define GLM2_BENCHMARK_MATRIX_EXT_ARITHMETIC
 //#define GLM2_BENCHMARK_COMMON
+#define GLM2_BENCHMARK_COMMON_INTEGER               
 //#define GLM2_BENCHMARK_EXPONENTIAL
 //#define GLM2_BENCHMARK_GEOMETRIC
-#define GLM2_BENCHMARK_MATRIX
+//#define GLM2_BENCHMARK_MATRIX
+#define GLM2_BENCHMARK_INTEGER
+#define GLM2_BENCHMARK_PACKING
+#define GLM2_BENCHMARK_VECTOR_RELATIONAL
+#define GLM2_BENCHMARK_VECTOR_RELATIONAL_INTEGER
 
 #ifdef GLM2_BENCHMARK_DOUBLE
     #define GLM2_VALUE_ZERO 0.0
@@ -95,6 +102,23 @@ glm2::dmat4x2 m2421, m2422, m2423, m2424, m2425;
 glm2::dmat4x3 m2431, m2432, m2433, m2434, m2435;
 glm2::dmat4x4 m2441, m2442, m2443, m2444, m2445;
 #endif
+
+int32_t i1, i2, i3, i4, i5;
+uint32_t u1, u2, u3, u4, u5;
+
+glm::ivec2 v121i, v122i, v123i, v124i, v125i;
+glm::ivec3 v131i, v132i, v133i, v134i, v135i;
+glm::ivec4 v141i, v142i, v143i, v144i, v145i;
+glm2::ivec2 v221i, v222i, v223i, v224i, v225i;
+glm2::ivec3 v231i, v232i, v233i, v234i, v235i;
+glm2::ivec4 v241i, v242i, v243i, v244i, v245i;
+
+glm::uvec2 v121u, v122u, v123u, v124u, v125u;
+glm::uvec3 v131u, v132u, v133u, v134u, v135u;
+glm::uvec4 v141u, v142u, v143u, v144u, v145u;
+glm2::uvec2 v221u, v222u, v223u, v224u, v225u;
+glm2::uvec3 v231u, v232u, v233u, v234u, v235u;
+glm2::uvec4 v241u, v242u, v243u, v244u, v245u;
 
 #ifndef GLM2_BENCHMARK_CUSTOM
 
@@ -326,6 +350,539 @@ BENCHMARK(glm__vec3_cmpneq);
 BENCHMARK(glm2_vec3_cmpneq);
 BENCHMARK(glm__vec4_cmpneq);
 BENCHMARK(glm2_vec4_cmpneq);
+#endif
+
+#ifdef GLM2_BENCHMARK_VECTOR_ARITHMETIC_OPERATORS_INTEGER
+// vector add benchmark
+static void glm__ivec2_add(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = v122i + v123i;
+}
+static void glm__ivec3_add(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = v132i + v133i;
+}
+static void glm__ivec4_add(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = v142i + v143i;
+}
+static void glm2_ivec2_add(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = v222i + v223i;
+}
+static void glm2_ivec3_add(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = v232i + v233i;
+}
+static void glm2_ivec4_add(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = v242i + v243i;
+}
+BENCHMARK(glm__ivec2_add);
+BENCHMARK(glm2_ivec2_add);
+BENCHMARK(glm__ivec3_add);
+BENCHMARK(glm2_ivec3_add);
+BENCHMARK(glm__ivec4_add);
+BENCHMARK(glm2_ivec4_add);
+
+// vector multiply benchmark
+static void glm__ivec2_sub(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = v122i - v123i;
+}
+static void glm__ivec3_sub(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = v132i - v133i;
+}
+static void glm__ivec4_sub(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = v142i - v143i;
+}
+static void glm2_ivec2_sub(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = v222i - v223i;
+}
+static void glm2_ivec3_sub(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = v232i - v233i;
+}
+static void glm2_ivec4_sub(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = v242i - v243i;
+}
+BENCHMARK(glm__ivec2_sub);
+BENCHMARK(glm2_ivec2_sub);
+BENCHMARK(glm__ivec3_sub);
+BENCHMARK(glm2_ivec3_sub);
+BENCHMARK(glm__ivec4_sub);
+BENCHMARK(glm2_ivec4_sub);
+
+// vector multiply benchmark
+static void glm__ivec2_mul(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = v122i * v123i;
+}
+static void glm__ivec3_mul(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = v132i * v133i;
+}
+static void glm__ivec4_mul(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = v142i * v143i;
+}
+static void glm2_ivec2_mul(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = v222i * v223i;
+}
+static void glm2_ivec3_mul(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = v232i * v233i;
+}
+static void glm2_ivec4_mul(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = v242i * v243i;
+}
+BENCHMARK(glm__ivec2_mul);
+BENCHMARK(glm2_ivec2_mul);
+BENCHMARK(glm__ivec3_mul);
+BENCHMARK(glm2_ivec3_mul);
+BENCHMARK(glm__ivec4_mul);
+BENCHMARK(glm2_ivec4_mul);
+
+// vector divide benchmark
+static void glm__ivec2_div(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = v122i / v123i;
+}
+static void glm__ivec3_div(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = v132i / v133i;
+}
+static void glm__ivec4_div(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = v142i / v143i;
+}
+static void glm2_ivec2_div(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = v222i / v223i;
+}
+static void glm2_ivec3_div(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = v232i / v233i;
+}
+static void glm2_ivec4_div(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = v242i / v243i;
+}
+BENCHMARK(glm__ivec2_div);
+BENCHMARK(glm2_ivec2_div);
+BENCHMARK(glm__ivec3_div);
+BENCHMARK(glm2_ivec3_div);
+BENCHMARK(glm__ivec4_div);
+BENCHMARK(glm2_ivec4_div);
+
+// vector divide benchmark
+static void glm__ivec2_mod(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = v122i % v123i;
+}
+static void glm__ivec3_mod(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = v132i % v133i;
+}
+static void glm__ivec4_mod(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = v142i % v143i;
+}
+static void glm2_ivec2_mod(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = v222i % v223i;
+}
+static void glm2_ivec3_mod(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = v232i % v233i;
+}
+static void glm2_ivec4_mod(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = v242i % v243i;
+}
+BENCHMARK(glm__ivec2_mod);
+BENCHMARK(glm2_ivec2_mod);
+BENCHMARK(glm__ivec3_mod);
+BENCHMARK(glm2_ivec3_mod);
+BENCHMARK(glm__ivec4_mod);
+BENCHMARK(glm2_ivec4_mod);
+
+// vector divide benchmark
+static void glm__ivec2_and(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = v122i & v123i;
+}
+static void glm__ivec3_and(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = v132i & v133i;
+}
+static void glm__ivec4_and(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = v142i & v143i;
+}
+static void glm2_ivec2_and(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = v222i & v223i;
+}
+static void glm2_ivec3_and(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = v232i & v233i;
+}
+static void glm2_ivec4_and(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = v242i & v243i;
+}
+BENCHMARK(glm__ivec2_and);
+BENCHMARK(glm2_ivec2_and);
+BENCHMARK(glm__ivec3_and);
+BENCHMARK(glm2_ivec3_and);
+BENCHMARK(glm__ivec4_and);
+BENCHMARK(glm2_ivec4_and);
+
+// vector divide benchmark
+static void glm__ivec2_or(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = v122i | v123i;
+}
+static void glm__ivec3_or(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = v132i | v133i;
+}
+static void glm__ivec4_or(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = v142i | v143i;
+}
+static void glm2_ivec2_or(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = v222i | v223i;
+}
+static void glm2_ivec3_or(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = v232i | v233i;
+}
+static void glm2_ivec4_or(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = v242i | v243i;
+}
+BENCHMARK(glm__ivec2_or);
+BENCHMARK(glm2_ivec2_or);
+BENCHMARK(glm__ivec3_or);
+BENCHMARK(glm2_ivec3_or);
+BENCHMARK(glm__ivec4_or);
+BENCHMARK(glm2_ivec4_or);
+
+// vector divide benchmark
+static void glm__ivec2_xor(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = v122i ^ v123i;
+}
+static void glm__ivec3_xor(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = v132i ^ v133i;
+}
+static void glm__ivec4_xor(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = v142i ^ v143i;
+}
+static void glm2_ivec2_xor(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = v222i ^ v223i;
+}
+static void glm2_ivec3_xor(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = v232i ^ v233i;
+}
+static void glm2_ivec4_xor(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = v242i ^ v243i;
+}
+BENCHMARK(glm__ivec2_xor);
+BENCHMARK(glm2_ivec2_xor);
+BENCHMARK(glm__ivec3_xor);
+BENCHMARK(glm2_ivec3_xor);
+BENCHMARK(glm__ivec4_xor);
+BENCHMARK(glm2_ivec4_xor);
+
+static void glm__ivec2_sr(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = v122i << v123i;
+}
+static void glm__ivec3_sr(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = v132i << v133i;
+}
+static void glm__ivec4_sr(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = v142i << v143i;
+}
+static void glm2_ivec2_sr(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = v222i << v223i;
+}
+static void glm2_ivec3_sr(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = v232i << v233i;
+}
+static void glm2_ivec4_sr(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = v242i << v243i;
+}
+BENCHMARK(glm__ivec2_sr);
+BENCHMARK(glm2_ivec2_sr);
+BENCHMARK(glm__ivec3_sr);
+BENCHMARK(glm2_ivec3_sr);
+BENCHMARK(glm__ivec4_sr);
+BENCHMARK(glm2_ivec4_sr);
+
+static void glm__ivec2_sl(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = v122i >> v123i;
+}
+static void glm__ivec3_sl(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = v132i >> v133i;
+}
+static void glm__ivec4_sl(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = v142i >> v143i;
+}
+static void glm2_ivec2_sl(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = v222i >> v223i;
+}
+static void glm2_ivec3_sl(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = v232i >> v233i;
+}
+static void glm2_ivec4_sl(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = v242i >> v243i;
+}
+BENCHMARK(glm__ivec2_sl);
+BENCHMARK(glm2_ivec2_sl);
+BENCHMARK(glm__ivec3_sl);
+BENCHMARK(glm2_ivec3_sl);
+BENCHMARK(glm__ivec4_sl);
+BENCHMARK(glm2_ivec4_sl);
+
+static void glm__ivec2_srs(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = v122i << i1;
+}
+static void glm__ivec3_srs(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = v132i << i1;
+}
+static void glm__ivec4_srs(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = v142i << i1;
+}
+static void glm2_ivec2_srs(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = v222i << i1;
+}
+static void glm2_ivec3_srs(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = v232i << i1;
+}
+static void glm2_ivec4_srs(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = v242i << i1;
+}
+BENCHMARK(glm__ivec2_srs);
+BENCHMARK(glm2_ivec2_srs);
+BENCHMARK(glm__ivec3_srs);
+BENCHMARK(glm2_ivec3_srs);
+BENCHMARK(glm__ivec4_srs);
+BENCHMARK(glm2_ivec4_srs);
+
+static void glm__ivec2_sls(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = v122i >> i1;
+}
+static void glm__ivec3_sls(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = v132i >> i1;
+}
+static void glm__ivec4_sls(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = v142i >> i1;
+}
+static void glm2_ivec2_sls(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = v222i >> i1;
+}
+static void glm2_ivec3_sls(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = v232i >> i1;
+}
+static void glm2_ivec4_sls(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = v242i >> i1;
+}
+BENCHMARK(glm__ivec2_sls);
+BENCHMARK(glm2_ivec2_sls);
+BENCHMARK(glm__ivec3_sls);
+BENCHMARK(glm2_ivec3_sls);
+BENCHMARK(glm__ivec4_sls);
+BENCHMARK(glm2_ivec4_sls);
+
+#endif
+
+#ifdef GLM2_BENCHMARK_VECTOR_CMP_OPERATORS_INTEGER
+
+static void glm__ivec2_cmpeq(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = v121i == v122i;
+}
+static void glm__ivec3_cmpeq(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = v131i == v132i;
+}
+static void glm__ivec4_cmpeq(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = v141i == v142i;
+}
+static void glm2_ivec2_cmpeq(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = v221i == v222i;
+}
+static void glm2_ivec3_cmpeq(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = v231i == v232i;
+}
+static void glm2_ivec4_cmpeq(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = v241i == v242i;
+}
+BENCHMARK(glm__ivec2_cmpeq);
+BENCHMARK(glm2_ivec2_cmpeq);
+BENCHMARK(glm__ivec3_cmpeq);
+BENCHMARK(glm2_ivec3_cmpeq);
+BENCHMARK(glm__ivec4_cmpeq);
+BENCHMARK(glm2_ivec4_cmpeq);
+
+static void glm__ivec2_cmpneq(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = v121i != v122i;
+}
+static void glm__ivec3_cmpneq(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = v131i != v132i;
+}
+static void glm__ivec4_cmpneq(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = v141i != v142i;
+}
+static void glm2_ivec2_cmpneq(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = v221i != v222i;
+}
+static void glm2_ivec3_cmpneq(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = v231i != v232i;
+}
+static void glm2_ivec4_cmpneq(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = v241i != v242i;
+}
+BENCHMARK(glm__ivec2_cmpneq);
+BENCHMARK(glm2_ivec2_cmpneq);
+BENCHMARK(glm__ivec3_cmpneq);
+BENCHMARK(glm2_ivec3_cmpneq);
+BENCHMARK(glm__ivec4_cmpneq);
+BENCHMARK(glm2_ivec4_cmpneq);
+
 #endif
 
 #ifdef GLM2_BENCHMARK_MATRIX_ARITHMETIC_OPERATORS

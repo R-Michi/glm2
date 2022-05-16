@@ -21,9 +21,13 @@ inline double glm2::detail::core::common::min::_default_d(double x, double y)
     return std::min(x, y);
 }
 
-inline __m128i glm2::detail::core::common::min::_default_i32(__m128i x, __m128i y)
+inline int32_t glm2::detail::core::common::min::_default_i32(int32_t x, int32_t y)
 {
-    return _mm_min_epi32(x, y);
+    return std::min(x, y);
+}
+inline uint32_t glm2::detail::core::common::min::_default_u32(uint32_t x, uint32_t y)
+{
+    return std::min(x, y);
 }
 inline __m128 glm2::detail::core::common::min::_default_fv(__m128 x, __m128 y)
 {
@@ -43,4 +47,8 @@ inline __m256d glm2::detail::core::common::min::_default_dv(__m256d x, __m256d y
 inline __m128i glm2::detail::core::common::min::_default_i32v(__m128i x, __m128i y)
 {
     return _mm_min_epi32(x, y);
+}
+inline __m128i glm2::detail::core::common::min::_default_u32v(__m128i x, __m128i y)
+{
+    return _mm_min_epu32(x, y);
 }

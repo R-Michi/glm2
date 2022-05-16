@@ -21,17 +21,11 @@ template<> inline double glm2::min(double x, double y)
 }
 template<> inline int32_t glm2::min(int32_t x, int32_t y)
 {
-    int32_t ret;
-    __m128i xmm0 = detail::core::common::min::_default_i32(_mm_loadu_si32(&x), _mm_loadu_si32(&y));
-    _mm_storeu_si32(&ret, xmm0);
-    return ret;
+    return detail::core::common::min::_default_i32(x, y);
 }
 template<> inline uint32_t glm2::min(uint32_t x, uint32_t y)
 {
-    uint32_t ret;
-    __m128i xmm0 = detail::core::common::min::_default_i32(_mm_loadu_si32(&x), _mm_loadu_si32(&y));
-    _mm_storeu_si32(&ret, xmm0);
-    return ret;
+    return detail::core::common::min::_default_u32(x, y);
 }
 
 
@@ -77,15 +71,15 @@ template<> inline glm2::vec<4, int32_t> glm2::min(const glm2::vec<4, int32_t>& x
 
 template<> inline glm2::vec<2, uint32_t> glm2::min(const glm2::vec<2, uint32_t>& x, uint32_t y)
 {
-    return detail::core::common::min::_default_i32v(x.si128(), _mm_set1_epi32(y));
+    return detail::core::common::min::_default_u32v(x.si128(), _mm_set1_epi32(y));
 }
 template<> inline glm2::vec<3, uint32_t> glm2::min(const glm2::vec<3, uint32_t>& x, uint32_t y)
 {
-    return detail::core::common::min::_default_i32v(x(), _mm_set1_epi32(y));
+    return detail::core::common::min::_default_u32v(x(), _mm_set1_epi32(y));
 }
 template<> inline glm2::vec<4, uint32_t> glm2::min(const glm2::vec<4, uint32_t>& x, uint32_t y)
 {
-    return detail::core::common::min::_default_i32v(x(), _mm_set1_epi32(y));
+    return detail::core::common::min::_default_u32v(x(), _mm_set1_epi32(y));
 }
 
 
@@ -131,13 +125,13 @@ template<> inline glm2::vec<4, int32_t> glm2::min(const glm2::vec<4, int32_t>& x
 
 template<> inline glm2::vec<2, uint32_t> glm2::min(const glm2::vec<2, uint32_t>& x, const glm2::vec<2, uint32_t>& y)
 {
-    return detail::core::common::min::_default_i32v(x.si128(), y.si128());
+    return detail::core::common::min::_default_u32v(x.si128(), y.si128());
 }
 template<> inline glm2::vec<3, uint32_t> glm2::min(const glm2::vec<3, uint32_t>& x, const glm2::vec<3, uint32_t>& y)
 {
-    return detail::core::common::min::_default_i32v(x(), y());
+    return detail::core::common::min::_default_u32v(x(), y());
 }
 template<> inline glm2::vec<4, uint32_t> glm2::min(const glm2::vec<4, uint32_t>& x, const glm2::vec<4, uint32_t>& y)
 {
-    return detail::core::common::min::_default_i32v(x(), y());
+    return detail::core::common::min::_default_u32v(x(), y());
 }

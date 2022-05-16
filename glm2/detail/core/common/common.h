@@ -45,11 +45,13 @@ namespace glm2
                 {
                     inline float _default_f(float x, float minVal, float maxVal);
                     inline double _default_d(double x, double minVal, double maxVal);
-                    inline __m128i _default_i32(__m128i x, __m128i minVal, __m128i maxVal);
+                    inline int32_t _default_i32(int32_t x, int32_t minVal, int32_t maxVal);
+                    inline uint32_t _default_u32(uint32_t x, uint32_t minVal, uint32_t maxVal);
                     inline __m128 _default_fv(__m128 x, __m128 minVal, __m128 maxVal);
                     inline __m128d _default_dv2(__m128d x, __m128d minVal, __m128d maxVal);
                     inline __m256d _default_dv(__m256d x, __m256d minVal, __m256d maxVal);
                     inline __m128i _default_i32v(__m128i x, __m128i minVal, __m128i maxVal);
+                    inline __m128i _default_u32v(__m128i x, __m128i minVal, __m128i maxVal);
                 }
 
                 namespace floor
@@ -104,22 +106,26 @@ namespace glm2
                 {
                     inline float _default_f(float x, float y);
                     inline double _default_d(double x, double y);
-                    inline __m128i _default_i32(__m128i x, __m128i y);
+                    inline int32_t _default_i32(int32_t x, int32_t y);
+                    inline uint32_t _default_u32(uint32_t x, uint32_t y);
                     inline __m128 _default_fv(__m128 x, __m128 y);
                     inline __m128d _default_dv2(__m128d x, __m128d y);
                     inline __m256d _default_dv(__m256d x, __m256d y);
                     inline __m128i _default_i32v(__m128i x, __m128i y);
+                    inline __m128i _default_u32v(__m128i x, __m128i y);
                 }
 
                 namespace min
                 {
                     inline float _default_f(float x, float y);
                     inline double _default_d(double x, double y);
-                    inline __m128i _default_i32(__m128i x, __m128i y);
+                    inline int32_t _default_i32(int32_t x, int32_t y);
+                    inline uint32_t _default_u32(uint32_t x, uint32_t y);
                     inline __m128 _default_fv(__m128 x, __m128 y);
                     inline __m128d _default_dv2(__m128d x, __m128d y);
                     inline __m256d _default_dv(__m256d x, __m256d y);
                     inline __m128i _default_i32v(__m128i x, __m128i y);
+                    inline __m128i _default_u32v(__m128i x, __m128i y);
                 }
 
                 namespace mix

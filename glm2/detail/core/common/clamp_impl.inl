@@ -21,12 +21,15 @@ inline double glm2::detail::core::common::clamp::_default_d(double x, double min
     return std::max(std::min(x, maxVal), minVal);
 }
 
-inline __m128i glm2::detail::core::common::clamp::_default_i32(__m128i x, __m128i minVal, __m128i maxVal)
+inline int32_t glm2::detail::core::common::clamp::_default_i32(int32_t x, int32_t minVal, int32_t maxVal)
 {
-    __m128i xmm0;
-    xmm0 = _mm_min_epi32(x, maxVal);
-    return _mm_max_epi32(xmm0, minVal);
+    return std::max(std::min(x, maxVal), minVal);
 }
+inline uint32_t glm2::detail::core::common::clamp::_default_u32(uint32_t x, uint32_t minVal, uint32_t maxVal)
+{
+    return std::max(std::min(x, maxVal), minVal);
+}
+
 
 inline __m128 glm2::detail::core::common::clamp::_default_fv(__m128 x, __m128 minVal, __m128 maxVal)
 {
@@ -51,4 +54,10 @@ inline __m128i glm2::detail::core::common::clamp::_default_i32v(__m128i x, __m12
     __m128i xmm0;
     xmm0 = _mm_min_epi32(x, maxVal);
     return _mm_max_epi32(xmm0, minVal);
+}
+inline __m128i glm2::detail::core::common::clamp::_default_u32v(__m128i x, __m128i minVal, __m128i maxVal)
+{
+    __m128i xmm0;
+    xmm0 = _mm_min_epu32(x, maxVal);
+    return _mm_max_epu32(xmm0, minVal);
 }

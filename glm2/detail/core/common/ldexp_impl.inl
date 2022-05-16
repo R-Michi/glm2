@@ -16,5 +16,5 @@ inline void glm2::detail::core::common::ldexp::_default(const T* x, T* fract, in
 {
     #pragma unroll_completely
     for(uint32_t i = 0; i < n; i++)
-        fract[i] = std::ldexp(x[i], exp + i);
+        fract[i] = std::ldexp(x[i], exp[i]);
 }
