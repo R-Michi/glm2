@@ -16,16 +16,16 @@ If you want to run the test or benchmark, you have to install the glm and google
 2) Build both libraries to a static library.
 3) Crate a folder called "lib" inside the glm2 project.
 4) You must create folling structure inside the "lib" folder:
--   ./lib
--   +- benchmark
--    |   +- include
--    |   |   +- benchmark.h
--    |   |   +- export.h
--    |   +- lib
--    |       +- benchmark.lib
--    +- glm
--        +- glm
--            +- <all glm source and header files>
+    ./lib  
+    +- benchmark  
+     |   +- include  
+     |   |   +- benchmark.h  
+     |   |   +- export.h  
+     |   +- lib  
+     |       +- benchmark.lib  
+     +- glm  
+         +- glm  
+             +- <all glm source and header files>  
 5) Open the project in VisualStudio as CMAKE project and run build.
    NOTE: The benchmark requieres realease mode.
 6) Run benchmark.exe or run test.exe.
