@@ -15,7 +15,7 @@ If you want to run the test or benchmark, you have to install the glm and google
     - https://github.com/google/benchmark
 2) Build both libraries to a static library.
 3) Crate a folder called "lib" inside the glm2 project.
-4) You must create folling structure inside the "lib" folder:
+4) You must create folling structure inside the "lib" folder:  
 &emsp;./lib  
 &emsp;+- benchmark  
 &emsp;|&emsp;+- include  
