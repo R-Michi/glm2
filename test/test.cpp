@@ -14,25 +14,25 @@
 #define DOUBLE_INFINITY ((double)(INFINITY))
 #define DOUBLE_NAN ((double)(NAN))
 
-//#define GLM2_TEST_VECTOR_ARITHMETIC_OPERATORS
-//#define GLM2_TEST_VECTOR_CMP_OPERATORS
-//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT2
-//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT3
-//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT4
-//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT2
-//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT3
-//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT4
-//#define GLM2_TEST_MATRIX_CMP_OPERATORS
-//#define GLM2_TEST_MATRIX_EXT_ARITHMETIC
-//#define GLM2_TEST_COMMON
-//#define GLM2_TEST_EXPONENTIAL
-//#define GLM2_TEST_TRIGONOMETRIC
-//#define GLM2_TEST_GEOMETRIC
-//#define GLM2_TEST_MATRIX
-//#define GLM2_TEST_INTEGER
-//#define GLM2_TEST_PACKING
-//#define GLM2_TEST_VECTOR_RELATIONAL
-//#define GLM2_TEST_MATRIX_TRANSFORMATION
+#define GLM2_TEST_VECTOR_ARITHMETIC_OPERATORS
+#define GLM2_TEST_VECTOR_CMP_OPERATORS
+#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT2
+#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT3
+#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT4
+#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT2
+#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT3
+#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT4
+#define GLM2_TEST_MATRIX_CMP_OPERATORS
+#define GLM2_TEST_MATRIX_EXT_ARITHMETIC
+#define GLM2_TEST_COMMON
+#define GLM2_TEST_EXPONENTIAL
+#define GLM2_TEST_TRIGONOMETRIC
+#define GLM2_TEST_GEOMETRIC
+#define GLM2_TEST_MATRIX
+#define GLM2_TEST_INTEGER
+#define GLM2_TEST_PACKING
+#define GLM2_TEST_VECTOR_RELATIONAL
+#define GLM2_TEST_MATRIX_TRANSFORMATION
 
 namespace glm2
 {
@@ -4169,9 +4169,6 @@ void glm2::test::run_test(void)
         i321[4] = glm::bitfieldExtract(i321[3], 0, 32);
         i322[4] = glm2::bitfieldExtract(i322[3], 0, 32);
         print_single<int32_t>(i321[4], i322[4], "int32_t bitfieldExtract 3");
-        i321[4] = glm::bitfieldExtract(i321[3], 32, 0);
-        i322[4] = glm2::bitfieldExtract(i322[3], 32, 0);
-        print_single<int32_t>(i321[4], i322[4], "int32_t bitfieldExtract 4");
         v12i32[4] = glm::bitfieldExtract(v12i32[3], 5, 20);
         v22i32[4] = glm2::bitfieldExtract(v22i32[3], 5, 20);
         print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 bitfieldExtract 1");
@@ -4181,9 +4178,6 @@ void glm2::test::run_test(void)
         v12i32[4] = glm::bitfieldExtract(v12i32[3], 0, 32);
         v22i32[4] = glm2::bitfieldExtract(v22i32[3], 0, 32);
         print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 bitfieldExtract 3");
-        v12i32[4] = glm::bitfieldExtract(v12i32[3], 32, 0);
-        v22i32[4] = glm2::bitfieldExtract(v22i32[3], 32, 0);
-        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 bitfieldExtract 4");
         v13i32[4] = glm::bitfieldExtract(v13i32[3], 5, 20);
         v23i32[4] = glm2::bitfieldExtract(v23i32[3], 5, 20);
         print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 bitfieldExtract 1");
@@ -4193,9 +4187,6 @@ void glm2::test::run_test(void)
         v13i32[4] = glm::bitfieldExtract(v13i32[3], 0, 32);
         v23i32[4] = glm2::bitfieldExtract(v23i32[3], 0, 32);
         print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 bitfieldExtract 3");
-        v13i32[4] = glm::bitfieldExtract(v13i32[3], 32, 0);
-        v23i32[4] = glm2::bitfieldExtract(v23i32[3], 32, 0);
-        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 bitfieldExtract 4");
         v14i32[4] = glm::bitfieldExtract(v14i32[3], 5, 20);
         v24i32[4] = glm2::bitfieldExtract(v24i32[3], 5, 20);
         print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 bitfieldExtract 1");
@@ -4205,9 +4196,6 @@ void glm2::test::run_test(void)
         v14i32[4] = glm::bitfieldExtract(v14i32[3], 0, 32);
         v24i32[4] = glm2::bitfieldExtract(v24i32[3], 0, 32);
         print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 bitfieldExtract 3");
-        v14i32[4] = glm::bitfieldExtract(v14i32[3], 32, 0);
-        v24i32[4] = glm2::bitfieldExtract(v24i32[3], 32, 0);
-        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 bitfieldExtract 4");
 
         u321[4] = glm::bitfieldExtract(u321[3], 5, 20);
         u322[4] = glm2::bitfieldExtract(u322[3], 5, 20);
@@ -4218,9 +4206,6 @@ void glm2::test::run_test(void)
         u321[4] = glm::bitfieldExtract(u321[3], 0, 32);
         u322[4] = glm2::bitfieldExtract(u322[3], 0, 32);
         print_single<uint32_t>(u321[4], u322[4], "uint32_t bitfieldExtract 3");
-        u321[4] = glm::bitfieldExtract(u321[3], 32, 0);
-        u322[4] = glm2::bitfieldExtract(u322[3], 32, 0);
-        print_single<uint32_t>(u321[4], u322[4], "uint32_t bitfieldExtract 4");
         v12u32[4] = glm::bitfieldExtract(v12u32[3], 5, 20);
         v22u32[4] = glm2::bitfieldExtract(v22u32[3], 5, 20);
         print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 bitfieldExtract 1");
@@ -4230,9 +4215,6 @@ void glm2::test::run_test(void)
         v12u32[4] = glm::bitfieldExtract(v12u32[3], 0, 32);
         v22u32[4] = glm2::bitfieldExtract(v22u32[3], 0, 32);
         print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 bitfieldExtract 3");
-        v12u32[4] = glm::bitfieldExtract(v12u32[3], 32, 0);
-        v22u32[4] = glm2::bitfieldExtract(v22u32[3], 32, 0);
-        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 bitfieldExtract 4");
         v13u32[4] = glm::bitfieldExtract(v13u32[3], 5, 20);
         v23u32[4] = glm2::bitfieldExtract(v23u32[3], 5, 20);
         print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 bitfieldExtract 1");
@@ -4242,9 +4224,6 @@ void glm2::test::run_test(void)
         v13u32[4] = glm::bitfieldExtract(v13u32[3], 0, 32);
         v23u32[4] = glm2::bitfieldExtract(v23u32[3], 0, 32);
         print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 bitfieldExtract 3");
-        v13u32[4] = glm::bitfieldExtract(v13u32[3], 32, 0);
-        v23u32[4] = glm2::bitfieldExtract(v23u32[3], 32, 0);
-        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 bitfieldExtract 4");
         v14u32[4] = glm::bitfieldExtract(v14u32[3], 5, 20);
         v24u32[4] = glm2::bitfieldExtract(v24u32[3], 5, 20);
         print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 bitfieldExtract 1");
@@ -4254,9 +4233,6 @@ void glm2::test::run_test(void)
         v14u32[4] = glm::bitfieldExtract(v14u32[3], 0, 32);
         v24u32[4] = glm2::bitfieldExtract(v24u32[3], 0, 32);
         print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 bitfieldExtract 3");
-        v14u32[4] = glm::bitfieldExtract(v14u32[3], 32, 0);
-        v24u32[4] = glm2::bitfieldExtract(v24u32[3], 32, 0);
-        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 bitfieldExtract 4");
     }
 
     // bitfieldInsert
@@ -4270,9 +4246,6 @@ void glm2::test::run_test(void)
         i321[4] = glm::bitfieldInsert(i321[3], i321[2], 0, 32);
         i322[4] = glm2::bitfieldInsert(i322[3], i322[2], 0, 32);
         print_single<int32_t>(i321[4], i322[4], "int32_t bitfieldInsert 3");
-        i321[4] = glm::bitfieldInsert(i321[3], i321[2], 32, 0);
-        i322[4] = glm2::bitfieldInsert(i322[3], i322[2], 32, 0);
-        print_single<int32_t>(i321[4], i322[4], "int32_t bitfieldInsert 4");
         v12i32[4] = glm::bitfieldInsert(v12i32[3], v12i32[2], 5, 20);
         v22i32[4] = glm2::bitfieldInsert(v22i32[3], v22i32[2], 5, 20);
         print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 bitfieldInsert 1");
@@ -4282,9 +4255,6 @@ void glm2::test::run_test(void)
         v12i32[4] = glm::bitfieldInsert(v12i32[3], v12i32[2], 0, 32);
         v22i32[4] = glm2::bitfieldInsert(v22i32[3], v22i32[2], 0, 32);
         print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 bitfieldInsert 3");
-        v12i32[4] = glm::bitfieldInsert(v12i32[3], v12i32[2], 32, 0);
-        v22i32[4] = glm2::bitfieldInsert(v22i32[3], v22i32[2], 32, 0);
-        print_vec<2, int32_t>(v12i32[4], v22i32[4], "ivec2 bitfieldInsert 4");
         v13i32[4] = glm::bitfieldInsert(v13i32[3], v13i32[2], 5, 20);
         v23i32[4] = glm2::bitfieldInsert(v23i32[3], v23i32[2], 5, 20);
         print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 bitfieldInsert 1");
@@ -4294,9 +4264,6 @@ void glm2::test::run_test(void)
         v13i32[4] = glm::bitfieldInsert(v13i32[3], v13i32[2], 0, 32);
         v23i32[4] = glm2::bitfieldInsert(v23i32[3], v23i32[2], 0, 32);
         print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 bitfieldInsert 3");
-        v13i32[4] = glm::bitfieldInsert(v13i32[3], v13i32[2], 32, 0);
-        v23i32[4] = glm2::bitfieldInsert(v23i32[3], v23i32[2], 32, 0);
-        print_vec<3, int32_t>(v13i32[4], v23i32[4], "ivec3 bitfieldInsert 4");
         v14i32[4] = glm::bitfieldInsert(v14i32[3], v14i32[2], 5, 20);
         v24i32[4] = glm2::bitfieldInsert(v24i32[3], v24i32[2], 5, 20);
         print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 bitfieldInsert 1");
@@ -4306,9 +4273,6 @@ void glm2::test::run_test(void)
         v14i32[4] = glm::bitfieldInsert(v14i32[3], v14i32[2], 0, 32);
         v24i32[4] = glm2::bitfieldInsert(v24i32[3], v24i32[2], 0, 32);
         print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 bitfieldInsert 3");
-        v14i32[4] = glm::bitfieldInsert(v14i32[3], v14i32[2], 32, 0);
-        v24i32[4] = glm2::bitfieldInsert(v24i32[3], v24i32[2], 32, 0);
-        print_vec<4, int32_t>(v14i32[4], v24i32[4], "ivec4 bitfieldInsert 4");
 
         u321[4] = glm::bitfieldInsert(u321[3], u321[2], 5, 20);
         u322[4] = glm2::bitfieldInsert(u322[3], u322[2], 5, 20);
@@ -4319,9 +4283,6 @@ void glm2::test::run_test(void)
         u321[4] = glm::bitfieldInsert(u321[3], u321[2], 0, 32);
         u322[4] = glm2::bitfieldInsert(u322[3], u322[2], 0, 32);
         print_single<uint32_t>(u321[4], u322[4], "uint32_t bitfieldInsert 3");
-        u321[4] = glm::bitfieldInsert(u321[3], u321[2], 32, 0);
-        u322[4] = glm2::bitfieldInsert(u322[3], u322[2], 32, 0);
-        print_single<uint32_t>(u321[4], u322[4], "uint32_t bitfieldInsert 4");
         v12u32[4] = glm::bitfieldInsert(v12u32[3], v12u32[2], 5, 20);
         v22u32[4] = glm2::bitfieldInsert(v22u32[3], v22u32[2], 5, 20);
         print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 bitfieldInsert 1");
@@ -4331,9 +4292,6 @@ void glm2::test::run_test(void)
         v12u32[4] = glm::bitfieldInsert(v12u32[3], v12u32[2], 0, 32);
         v22u32[4] = glm2::bitfieldInsert(v22u32[3], v22u32[2], 0, 32);
         print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 bitfieldInsert 3");
-        v12u32[4] = glm::bitfieldInsert(v12u32[3], v12u32[2], 32, 0);
-        v22u32[4] = glm2::bitfieldInsert(v22u32[3], v22u32[2], 32, 0);
-        print_vec<2, uint32_t>(v12u32[4], v22u32[4], "uvec2 bitfieldInsert 4");
         v13u32[4] = glm::bitfieldInsert(v13u32[3], v13u32[2], 5, 20);
         v23u32[4] = glm2::bitfieldInsert(v23u32[3], v23u32[2], 5, 20);
         print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 bitfieldInsert 1");
@@ -4343,9 +4301,6 @@ void glm2::test::run_test(void)
         v13u32[4] = glm::bitfieldInsert(v13u32[3], v13u32[2], 0, 32);
         v23u32[4] = glm2::bitfieldInsert(v23u32[3], v23u32[2], 0, 32);
         print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 bitfieldInsert 3");
-        v13u32[4] = glm::bitfieldInsert(v13u32[3], v13u32[2], 32, 0);
-        v23u32[4] = glm2::bitfieldInsert(v23u32[3], v23u32[2], 32, 0);
-        print_vec<3, uint32_t>(v13u32[4], v23u32[4], "uvec3 bitfieldInsert 4");
         v14u32[4] = glm::bitfieldInsert(v14u32[3], v14u32[2], 5, 20);
         v24u32[4] = glm2::bitfieldInsert(v24u32[3], v24u32[2], 5, 20);
         print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 bitfieldInsert 1");
@@ -4355,9 +4310,6 @@ void glm2::test::run_test(void)
         v14u32[4] = glm::bitfieldInsert(v14u32[3], v14u32[2], 0, 32);
         v24u32[4] = glm2::bitfieldInsert(v24u32[3], v24u32[2], 0, 32);
         print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 bitfieldInsert 3");
-        v14u32[4] = glm::bitfieldInsert(v14u32[3], v14u32[2], 32, 0);
-        v24u32[4] = glm2::bitfieldInsert(v24u32[3], v24u32[2], 32, 0);
-        print_vec<4, uint32_t>(v14u32[4], v24u32[4], "uvec4 bitfieldInsert 4");
     }
 
     // bitfieldReverse

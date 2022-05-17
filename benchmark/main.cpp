@@ -18,7 +18,7 @@
 #define GLM2_FORCE_EXPLICIT_CAST
 #include "../glm2/glm2.h"
 
-//#define GLM2_BENCHMARK_CUSTOM
+#define GLM2_BENCHMARK_CUSTOM
 //#define GLM2_BENCHMARK_DOUBLE
 
 //#define GLM2_BENCHMARK_VECTOR_ARITHMETIC_OPERATORS
@@ -29,14 +29,14 @@
 //#define GLM2_BENCHMARK_MATRIX_CMP_OPERATORS
 //#define GLM2_BENCHMARK_MATRIX_EXT_ARITHMETIC
 //#define GLM2_BENCHMARK_COMMON
-#define GLM2_BENCHMARK_COMMON_INTEGER               
+//#define GLM2_BENCHMARK_COMMON_INTEGER               
 //#define GLM2_BENCHMARK_EXPONENTIAL
 //#define GLM2_BENCHMARK_GEOMETRIC
 //#define GLM2_BENCHMARK_MATRIX
-#define GLM2_BENCHMARK_INTEGER
-#define GLM2_BENCHMARK_PACKING
-#define GLM2_BENCHMARK_VECTOR_RELATIONAL
-#define GLM2_BENCHMARK_VECTOR_RELATIONAL_INTEGER
+//#define GLM2_BENCHMARK_INTEGER
+//#define GLM2_BENCHMARK_PACKING
+//#define GLM2_BENCHMARK_VECTOR_RELATIONAL
+//#define GLM2_BENCHMARK_VECTOR_RELATIONAL_INTEGER
 
 #ifdef GLM2_BENCHMARK_DOUBLE
     #define GLM2_VALUE_ZERO 0.0
@@ -106,19 +106,28 @@ glm2::dmat4x4 m2441, m2442, m2443, m2444, m2445;
 int32_t i1, i2, i3, i4, i5;
 uint32_t u1, u2, u3, u4, u5;
 
-glm::ivec2 v121i, v122i, v123i, v124i, v125i;
-glm::ivec3 v131i, v132i, v133i, v134i, v135i;
-glm::ivec4 v141i, v142i, v143i, v144i, v145i;
-glm2::ivec2 v221i, v222i, v223i, v224i, v225i;
-glm2::ivec3 v231i, v232i, v233i, v234i, v235i;
-glm2::ivec4 v241i, v242i, v243i, v244i, v245i;
+glm::ivec2 v121i(2568), v122i(2568), v123i(2568), v124i(2568), v125i(2568);
+glm::ivec3 v131i(2568), v132i(2568), v133i(2568), v134i(2568), v135i(2568);
+glm::ivec4 v141i(2568), v142i(2568), v143i(2568), v144i(2568), v145i(2568);
+glm2::ivec2 v221i(2568), v222i(2568), v223i(2568), v224i(2568), v225i(2568);
+glm2::ivec3 v231i(2568), v232i(2568), v233i(2568), v234i(2568), v235i(2568);
+glm2::ivec4 v241i(2568), v242i(2568), v243i(2568), v244i(2568), v245i(2568);
 
-glm::uvec2 v121u, v122u, v123u, v124u, v125u;
-glm::uvec3 v131u, v132u, v133u, v134u, v135u;
-glm::uvec4 v141u, v142u, v143u, v144u, v145u;
-glm2::uvec2 v221u, v222u, v223u, v224u, v225u;
-glm2::uvec3 v231u, v232u, v233u, v234u, v235u;
-glm2::uvec4 v241u, v242u, v243u, v244u, v245u;
+glm::uvec2 v121u(2568), v122u(2568), v123u(2568), v124u(2568), v125u(2568);
+glm::uvec3 v131u(2568), v132u(2568), v133u(2568), v134u(2568), v135u(2568);
+glm::uvec4 v141u(2568), v142u(2568), v143u(2568), v144u(2568), v145u(2568);
+glm2::uvec2 v221u(2568), v222u(2568), v223u(2568), v224u(2568), v225u(2568);
+glm2::uvec3 v231u(2568), v232u(2568), v233u(2568), v234u(2568), v235u(2568);
+glm2::uvec4 v241u(2568), v242u(2568), v243u(2568), v244u(2568), v245u(2568);
+
+glm::bvec2 v121b, v122b, v123b, v124b, v125b;
+glm::bvec3 v131b, v132b, v133b, v134b, v135b;
+glm::bvec4 v141b, v142b, v143b, v144b, v145b;
+glm2::bvec2 v221b, v222b, v223b, v224b, v225b;
+glm2::bvec3 v231b, v232b, v233b, v234b, v235b;
+glm2::bvec4 v241b, v242b, v243b, v244b, v245b;
+
+double d1, d2, d3, d4, d5;
 
 #ifndef GLM2_BENCHMARK_CUSTOM
 
@@ -4022,6 +4031,865 @@ BENCHMARK(glm__vec3_stepv);
 BENCHMARK(glm2_vec3_stepv);
 BENCHMARK(glm__vec4_stepv);
 BENCHMARK(glm2_vec4_stepv);
+
+// modf
+static void glm__vec2_modf(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121 = glm::modf(v122, v123);
+}
+static void glm__vec3_modf(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131 = glm::modf(v132, v133);
+}
+static void glm__vec4_modf(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141 = glm::modf(v142, v143);
+}
+static void glm2_vec2_modf(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221 = glm2::modf(v222, v223);
+}
+static void glm2_vec3_modf(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231 = glm2::modf(v232, v233);
+}
+static void glm2_vec4_modf(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241 = glm2::modf(v242, v243);
+}
+BENCHMARK(glm__vec2_modf);
+BENCHMARK(glm2_vec2_modf);
+BENCHMARK(glm__vec3_modf);
+BENCHMARK(glm2_vec3_modf);
+BENCHMARK(glm__vec4_modf);
+BENCHMARK(glm2_vec4_modf);
+
+static void glm__vec2_frexp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121 = glm::frexp(v122, v123i);
+}
+static void glm__vec3_frexp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131 = glm::frexp(v132, v133i);
+}
+static void glm__vec4_frexp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141 = glm::frexp(v142, v143i);
+}
+static void glm2_vec2_frexp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221 = glm2::frexp(v222, v223i);
+}
+static void glm2_vec3_frexp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231 = glm2::frexp(v232, v233i);
+}
+static void glm2_vec4_frexp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241 = glm2::frexp(v242, v243i);
+}
+BENCHMARK(glm__vec2_frexp);
+BENCHMARK(glm2_vec2_frexp);
+BENCHMARK(glm__vec3_frexp);
+BENCHMARK(glm2_vec3_frexp);
+BENCHMARK(glm__vec4_frexp);
+BENCHMARK(glm2_vec4_frexp);
+
+static void glm__vec2_ldexp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121 = glm::ldexp(v122, v123i);
+}
+static void glm__vec3_ldexp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131 = glm::ldexp(v132, v133i);
+}
+static void glm__vec4_ldexp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141 = glm::ldexp(v142, v143i);
+}
+static void glm2_vec2_ldexp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221 = glm2::ldexp(v222, v223i);
+}
+static void glm2_vec3_ldexp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231 = glm2::ldexp(v232, v233i);
+}
+static void glm2_vec4_ldexp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241 = glm2::ldexp(v242, v243i);
+}
+BENCHMARK(glm__vec2_ldexp);
+BENCHMARK(glm2_vec2_ldexp);
+BENCHMARK(glm__vec3_ldexp);
+BENCHMARK(glm2_vec3_ldexp);
+BENCHMARK(glm__vec4_ldexp);
+BENCHMARK(glm2_vec4_ldexp);
+
+static void glm__vec2_isinf(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::isinf(v122);
+}
+static void glm__vec3_isinf(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::isinf(v132);
+}
+static void glm__vec4_isinf(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::isinf(v142);
+}
+static void glm2_vec2_isinf(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::isinf(v222);
+}
+static void glm2_vec3_isinf(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::isinf(v232);
+}
+static void glm2_vec4_isinf(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::isinf(v242);
+}
+BENCHMARK(glm__vec2_isinf);
+BENCHMARK(glm2_vec2_isinf);
+BENCHMARK(glm__vec3_isinf);
+BENCHMARK(glm2_vec3_isinf);
+BENCHMARK(glm__vec4_isinf);
+BENCHMARK(glm2_vec4_isinf);
+
+static void glm__vec2_isnan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::isnan(v122);
+}
+static void glm__vec3_isnan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::isnan(v132);
+}
+static void glm__vec4_isnan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::isnan(v142);
+}
+static void glm2_vec2_isnan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::isnan(v222);
+}
+static void glm2_vec3_isnan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::isnan(v232);
+}
+static void glm2_vec4_isnan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::isnan(v242);
+}
+BENCHMARK(glm__vec2_isnan);
+BENCHMARK(glm2_vec2_isnan);
+BENCHMARK(glm__vec3_isnan);
+BENCHMARK(glm2_vec3_isnan);
+BENCHMARK(glm__vec4_isnan);
+BENCHMARK(glm2_vec4_isnan);
+
+#endif
+
+#ifdef GLM2_BENCHMARK_COMMON_INTEGER
+
+// abs
+static void glm__ivec2_abs(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = glm::abs(v122i);
+}
+static void glm__ivec3_abs(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = glm::abs(v132i);
+}
+static void glm__ivec4_abs(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = glm::abs(v142i);
+}
+static void glm2_ivec2_abs(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = glm2::abs(v222i);
+}
+static void glm2_ivec3_abs(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = glm2::abs(v232i);
+}
+static void glm2_ivec4_abs(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = glm2::abs(v242i);
+}
+BENCHMARK(glm__ivec2_abs);
+BENCHMARK(glm2_ivec2_abs);
+BENCHMARK(glm__ivec3_abs);
+BENCHMARK(glm2_ivec3_abs);
+BENCHMARK(glm__ivec4_abs);
+BENCHMARK(glm2_ivec4_abs);
+
+static void glm__ivec2_clamp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = glm::clamp(v122i, 0, 1);
+}
+static void glm__ivec3_clamp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = glm::clamp(v132i, 0, 1);
+}
+static void glm__ivec4_clamp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = glm::clamp(v142i, 0, 1);
+}
+static void glm2_ivec2_clamp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = glm2::clamp(v222i, 0, 1);
+}
+static void glm2_ivec3_clamp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = glm2::clamp(v232i, 0, 1);
+}
+static void glm2_ivec4_clamp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = glm2::clamp(v242i, 0, 1);
+}
+BENCHMARK(glm__ivec2_clamp);
+BENCHMARK(glm2_ivec2_clamp);
+BENCHMARK(glm__ivec3_clamp);
+BENCHMARK(glm2_ivec3_clamp);
+BENCHMARK(glm__ivec4_clamp);
+BENCHMARK(glm2_ivec4_clamp);
+
+static void glm__ivec2_clampv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = glm::clamp(v122i, v123i, v124i);
+}
+static void glm__ivec3_clampv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = glm::clamp(v132i, v133i, v134i);
+}
+static void glm__ivec4_clampv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = glm::clamp(v142i, v143i, v144i);
+}
+static void glm2_ivec2_clampv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = glm2::clamp(v222i, v223i, v224i);
+}
+static void glm2_ivec3_clampv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = glm2::clamp(v232i, v233i, v234i);
+}
+static void glm2_ivec4_clampv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = glm2::clamp(v242i, v243i, v244i);
+}
+BENCHMARK(glm__ivec2_clampv);
+BENCHMARK(glm2_ivec2_clampv);
+BENCHMARK(glm__ivec3_clampv);
+BENCHMARK(glm2_ivec3_clampv);
+BENCHMARK(glm__ivec4_clampv);
+BENCHMARK(glm2_ivec4_clampv);
+
+static void glm__uvec2_clamp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121u = glm::clamp(v122u, 0u, 1u);
+}
+static void glm__uvec3_clamp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131u = glm::clamp(v132u, 0u, 1u);
+}
+static void glm__uvec4_clamp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141u = glm::clamp(v142u, 0u, 1u);
+}
+static void glm2_uvec2_clamp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221u = glm2::clamp(v222u, 0u, 1u);
+}
+static void glm2_uvec3_clamp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231u = glm2::clamp(v232u, 0u, u1);
+}
+static void glm2_uvec4_clamp(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241u = glm2::clamp(v242u, 0u, 1u);
+}
+BENCHMARK(glm__uvec2_clamp);
+BENCHMARK(glm2_uvec2_clamp);
+BENCHMARK(glm__uvec3_clamp);
+BENCHMARK(glm2_uvec3_clamp);
+BENCHMARK(glm__uvec4_clamp);
+BENCHMARK(glm2_uvec4_clamp);
+
+static void glm__uvec2_clampv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121u = glm::clamp(v122u, v123u, v124u);
+}
+static void glm__uvec3_clampv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131u = glm::clamp(v132u, v133u, v134u);
+}
+static void glm__uvec4_clampv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141u = glm::clamp(v142u, v143u, v144u);
+}
+static void glm2_uvec2_clampv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221u = glm2::clamp(v222u, v223u, v224u);
+}
+static void glm2_uvec3_clampv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231u = glm2::clamp(v232u, v233u, v234u);
+}
+static void glm2_uvec4_clampv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241u = glm2::clamp(v242u, v243u, v244u);
+}
+BENCHMARK(glm__uvec2_clampv);
+BENCHMARK(glm2_uvec2_clampv);
+BENCHMARK(glm__uvec3_clampv);
+BENCHMARK(glm2_uvec3_clampv);
+BENCHMARK(glm__uvec4_clampv);
+BENCHMARK(glm2_uvec4_clampv);
+
+static void glm__ivec2_min(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = glm::min(v122i, 0);
+}
+static void glm__ivec3_min(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = glm::min(v132i, 0);
+}
+static void glm__ivec4_min(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = glm::min(v142i, 0);
+}
+static void glm2_ivec2_min(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = glm2::min(v222i, 0);
+}
+static void glm2_ivec3_min(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = glm2::min(v232i, 0);
+}
+static void glm2_ivec4_min(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = glm2::min(v242i, 0);
+}
+BENCHMARK(glm__ivec2_min);
+BENCHMARK(glm2_ivec2_min);
+BENCHMARK(glm__ivec3_min);
+BENCHMARK(glm2_ivec3_min);
+BENCHMARK(glm__ivec4_min);
+BENCHMARK(glm2_ivec4_min);
+
+static void glm__ivec2_minv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = glm::min(v122i, v123i);
+}
+static void glm__ivec3_minv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = glm::min(v132i, v133i);
+}
+static void glm__ivec4_minv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = glm::min(v142i, v143i);
+}
+static void glm2_ivec2_minv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = glm2::min(v222i, v223i);
+}
+static void glm2_ivec3_minv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = glm2::min(v232i, v233i);
+}
+static void glm2_ivec4_minv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = glm2::min(v242i, v243i);
+}
+BENCHMARK(glm__ivec2_minv);
+BENCHMARK(glm2_ivec2_minv);
+BENCHMARK(glm__ivec3_minv);
+BENCHMARK(glm2_ivec3_minv);
+BENCHMARK(glm__ivec4_minv);
+BENCHMARK(glm2_ivec4_minv);
+
+static void glm__uvec2_min(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121u = glm::min(v122u, 0u);
+}
+static void glm__uvec3_min(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131u = glm::min(v132u, 0u);
+}
+static void glm__uvec4_min(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141u = glm::min(v142u, 0u);
+}
+static void glm2_uvec2_min(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221u = glm2::min(v222u, 0u);
+}
+static void glm2_uvec3_min(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231u = glm2::min(v232u, 0u);
+}
+static void glm2_uvec4_min(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241u = glm2::min(v242u, 0u);
+}
+BENCHMARK(glm__uvec2_min);
+BENCHMARK(glm2_uvec2_min);
+BENCHMARK(glm__uvec3_min);
+BENCHMARK(glm2_uvec3_min);
+BENCHMARK(glm__uvec4_min);
+BENCHMARK(glm2_uvec4_min);
+
+static void glm__uvec2_minv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121u = glm::min(v122u, v123u);
+}
+static void glm__uvec3_minv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131u = glm::min(v132u, v133u);
+}
+static void glm__uvec4_minv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141u = glm::min(v142u, v143u);
+}
+static void glm2_uvec2_minv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221u = glm2::min(v222u, v223u);
+}
+static void glm2_uvec3_minv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231u = glm2::min(v232u, v233u);
+}
+static void glm2_uvec4_minv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241u = glm2::min(v242u, v243u);
+}
+BENCHMARK(glm__uvec2_minv);
+BENCHMARK(glm2_uvec2_minv);
+BENCHMARK(glm__uvec3_minv);
+BENCHMARK(glm2_uvec3_minv);
+BENCHMARK(glm__uvec4_minv);
+BENCHMARK(glm2_uvec4_minv);
+
+static void glm__ivec2_max(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = glm::max(v122i, 0);
+}
+static void glm__ivec3_max(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = glm::max(v132i, 0);
+}
+static void glm__ivec4_max(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = glm::max(v142i, 0);
+}
+static void glm2_ivec2_max(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = glm2::max(v222i, 0);
+}
+static void glm2_ivec3_max(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = glm2::max(v232i, 0);
+}
+static void glm2_ivec4_max(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = glm2::max(v242i, 0);
+}
+BENCHMARK(glm__ivec2_max);
+BENCHMARK(glm2_ivec2_max);
+BENCHMARK(glm__ivec3_max);
+BENCHMARK(glm2_ivec3_max);
+BENCHMARK(glm__ivec4_max);
+BENCHMARK(glm2_ivec4_max);
+
+static void glm__ivec2_maxv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = glm::max(v122i, v123i);
+}
+static void glm__ivec3_maxv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = glm::max(v132i, v133i);
+}
+static void glm__ivec4_maxv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = glm::max(v142i, v143i);
+}
+static void glm2_ivec2_maxv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = glm2::max(v222i, v223i);
+}
+static void glm2_ivec3_maxv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = glm2::max(v232i, v233i);
+}
+static void glm2_ivec4_maxv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = glm2::max(v242i, v243i);
+}
+BENCHMARK(glm__ivec2_maxv);
+BENCHMARK(glm2_ivec2_maxv);
+BENCHMARK(glm__ivec3_maxv);
+BENCHMARK(glm2_ivec3_maxv);
+BENCHMARK(glm__ivec4_maxv);
+BENCHMARK(glm2_ivec4_maxv);
+
+static void glm__uvec2_max(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121u = glm::max(v122u, 0u);
+}
+static void glm__uvec3_max(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131u = glm::max(v132u, 0u);
+}
+static void glm__uvec4_max(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141u = glm::max(v142u, 0u);
+}
+static void glm2_uvec2_max(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221u = glm2::max(v222u, 0u);
+}
+static void glm2_uvec3_max(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231u = glm2::max(v232u, 0u);
+}
+static void glm2_uvec4_max(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241u = glm2::max(v242u, 0u);
+}
+BENCHMARK(glm__uvec2_max);
+BENCHMARK(glm2_uvec2_max);
+BENCHMARK(glm__uvec3_max);
+BENCHMARK(glm2_uvec3_max);
+BENCHMARK(glm__uvec4_max);
+BENCHMARK(glm2_uvec4_max);
+
+static void glm__uvec2_maxv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121u = glm::max(v122u, v123u);
+}
+static void glm__uvec3_maxv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131u = glm::max(v132u, v133u);
+}
+static void glm__uvec4_maxv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141u = glm::max(v142u, v143u);
+}
+static void glm2_uvec2_maxv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221u = glm2::max(v222u, v223u);
+}
+static void glm2_uvec3_maxv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231u = glm2::max(v232u, v233u);
+}
+static void glm2_uvec4_maxv(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241u = glm2::max(v242u, v243u);
+}
+BENCHMARK(glm__uvec2_maxv);
+BENCHMARK(glm2_uvec2_maxv);
+BENCHMARK(glm__uvec3_maxv);
+BENCHMARK(glm2_uvec3_maxv);
+BENCHMARK(glm__uvec4_maxv);
+BENCHMARK(glm2_uvec4_maxv);
+
+static void glm__ivec2_sign(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = glm::sign(v122i);
+}
+static void glm__ivec3_sign(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = glm::sign(v132i);
+}
+static void glm__ivec4_sign(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = glm::sign(v142i);
+}
+static void glm2_ivec2_sign(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = glm2::sign(v222i);
+}
+static void glm2_ivec3_sign(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = glm2::sign(v232i);
+}
+static void glm2_ivec4_sign(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = glm2::sign(v242i);
+}
+BENCHMARK(glm__ivec2_sign);
+BENCHMARK(glm2_ivec2_sign);
+BENCHMARK(glm__ivec3_sign);
+BENCHMARK(glm2_ivec3_sign);
+BENCHMARK(glm__ivec4_sign);
+BENCHMARK(glm2_ivec4_sign);
+
+static void glm__ivec2_floatBitsToInt(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = glm::floatBitsToInt(v122);
+}
+static void glm__ivec3_floatBitsToInt(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = glm::floatBitsToInt(v132);
+}
+static void glm__ivec4_floatBitsToInt(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = glm::floatBitsToInt(v142);
+}
+static void glm2_ivec2_floatBitsToInt(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = glm2::floatBitsToInt(v222);
+}
+static void glm2_ivec3_floatBitsToInt(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = glm2::floatBitsToInt(v232);
+}
+static void glm2_ivec4_floatBitsToInt(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = glm2::floatBitsToInt(v242);
+}
+BENCHMARK(glm__ivec2_floatBitsToInt);
+BENCHMARK(glm2_ivec2_floatBitsToInt);
+BENCHMARK(glm__ivec3_floatBitsToInt);
+BENCHMARK(glm2_ivec3_floatBitsToInt);
+BENCHMARK(glm__ivec4_floatBitsToInt);
+BENCHMARK(glm2_ivec4_floatBitsToInt);
+
+
+static void glm__uvec2_floatBitsToUint(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121u = glm::floatBitsToUint(v122);
+}
+static void glm__uvec3_floatBitsToUint(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131u = glm::floatBitsToUint(v132);
+}
+static void glm__uvec4_floatBitsToUint(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141u = glm::floatBitsToUint(v142);
+}
+static void glm2_uvec2_floatBitsToUint(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221u = glm2::floatBitsToUint(v222);
+}
+static void glm2_uvec3_floatBitsToUint(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231u = glm2::floatBitsToUint(v232);
+}
+static void glm2_uvec4_floatBitsToUint(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241u = glm2::floatBitsToUint(v242);
+}
+BENCHMARK(glm__uvec2_floatBitsToUint);
+BENCHMARK(glm2_uvec2_floatBitsToUint);
+BENCHMARK(glm__uvec3_floatBitsToUint);
+BENCHMARK(glm2_uvec3_floatBitsToUint);
+BENCHMARK(glm__uvec4_floatBitsToUint);
+BENCHMARK(glm2_uvec4_floatBitsToUint);
+
+static void glm__ivec2_intBitsToFloat(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121 = glm::intBitsToFloat(v122i);
+}
+static void glm__ivec3_intBitsToFloat(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131 = glm::intBitsToFloat(v132i);
+}
+static void glm__ivec4_intBitsToFloat(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141 = glm::intBitsToFloat(v142i);
+}
+static void glm2_ivec2_intBitsToFloat(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221 = glm2::intBitsToFloat(v222i);
+}
+static void glm2_ivec3_intBitsToFloat(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231 = glm2::intBitsToFloat(v232i);
+}
+static void glm2_ivec4_intBitsToFloat(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241 = glm2::intBitsToFloat(v242i);
+}
+BENCHMARK(glm__ivec2_intBitsToFloat);
+BENCHMARK(glm2_ivec2_intBitsToFloat);
+BENCHMARK(glm__ivec3_intBitsToFloat);
+BENCHMARK(glm2_ivec3_intBitsToFloat);
+BENCHMARK(glm__ivec4_intBitsToFloat);
+BENCHMARK(glm2_ivec4_intBitsToFloat);
+
+static void glm__uvec2_uintBitsToFloat(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121 = glm::uintBitsToFloat(v122u);
+}
+static void glm__uvec3_uintBitsToFloat(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131 = glm::uintBitsToFloat(v132u);
+}
+static void glm__uvec4_uintBitsToFloat(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141 = glm::uintBitsToFloat(v142u);
+}
+static void glm2_uvec2_uintBitsToFloat(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221 = glm2::uintBitsToFloat(v222u);
+}
+static void glm2_uvec3_uintBitsToFloat(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231 = glm2::uintBitsToFloat(v232u);
+}
+static void glm2_uvec4_uintBitsToFloat(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241 = glm2::uintBitsToFloat(v242u);
+}
+BENCHMARK(glm__uvec2_uintBitsToFloat);
+BENCHMARK(glm2_uvec2_uintBitsToFloat);
+BENCHMARK(glm__uvec3_uintBitsToFloat);
+BENCHMARK(glm2_uvec3_uintBitsToFloat);
+BENCHMARK(glm__uvec4_uintBitsToFloat);
+BENCHMARK(glm2_uvec4_uintBitsToFloat);
+
 #endif
 
 #ifdef GLM2_BENCHMARK_EXPONENTIAL
@@ -4602,22 +5470,1487 @@ BENCHMARK(glm__mat4x4_inverse);
 BENCHMARK(glm2_mat4x4_inverse);
 #endif
 
-#else
+#ifdef GLM2_BENCHMARK_INTEGER
 
-glm2::vec4 v1, v2, v3, v4, v5;
+// bitcount
+static void glm__ivec2_bitCount(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = glm::bitCount(v122i);
+}
+static void glm__ivec3_bitCount(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = glm::bitCount(v132i);
+}
+static void glm__ivec4_bitCount(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = glm::bitCount(v142i);
+}
+static void glm2_ivec2_bitCount(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = glm2::bitCount(v222i);
+}
+static void glm2_ivec3_bitCount(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = glm2::bitCount(v232i);
+}
+static void glm2_ivec4_bitCount(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = glm2::bitCount(v242i);
+}
+BENCHMARK(glm__ivec2_bitCount);
+BENCHMARK(glm2_ivec2_bitCount);
+BENCHMARK(glm__ivec3_bitCount);
+BENCHMARK(glm2_ivec3_bitCount);
+BENCHMARK(glm__ivec4_bitCount);
+BENCHMARK(glm2_ivec4_bitCount);
+
+static void glm__uvec2_bitCount(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = glm::bitCount(v122u);
+}
+static void glm__uvec3_bitCount(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = glm::bitCount(v132u);
+}
+static void glm__uvec4_bitCount(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = glm::bitCount(v142u);
+}
+static void glm2_uvec2_bitCount(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = glm2::bitCount(v222u);
+}
+static void glm2_uvec3_bitCount(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = glm2::bitCount(v232u);
+}
+static void glm2_uvec4_bitCount(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = glm2::bitCount(v242u);
+}
+BENCHMARK(glm__uvec2_bitCount);
+BENCHMARK(glm2_uvec2_bitCount);
+BENCHMARK(glm__uvec3_bitCount);
+BENCHMARK(glm2_uvec3_bitCount);
+BENCHMARK(glm__uvec4_bitCount);
+BENCHMARK(glm2_uvec4_bitCount);
+
+// bitfield extract
+static void glm__ivec2_bitfieldExtract(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = glm::bitfieldExtract(v122i, i1, i2);
+}
+static void glm__ivec3_bitfieldExtract(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = glm::bitfieldExtract(v132i, i1, i2);
+}
+static void glm__ivec4_bitfieldExtract(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = glm::bitfieldExtract(v142i, i1, i2);
+}
+static void glm2_ivec2_bitfieldExtract(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = glm2::bitfieldExtract(v222i, i1, i2);
+}
+static void glm2_ivec3_bitfieldExtract(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = glm2::bitfieldExtract(v232i, i1, i2);
+}
+static void glm2_ivec4_bitfieldExtract(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = glm2::bitfieldExtract(v242i, i1, i2);
+}
+BENCHMARK(glm__ivec2_bitfieldExtract);
+BENCHMARK(glm2_ivec2_bitfieldExtract);
+BENCHMARK(glm__ivec3_bitfieldExtract);
+BENCHMARK(glm2_ivec3_bitfieldExtract);
+BENCHMARK(glm__ivec4_bitfieldExtract);
+BENCHMARK(glm2_ivec4_bitfieldExtract);
+
+static void glm__uvec2_bitfieldExtract(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121u = glm::bitfieldExtract(v122u, u1, u2);
+}
+static void glm__uvec3_bitfieldExtract(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131u = glm::bitfieldExtract(v132u, u1, u2);
+}
+static void glm__uvec4_bitfieldExtract(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141u = glm::bitfieldExtract(v142u, u1, u2);
+}
+static void glm2_uvec2_bitfieldExtract(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221u = glm2::bitfieldExtract(v222u, u1, u2);
+}
+static void glm2_uvec3_bitfieldExtract(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231u = glm2::bitfieldExtract(v232u, u1, u2);
+}
+static void glm2_uvec4_bitfieldExtract(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241u = glm2::bitfieldExtract(v242u, u1, u2);
+}
+BENCHMARK(glm__uvec2_bitfieldExtract);
+BENCHMARK(glm2_uvec2_bitfieldExtract);
+BENCHMARK(glm__uvec3_bitfieldExtract);
+BENCHMARK(glm2_uvec3_bitfieldExtract);
+BENCHMARK(glm__uvec4_bitfieldExtract);
+BENCHMARK(glm2_uvec4_bitfieldExtract);
+
+// bitfield extract
+static void glm__ivec2_bitfieldInsert(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = glm::bitfieldInsert(v122i, v123i, i1, i2);
+}
+static void glm__ivec3_bitfieldInsert(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = glm::bitfieldInsert(v132i, v133i, i1, i2);
+}
+static void glm__ivec4_bitfieldInsert(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = glm::bitfieldInsert(v142i, v143i, i1, i2);
+}
+static void glm2_ivec2_bitfieldInsert(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = glm2::bitfieldInsert(v222i, v223i, i1, i2);
+}
+static void glm2_ivec3_bitfieldInsert(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = glm2::bitfieldInsert(v232i, v233i, i1, i2);
+}
+static void glm2_ivec4_bitfieldInsert(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = glm2::bitfieldInsert(v242i, v243i, i1, i2);
+}
+BENCHMARK(glm__ivec2_bitfieldInsert);
+BENCHMARK(glm2_ivec2_bitfieldInsert);
+BENCHMARK(glm__ivec3_bitfieldInsert);
+BENCHMARK(glm2_ivec3_bitfieldInsert);
+BENCHMARK(glm__ivec4_bitfieldInsert);
+BENCHMARK(glm2_ivec4_bitfieldInsert);
+
+static void glm__uvec2_bitfieldInsert(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121u = glm::bitfieldInsert(v122u, v123u, u1, u2);
+}
+static void glm__uvec3_bitfieldInsert(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131u = glm::bitfieldInsert(v132u, v133u, u1, u2);
+}
+static void glm__uvec4_bitfieldInsert(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141u = glm::bitfieldInsert(v142u, v143u, u1, u2);
+}
+static void glm2_uvec2_bitfieldInsert(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221u = glm2::bitfieldInsert(v222u, v223u, u1, u2);
+}
+static void glm2_uvec3_bitfieldInsert(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231u = glm2::bitfieldInsert(v232u, v233u, u1, u2);
+}
+static void glm2_uvec4_bitfieldInsert(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241u = glm2::bitfieldInsert(v242u, v243u, u1, u2);
+}
+BENCHMARK(glm__uvec2_bitfieldInsert);
+BENCHMARK(glm2_uvec2_bitfieldInsert);
+BENCHMARK(glm__uvec3_bitfieldInsert);
+BENCHMARK(glm2_uvec3_bitfieldInsert);
+BENCHMARK(glm__uvec4_bitfieldInsert);
+BENCHMARK(glm2_uvec4_bitfieldInsert);
+
+// bitfieldReverse
+static void glm__uvec2_bitfieldReverse(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121u = glm::bitfieldReverse(v122u);
+}
+static void glm__uvec3_bitfieldReverse(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131u = glm::bitfieldReverse(v132u);
+}
+static void glm__uvec4_bitfieldReverse(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141u = glm::bitfieldReverse(v142u);
+}
+static void glm2_uvec2_bitfieldReverse(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221u = glm2::bitfieldReverse(v222u);
+}
+static void glm2_uvec3_bitfieldReverse(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231u = glm2::bitfieldReverse(v232u);
+}
+static void glm2_uvec4_bitfieldReverse(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241u = glm2::bitfieldReverse(v242u);
+}
+BENCHMARK(glm__uvec2_bitfieldReverse);
+BENCHMARK(glm2_uvec2_bitfieldReverse);
+BENCHMARK(glm__uvec3_bitfieldReverse);
+BENCHMARK(glm2_uvec3_bitfieldReverse);
+BENCHMARK(glm__uvec4_bitfieldReverse);
+BENCHMARK(glm2_uvec4_bitfieldReverse);
+
+// findLSB
+static void glm__uvec2_findLSB(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = glm::findLSB(v122u);
+}
+static void glm__uvec3_findLSB(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = glm::findLSB(v132u);
+}
+static void glm__uvec4_findLSB(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = glm::findLSB(v142u);
+}
+static void glm2_uvec2_findLSB(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = glm2::findLSB(v222u);
+}
+static void glm2_uvec3_findLSB(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = glm2::findLSB(v232u);
+}
+static void glm2_uvec4_findLSB(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = glm2::findLSB(v242u);
+}
+BENCHMARK(glm__uvec2_findLSB);
+BENCHMARK(glm2_uvec2_findLSB);
+BENCHMARK(glm__uvec3_findLSB);
+BENCHMARK(glm2_uvec3_findLSB);
+BENCHMARK(glm__uvec4_findLSB);
+BENCHMARK(glm2_uvec4_findLSB);
+
+// findMSB
+static void glm__uvec2_findMSB(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121i = glm::findMSB(v122u);
+}
+static void glm__uvec3_findMSB(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131i = glm::findMSB(v132u);
+}
+static void glm__uvec4_findMSB(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141i = glm::findMSB(v142u);
+}
+static void glm2_uvec2_findMSB(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221i = glm2::findMSB(v222u);
+}
+static void glm2_uvec3_findMSB(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231i = glm2::findMSB(v232u);
+}
+static void glm2_uvec4_findMSB(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241i = glm2::findMSB(v242u);
+}
+BENCHMARK(glm__uvec2_findMSB);
+BENCHMARK(glm2_uvec2_findMSB);
+BENCHMARK(glm__uvec3_findMSB);
+BENCHMARK(glm2_uvec3_findMSB);
+BENCHMARK(glm__uvec4_findMSB);
+BENCHMARK(glm2_uvec4_findMSB);
+
+// uaddCarry
+static void glm__uvec2_uaddCarry(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121u = glm::uaddCarry(v122u, v123u, v124u);
+}
+static void glm__uvec3_uaddCarry(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131u = glm::uaddCarry(v132u, v133u, v134u);
+}
+static void glm__uvec4_uaddCarry(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141u = glm::uaddCarry(v142u, v143u, v144u);
+}
+static void glm2_uvec2_uaddCarry(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221u = glm2::uaddCarry(v222u, v223u, v224u);
+}
+static void glm2_uvec3_uaddCarry(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231u = glm2::uaddCarry(v232u, v233u, v234u);
+}
+static void glm2_uvec4_uaddCarry(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241u = glm2::uaddCarry(v242u, v243u, v244u);
+}
+BENCHMARK(glm__uvec2_uaddCarry);
+BENCHMARK(glm2_uvec2_uaddCarry);
+BENCHMARK(glm__uvec3_uaddCarry);
+BENCHMARK(glm2_uvec3_uaddCarry);
+BENCHMARK(glm__uvec4_uaddCarry);
+BENCHMARK(glm2_uvec4_uaddCarry);
+
+// usubBorrow
+static void glm__uvec2_usubBorrow(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121u = glm::usubBorrow(v122u, v123u, v124u);
+}
+static void glm__uvec3_usubBorrow(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131u = glm::usubBorrow(v132u, v133u, v134u);
+}
+static void glm__uvec4_usubBorrow(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141u = glm::usubBorrow(v142u, v143u, v144u);
+}
+static void glm2_uvec2_usubBorrow(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221u = glm2::usubBorrow(v222u, v223u, v224u);
+}
+static void glm2_uvec3_usubBorrow(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231u = glm2::usubBorrow(v232u, v233u, v234u);
+}
+static void glm2_uvec4_usubBorrow(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241u = glm2::usubBorrow(v242u, v243u, v244u);
+}
+BENCHMARK(glm__uvec2_usubBorrow);
+BENCHMARK(glm2_uvec2_usubBorrow);
+BENCHMARK(glm__uvec3_usubBorrow);
+BENCHMARK(glm2_uvec3_usubBorrow);
+BENCHMARK(glm__uvec4_usubBorrow);
+BENCHMARK(glm2_uvec4_usubBorrow);
+
+// imulExtended
+static void glm__uvec2_imulExtended(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        glm::imulExtended(v121i, v122i, v123i, v124i);
+}
+static void glm__uvec3_imulExtended(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        glm::imulExtended(v131i, v132i, v133i, v134i);
+}
+static void glm__uvec4_imulExtended(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        glm::imulExtended(v141i, v142i, v143i, v144i);
+}
+static void glm2_uvec2_imulExtended(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        glm2::imulExtended(v221i,v222i, v223i, v224i);
+}
+static void glm2_uvec3_imulExtended(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        glm2::imulExtended(v231i, v232i, v233i, v234i);
+}
+static void glm2_uvec4_imulExtended(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        glm2::imulExtended(v241i, v242i, v243i, v244i);
+}
+BENCHMARK(glm__uvec2_imulExtended);
+BENCHMARK(glm2_uvec2_imulExtended);
+BENCHMARK(glm__uvec3_imulExtended);
+BENCHMARK(glm2_uvec3_imulExtended);
+BENCHMARK(glm__uvec4_imulExtended);
+BENCHMARK(glm2_uvec4_imulExtended);
+
+// umulExtended
+static void glm__uvec2_umulExtended(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        glm::umulExtended(v121u, v122u, v123u, v124u);
+}
+static void glm__uvec3_umulExtended(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        glm::umulExtended(v131u, v132u, v133u, v134u);
+}
+static void glm__uvec4_umulExtended(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        glm::umulExtended(v141u, v142u, v143u, v144u);
+}
+static void glm2_uvec2_umulExtended(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        glm2::umulExtended(v221u,v222u, v223u, v224u);
+}
+static void glm2_uvec3_umulExtended(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        glm2::umulExtended(v231u, v232u, v233u, v234u);
+}
+static void glm2_uvec4_umulExtended(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        glm2::umulExtended(v241u, v242u, v243u, v244u);
+}
+BENCHMARK(glm__uvec2_umulExtended);
+BENCHMARK(glm2_uvec2_umulExtended);
+BENCHMARK(glm__uvec3_umulExtended);
+BENCHMARK(glm2_uvec3_umulExtended);
+BENCHMARK(glm__uvec4_umulExtended);
+BENCHMARK(glm2_uvec4_umulExtended);
+
+#endif
+
+#ifdef GLM2_BENCHMARK_PACKING
+
+// packDouble2x32
+static void glm__vec2_packDouble2x32(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        d1 = glm::packDouble2x32(v122u);
+}
+static void glm2_vec2_packDouble2x32(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        d1 = glm2::packDouble2x32(v222u);
+}
+BENCHMARK(glm__vec2_packDouble2x32);
+BENCHMARK(glm2_vec2_packDouble2x32);
+
+// packHalf2x16
+static void glm__vec2_packHalf2x16(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        u1 = glm::packHalf2x16(v122);
+}
+static void glm2_vec2_packHalf2x16(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        u1 = glm2::packHalf2x16(v222);
+}
+BENCHMARK(glm__vec2_packHalf2x16);
+BENCHMARK(glm2_vec2_packHalf2x16);
+
+// packSnorm2x16
+static void glm__vec2_packSnorm2x16(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        u1 = glm::packSnorm2x16(v122);
+}
+static void glm2_vec2_packSnorm2x16(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        u1 = glm2::packSnorm2x16(v222);
+}
+BENCHMARK(glm__vec2_packSnorm2x16);
+BENCHMARK(glm2_vec2_packSnorm2x16);
+
+// packSnorm4x8
+static void glm__vec2_packSnorm4x8(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        u1 = glm::packSnorm4x8(v142);
+}
+static void glm2_vec2_packSnorm4x8(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        u1 = glm2::packSnorm4x8(v242);
+}
+BENCHMARK(glm__vec2_packSnorm4x8);
+BENCHMARK(glm2_vec2_packSnorm4x8);
+
+// packUnorm2x16
+static void glm__vec2_packUnorm2x16(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        u1 = glm::packUnorm2x16(v122);
+}
+static void glm2_vec2_packUnorm2x16(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        u1 = glm2::packUnorm2x16(v222);
+}
+BENCHMARK(glm__vec2_packUnorm2x16);
+BENCHMARK(glm2_vec2_packUnorm2x16);
+
+// packUnorm4x8
+static void glm__vec2_packUnorm4x8(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        u1 = glm::packUnorm4x8(v142);
+}
+static void glm2_vec2_packUnorm4x8(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        u1 = glm2::packUnorm4x8(v242);
+}
+BENCHMARK(glm__vec2_packUnorm4x8);
+BENCHMARK(glm2_vec2_packUnorm4x8);
+
+// unpackDouble2x32
+static void glm__vec2_unpackDouble2x32(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121u = glm::unpackDouble2x32(d1);
+}
+static void glm2_vec2_unpackDouble2x32(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221u = glm2::unpackDouble2x32(d1);
+}
+BENCHMARK(glm__vec2_unpackDouble2x32);
+BENCHMARK(glm2_vec2_unpackDouble2x32);
+
+// unpackHalf2x16
+static void glm__vec2_unpackHalf2x16(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121 = glm::unpackHalf2x16(u1);
+}
+static void glm2_vec2_unpackHalf2x16(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221 = glm2::unpackHalf2x16(u1);
+}
+BENCHMARK(glm__vec2_unpackHalf2x16);
+BENCHMARK(glm2_vec2_unpackHalf2x16);
+
+// unpackSnorm2x16
+static void glm__vec2_unpackSnorm2x16(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121 = glm::unpackSnorm2x16(u1);
+}
+static void glm2_vec2_unpackSnorm2x16(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221 = glm2::unpackSnorm2x16(u1);
+}
+BENCHMARK(glm__vec2_unpackSnorm2x16);
+BENCHMARK(glm2_vec2_unpackSnorm2x16);
+
+// unpackSnorm4x8
+static void glm__vec2_unpackSnorm4x8(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141 = glm::unpackSnorm4x8(u1);
+}
+static void glm2_vec2_unpackSnorm4x8(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241 = glm2::unpackSnorm4x8(u1);
+}
+BENCHMARK(glm__vec2_unpackSnorm4x8);
+BENCHMARK(glm2_vec2_unpackSnorm4x8);
+
+// unpackUnorm2x16
+static void glm__vec2_unpackUnorm2x16(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121 = glm::unpackUnorm2x16(u1);
+}
+static void glm2_vec2_unpackUnorm2x16(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221 = glm2::unpackUnorm2x16(u1);
+}
+BENCHMARK(glm__vec2_unpackUnorm2x16);
+BENCHMARK(glm2_vec2_unpackUnorm2x16);
+
+// unpackUnorm4x8
+static void glm__vec2_unpackUnorm4x8(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141 = glm::unpackUnorm4x8(u1);
+}
+static void glm2_vec2_unpackUnorm4x8(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241 = glm2::unpackUnorm4x8(u1);
+}
+BENCHMARK(glm__vec2_unpackUnorm4x8);
+BENCHMARK(glm2_vec2_unpackUnorm4x8);
+
+#endif
+
+#ifdef GLM2_BENCHMARK_VECTOR_RELATIONAL
+
+// equal
+static void glm__vec2_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::equal(v122, v123);
+}
+static void glm__vec3_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::equal(v132, v133);
+}
+static void glm__vec4_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::equal(v142, v143);
+}
+static void glm2_vec2_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::equal(v222, v223);
+}
+static void glm2_vec3_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::equal(v232, v233);
+}
+static void glm2_vec4_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::equal(v242, v243);
+}
+BENCHMARK(glm__vec2_equal);
+BENCHMARK(glm2_vec2_equal);
+BENCHMARK(glm__vec3_equal);
+BENCHMARK(glm2_vec3_equal);
+BENCHMARK(glm__vec4_equal);
+BENCHMARK(glm2_vec4_equal);
+
+// notEqual
+static void glm__vec2_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::notEqual(v122, v123);
+}
+static void glm__vec3_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::notEqual(v132, v133);
+}
+static void glm__vec4_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::notEqual(v142, v143);
+}
+static void glm2_vec2_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::notEqual(v222, v223);
+}
+static void glm2_vec3_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::notEqual(v232, v233);
+}
+static void glm2_vec4_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::notEqual(v242, v243);
+}
+BENCHMARK(glm__vec2_notEqual);
+BENCHMARK(glm2_vec2_notEqual);
+BENCHMARK(glm__vec3_notEqual);
+BENCHMARK(glm2_vec3_notEqual);
+BENCHMARK(glm__vec4_notEqual);
+BENCHMARK(glm2_vec4_notEqual);
+
+// greaterThan
+static void glm__vec2_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::greaterThan(v122, v123);
+}
+static void glm__vec3_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::greaterThan(v132, v133);
+}
+static void glm__vec4_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::greaterThan(v142, v143);
+}
+static void glm2_vec2_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::greaterThan(v222, v223);
+}
+static void glm2_vec3_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::greaterThan(v232, v233);
+}
+static void glm2_vec4_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::greaterThan(v242, v243);
+}
+BENCHMARK(glm__vec2_greaterThan);
+BENCHMARK(glm2_vec2_greaterThan);
+BENCHMARK(glm__vec3_greaterThan);
+BENCHMARK(glm2_vec3_greaterThan);
+BENCHMARK(glm__vec4_greaterThan);
+BENCHMARK(glm2_vec4_greaterThan);
+
+// greaterThanEqual
+static void glm__vec2_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::greaterThanEqual(v122, v123);
+}
+static void glm__vec3_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::greaterThanEqual(v132, v133);
+}
+static void glm__vec4_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::greaterThanEqual(v142, v143);
+}
+static void glm2_vec2_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::greaterThanEqual(v222, v223);
+}
+static void glm2_vec3_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::greaterThanEqual(v232, v233);
+}
+static void glm2_vec4_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::greaterThanEqual(v242, v243);
+}
+BENCHMARK(glm__vec2_greaterThanEqual);
+BENCHMARK(glm2_vec2_greaterThanEqual);
+BENCHMARK(glm__vec3_greaterThanEqual);
+BENCHMARK(glm2_vec3_greaterThanEqual);
+BENCHMARK(glm__vec4_greaterThanEqual);
+BENCHMARK(glm2_vec4_greaterThanEqual);
+
+// lessThan
+static void glm__vec2_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::lessThan(v122, v123);
+}
+static void glm__vec3_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::lessThan(v132, v133);
+}
+static void glm__vec4_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::lessThan(v142, v143);
+}
+static void glm2_vec2_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::lessThan(v222, v223);
+}
+static void glm2_vec3_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::lessThan(v232, v233);
+}
+static void glm2_vec4_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::lessThan(v242, v243);
+}
+BENCHMARK(glm__vec2_lessThan);
+BENCHMARK(glm2_vec2_lessThan);
+BENCHMARK(glm__vec3_lessThan);
+BENCHMARK(glm2_vec3_lessThan);
+BENCHMARK(glm__vec4_lessThan);
+BENCHMARK(glm2_vec4_lessThan);
+
+// lessThanEqual
+static void glm__vec2_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::lessThanEqual(v122, v123);
+}
+static void glm__vec3_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::lessThanEqual(v132, v133);
+}
+static void glm__vec4_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::lessThanEqual(v142, v143);
+}
+static void glm2_vec2_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::lessThanEqual(v222, v223);
+}
+static void glm2_vec3_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::lessThanEqual(v232, v233);
+}
+static void glm2_vec4_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::lessThanEqual(v242, v243);
+}
+BENCHMARK(glm__vec2_lessThanEqual);
+BENCHMARK(glm2_vec2_lessThanEqual);
+BENCHMARK(glm__vec3_lessThanEqual);
+BENCHMARK(glm2_vec3_lessThanEqual);
+BENCHMARK(glm__vec4_lessThanEqual);
+BENCHMARK(glm2_vec4_lessThanEqual);
+
+#endif
+
+#ifdef GLM2_BENCHMARK_VECTOR_RELATIONAL_INTEGER
+
+// equal
+static void glm__ivec2_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::equal(v122i, v123i);
+}
+static void glm__ivec3_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::equal(v132i, v133i);
+}
+static void glm__ivec4_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::equal(v142i, v143i);
+}
+static void glm2_ivec2_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::equal(v222i, v223i);
+}
+static void glm2_ivec3_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::equal(v232i, v233i);
+}
+static void glm2_ivec4_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::equal(v242i, v243i);
+}
+BENCHMARK(glm__ivec2_equal);
+BENCHMARK(glm2_ivec2_equal);
+BENCHMARK(glm__ivec3_equal);
+BENCHMARK(glm2_ivec3_equal);
+BENCHMARK(glm__ivec4_equal);
+BENCHMARK(glm2_ivec4_equal);
+
+static void glm__uvec2_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::equal(v122u, v123u);
+}
+static void glm__uvec3_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::equal(v132u, v133u);
+}
+static void glm__uvec4_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::equal(v142u, v143u);
+}
+static void glm2_uvec2_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::equal(v222u, v223u);
+}
+static void glm2_uvec3_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::equal(v232u, v233u);
+}
+static void glm2_uvec4_equal(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::equal(v242u, v243u);
+}
+BENCHMARK(glm__uvec2_equal);
+BENCHMARK(glm2_uvec2_equal);
+BENCHMARK(glm__uvec3_equal);
+BENCHMARK(glm2_uvec3_equal);
+BENCHMARK(glm__uvec4_equal);
+BENCHMARK(glm2_uvec4_equal);
+
+// notEqual
+static void glm__ivec2_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::notEqual(v122i, v123i);
+}
+static void glm__ivec3_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::notEqual(v132i, v133i);
+}
+static void glm__ivec4_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::notEqual(v142i, v143i);
+}
+static void glm2_ivec2_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::notEqual(v222i, v223i);
+}
+static void glm2_ivec3_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::notEqual(v232i, v233i);
+}
+static void glm2_ivec4_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::notEqual(v242i, v243i);
+}
+BENCHMARK(glm__ivec2_notEqual);
+BENCHMARK(glm2_ivec2_notEqual);
+BENCHMARK(glm__ivec3_notEqual);
+BENCHMARK(glm2_ivec3_notEqual);
+BENCHMARK(glm__ivec4_notEqual);
+BENCHMARK(glm2_ivec4_notEqual);
+
+static void glm__uvec2_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::notEqual(v122u, v123u);
+}
+static void glm__uvec3_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::notEqual(v132u, v133u);
+}
+static void glm__uvec4_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::notEqual(v142u, v143u);
+}
+static void glm2_uvec2_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::notEqual(v222u, v223u);
+}
+static void glm2_uvec3_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::notEqual(v232u, v233u);
+}
+static void glm2_uvec4_notEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::notEqual(v242u, v243u);
+}
+BENCHMARK(glm__uvec2_notEqual);
+BENCHMARK(glm2_uvec2_notEqual);
+BENCHMARK(glm__uvec3_notEqual);
+BENCHMARK(glm2_uvec3_notEqual);
+BENCHMARK(glm__uvec4_notEqual);
+BENCHMARK(glm2_uvec4_notEqual);
+
+// greaterThan
+static void glm__ivec2_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::greaterThan(v122i, v123i);
+}
+static void glm__ivec3_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::greaterThan(v132i, v133i);
+}
+static void glm__ivec4_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::greaterThan(v142i, v143i);
+}
+static void glm2_ivec2_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::greaterThan(v222i, v223i);
+}
+static void glm2_ivec3_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::greaterThan(v232i, v233i);
+}
+static void glm2_ivec4_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::greaterThan(v242i, v243i);
+}
+BENCHMARK(glm__ivec2_greaterThan);
+BENCHMARK(glm2_ivec2_greaterThan);
+BENCHMARK(glm__ivec3_greaterThan);
+BENCHMARK(glm2_ivec3_greaterThan);
+BENCHMARK(glm__ivec4_greaterThan);
+BENCHMARK(glm2_ivec4_greaterThan);
+
+static void glm__uvec2_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::greaterThan(v122u, v123u);
+}
+static void glm__uvec3_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::greaterThan(v132u, v133u);
+}
+static void glm__uvec4_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::greaterThan(v142u, v143u);
+}
+static void glm2_uvec2_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::greaterThan(v222u, v223u);
+}
+static void glm2_uvec3_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::greaterThan(v232u, v233u);
+}
+static void glm2_uvec4_greaterThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::greaterThan(v242u, v243u);
+}
+BENCHMARK(glm__uvec2_greaterThan);
+BENCHMARK(glm2_uvec2_greaterThan);
+BENCHMARK(glm__uvec3_greaterThan);
+BENCHMARK(glm2_uvec3_greaterThan);
+BENCHMARK(glm__uvec4_greaterThan);
+BENCHMARK(glm2_uvec4_greaterThan);
+
+// greaterThanEqual
+static void glm__ivec2_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::greaterThanEqual(v122i, v123i);
+}
+static void glm__ivec3_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::greaterThanEqual(v132i, v133i);
+}
+static void glm__ivec4_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::greaterThanEqual(v142i, v143i);
+}
+static void glm2_ivec2_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::greaterThanEqual(v222i, v223i);
+}
+static void glm2_ivec3_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::greaterThanEqual(v232i, v233i);
+}
+static void glm2_ivec4_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::greaterThanEqual(v242i, v243i);
+}
+BENCHMARK(glm__ivec2_greaterThanEqual);
+BENCHMARK(glm2_ivec2_greaterThanEqual);
+BENCHMARK(glm__ivec3_greaterThanEqual);
+BENCHMARK(glm2_ivec3_greaterThanEqual);
+BENCHMARK(glm__ivec4_greaterThanEqual);
+BENCHMARK(glm2_ivec4_greaterThanEqual);
+
+static void glm__uvec2_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::greaterThanEqual(v122u, v123u);
+}
+static void glm__uvec3_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::greaterThanEqual(v132u, v133u);
+}
+static void glm__uvec4_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::greaterThanEqual(v142u, v143u);
+}
+static void glm2_uvec2_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::greaterThanEqual(v222u, v223u);
+}
+static void glm2_uvec3_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::greaterThanEqual(v232u, v233u);
+}
+static void glm2_uvec4_greaterThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::greaterThanEqual(v242u, v243u);
+}
+BENCHMARK(glm__uvec2_greaterThanEqual);
+BENCHMARK(glm2_uvec2_greaterThanEqual);
+BENCHMARK(glm__uvec3_greaterThanEqual);
+BENCHMARK(glm2_uvec3_greaterThanEqual);
+BENCHMARK(glm__uvec4_greaterThanEqual);
+BENCHMARK(glm2_uvec4_greaterThanEqual);
+
+// lessThan
+static void glm__ivec2_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::lessThan(v122i, v123i);
+}
+static void glm__ivec3_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::lessThan(v132i, v133i);
+}
+static void glm__ivec4_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::lessThan(v142i, v143i);
+}
+static void glm2_ivec2_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::lessThan(v222i, v223i);
+}
+static void glm2_ivec3_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::lessThan(v232i, v233i);
+}
+static void glm2_ivec4_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::lessThan(v242i, v243i);
+}
+BENCHMARK(glm__ivec2_lessThan);
+BENCHMARK(glm2_ivec2_lessThan);
+BENCHMARK(glm__ivec3_lessThan);
+BENCHMARK(glm2_ivec3_lessThan);
+BENCHMARK(glm__ivec4_lessThan);
+BENCHMARK(glm2_ivec4_lessThan);
+
+static void glm__uvec2_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::lessThan(v122u, v123u);
+}
+static void glm__uvec3_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::lessThan(v132u, v133u);
+}
+static void glm__uvec4_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::lessThan(v142u, v143u);
+}
+static void glm2_uvec2_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::lessThan(v222u, v223u);
+}
+static void glm2_uvec3_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::lessThan(v232u, v233u);
+}
+static void glm2_uvec4_lessThan(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::lessThan(v242u, v243u);
+}
+BENCHMARK(glm__uvec2_lessThan);
+BENCHMARK(glm2_uvec2_lessThan);
+BENCHMARK(glm__uvec3_lessThan);
+BENCHMARK(glm2_uvec3_lessThan);
+BENCHMARK(glm__uvec4_lessThan);
+BENCHMARK(glm2_uvec4_lessThan);
+
+// lessThanEqual
+static void glm__ivec2_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::lessThanEqual(v122i, v123i);
+}
+static void glm__ivec3_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::lessThanEqual(v132i, v133i);
+}
+static void glm__ivec4_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::lessThanEqual(v142i, v143i);
+}
+static void glm2_ivec2_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::lessThanEqual(v222i, v223i);
+}
+static void glm2_ivec3_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::lessThanEqual(v232i, v233i);
+}
+static void glm2_ivec4_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::lessThanEqual(v242i, v243i);
+}
+BENCHMARK(glm__ivec2_lessThanEqual);
+BENCHMARK(glm2_ivec2_lessThanEqual);
+BENCHMARK(glm__ivec3_lessThanEqual);
+BENCHMARK(glm2_ivec3_lessThanEqual);
+BENCHMARK(glm__ivec4_lessThanEqual);
+BENCHMARK(glm2_ivec4_lessThanEqual);
+
+static void glm__uvec2_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::lessThanEqual(v122u, v123u);
+}
+static void glm__uvec3_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::lessThanEqual(v132u, v133u);
+}
+static void glm__uvec4_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::lessThanEqual(v142u, v143u);
+}
+static void glm2_uvec2_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::lessThanEqual(v222u, v223u);
+}
+static void glm2_uvec3_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::lessThanEqual(v232u, v233u);
+}
+static void glm2_uvec4_lessThanEqual(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::lessThanEqual(v242u, v243u);
+}
+BENCHMARK(glm__uvec2_lessThanEqual);
+BENCHMARK(glm2_uvec2_lessThanEqual);
+BENCHMARK(glm__uvec3_lessThanEqual);
+BENCHMARK(glm2_uvec3_lessThanEqual);
+BENCHMARK(glm__uvec4_lessThanEqual);
+BENCHMARK(glm2_uvec4_lessThanEqual);
+
+// not_
+static void glm__uvec2_not_(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v121b = glm::not_(v122b);
+}
+static void glm__uvec3_not_(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v131b = glm::not_(v132b);
+}
+static void glm__uvec4_not_(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v141b = glm::not_(v142b);
+}
+static void glm2_uvec2_not_(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v221b = glm2::not_(v222b);
+}
+static void glm2_uvec3_not_(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v231b = glm2::not_(v232b);
+}
+static void glm2_uvec4_not_(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        v241b = glm2::not_(v242b);
+}
+BENCHMARK(glm__uvec2_not_);
+BENCHMARK(glm2_uvec2_not_);
+BENCHMARK(glm__uvec3_not_);
+BENCHMARK(glm2_uvec3_not_);
+BENCHMARK(glm__uvec4_not_);
+BENCHMARK(glm2_uvec4_not_);
+
+// all
+static void glm__uvec2_all(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = glm::all(v122b);
+}
+static void glm__uvec3_all(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = glm::all(v132b);
+}
+static void glm__uvec4_all(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = glm::all(v142b);
+}
+static void glm2_uvec2_all(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = glm2::all(v222b);
+}
+static void glm2_uvec3_all(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = glm2::all(v232b);
+}
+static void glm2_uvec4_all(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = glm2::all(v242b);
+}
+BENCHMARK(glm__uvec2_all);
+BENCHMARK(glm2_uvec2_all);
+BENCHMARK(glm__uvec3_all);
+BENCHMARK(glm2_uvec3_all);
+BENCHMARK(glm__uvec4_all);
+BENCHMARK(glm2_uvec4_all);
+
+// any
+static void glm__uvec2_any(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = glm::any(v122b);
+}
+static void glm__uvec3_any(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = glm::any(v132b);
+}
+static void glm__uvec4_any(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = glm::any(v142b);
+}
+static void glm2_uvec2_any(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = glm2::any(v222b);
+}
+static void glm2_uvec3_any(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = glm2::any(v232b);
+}
+static void glm2_uvec4_any(benchmark::State& state)
+{
+    while(state.KeepRunning())
+        b = glm2::any(v242b);
+}
+BENCHMARK(glm__uvec2_any);
+BENCHMARK(glm2_uvec2_any);
+BENCHMARK(glm__uvec3_any);
+BENCHMARK(glm2_uvec3_any);
+BENCHMARK(glm__uvec4_any);
+BENCHMARK(glm2_uvec4_any);
+
+#endif
+
+#else
 
 static void glm__func(benchmark::State& state)
 {
     while(state.KeepRunning())
     {
-        v141 = m1441 * v142;
+        b = glm::all(v142b);
     }
 }
 static void glm2_func(benchmark::State& state)
 {
     while(state.KeepRunning())
     {
-        v241 = m2441 * v242;
+        b = glm2::all(v242b);
     }
 }
 BENCHMARK(glm__func);
