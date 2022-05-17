@@ -24,8 +24,8 @@ If you want to run the test or benchmark, you have to install the glm and google
     |   +- lib  
     |       +- benchmark.lib  
     +- glm  
-    +- glm  
-            +- <all glm source and header files>  
+        +- glm  
+            +- [all glm source and header files]
 5) Open the project in VisualStudio as CMAKE project and run build.
    NOTE: The benchmark requieres realease mode.
 6) Run benchmark.exe or run test.exe.
