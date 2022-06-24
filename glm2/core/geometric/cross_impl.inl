@@ -13,9 +13,9 @@
 
 template<> inline glm2::vec<3, float> glm2::cross(const vec<3, float>& x, const vec<3, float>& y)
 {
-    return detail::core::geometric::cross::_default_fv3(x(), y());
+    return detail::core::geometric::cross::_default_fv3(x.intrin(), y.intrin());
 }
 template<> inline glm2::vec<3, double> glm2::cross(const vec<3, double>& x, const vec<3, double>& y)
 {
-    return detail::core::geometric::cross::_default_dv3(x(), y());
+    return detail::core::geometric::cross::_default_dv3(x.intrin(), y.intrin());
 }

@@ -13,14 +13,14 @@
 
 template<typename T> inline glm2::vec<4, T, 4>::vec(const vec<2, T, 4>& xy, T z, T w)
 {
-    this->_v = _mm_movpi64_epi64(xy());
+    this->_v = _mm_movpi64_epi64(xy.intrin());
     this->_v = _mm_insert_epi32(this->_v, (int32_t)z, 0x2);
     this->_v = _mm_insert_epi32(this->_v, (int32_t)w, 0x3);
 }
 
 template<typename T> inline glm2::vec<4, T, 4>::vec(T x, const vec<2, T, 4>& yz, T w)
 {
-    this->_v = _mm_movpi64_epi64(yz());
+    this->_v = _mm_movpi64_epi64(yz.intrin());
     this->_v = _mm_insert_epi32(this->_v, (int32_t)x, 0x2);
     this->_v = _mm_insert_epi32(this->_v, (int32_t)w, 0x3);
     this->_v = _mm_shuffle_epi32(this->_v, 0xD2);
@@ -28,7 +28,7 @@ template<typename T> inline glm2::vec<4, T, 4>::vec(T x, const vec<2, T, 4>& yz,
 
 template<typename T> inline glm2::vec<4, T, 4>::vec(T x, T y, const vec<2, T, 4>& zw)
 {
-    this->_v = _mm_movpi64_epi64(zw());
+    this->_v = _mm_movpi64_epi64(zw.intrin());
     this->_v = _mm_insert_epi32(this->_v, (int32_t)x, 0x2);
     this->_v = _mm_insert_epi32(this->_v, (int32_t)y, 0x3);
     this->_v = _mm_shuffle_epi32(this->_v, 0x8E);
@@ -36,20 +36,20 @@ template<typename T> inline glm2::vec<4, T, 4>::vec(T x, T y, const vec<2, T, 4>
 
 template<typename T> inline glm2::vec<4, T, 4>::vec(const vec<2, T, 4>& xy, const vec<2, T, 4>& zw)
 {
-    __m64 mm0 = xy(), mm1 = zw();
+    __m64 mm0 = xy.intrin(), mm1 = zw.intrin();
     this->_v = _mm_loadl_pi(this->_v, &mm0);
     this->_v = _mm_loadh_pi(this->_v, &mm1);
 }
 
 template<typename T> inline glm2::vec<4, T, 4>::vec(const vec<3, T, 4>& xyz, T w)
 {
-    this->_v = xyz();
+    this->_v = xyz.intrin();
     this->_v = _mm_insert_ps(this->_v, (int32_t)w, 0x3);
 }
 
 template<typename T> inline glm2::vec<4, T, 4>::vec(T x, const vec<3, T, 4>& yzw)
 {
-    this->_v = yzw();
+    this->_v = yzw.intrin();
     this->_v = _mm_insert_epi32(this->_v, (int32_t)x, 0x3);
     this->_v = _mm_shuffle_epi32(this->_v, 0x93);
 }

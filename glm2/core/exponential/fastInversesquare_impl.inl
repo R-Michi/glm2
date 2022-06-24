@@ -18,13 +18,13 @@ template<> inline float glm2::fastInversesqrt(float x)
 
 template<> inline glm2::vec<2, float> glm2::fastInversesqrt(const vec<2, float>& x)
 {
-    return detail::core::exponential::fastInversesqrt::_default_fv(x.si128());
+    return detail::core::exponential::fastInversesqrt::_default_fv(x.intrinEXT());
 }
 template<> inline glm2::vec<3, float> glm2::fastInversesqrt(const vec<3, float>& x)
 {
-    return detail::core::exponential::fastInversesqrt::_default_fv(x());
+    return detail::core::exponential::fastInversesqrt::_default_fv(x.intrin());
 }
 template<> inline glm2::vec<4, float> glm2::fastInversesqrt(const vec<4, float>& x)
 {
-    return detail::core::exponential::fastInversesqrt::_default_fv(x());
+    return detail::core::exponential::fastInversesqrt::_default_fv(x.intrin());
 }

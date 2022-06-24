@@ -13,13 +13,13 @@
 
 template<> inline glm2::vec<2, float> glm2::fastNormalize(const vec<2, float>& x)
 {
-    return detail::core::geometric::fastNormalize::_default_fv2(x.si128());
+    return detail::core::geometric::fastNormalize::_default_fv2(x.intrinEXT());
 }
 template<> inline glm2::vec<3, float> glm2::fastNormalize(const vec<3, float>& x)
 {
-    return detail::core::geometric::fastNormalize::_default_fv3(x());
+    return detail::core::geometric::fastNormalize::_default_fv3(x.intrin());
 }
 template<> inline glm2::vec<4, float> glm2::fastNormalize(const vec<4, float>& x)
 {
-    return detail::core::geometric::fastNormalize::_default_fv4(x());
+    return detail::core::geometric::fastNormalize::_default_fv4(x.intrin());
 }

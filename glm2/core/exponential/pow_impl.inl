@@ -23,53 +23,53 @@ template<> inline double glm2::pow(double base, double exponent)
 
 template<> inline glm2::vec<2, float> glm2::pow(const vec<2, float>& base, float exponent)
 {
-    return detail::core::exponential::pow::_default_fv2(base.si128(), exponent);
+    return detail::core::exponential::pow::_default_fv2(base.intrinEXT(), exponent);
 }
 template<> inline glm2::vec<3, float> glm2::pow(const vec<3, float>& base, float exponent)
 {
-    return detail::core::exponential::pow::_default_fv3(base(), exponent);
+    return detail::core::exponential::pow::_default_fv3(base.intrin(), exponent);
 }
 template<> inline glm2::vec<4, float> glm2::pow(const vec<4, float>& base, float exponent)
 {
-    return detail::core::exponential::pow::_default_fv4(base(), exponent);
+    return detail::core::exponential::pow::_default_fv4(base.intrin(), exponent);
 }
 
 template<> inline glm2::vec<2, double> glm2::pow(const vec<2, double>& base, double exponent)
 {
-    return detail::core::exponential::pow::_default_dv2(base(), exponent);
+    return detail::core::exponential::pow::_default_dv2(base.intrin(), exponent);
 }
 template<> inline glm2::vec<3, double> glm2::pow(const vec<3, double>& base, double exponent)
 {
-    return detail::core::exponential::pow::_default_dv3(base(), exponent);
+    return detail::core::exponential::pow::_default_dv3(base.intrin(), exponent);
 }
 template<> inline glm2::vec<4, double> glm2::pow(const vec<4, double>& base, double exponent)
 {
-    return detail::core::exponential::pow::_default_dv4(base(), exponent);
+    return detail::core::exponential::pow::_default_dv4(base.intrin(), exponent);
 }
 
 
 template<> inline glm2::vec<2, float> glm2::pow(const vec<2, float>& base, const vec<2, float>& exponent)
 {
-    return detail::core::exponential::pow::_default_fv2(base.si128(), exponent.si128());
+    return detail::core::exponential::pow::_default_fv2(base.intrinEXT(), exponent.intrinEXT());
 }
 template<> inline glm2::vec<3, float> glm2::pow(const vec<3, float>& base, const vec<3, float>& exponent)
 {
-    return detail::core::exponential::pow::_default_fv3(base(), exponent());
+    return detail::core::exponential::pow::_default_fv3(base.intrin(), exponent.intrin());
 }
 template<> inline glm2::vec<4, float> glm2::pow(const vec<4, float>& base, const vec<4, float>& exponent)
 {
-    return detail::core::exponential::pow::_default_fv4(base(), exponent());
+    return detail::core::exponential::pow::_default_fv4(base.intrin(), exponent.intrin());
 }
 
 template<> inline glm2::vec<2, double> glm2::pow(const vec<2, double>& base, const vec<2, double>& exponent)
 {
-    return detail::core::exponential::pow::_default_dv2(base(), exponent());
+    return detail::core::exponential::pow::_default_dv2(base.intrin(), exponent.intrin());
 }
 template<> inline glm2::vec<3, double> glm2::pow(const vec<3, double>& base, const vec<3, double>& exponent)
 {
-    return detail::core::exponential::pow::_default_dv3(base(), exponent());
+    return detail::core::exponential::pow::_default_dv3(base.intrin(), exponent.intrin());
 }
 template<> inline glm2::vec<4, double> glm2::pow(const vec<4, double>& base, const vec<4, double>& exponent)
 {
-    return detail::core::exponential::pow::_default_dv4(base(), exponent());
+    return detail::core::exponential::pow::_default_dv4(base.intrin(), exponent.intrin());
 }

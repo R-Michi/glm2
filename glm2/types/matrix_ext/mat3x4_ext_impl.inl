@@ -18,9 +18,9 @@ inline glm2::mat<3, 4, float>::col_type glm2::mat<3, 4, float>::operator* (const
     xmm0 = _mm_broadcast_ss(row_type::value_ptr(v) + 0);
     xmm1 = _mm_broadcast_ss(row_type::value_ptr(v) + 1);
     xmm2 = _mm_broadcast_ss(row_type::value_ptr(v) + 2);
-    xmm0 = _mm_mul_ps(xmm0, this->_M[0]());
-    xmm0 = _mm_fmadd_ps(xmm1, this->_M[1](), xmm0);
-    xmm0 = _mm_fmadd_ps(xmm2, this->_M[2](), xmm0);
+    xmm0 = _mm_mul_ps(xmm0, this->_M[0].intrin());
+    xmm0 = _mm_fmadd_ps(xmm1, this->_M[1].intrin(), xmm0);
+    xmm0 = _mm_fmadd_ps(xmm2, this->_M[2].intrin(), xmm0);
     return col_type(xmm0);
 }
 

@@ -18,9 +18,9 @@ inline glm2::mat<3, 4, double>::col_type glm2::mat<3, 4, double>::operator* (con
     ymm0 = _mm256_broadcast_sd(row_type::value_ptr(v) + 0);
     ymm1 = _mm256_broadcast_sd(row_type::value_ptr(v) + 1);
     ymm2 = _mm256_broadcast_sd(row_type::value_ptr(v) + 2);
-    ymm0 = _mm256_mul_pd(ymm0, this->_M[0]());
-    ymm0 = _mm256_fmadd_pd(ymm1, this->_M[1](), ymm0);
-    ymm0 = _mm256_fmadd_pd(ymm2, this->_M[2](), ymm0);
+    ymm0 = _mm256_mul_pd(ymm0, this->_M[0].intrin());
+    ymm0 = _mm256_fmadd_pd(ymm1, this->_M[1].intrin(), ymm0);
+    ymm0 = _mm256_fmadd_pd(ymm2, this->_M[2].intrin(), ymm0);
     return col_type(ymm0);
 }
 
@@ -28,9 +28,9 @@ inline glm2::mat<2, 4, double> glm2::mat<3, 4, double>::operator* (const mat<2, 
 {
     mat<2, 4, double> res;
     __m256d ymm0, ymm1, ymm2, ymm3, ymm4, ymm5;
-    ymm0 = this->_M[0]();
-    ymm1 = this->_M[1]();
-    ymm2 = this->_M[2]();
+    ymm0 = this->_M[0].intrin();
+    ymm1 = this->_M[1].intrin();
+    ymm2 = this->_M[2].intrin();
     ymm3 = _mm256_broadcast_sd(mat<2, 3, double>::value_ptr(M) + 0);
     ymm4 = _mm256_broadcast_sd(mat<2, 3, double>::value_ptr(M) + 1);
     ymm5 = _mm256_broadcast_sd(mat<2, 3, double>::value_ptr(M) + 2);
@@ -57,9 +57,9 @@ inline glm2::mat<4, 4, double> glm2::mat<3, 4, double>::operator* (const mat<4, 
 {
     mat<4, 4, double> res;
     __m256d ymm0, ymm1, ymm2, ymm3, ymm4, ymm5;
-    ymm0 = this->_M[0]();
-    ymm1 = this->_M[1]();
-    ymm2 = this->_M[2]();
+    ymm0 = this->_M[0].intrin();
+    ymm1 = this->_M[1].intrin();
+    ymm2 = this->_M[2].intrin();
     ymm3 = _mm256_broadcast_sd(mat<4, 3, double>::value_ptr(M) + 0);
     ymm4 = _mm256_broadcast_sd(mat<4, 3, double>::value_ptr(M) + 1);
     ymm5 = _mm256_broadcast_sd(mat<4, 3, double>::value_ptr(M) + 2);
@@ -94,9 +94,9 @@ inline glm2::mat<4, 4, double> glm2::mat<3, 4, double>::operator* (const mat<4, 
 inline glm2::mat<3, 4, double>& glm2::mat<3, 4, double>::operator*= (const mat<3, 3, double>& M)
 {
     __m256d ymm0, ymm1, ymm2, ymm3, ymm4, ymm5;
-    ymm0 = this->_M[0]();
-    ymm1 = this->_M[1]();
-    ymm2 = this->_M[2]();
+    ymm0 = this->_M[0].intrin();
+    ymm1 = this->_M[1].intrin();
+    ymm2 = this->_M[2].intrin();
     ymm3 = _mm256_broadcast_sd(mat<3, 3, double>::value_ptr(M) + 0);
     ymm4 = _mm256_broadcast_sd(mat<3, 3, double>::value_ptr(M) + 1);
     ymm5 = _mm256_broadcast_sd(mat<3, 3, double>::value_ptr(M) + 2);

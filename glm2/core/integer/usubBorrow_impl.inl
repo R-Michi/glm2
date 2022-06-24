@@ -14,14 +14,38 @@
 inline uint32_t glm2::usubBorrow(uint32_t x, uint32_t y, uint32_t& borrow)
 {
     uint32_t ret;
-    detail::core::integer::uaddCarry::_default_u32v(&x, &y, &ret, &borrow, 1);
+    detail::core::integer::usubBorrow::_default_u32(x, y, ret, borrow);
     return ret;
 }
 
 template<glm2::length_t L>
 inline glm2::vec<L, uint32_t> glm2::usubBorrow(const vec<L, uint32_t>& x, const vec<L, uint32_t>& y, vec<L, uint32_t>& borrow)
 {
-    uint32_t ret[L];
-    detail::core::integer::usubBorrow::_default_u32v(vec<L, uint32_t>::value_ptr(x), vec<L, uint32_t>::value_ptr(y), ret, vec<L, uint32_t>::value_ptr(borrow), L);
-    return vec<L, uint32_t>(ret);
+    //uint32_t ret[L];
+    //detail::core::integer::usubBorrow::_default_u32v(vec<L, uint32_t>::value_ptr(x), vec<L, uint32_t>::value_ptr(y), ret, vec<L, uint32_t>::value_ptr(borrow), L);
+    //return vec<L, uint32_t>(ret);
+
+    
+}
+
+template<> inline  glm2::vec<2, uint32_t> glm2::usubBorrow(const vec<2, uint32_t>& x, const vec<2, uint32_t>& y, vec<2, uint32_t>& borrow)
+{
+    __m128i ret, _borrow;
+    detail::core::integer::usubBorrow::_default_u32v(x.intrinEXT(), y.intrinEXT(), ret, _borrow);
+    borrow = _borrow;
+    return ret;
+}
+template<> inline  glm2::vec<3, uint32_t> glm2::usubBorrow(const vec<3, uint32_t>& x, const vec<3, uint32_t>& y, vec<3, uint32_t>& borrow)
+{
+    __m128i ret, _borrow;
+    detail::core::integer::usubBorrow::_default_u32v(x.intrin(), y.intrin(), ret, _borrow);
+    borrow = _borrow;
+    return ret;
+}
+template<> inline  glm2::vec<4, uint32_t> glm2::usubBorrow(const vec<4, uint32_t>& x, const vec<4, uint32_t>& y, vec<4, uint32_t>& borrow)
+{
+    __m128i ret, _borrow;
+    detail::core::integer::usubBorrow::_default_u32v(x.intrin(), y.intrin(), ret, _borrow);
+    borrow = _borrow;
+    return ret;
 }

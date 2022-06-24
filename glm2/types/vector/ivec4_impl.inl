@@ -10,6 +10,7 @@
 */
 
 #pragma once
+#include <iostream>
 
 template<typename T> inline glm2::vec<4, T, sizeof(int32_t)>::vec(void)
 {
@@ -39,11 +40,6 @@ template<typename T> inline glm2::vec<4, T, sizeof(int32_t)>::vec(const vec& v)
 template<typename T> inline glm2::vec<4, T, sizeof(int32_t)>& glm2::vec<4, T, sizeof(int32_t)>::operator= (T i)
 {
     this->_v = _mm_set1_epi32((int32_t)i);
-    return *this;
-}
-template<typename T> inline glm2::vec<4, T, sizeof(int32_t)>& glm2::vec<4, T, sizeof(int32_t)>::operator= (const T* iv)
-{
-    this->_v = _mm_load_si128((const __m128i*)iv);
     return *this;
 }
 template<typename T> inline glm2::vec<4, T, sizeof(int32_t)>& glm2::vec<4, T, sizeof(int32_t)>::operator= (const __m128i& v)
@@ -387,10 +383,6 @@ template<> inline glm2::vec<4, uint32_t, sizeof(int32_t)>& glm2::vec<4, uint32_t
     return *this;
 }
 
-template<typename T> inline __m128i glm2::vec<4, T, sizeof(int32_t)>::operator() (void) const
-{
-    return this->_v;
-}
 template<typename T> inline T glm2::vec<4, T, sizeof(int32_t)>::operator[] (uint32_t i) const
 {
     alignas(16) T ret[4];
@@ -404,6 +396,19 @@ template<typename T> inline T glm2::vec<4, T, sizeof(int32_t)>::insert(uint32_t 
     tmp[i] = f;
     this->_v = _mm_load_si128((const __m128i*)ret);
     return f;
+}
+template<typename T> inline glm2::vec<4, T, sizeof(int32_t)>& glm2::vec<4, T, sizeof(int32_t)>::load(const T* src)
+{
+    this->_v = _mm_loadu_si128((const __m128i*)src);
+    return *this;
+}
+template<typename T> inline void glm2::vec<4, T, sizeof(int32_t)>::store(T* dst) const
+{
+    _mm_storeu_si128((__m128i*)dst, this->_v);
+}
+template<typename T> inline __m128i glm2::vec<4, T, sizeof(int32_t)>::intrin(void) const
+{
+    return this->_v;
 }
 
 template<typename T> inline T glm2::vec<4, T, sizeof(int32_t)>::x(void) const

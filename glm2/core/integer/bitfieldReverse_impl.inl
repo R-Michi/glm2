@@ -22,13 +22,13 @@ inline genIType glm2::bitfieldReverse(genIType x)
 
 template<typename T> inline glm2::vec<2, T> glm2::bitfieldReverse(const vec<2, T>& x)
 {
-    return detail::core::integer::bitfieldReverse::_default_u32v(x.si128());
+    return detail::core::integer::bitfieldReverse::_default_u32v(x.intrinEXT());
 }
 template<typename T> inline glm2::vec<3, T> glm2::bitfieldReverse(const vec<3, T>& x)
 {
-    return detail::core::integer::bitfieldReverse::_default_u32v(x());
+    return detail::core::integer::bitfieldReverse::_default_u32v(x.intrin());
 }
 template<typename T> inline glm2::vec<4, T> glm2::bitfieldReverse(const vec<4, T>& x)
 {
-    return detail::core::integer::bitfieldReverse::_default_u32v(x());
+    return detail::core::integer::bitfieldReverse::_default_u32v(x.intrin());
 }

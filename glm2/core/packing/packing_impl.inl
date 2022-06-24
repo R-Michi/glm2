@@ -16,32 +16,32 @@
 
 inline double glm2::packDouble2x32(const vec<2, uint32_t>& x)
 {
-    return detail::core::packing::packDouble2x32::_default(x.si128());
+    return detail::core::packing::packDouble2x32::_default(x.intrinEXT());
 }
 
 inline uint32_t glm2::packHalf2x16(const vec<2, float>& x)
 {
-    return detail::core::packing::packHalf2x16::_default(x.si128());
+    return detail::core::packing::packHalf2x16::_default(x.intrinEXT());
 }
 
 inline uint32_t glm2::packSnorm2x16(const vec<2, float>& x)
 {
-    return detail::core::packing::packSnorm2x16::_default(x.si128());
+    return detail::core::packing::packSnorm2x16::_default(x.intrinEXT());
 }
 
 inline uint32_t glm2::packSnorm4x8(const vec<4, float>& x)
 {
-    return detail::core::packing::packSnorm4x8::_default(x());
+    return detail::core::packing::packSnorm4x8::_default(x.intrin());
 }
 
 inline uint32_t glm2::packUnorm2x16(const vec<2, float>& x)
 {
-    return detail::core::packing::packUnorm2x16::_default(x.si128());
+    return detail::core::packing::packUnorm2x16::_default(x.intrinEXT());
 }
 
 inline uint32_t glm2::packUnorm4x8(const vec<4, float>& x)
 {
-    return detail::core::packing::packUnorm4x8::_default(x());
+    return detail::core::packing::packUnorm4x8::_default(x.intrin());
 }
 
 inline glm2::vec<2, uint32_t> glm2::unpackDouble2x32(double x)

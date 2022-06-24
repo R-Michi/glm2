@@ -24,28 +24,28 @@ template<> inline double glm2::modf(double x, double& i)
 template<> inline glm2::vec<2, float> glm2::modf(const vec<2, float>& x, vec<2, float>& i)
 {
     __m128 xmm0;
-    __m128 xmm1 = detail::core::common::modf::_default_fv(x.si128(), &xmm0);
+    __m128 xmm1 = detail::core::common::modf::_default_fv(x.intrinEXT(), &xmm0);
     i = xmm0;
     return xmm1;
 }
 template<> inline glm2::vec<3, float> glm2::modf(const vec<3, float>& x, vec<3, float>& i)
 {
-    return detail::core::common::modf::_default_fv(x(), vec<3, float>::intrin_ptr(i));
+    return detail::core::common::modf::_default_fv(x.intrin(), vec<3, float>::intrin_ptr(i));
 }
 template<> inline glm2::vec<4, float> glm2::modf(const vec<4, float>& x, vec<4, float>& i)
 {
-    return detail::core::common::modf::_default_fv(x(), vec<4, float>::intrin_ptr(i));
+    return detail::core::common::modf::_default_fv(x.intrin(), vec<4, float>::intrin_ptr(i));
 }
 
 template<> inline glm2::vec<2, double> glm2::modf(const vec<2, double>& x, vec<2, double>& i)
 {
-    return detail::core::common::modf::_default_dv2(x(), vec<2, double>::intrin_ptr(i));
+    return detail::core::common::modf::_default_dv2(x.intrin(), vec<2, double>::intrin_ptr(i));
 }
 template<> inline glm2::vec<3, double> glm2::modf(const vec<3, double>& x, vec<3, double>& i)
 {
-    return detail::core::common::modf::_default_dv(x(), vec<3, double>::intrin_ptr(i));
+    return detail::core::common::modf::_default_dv(x.intrin(), vec<3, double>::intrin_ptr(i));
 }
 template<> inline glm2::vec<4, double> glm2::modf(const vec<4, double>& x, vec<4, double>& i)
 {
-    return detail::core::common::modf::_default_dv(x(), vec<4, double>::intrin_ptr(i));
+    return detail::core::common::modf::_default_dv(x.intrin(), vec<4, double>::intrin_ptr(i));
 }

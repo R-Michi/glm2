@@ -47,6 +47,16 @@ namespace glm2
     template<typename T> inline vec<2, int32_t> findMSB(const vec<2, T>& x);
     template<typename T> inline vec<3, int32_t> findMSB(const vec<3, T>& x);
     template<typename T> inline vec<4, int32_t> findMSB(const vec<4, T>& x);
+
+    /*------------------------------ Function: uaddCarry ------------------------------*/
+    template<> inline vec<2, uint32_t> uaddCarry(const vec<2, uint32_t>& x, const vec<2, uint32_t>& y, vec<2, uint32_t>& carry);
+    template<> inline vec<3, uint32_t> uaddCarry(const vec<3, uint32_t>& x, const vec<3, uint32_t>& y, vec<3, uint32_t>& carry);
+    template<> inline vec<4, uint32_t> uaddCarry(const vec<4, uint32_t>& x, const vec<4, uint32_t>& y, vec<4, uint32_t>& carry);
+
+    /*------------------------------ Function: usubBorrow ------------------------------*/
+    template<> inline vec<2, uint32_t> usubBorrow(const vec<2, uint32_t>& x, const vec<2, uint32_t>& y, vec<2, uint32_t>& borrow);
+    template<> inline vec<3, uint32_t> usubBorrow(const vec<3, uint32_t>& x, const vec<3, uint32_t>& y, vec<3, uint32_t>& borrow);
+    template<> inline vec<4, uint32_t> usubBorrow(const vec<4, uint32_t>& x, const vec<4, uint32_t>& y, vec<4, uint32_t>& borrow);
 } // namespace glm2
 
 #include "bitCount_impl.inl"

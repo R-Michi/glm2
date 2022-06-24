@@ -16,7 +16,7 @@ inline glm2::mat<4, 4, float>::col_type glm2::mat<4, 4, float>::operator* (const
 {
     __m256 ymm0, ymm1;
     __m128 xmm0;
-    ymm0 = _mm256_broadcastsi128_si256(_mm_castps_si128(v()));
+    ymm0 = _mm256_broadcastsi128_si256(_mm_castps_si128(v.intrin()));
     ymm1 = _mm256_permutevar_ps(ymm0, _mm256_set_epi32(1,1,1,1, 0,0,0,0));
     ymm0 = _mm256_permutevar_ps(ymm0, _mm256_set_epi32(3,3,3,3, 2,2,2,2));
     ymm1 = _mm256_mul_ps(ymm1, _mm256_loadu_ps(col_type::value_ptr(this->_M + 0)));

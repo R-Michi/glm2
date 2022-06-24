@@ -13,26 +13,26 @@
 
 template<> inline glm2::vec<2, float> glm2::refract(const vec<2, float>& i, const vec<2, float>& n, float eta)
 {
-    return detail::core::geometric::refract::_default_fv2(i.si128(), n.si128(), _mm_set_ps1(eta));
+    return detail::core::geometric::refract::_default_fv2(i.intrinEXT(), n.intrinEXT(), _mm_set_ps1(eta));
 }
 template<> inline glm2::vec<3, float> glm2::refract(const vec<3, float>& i, const vec<3, float>& n, float eta)
 {
-    return detail::core::geometric::refract::_default_fv3(i(), n(), _mm_set_ps1(eta));
+    return detail::core::geometric::refract::_default_fv3(i.intrin(), n.intrin(), _mm_set_ps1(eta));
 }
 template<> inline glm2::vec<4, float> glm2::refract(const vec<4, float>& i, const vec<4, float>& n, float eta)
 {
-    return detail::core::geometric::refract::_default_fv4(i(), n(), _mm_set_ps1(eta));
+    return detail::core::geometric::refract::_default_fv4(i.intrin(), n.intrin(), _mm_set_ps1(eta));
 }
 
 template<> inline glm2::vec<2, double> glm2::refract(const vec<2, double>& i, const vec<2, double>& n, double eta)
 {
-    return detail::core::geometric::refract::_default_dv2(i(), n(), _mm_set1_pd(eta));
+    return detail::core::geometric::refract::_default_dv2(i.intrin(), n.intrin(), _mm_set1_pd(eta));
 }
 template<> inline glm2::vec<3, double> glm2::refract(const vec<3, double>& i, const vec<3, double>& n, double eta)
 {
-    return detail::core::geometric::refract::_default_dv3(i(), n(), _mm256_set1_pd(eta));
+    return detail::core::geometric::refract::_default_dv3(i.intrin(), n.intrin(), _mm256_set1_pd(eta));
 }
 template<> inline glm2::vec<4, double> glm2::refract(const vec<4, double>& i, const vec<4, double>& n, double eta)
 {
-    return detail::core::geometric::refract::_default_dv4(i(), n(), _mm256_set1_pd(eta));
+    return detail::core::geometric::refract::_default_dv4(i.intrin(), n.intrin(), _mm256_set1_pd(eta));
 }

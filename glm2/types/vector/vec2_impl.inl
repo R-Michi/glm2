@@ -45,11 +45,6 @@ inline glm2::vec<2, float>& glm2::vec<2, float>::operator= (float f)
     this->_v = intrin::_m_set1_ps(f);
     return *this;
 }
-inline glm2::vec<2, float>& glm2::vec<2, float>::operator= (const float* fv)
-{
-    this->_v = intrin::_m_load_ps(fv);
-    return *this;
-}
 inline glm2::vec<2, float>& glm2::vec<2, float>::operator= (const __m64& v)
 {
     this->_v = intrin::_m_move_si64(v);
@@ -244,15 +239,6 @@ inline glm2::vec<2, float>& glm2::vec<2, float>::operator/= (const vec& v)
     return *this;
 }
 
-inline __m64 glm2::vec<2, float>::operator() (void) const
-{
-    return this->_v;
-}
-inline __m128 glm2::vec<2, float>::si128(void) const
-{
-    __m128 xmm0 = _mm_loadl_pi(xmm0, &this->_v);
-    return xmm0;
-}
 inline float glm2::vec<2, float>::operator[] (uint32_t i) const
 {
     __m128 xmm0 = _mm_loadl_pi(xmm0, &this->_v);
@@ -264,6 +250,24 @@ inline float glm2::vec<2, float>::insert(uint32_t i, float f)
     xmm0[i] = f;
     this->_v = _mm_movepi64_pi64(_mm_castps_si128(xmm0));
     return f;
+}
+inline glm2::vec<2, float>& glm2::vec<2, float>::load(const float* src)
+{
+    this->_v = intrin::_m_load_ps(src);
+    return *this;
+}
+inline void glm2::vec<2, float>::store(float* dst) const
+{
+    intrin::_m_store_ps(dst, this->_v);
+}
+inline __m64 glm2::vec<2, float>::intrin(void) const
+{
+    return this->_v;
+}
+inline __m128 glm2::vec<2, float>::intrinEXT(void) const
+{
+    __m128 xmm0 = _mm_loadl_pi(xmm0, &this->_v);
+    return xmm0;
 }
 
 inline float glm2::vec<2, float>::x(void) const

@@ -14,25 +14,25 @@
 #define DOUBLE_INFINITY ((double)(INFINITY))
 #define DOUBLE_NAN ((double)(NAN))
 
-#define GLM2_TEST_VECTOR_ARITHMETIC_OPERATORS
-#define GLM2_TEST_VECTOR_CMP_OPERATORS
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT2
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT3
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT4
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT2
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT3
-#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT4
-#define GLM2_TEST_MATRIX_CMP_OPERATORS
-#define GLM2_TEST_MATRIX_EXT_ARITHMETIC
-#define GLM2_TEST_COMMON
-#define GLM2_TEST_EXPONENTIAL
-#define GLM2_TEST_TRIGONOMETRIC
-#define GLM2_TEST_GEOMETRIC
-#define GLM2_TEST_MATRIX
+//#define GLM2_TEST_VECTOR_ARITHMETIC_OPERATORS
+//#define GLM2_TEST_VECTOR_CMP_OPERATORS
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT2
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT3
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_MAT4
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT2
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT3
+//#define GLM2_TEST_MATRIX_ARITHMETIC_OPERATORS_DMAT4
+//#define GLM2_TEST_MATRIX_CMP_OPERATORS
+//#define GLM2_TEST_MATRIX_EXT_ARITHMETIC
+//#define GLM2_TEST_COMMON
+//#define GLM2_TEST_EXPONENTIAL
+//#define GLM2_TEST_TRIGONOMETRIC
+//#define GLM2_TEST_GEOMETRIC
+//#define GLM2_TEST_MATRIX
 #define GLM2_TEST_INTEGER
-#define GLM2_TEST_PACKING
-#define GLM2_TEST_VECTOR_RELATIONAL
-#define GLM2_TEST_MATRIX_TRANSFORMATION
+//#define GLM2_TEST_PACKING
+//#define GLM2_TEST_VECTOR_RELATIONAL
+//#define GLM2_TEST_MATRIX_TRANSFORMATION
 
 namespace glm2
 {
@@ -433,6 +433,151 @@ glm2::bvec4 v24b[5] = {
 
 void glm2::test::run_test(void)
 {
+
+    // ================== TEST LOAD VECTOR ==================
+    float arr_src_f[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+    float arr_dst_f[16];
+    double arr_src_d[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+    double arr_dst_d[16];
+    int32_t arr_src_i[4] = {1, 2, 3, 4};
+    int32_t arr_dst_i[4];
+
+    memset(arr_dst_f, 0, sizeof(arr_dst_f));
+    vec2 v2f_dst;
+    v2f_dst.load(arr_src_f);
+    v2f_dst.store(arr_dst_f);
+
+    memset(arr_dst_f, 0, sizeof(arr_dst_f));
+    vec3 v3f_dst;
+    v3f_dst.load(arr_src_f);
+    v3f_dst.store(arr_dst_f);
+
+    memset(arr_dst_f, 0, sizeof(arr_dst_f));
+    vec4 v4f_dst;
+    v4f_dst.load(arr_src_f);
+    v4f_dst.store(arr_dst_f);
+
+    memset(arr_dst_d, 0, sizeof(arr_dst_d));
+    dvec2 v2d_dst;
+    v2d_dst.load(arr_src_d);
+    v2d_dst.store(arr_dst_d);
+
+    memset(arr_dst_d, 0, sizeof(arr_dst_d));
+    dvec3 v3d_dst;
+    v3d_dst.load(arr_src_d);
+    v3d_dst.store(arr_dst_d);
+
+    memset(arr_dst_d, 0, sizeof(arr_dst_d));
+    dvec4 v4d_dst;
+    v4d_dst.load(arr_src_d);
+    v4d_dst.store(arr_dst_d);
+
+    memset(arr_dst_i, 0, sizeof(arr_dst_i));
+    ivec2 v2i_dst;
+    v2i_dst.load(arr_src_i);
+    v2i_dst.store(arr_dst_i);
+
+    ivec3 v3i_dst;
+    v3i_dst.load(arr_src_i);
+    v3i_dst.store(arr_dst_i);
+
+    ivec4 v4i_dst;
+    v4i_dst.load(arr_src_i);
+    v4i_dst.store(arr_dst_i);
+
+    // ================== TEST LOAD MATRIX ==================
+
+    memset(arr_dst_f, 0, sizeof(arr_dst_f));
+    mat2x2 m22f_dst;
+    m22f_dst.load(arr_src_f);
+    m22f_dst.store(arr_dst_f);
+
+    memset(arr_dst_f, 0, sizeof(arr_dst_f));
+    mat2x3 m23f_dst;
+    m23f_dst.load(arr_src_f);
+    m23f_dst.store(arr_dst_f);
+
+    memset(arr_dst_f, 0, sizeof(arr_dst_f));
+    mat2x4 m24f_dst;
+    m24f_dst.load(arr_src_f);
+    m24f_dst.store(arr_dst_f);
+
+    memset(arr_dst_f, 0, sizeof(arr_dst_f));
+    mat3x2 m32f_dst;
+    m32f_dst.load(arr_src_f);
+    m32f_dst.store(arr_dst_f);
+
+    memset(arr_dst_f, 0, sizeof(arr_dst_f));
+    mat3x3 m33f_dst;
+    m33f_dst.load(arr_src_f);
+    m33f_dst.store(arr_dst_f);
+
+    memset(arr_dst_f, 0, sizeof(arr_dst_f));
+    mat3x4 m34f_dst;
+    m34f_dst.load(arr_src_f);
+    m34f_dst.store(arr_dst_f);
+
+    memset(arr_dst_f, 0, sizeof(arr_dst_f));
+    mat4x2 m42f_dst;
+    m42f_dst.load(arr_src_f);
+    m42f_dst.store(arr_dst_f);
+
+    memset(arr_dst_f, 0, sizeof(arr_dst_f));
+    mat4x3 m43f_dst;
+    m43f_dst.load(arr_src_f);
+    m43f_dst.store(arr_dst_f);
+
+    memset(arr_dst_f, 0, sizeof(arr_dst_f));
+    mat4x4 m44f_dst;
+    m44f_dst.load(arr_src_f);
+    m44f_dst.store(arr_dst_f);
+
+    memset(arr_dst_d, 0, sizeof(arr_dst_d));
+    dmat2x2 m22d_dst;
+    m22d_dst.load(arr_src_d);
+    m22d_dst.store(arr_dst_d);
+
+    memset(arr_dst_d, 0, sizeof(arr_dst_d));
+    dmat2x3 m23d_dst;
+    m23d_dst.load(arr_src_d);
+    m23d_dst.store(arr_dst_d);
+
+    memset(arr_dst_d, 0, sizeof(arr_dst_d));
+    dmat2x4 m24d_dst;
+    m24d_dst.load(arr_src_d);
+    m24d_dst.store(arr_dst_d);
+
+    memset(arr_dst_d, 0, sizeof(arr_dst_d));
+    dmat3x2 m32d_dst;
+    m32d_dst.load(arr_src_d);
+    m32d_dst.store(arr_dst_d);
+
+    memset(arr_dst_d, 0, sizeof(arr_dst_d));
+    dmat3x3 m33d_dst;
+    m33d_dst.load(arr_src_d);
+    m33d_dst.store(arr_dst_d);
+
+    memset(arr_dst_d, 0, sizeof(arr_dst_d));
+    dmat3x4 m34d_dst;
+    m34d_dst.load(arr_src_d);
+    m34d_dst.store(arr_dst_d);
+
+    memset(arr_dst_d, 0, sizeof(arr_dst_d));
+    dmat4x2 m42d_dst;
+    m42d_dst.load(arr_src_d);
+    m42d_dst.store(arr_dst_d);
+
+    memset(arr_dst_d, 0, sizeof(arr_dst_d));
+    dmat4x3 m43d_dst;
+    m43d_dst.load(arr_src_d);
+    m43d_dst.store(arr_dst_d);
+
+    memset(arr_dst_d, 0, sizeof(arr_dst_d));
+    dmat4x4 m44d_dst;
+    m44d_dst.load(arr_src_d);
+    m44d_dst.store(arr_dst_d);
+
+
 #ifdef GLM2_TEST_VECTOR_ARITHMETIC_OPERATORS
     // vec2
     {

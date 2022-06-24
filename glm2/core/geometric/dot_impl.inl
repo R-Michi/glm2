@@ -13,26 +13,26 @@
 
 template<> inline glm2::vec<2, float> glm2::dot(const vec<2, float>& x, const vec<2, float>& y)
 {
-    return detail::core::geometric::dot::_default_fv2(x.si128(), y.si128());
+    return detail::core::geometric::dot::_default_fv2(x.intrinEXT(), y.intrinEXT());
 }
 template<> inline glm2::vec<3, float> glm2::dot(const vec<3, float>& x, const vec<3, float>& y)
 {
-    return detail::core::geometric::dot::_default_fv3(x(), y());
+    return detail::core::geometric::dot::_default_fv3(x.intrin(), y.intrin());
 }
 template<> inline glm2::vec<4, float> glm2::dot(const vec<4, float>& x, const vec<4, float>& y)
 {
-    return detail::core::geometric::dot::_default_fv4(x(), y());
+    return detail::core::geometric::dot::_default_fv4(x.intrin(), y.intrin());
 }
 
 template<> inline glm2::vec<2, double> glm2::dot(const vec<2, double>& x, const vec<2, double>& y)
 {
-    return detail::core::geometric::dot::_default_dv2(x(), y());
+    return detail::core::geometric::dot::_default_dv2(x.intrin(), y.intrin());
 }
 template<> inline glm2::vec<3, double> glm2::dot(const vec<3, double>& x, const vec<3, double>& y)
 {
-    return detail::core::geometric::dot::_default_dv3(x(), y());
+    return detail::core::geometric::dot::_default_dv3(x.intrin(), y.intrin());
 }
 template<> inline glm2::vec<4, double> glm2::dot(const vec<4, double>& x, const vec<4, double>& y)
 {
-    return detail::core::geometric::dot::_default_dv4(x(), y());
+    return detail::core::geometric::dot::_default_dv4(x.intrin(), y.intrin());
 }

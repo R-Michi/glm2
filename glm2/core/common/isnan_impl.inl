@@ -23,26 +23,26 @@ template<> inline bool glm2::isnan(double x)
 
 template<> inline glm2::vec<2, glm2::bool32_t> glm2::isnan(const vec<2, float>& x)
 {
-    return detail::core::common::isnan::_default_fv(x.si128());
+    return detail::core::common::isnan::_default_fv(x.intrinEXT());
 }
 template<> inline glm2::vec<3, glm2::bool32_t> glm2::isnan(const vec<3, float>& x)
 {
-    return detail::core::common::isnan::_default_fv(x());
+    return detail::core::common::isnan::_default_fv(x.intrin());
 }
 template<> inline glm2::vec<4, glm2::bool32_t> glm2::isnan(const vec<4, float>& x)
 {
-    return detail::core::common::isnan::_default_fv(x());
+    return detail::core::common::isnan::_default_fv(x.intrin());
 }
 
 template<> inline glm2::vec<2, glm2::bool32_t> glm2::isnan(const vec<2, double>& x)
 {
-    return detail::core::common::isnan::_default_dv2(x());
+    return detail::core::common::isnan::_default_dv2(x.intrin());
 }
 template<> inline glm2::vec<3, glm2::bool32_t> glm2::isnan(const vec<3, double>& x)
 {
-    return detail::core::common::isnan::_default_dv(x());
+    return detail::core::common::isnan::_default_dv(x.intrin());
 }
 template<> inline glm2::vec<4, glm2::bool32_t> glm2::isnan(const vec<4, double>& x)
 {
-    return detail::core::common::isnan::_default_dv(x());
+    return detail::core::common::isnan::_default_dv(x.intrin());
 }

@@ -23,27 +23,27 @@ template<> inline double glm2::acos(double x)
 
 template<> inline glm2::vec<2, float> glm2::acos(const vec<2, float>& x)
 {
-    return detail::core::trigonometric::acos::_default_fv2(x.si128());
+    return detail::core::trigonometric::acos::_default_fv2(x.intrinEXT());
 }
 template<> inline glm2::vec<3, float> glm2::acos(const vec<3, float>& x)
 {
-    return detail::core::trigonometric::acos::_default_fv3(x());
+    return detail::core::trigonometric::acos::_default_fv3(x.intrin());
 }
 template<> inline glm2::vec<4, float> glm2::acos(const vec<4, float>& x)
 {
-    return detail::core::trigonometric::acos::_default_fv4(x());
+    return detail::core::trigonometric::acos::_default_fv4(x.intrin());
 }
 
 
 template<> inline glm2::vec<2, double> glm2::acos(const vec<2, double>& x)
 {
-    return detail::core::trigonometric::acos::_default_dv2(x());
+    return detail::core::trigonometric::acos::_default_dv2(x.intrin());
 }
 template<> inline glm2::vec<3, double> glm2::acos(const vec<3, double>& x)
 {
-    return detail::core::trigonometric::acos::_default_dv3(x());
+    return detail::core::trigonometric::acos::_default_dv3(x.intrin());
 }
 template<> inline glm2::vec<4, double> glm2::acos(const vec<4, double>& x)
 {
-    return detail::core::trigonometric::acos::_default_dv4(x());
+    return detail::core::trigonometric::acos::_default_dv4(x.intrin());
 }

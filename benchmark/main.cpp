@@ -18,7 +18,7 @@
 #define GLM2_FORCE_EXPLICIT_CAST
 #include "../glm2/glm2.h"
 
-#define GLM2_BENCHMARK_CUSTOM
+//#define GLM2_BENCHMARK_CUSTOM
 //#define GLM2_BENCHMARK_DOUBLE
 
 //#define GLM2_BENCHMARK_VECTOR_ARITHMETIC_OPERATORS
@@ -33,7 +33,7 @@
 //#define GLM2_BENCHMARK_EXPONENTIAL
 //#define GLM2_BENCHMARK_GEOMETRIC
 //#define GLM2_BENCHMARK_MATRIX
-//#define GLM2_BENCHMARK_INTEGER
+#define GLM2_BENCHMARK_INTEGER
 //#define GLM2_BENCHMARK_PACKING
 //#define GLM2_BENCHMARK_VECTOR_RELATIONAL
 //#define GLM2_BENCHMARK_VECTOR_RELATIONAL_INTEGER
@@ -6939,18 +6939,20 @@ BENCHMARK(glm2_uvec4_any);
 
 #else
 
+alignas(16) float fv1[10];
+
 static void glm__func(benchmark::State& state)
 {
     while(state.KeepRunning())
     {
-        b = glm::all(v142b);
+        v141i = v142i / v143i;
     }
 }
 static void glm2_func(benchmark::State& state)
 {
     while(state.KeepRunning())
     {
-        b = glm2::all(v242b);
+        v241i = v242i / v243i;
     }
 }
 BENCHMARK(glm__func);

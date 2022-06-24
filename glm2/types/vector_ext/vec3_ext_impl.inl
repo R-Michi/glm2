@@ -13,13 +13,13 @@
 
 inline glm2::vec<3, float>::vec(const vec<2, float>& xy, float z)
 {
-    this->_v = _mm_movpi64_epi64(xy());
+    this->_v = _mm_movpi64_epi64(xy.intrin());
     this->_v = _mm_insert_ps(this->_v, _mm_set_ss(z), 0x20);
 }
 
 inline glm2::vec<3, float>::vec(float x, const vec<2, float>& yz)
 {
-    this->_v = _mm_movpi64_epi64(yz());
+    this->_v = _mm_movpi64_epi64(yz.intrin());
     this->_v = _mm_insert_ps(this->_v, _mm_set_ss(x), 0x20);
     this->_v = _mm_shuffle_ps(this->_v, this->_v, 0x12);
 }

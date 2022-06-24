@@ -35,23 +35,19 @@ namespace glm2
         inline mat(float f);
         inline mat(float n0m0, float n0m1,
                    float n1m0, float n1m1);
-        inline mat(const float* fv);
         inline mat(const col_type& n0,
                    const col_type& n1);
-        inline mat(const col_type* vv);
-        inline mat(const __m64* m64v);
-        inline mat(const __m128* m128v);
         inline mat(const mat& M);
+        explicit inline mat(const float* fv);
+        explicit inline mat(const col_type* vv);
+        explicit inline mat(const __m64* m64v);
+        explicit inline mat(const __m128* m128v);
 
         /* destructor */
         ~mat(void) = default;
 
         /* default copy operators */
         inline mat& operator= (float f);
-        inline mat& operator= (const float* fv);
-        inline mat& operator= (const col_type* vv);
-        inline mat& operator= (const __m64* m64v);
-        inline mat& operator= (const __m128* m128v);
         inline mat& operator= (const mat& M);
 
         /* copare operators */
@@ -103,6 +99,14 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const float* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m64* src);
+        inline mat& load(const __m128* src);
+        inline void store(float* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m64* dst) const;
+        inline void store(__m128* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 3, float>(void) const;
@@ -150,23 +154,19 @@ namespace glm2
         inline mat(float f);
         inline mat(float n0m0, float n0m1, float n0m2,
                    float n1m0, float n1m1, float n1m2);
-        inline mat(const float* fv);
         inline mat(const col_type& n0,
                    const col_type& n1);
-        inline mat(const col_type* vv);
-        inline mat(const __m128* m128v);
-        inline mat(const __m256* m256v);
         inline mat(const mat& M);
+        explicit inline mat(const float* fv);
+        explicit inline mat(const col_type* vv);
+        explicit inline mat(const __m128* m128v);
+        explicit inline mat(const __m256* m256v);
 
         /* destructor */
         ~mat(void) = default;
 
         /* default copy operators */
         inline mat& operator= (float f);
-        inline mat& operator= (const float* fv);
-        inline mat& operator= (const col_type* vv);
-        inline mat& operator= (const __m128* m128v);
-        inline mat& operator= (const __m256* m256v);
         inline mat& operator= (const mat& M);
 
         /* copare operators */
@@ -215,6 +215,14 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const float* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m128* src);
+        inline mat& load(const __m256* src);
+        inline void store(float* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m128* dst) const;
+        inline void store(__m256* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 2, float>(void) const;
@@ -262,23 +270,19 @@ namespace glm2
         inline mat(float f);
         inline mat(float n0m0, float n0m1, float n0m2, float n0m3,
                    float n1m0, float n1m1, float n1m2, float n1m3);
-        inline mat(const float* fv);
         inline mat(const col_type& n0,
                    const col_type& n1);
-        inline mat(const col_type* vv);
-        inline mat(const __m128* m128v);
-        inline mat(const __m256* m256v);
         inline mat(const mat& M);
+        explicit inline mat(const float* fv);
+        explicit inline mat(const col_type* vv);
+        explicit inline mat(const __m128* m128v);
+        explicit inline mat(const __m256* m256v);
 
         /* destructor */
         ~mat(void) = default;
 
         /* default copy operators */
         inline mat& operator= (float f);
-        inline mat& operator= (const float* fv);
-        inline mat& operator= (const col_type* vv);
-        inline mat& operator= (const __m128* m128v);
-        inline mat& operator= (const __m256* m256v);
         inline mat& operator= (const mat& M);
 
         /* copare operators */
@@ -327,6 +331,14 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const float* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m128* src);
+        inline mat& load(const __m256* src);
+        inline void store(float* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m128* dst) const;
+        inline void store(__m256* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 2, float>(void) const;
@@ -375,24 +387,20 @@ namespace glm2
         inline mat(float n0m0, float n0m1,
                    float n1m0, float n1m1,
                    float n2m0, float n2m1);
-        inline mat(const float* fv);
         inline mat(const col_type& n0,
                    const col_type& n1,
                    const col_type& n2);
-        inline mat(const col_type* vv);
-        inline mat(const __m64* m64v);
-        inline mat(const __m128* m128v);
         inline mat(const mat& M);
+        explicit inline mat(const float* fv);
+        explicit inline mat(const col_type* vv);
+        explicit inline mat(const __m64* m64v);
+        explicit inline mat(const __m128* m128v);
 
         /* destructor */
         ~mat(void) = default;
 
         /* default copy operators */
         inline mat& operator= (float f);
-        inline mat& operator= (const float* fv);
-        inline mat& operator= (const col_type* vv);
-        inline mat& operator= (const __m64* m64v);
-        inline mat& operator= (const __m128* m128v);
         inline mat& operator= (const mat& M);
 
         /* copare operators */
@@ -441,6 +449,14 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const float* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m64* src);
+        inline mat& load(const __m128* src);
+        inline void store(float* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m64* dst) const;
+        inline void store(__m128* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 2, float>(void) const;
@@ -489,24 +505,20 @@ namespace glm2
         inline mat(float n0m0, float n0m1, float n0m2,
                    float n1m0, float n1m1, float n1m2,
                    float n2m0, float n2m1, float n2m2);
-        inline mat(const float* fv);
         inline mat(const col_type& n0,
                    const col_type& n1,
                    const col_type& n2);
-        inline mat(const col_type* vv);
-        inline mat(const __m128* m128v);
-        inline mat(const __m256* m256v);
         inline mat(const mat& M);
+        explicit inline mat(const float* fv);
+        explicit inline mat(const col_type* vv);
+        explicit inline mat(const __m128* m128v);
+        explicit inline mat(const __m256* m256v);
 
         /* destructor */
         ~mat(void) = default;
 
         /* default copy operators */
         inline mat& operator= (float f);
-        inline mat& operator= (const float* fv);
-        inline mat& operator= (const col_type* vv);
-        inline mat& operator= (const __m128* m128v);
-        inline mat& operator= (const __m256* m256v);
         inline mat& operator= (const mat& M);
 
         /* copare operators */
@@ -558,6 +570,14 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const float* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m128* src);
+        inline mat& load(const __m256* src);
+        inline void store(float* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m128* dst) const;
+        inline void store(__m256* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 2, float>(void) const;
@@ -606,24 +626,20 @@ namespace glm2
         inline mat(float n0m0, float n0m1, float n0m2, float n0m3,
                    float n1m0, float n1m1, float n1m2, float n1m3,
                    float n2m0, float n2m1, float n2m2, float n2m3);
-        inline mat(const float* fv);
         inline mat(const col_type& n0,
                    const col_type& n1,
                    const col_type& n2);
-        inline mat(const col_type* vv);
-        inline mat(const __m128* m128v);
-        inline mat(const __m256* m256v);
         inline mat(const mat& M);
+        explicit inline mat(const float* fv);
+        explicit inline mat(const col_type* vv);
+        explicit inline mat(const __m128* m128v);
+        explicit inline mat(const __m256* m256v);
 
         /* destructor */
         ~mat(void) = default;
 
         /* default copy operators */
         inline mat& operator= (float f);
-        inline mat& operator= (const float* fv);
-        inline mat& operator= (const col_type* vv);
-        inline mat& operator= (const __m128* m128v);
-        inline mat& operator= (const __m256* m256v);
         inline mat& operator= (const mat& M);
 
         /* copare operators */
@@ -672,6 +688,14 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const float* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m128* src);
+        inline mat& load(const __m256* src);
+        inline void store(float* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m128* dst) const;
+        inline void store(__m256* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 2, float>(void) const;
@@ -721,27 +745,22 @@ namespace glm2
                    float n1m0, float n1m1,
                    float n2m0, float n2m1,
                    float n3m0, float n3m1);
-        inline mat(const float* fv);
         inline mat(const col_type& n0,
                    const col_type& n1,
                    const col_type& n2,
                    const col_type& n3);
-        inline mat(const col_type* vv);
-        inline mat(const __m64* m64v);
-        inline mat(const __m128* m128v);
-        inline mat(const __m256* m256v);
         inline mat(const mat& M);
+        explicit inline mat(const float* fv);
+        explicit inline mat(const col_type* vv);
+        explicit inline mat(const __m64* m64v);
+        explicit inline mat(const __m128* m128v);
+        explicit inline mat(const __m256* m256v);
 
         /* destructor */
         ~mat(void) = default;
 
         /* default copy operators */
         inline mat& operator= (float f);
-        inline mat& operator= (const float* fv);
-        inline mat& operator= (const col_type* vv);
-        inline mat& operator= (const __m64* m64v);
-        inline mat& operator= (const __m128* m128v);
-        inline mat& operator= (const __m256* m256v);
         inline mat& operator= (const mat& M);
 
         /* copare operators */
@@ -790,6 +809,16 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const float* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m64* src);
+        inline mat& load(const __m128* src);
+        inline mat& load(const __m256* src);
+        inline void store(float* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m64* dst) const;
+        inline void store(__m128* dst) const;
+        inline void store(__m256* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 2, float>(void) const;
@@ -906,6 +935,14 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const float* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m128* src);
+        inline mat& load(const __m256* src);
+        inline void store(float* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m128* dst) const;
+        inline void store(__m256* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 2, float>(void) const;
@@ -1025,6 +1062,14 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const float* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m128* src);
+        inline mat& load(const __m256* src);
+        inline void store(float* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m128* dst) const;
+        inline void store(__m256* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 2, float>(void) const;
@@ -1073,23 +1118,19 @@ namespace glm2
         inline mat(double d);
         inline mat(double n0m0, double n0m1,
                    double n1m0, double n1m1);
-        inline mat(const double* dv);
         inline mat(const col_type& n0,
                    const col_type& n1);
-        inline mat(const col_type* vv);
-        inline mat(const __m128d* m128v);
-        inline mat(const __m256d* m256v);
         inline mat(const mat& M);
+        explicit inline mat(const double* dv);
+        explicit inline mat(const col_type* vv);
+        explicit inline mat(const __m128d* m128v);
+        explicit inline mat(const __m256d* m256v);
         
         /* destructor */
         ~mat(void) = default;
 
         /* default copy operators */
         inline mat& operator= (double d);
-        inline mat& operator= (const double* dv);
-        inline mat& operator= (const col_type* vv);
-        inline mat& operator= (const __m128d* m128v);
-        inline mat& operator= (const __m256d* m256v);
         inline mat& operator= (const mat& M);
 
         /* copare operators */
@@ -1141,6 +1182,14 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const double* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m128d* src);
+        inline mat& load(const __m256d* src);
+        inline void store(double* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m128d* dst) const;
+        inline void store(__m256d* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 2, float>(void) const;
@@ -1188,21 +1237,18 @@ namespace glm2
         inline mat(double d);
         inline mat(double n0m0, double n0m1, double n0m2,
                    double n1m0, double n1m1, double n1m2);
-        inline mat(const double* dv);
         inline mat(const col_type& n0,
                    const col_type& n1);
-        inline mat(const col_type* vv);
-        inline mat(const __m256d* m256v);
         inline mat(const mat& M);
+        explicit inline mat(const double* dv);
+        explicit inline mat(const col_type* vv);
+        explicit inline mat(const __m256d* m256v);
         
         /* destructor */
         ~mat(void) = default;
 
         /* default copy operators */
         inline mat& operator= (double d);
-        inline mat& operator= (const double* dv);
-        inline mat& operator= (const col_type* vv);
-        inline mat& operator= (const __m256d* m256v);
         inline mat& operator= (const mat& M);
 
         /* copare operators */
@@ -1251,6 +1297,12 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const double* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m256d* src);
+        inline void store(double* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m256d* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 2, float>(void) const;
@@ -1298,21 +1350,18 @@ namespace glm2
         inline mat(double d);
         inline mat(double n0m0, double n0m1, double n0m2, double n0m3,
                    double n1m0, double n1m1, double n1m2, double n1m3);
-        inline mat(const double* dv);
         inline mat(const col_type& n0,
                    const col_type& n1);
-        inline mat(const col_type* vv);
-        inline mat(const __m256d* m256v);
         inline mat(const mat& M);
+        explicit inline mat(const double* dv);
+        explicit inline mat(const col_type* vv);
+        explicit inline mat(const __m256d* m256v);
         
         /* destructor */
         ~mat(void) = default;
 
         /* default copy operators */
         inline mat& operator= (double d);
-        inline mat& operator= (const double* dv);
-        inline mat& operator= (const col_type* vv);
-        inline mat& operator= (const __m256d* m256v);
         inline mat& operator= (const mat& M);
 
         /* copare operators */
@@ -1361,6 +1410,12 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const double* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m256d* src);
+        inline void store(double* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m256d* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 2, float>(void) const;
@@ -1409,24 +1464,20 @@ namespace glm2
         inline mat(double n0m0, double n0m1,
                    double n1m0, double n1m1,
                    double n2m0, double n2m1);
-        inline mat(const double* dv);
         inline mat(const col_type& n0,
                    const col_type& n1,
                    const col_type& n2);
-        inline mat(const col_type* vv);
-        inline mat(const __m128d* m128v);
-        inline mat(const __m256d* m256v);
         inline mat(const mat& M);
+        explicit inline mat(const double* dv);
+        explicit inline mat(const col_type* vv);
+        explicit inline mat(const __m128d* m128v);
+        explicit inline mat(const __m256d* m256v);
         
         /* destructor */
         ~mat(void) = default;
 
         /* default copy operators */
         inline mat& operator= (double d);
-        inline mat& operator= (const double* dv);
-        inline mat& operator= (const col_type* vv);
-        inline mat& operator= (const __m128d* m128v);
-        inline mat& operator= (const __m256d* m256v);
         inline mat& operator= (const mat& M);
 
         /* copare operators */
@@ -1475,6 +1526,14 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const double* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m128d* src);
+        inline mat& load(const __m256d* src);
+        inline void store(double* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m128d* dst) const;
+        inline void store(__m256d* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 2, float>(void) const;
@@ -1523,22 +1582,19 @@ namespace glm2
         inline mat(double n0m0, double n0m1, double n0m2,
                    double n1m0, double n1m1, double n1m2,
                    double n2m0, double n2m1, double n2m2);
-        inline mat(const double* dv);
         inline mat(const col_type& n0,
                    const col_type& n1,
                    const col_type& n2);
-        inline mat(const col_type* vv);
-        inline mat(const __m256d* m256v);
         inline mat(const mat& M);
+        explicit inline mat(const double* dv);
+        explicit inline mat(const col_type* vv);
+        explicit inline mat(const __m256d* m256v);
         
         /* destructor */
         ~mat(void) = default;
 
         /* default copy operators */
         inline mat& operator= (double d);
-        inline mat& operator= (const double* dv);
-        inline mat& operator= (const col_type* vv);
-        inline mat& operator= (const __m256d* m256v);
         inline mat& operator= (const mat& M);
 
         /* copare operators */
@@ -1590,6 +1646,12 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const double* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m256d* src);
+        inline void store(double* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m256d* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 2, float>(void) const;
@@ -1638,22 +1700,19 @@ namespace glm2
         inline mat(double n0m0, double n0m1, double n0m2, double n0m3,
                    double n1m0, double n1m1, double n1m2, double n1m3,
                    double n2m0, double n2m1, double n2m2, double n2m3);
-        inline mat(const double* dv);
         inline mat(const col_type& n0,
                    const col_type& n1,
                    const col_type& n2);
-        inline mat(const col_type* vv);
-        inline mat(const __m256d* m256v);
         inline mat(const mat& M);
+        explicit inline mat(const double* dv);
+        explicit inline mat(const col_type* vv);
+        explicit inline mat(const __m256d* m256v);
         
         /* destructor */
         ~mat(void) = default;
 
         /* default copy operators */
         inline mat& operator= (double d);
-        inline mat& operator= (const double* dv);
-        inline mat& operator= (const col_type* vv);
-        inline mat& operator= (const __m256d* m256v);
         inline mat& operator= (const mat& M);
 
         /* copare operators */
@@ -1704,6 +1763,12 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const double* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m256d* src);
+        inline void store(double* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m256d* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 2, float>(void) const;
@@ -1754,25 +1819,21 @@ namespace glm2
                    double n1m0, double n1m1,
                    double n2m0, double n2m1,
                    double n3m0, double m3n1);
-        inline mat(const double* dv);
         inline mat(const col_type& n0,
                    const col_type& n1,
                    const col_type& n2,
                    const col_type& n3);
-        inline mat(const col_type* vv);
-        inline mat(const __m128d* m128v);
-        inline mat(const __m256d* m256v);
         inline mat(const mat& M);
+        explicit inline mat(const double* dv);
+        explicit inline mat(const col_type* vv);
+        explicit inline mat(const __m128d* m128v);
+        explicit inline mat(const __m256d* m256v);
         
         /* destructor */
         ~mat(void) = default;
 
         /* default copy operators */
         inline mat& operator= (double d);
-        inline mat& operator= (const double* dv);
-        inline mat& operator= (const col_type* vv);
-        inline mat& operator= (const __m128d* m128v);
-        inline mat& operator= (const __m256d* m256v);
         inline mat& operator= (const mat& M);
 
         /* copare operators */
@@ -1821,6 +1882,14 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const double* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m128d* src);
+        inline mat& load(const __m256d* src);
+        inline void store(double* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m128d* dst) const;
+        inline void store(__m256d* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 2, float>(void) const;
@@ -1870,23 +1939,20 @@ namespace glm2
                    double n1m0, double n1m1, double n1m2,
                    double n2m0, double n2m1, double n2m2,
                    double n3m0, double n3m1, double n3m2);
-        inline mat(const double* dv);
         inline mat(const col_type& n0,
                    const col_type& n1,
                    const col_type& n2,
                    const col_type& n3);
-        inline mat(const col_type* vv);
-        inline mat(const __m256d* m256v);
         inline mat(const mat& M);
+        explicit inline mat(const double* dv);
+        explicit inline mat(const col_type* vv);
+        explicit inline mat(const __m256d* m256v);
         
         /* destructor */
         ~mat(void) = default;
 
         /* default copy operators */
         inline mat& operator= (double d);
-        inline mat& operator= (const double* dv);
-        inline mat& operator= (const col_type* vv);
-        inline mat& operator= (const __m256d* m256v);
         inline mat& operator= (const mat& M);
 
         /* copare operators */
@@ -1935,6 +2001,12 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const double* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m256d* src);
+        inline void store(double* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m256d* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 2, float>(void) const;
@@ -1984,23 +2056,20 @@ namespace glm2
                    double n1m0, double n1m1, double n1m2, double n1m3,
                    double n2m0, double n2m1, double n2m2, double n2m3,
                    double n3m0, double n3m1, double n3m2, double n3m3);
-        inline mat(const double* dv);
         inline mat(const col_type& n0,
                    const col_type& n1,
                    const col_type& n2,
                    const col_type& n3);
-        inline mat(const col_type* vv);
-        inline mat(const __m256d* m256v);
         inline mat(const mat& M);
+        explicit inline mat(const double* dv);
+        explicit inline mat(const col_type* vv);
+        explicit inline mat(const __m256d* m256v);
         
         /* destructor */
         ~mat(void) = default;
 
         /* default copy operators */
         inline mat& operator= (double d);
-        inline mat& operator= (const double* dv);
-        inline mat& operator= (const col_type* vv);
-        inline mat& operator= (const __m256d* m256v);
         inline mat& operator= (const mat& M);
 
         /* copare operators */
@@ -2052,6 +2121,12 @@ namespace glm2
         /* common operators and methods */
         inline col_type& operator[] (uint32_t i);
         inline const col_type& operator[] (uint32_t i) const;
+        inline mat& load(const double* src);
+        inline mat& load(const col_type* src);
+        inline mat& load(const __m256d* src);
+        inline void store(double* dst) const;
+        inline void store(col_type* dst) const;
+        inline void store(__m256d* dst) const;
 
         /* implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator mat<2, 2, float>(void) const;

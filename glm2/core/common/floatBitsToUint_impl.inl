@@ -18,13 +18,13 @@ inline uint32_t glm2::floatBitsToUint(float v)
 
 template<> inline glm2::vec<2, uint32_t> glm2::floatBitsToUint(const vec<2, float>& v)
 {
-    return detail::core::common::floatBitsToUint::_default_u32v(v.si128());
+    return detail::core::common::floatBitsToUint::_default_u32v(v.intrinEXT());
 }
 template<> inline glm2::vec<3, uint32_t> glm2::floatBitsToUint(const vec<3, float>& v)
 {
-    return detail::core::common::floatBitsToUint::_default_u32v(v());
+    return detail::core::common::floatBitsToUint::_default_u32v(v.intrin());
 }
 template<> inline glm2::vec<4, uint32_t> glm2::floatBitsToUint(const vec<4, float>& v)
 {
-    return detail::core::common::floatBitsToUint::_default_u32v(v());
+    return detail::core::common::floatBitsToUint::_default_u32v(v.intrin());
 }

@@ -42,7 +42,8 @@ namespace glm2
                 
                 namespace findLSB
                 {
-                    inline __m128i _default_u32v(__m128i x, const uint32_t n);
+                    inline uint32_t _default_u32(uint32_t x);
+                    inline __m128i _default_u32v(__m128i x);
                 } // namespace findLSB
                 
                 namespace findMSB
@@ -57,7 +58,8 @@ namespace glm2
                 
                 namespace uaddCarry
                 {
-                    inline void _default_u32v(const uint32_t* x, const uint32_t* y, uint32_t* res, uint32_t* carry, const uint32_t n);
+                    inline void _default_u32(uint32_t x, uint32_t y, uint32_t& res, uint32_t& carry);
+                    inline void _default_u32v(__m128i x, __m128i y, __m128i& res, __m128i& carry);
                 } // namespace uaddCarry
                 
                 namespace umulExtended
@@ -67,7 +69,8 @@ namespace glm2
                 
                 namespace usubBorrow
                 {
-                    inline void _default_u32v(const uint32_t* x, const uint32_t* y, uint32_t* res, uint32_t* borrow, const uint32_t n);
+                    inline void _default_u32(uint32_t x, uint32_t y, uint32_t& res, uint32_t& borrow);
+                    inline void _default_u32v(__m128i x, __m128i y, __m128i& res, __m128i& borrow);
                 } // namespace usubBorrow
                 
             } // namespace integer

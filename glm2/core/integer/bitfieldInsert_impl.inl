@@ -22,13 +22,13 @@ inline genIType glm2::bitfieldInsert(genIType base, genIType insert, int32_t off
 
 template<typename T> inline glm2::vec<2, T> glm2::bitfieldInsert(const vec<2, T>& base, const vec<2, T>& insert, int32_t offset, int32_t bits)
 {
-    return detail::core::integer::bitfieldInsert::_default_i32v(base.si128(), insert.si128(), offset, bits);
+    return detail::core::integer::bitfieldInsert::_default_i32v(base.intrinEXT(), insert.intrinEXT(), offset, bits);
 }
 template<typename T> inline glm2::vec<3, T> glm2::bitfieldInsert(const vec<3, T>& base, const vec<3, T>& insert, int32_t offset, int32_t bits)
 {
-    return detail::core::integer::bitfieldInsert::_default_i32v(base(), insert(), offset, bits);
+    return detail::core::integer::bitfieldInsert::_default_i32v(base.intrin(), insert.intrin(), offset, bits);
 }
 template<typename T> inline glm2::vec<4, T> glm2::bitfieldInsert(const vec<4, T>& base, const vec<4, T>& insert, int32_t offset, int32_t bits)
 {
-    return detail::core::integer::bitfieldInsert::_default_i32v(base(), insert(), offset, bits);
+    return detail::core::integer::bitfieldInsert::_default_i32v(base.intrin(), insert.intrin(), offset, bits);
 }

@@ -29,7 +29,7 @@ inline glm2::mat<2, 2, float>::mat(
 }
 inline glm2::mat<2, 2, float>::mat(const float* fv)
 {
-    *this = fv;
+    *this = this->load(fv);
 }
 inline glm2::mat<2, 2, float>::mat(
     const col_type& n0,
@@ -41,15 +41,15 @@ inline glm2::mat<2, 2, float>::mat(
 }
 inline glm2::mat<2, 2, float>::mat(const col_type* vv)
 {
-    *this = vv;
+    *this = this->load(vv);
 }
 inline glm2::mat<2, 2, float>::mat(const __m64* m64v)
 {
-    *this = m64v;
+    *this = this->load(m64v);
 }
 inline glm2::mat<2, 2, float>::mat(const __m128* m128v)
 {
-    *this = m128v;
+    *this = this->load(m128v);
 }
 inline glm2::mat<2, 2, float>::mat(const mat& M)
 {
@@ -60,29 +60,6 @@ inline glm2::mat<2, 2, float>& glm2::mat<2, 2, float>::operator= (float f)
 {
     this->_M[0] = f;
     this->_M[1] = f;
-    return *this;
-}
-inline glm2::mat<2, 2, float>& glm2::mat<2, 2, float>::operator= (const float* fv)
-{
-    this->_M[0] = fv + 0 * sizeof(col_type);
-    this->_M[1] = fv + 1 * sizeof(col_type);
-    return *this;
-}
-inline glm2::mat<2, 2, float>& glm2::mat<2, 2, float>::operator= (const col_type* vv)
-{
-    this->_M[0] = vv[0];
-    this->_M[1] = vv[1];
-    return *this;
-}
-inline glm2::mat<2, 2, float>& glm2::mat<2, 2, float>::operator= (const __m64* m64v)
-{
-    this->_M[0] = m64v[0];
-    this->_M[1] = m64v[1];
-    return *this;
-}
-inline glm2::mat<2, 2, float>& glm2::mat<2, 2, float>::operator= (const __m128* m128v)
-{
-    _mm_storeu_ps(col_type::value_ptr(this->_M), m128v[0]);
     return *this;
 }
 inline glm2::mat<2, 2, float>& glm2::mat<2, 2, float>::operator= (const mat& M)
@@ -215,7 +192,7 @@ inline glm2::mat<2, 2, float>& glm2::mat<2, 2, float>::operator+= (const col_typ
 {
     __m128 xmm0, xmm1;
     xmm0 = _mm_loadu_ps(col_type::value_ptr(this->_M));
-    xmm1 = _mm_broadcastq_epi64(_mm_castps_si128(v.si128()));
+    xmm1 = _mm_broadcastq_epi64(_mm_castps_si128(v.intrinEXT()));
     xmm0 = _mm_add_ps(xmm0, xmm1);
     _mm_storeu_ps(col_type::value_ptr(this->_M), xmm0);
     return *this;
@@ -241,7 +218,7 @@ inline glm2::mat<2, 2, float>& glm2::mat<2, 2, float>::operator-= (const col_typ
 {
     __m128 xmm0, xmm1;
     xmm0 = _mm_loadu_ps(col_type::value_ptr(this->_M));
-    xmm1 = _mm_broadcastq_epi64(_mm_castps_si128(v.si128()));
+    xmm1 = _mm_broadcastq_epi64(_mm_castps_si128(v.intrinEXT()));
     xmm0 = _mm_sub_ps(xmm0, xmm1);
     _mm_storeu_ps(col_type::value_ptr(this->_M), xmm0);
     return *this;
@@ -267,7 +244,7 @@ inline glm2::mat<2, 2, float>& glm2::mat<2, 2, float>::operator*= (const col_typ
 {
     __m128 xmm0, xmm1;
     xmm0 = _mm_loadu_ps(col_type::value_ptr(this->_M));
-    xmm1 = _mm_broadcastq_epi64(_mm_castps_si128(v.si128()));
+    xmm1 = _mm_broadcastq_epi64(_mm_castps_si128(v.intrinEXT()));
     xmm0 = _mm_mul_ps(xmm0, xmm1);
     _mm_storeu_ps(col_type::value_ptr(this->_M), xmm0);
     return *this;
@@ -285,7 +262,7 @@ inline glm2::mat<2, 2, float>& glm2::mat<2, 2, float>::operator/= (const col_typ
 {
     __m128 xmm0, xmm1;
     xmm0 = _mm_loadu_ps(col_type::value_ptr(this->_M));
-    xmm1 = _mm_broadcastq_epi64(_mm_castps_si128(v.si128()));
+    xmm1 = _mm_broadcastq_epi64(_mm_castps_si128(v.intrinEXT()));
     xmm0 = _mm_div_ps(xmm0, xmm1);
     _mm_storeu_ps(col_type::value_ptr(this->_M), xmm0);
     return *this;
@@ -298,6 +275,48 @@ inline glm2::mat<2, 2, float>::col_type& glm2::mat<2, 2, float>::operator[] (uin
 inline const glm2::mat<2, 2, float>::col_type& glm2::mat<2, 2, float>::operator[] (uint32_t i) const
 {
     return this->_M[i];
+}
+inline glm2::mat<2, 2, float>& glm2::mat<2, 2, float>::load(const float* src)
+{
+    this->_M[0].load(src + 0);
+    this->_M[1].load(src + 2);
+    return *this;
+}
+inline glm2::mat<2, 2, float>& glm2::mat<2, 2, float>::load(const col_type* src)
+{
+    this->_M[0] = src[0];
+    this->_M[1] = src[1];
+    return *this;
+}
+inline glm2::mat<2, 2, float>& glm2::mat<2, 2, float>::load(const __m64* src)
+{
+    this->_M[0] = src[0];
+    this->_M[1] = src[1];
+    return *this;
+}
+inline glm2::mat<2, 2, float>& glm2::mat<2, 2, float>::load(const __m128* src)
+{
+    _mm_storeu_ps(col_type::value_ptr(this->_M), src[0]);
+    return *this;
+}
+inline void  glm2::mat<2, 2, float>::store(float* dst) const
+{
+    this->_M[0].store(dst + 0);
+    this->_M[1].store(dst + 2);
+}
+inline void  glm2::mat<2, 2, float>::store(col_type* dst) const
+{
+    dst[0] = this->_M[0];
+    dst[1] = this->_M[1];
+}
+inline void  glm2::mat<2, 2, float>::store(__m64* dst) const
+{
+    dst[0] = this->_M[0].intrin();
+    dst[1] = this->_M[1].intrin();
+}
+inline void  glm2::mat<2, 2, float>::store(__m128* dst) const
+{
+    dst[0] = _mm_loadu_ps(col_type::value_ptr(this->_M));
 }
 
 inline float* glm2::mat<2, 2, float>::value_ptr(mat& M)

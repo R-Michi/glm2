@@ -25,7 +25,7 @@ inline glm2::vec<4, double>::vec(double x, double y, double z, double w)
 }
 inline glm2::vec<4, double>::vec(const double* dv)
 {
-    this->_v = _mm256_load_pd(dv);
+    this->_v = _mm256_loadu_pd(dv);
 }
 inline glm2::vec<4, double>::vec(const __m256d& v)
 {
@@ -39,11 +39,6 @@ inline glm2::vec<4, double>::vec(const vec& v)
 inline glm2::vec<4, double>& glm2::vec<4, double>::operator= (double d)
 {
     this->_v = _mm256_set1_pd(d);
-    return *this;
-}
-inline glm2::vec<4, double>& glm2::vec<4, double>::operator= (const double* dv)
-{
-    this->_v = _mm256_load_pd(dv);
     return *this;
 }
 inline glm2::vec<4, double>& glm2::vec<4, double>::operator= (const __m256d& v)
@@ -201,10 +196,6 @@ inline glm2::vec<4, double>& glm2::vec<4, double>::operator/= (const vec& v)
     return *this;
 }
 
-inline __m256d glm2::vec<4, double>::operator() (void) const
-{
-    return this->_v;
-}
 inline double glm2::vec<4, double>::operator[] (uint32_t i) const
 {
     return this->_v[i];
@@ -213,6 +204,20 @@ inline double glm2::vec<4, double>::insert(uint32_t i, double d)
 {
     return (this->_v[i] = d);
 }
+inline glm2::vec<4, double>& glm2::vec<4, double>::load(const double* src)
+{
+    this->_v = _mm256_loadu_pd(src);
+    return *this;
+}
+inline void glm2::vec<4, double>::store(double* dst) const
+{
+    _mm256_storeu_pd(dst, this->_v);
+}
+inline __m256d glm2::vec<4, double>::intrin(void) const
+{
+    return this->_v;
+}
+
 
 inline double glm2::vec<4, double>::x(void) const
 {

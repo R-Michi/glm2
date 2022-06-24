@@ -28,26 +28,26 @@ template<> inline uint32_t glm2::bitfieldExtract(uint32_t value, int32_t offset,
 
 template<> inline glm2::vec<2, int32_t> glm2::bitfieldExtract(const vec<2, int32_t>& value, int32_t offset, int32_t bits)
 {
-    return detail::core::integer::bitfieldExtract::_default_i32v(value.si128(), offset, bits);
+    return detail::core::integer::bitfieldExtract::_default_i32v(value.intrinEXT(), offset, bits);
 }
 template<> inline glm2::vec<3, int32_t> glm2::bitfieldExtract(const vec<3, int32_t>& value, int32_t offset, int32_t bits)
 {
-    return detail::core::integer::bitfieldExtract::_default_i32v(value(), offset, bits);
+    return detail::core::integer::bitfieldExtract::_default_i32v(value.intrin(), offset, bits);
 }
 template<> inline glm2::vec<4, int32_t> glm2::bitfieldExtract(const vec<4, int32_t>& value, int32_t offset, int32_t bits)
 {
-    return detail::core::integer::bitfieldExtract::_default_i32v(value(), offset, bits);
+    return detail::core::integer::bitfieldExtract::_default_i32v(value.intrin(), offset, bits);
 }
 
 template<> inline glm2::vec<2, uint32_t> glm2::bitfieldExtract(const vec<2, uint32_t>& value, int32_t offset, int32_t bits)
 {
-    return detail::core::integer::bitfieldExtract::_default_u32v(value.si128(), offset, bits);
+    return detail::core::integer::bitfieldExtract::_default_u32v(value.intrinEXT(), offset, bits);
 }
 template<> inline glm2::vec<3, uint32_t> glm2::bitfieldExtract(const vec<3, uint32_t>& value, int32_t offset, int32_t bits)
 {
-    return detail::core::integer::bitfieldExtract::_default_u32v(value(), offset, bits);
+    return detail::core::integer::bitfieldExtract::_default_u32v(value.intrin(), offset, bits);
 }
 template<> inline glm2::vec<4, uint32_t> glm2::bitfieldExtract(const vec<4, uint32_t>& value, int32_t offset, int32_t bits)
 {
-    return detail::core::integer::bitfieldExtract::_default_u32v(value(), offset, bits);
+    return detail::core::integer::bitfieldExtract::_default_u32v(value.intrin(), offset, bits);
 }

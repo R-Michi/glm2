@@ -13,13 +13,13 @@
 
 template<typename T> inline glm2::vec<3, T, 4>::vec(const vec<2, T, 4>& xy, T z)
 {
-    this->_v = _mm_movpi64_epi64(xy());
+    this->_v = _mm_movpi64_epi64(xy.intrin());
     this->_v = _mm_insert_epi32(this->_v, (int32_t)z, 2);
 }
 
 template<typename T> inline glm2::vec<3, T, 4>::vec(T x, const vec<2, T, 4>& yz)
 {
-    this->_v = _mm_movpi64_epi64(yz());
+    this->_v = _mm_movpi64_epi64(yz.intrin());
     this->_v = _mm_insert_epi32(this->_v, (int32_t)x, 2);
     this->_v = _mm_shuffle_epi32(this->_v, 0x12);
 }

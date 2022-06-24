@@ -15,7 +15,7 @@
 inline glm2::mat<4, 2, float>::col_type glm2::mat<4, 2, float>::operator* (const row_type& v) const
 {
     __m128 xmm0, xmm1, xmm2, xmm3;
-    xmm0 = v();                                             // x, y, z, w
+    xmm0 = v.intrin();                                             // x, y, z, w
     xmm1 = _mm_loadu_ps(col_type::value_ptr(this->_M + 0)); // a, e, b, f
     xmm2 = _mm_loadu_ps(col_type::value_ptr(this->_M + 2)); // c, g, d, h
     xmm3 = _mm_unpacklo_ps(xmm0, xmm0);                     // x, x, y, y
@@ -36,8 +36,8 @@ inline glm2::mat<2, 2, float> glm2::mat<4, 2, float>::operator* (const mat<2, 4,
     __m128 xmm0, xmm1, xmm2, xmm3, xmm4, xmm5, xmm6, xmm7, xmm8;
     xmm0 = _mm_loadu_ps(col_type::value_ptr(this->_M + 0));
     xmm1 = _mm_loadu_ps(col_type::value_ptr(this->_M + 2));
-    xmm2 = M[0]();
-    xmm3 = M[1]();
+    xmm2 = M[0].intrin();
+    xmm3 = M[1].intrin();
     xmm4 = _mm_movelh_ps(xmm0, xmm0);
     xmm0 = _mm_movehl_ps(xmm0, xmm0);
     xmm5 = _mm_movelh_ps(xmm1, xmm1);
@@ -59,7 +59,7 @@ inline glm2::mat<3, 2, float> glm2::mat<4, 2, float>::operator* (const mat<3, 4,
     __m256 ymm0, ymm1, ymm2, ymm3, ymm4, ymm5, ymm6, ymm7;
     __m128 xmm0, xmm1;
     ymm0 = _mm256_loadu_ps(mat<3, 4, float>::value_ptr(M));
-    ymm1 = _mm256_castps128_ps256(M[2]());
+    ymm1 = _mm256_castps128_ps256(M[2].intrin());
     ymm2 = _mm256_loadu_ps(col_type::value_ptr(this->_M));
     ymm3 = _mm256_permute2f128_ps(ymm0, ymm1, 0x20);
     ymm0 = _mm256_permute2f128_ps(ymm0, ymm1, 0x31);
@@ -123,15 +123,15 @@ inline glm2::mat<4, 2, float>::operator glm2::mat<2, 2, float>(void) const
 inline glm2::mat<4, 2, float>::operator glm2::mat<2, 3, float>(void) const
 {
     mat<2, 3, float> res;
-    res[0] = this->_M[0].si128();
-    res[1] = this->_M[1].si128();
+    res[0] = this->_M[0].intrinEXT();
+    res[1] = this->_M[1].intrinEXT();
     return res;
 }
 inline glm2::mat<4, 2, float>::operator glm2::mat<2, 4, float>(void) const
 {
     mat<2, 4, float> res;
-    res[0] = this->_M[0].si128();
-    res[1] = this->_M[1].si128();
+    res[0] = this->_M[0].intrinEXT();
+    res[1] = this->_M[1].intrinEXT();
     return res;
 }
 inline glm2::mat<4, 2, float>::operator glm2::mat<3, 2, float>(void) const
@@ -145,35 +145,35 @@ inline glm2::mat<4, 2, float>::operator glm2::mat<3, 2, float>(void) const
 inline glm2::mat<4, 2, float>::operator glm2::mat<3, 3, float>(void) const
 {
     mat<3, 3, float> res;
-    res[0] = this->_M[0].si128();
-    res[1] = this->_M[1].si128();
-    res[2] = this->_M[2].si128();
+    res[0] = this->_M[0].intrinEXT();
+    res[1] = this->_M[1].intrinEXT();
+    res[2] = this->_M[2].intrinEXT();
     return res;
 }
 inline glm2::mat<4, 2, float>::operator glm2::mat<3, 4, float>(void) const 
 {
     mat<3, 4, float> res;
-    res[0] = this->_M[0].si128();
-    res[1] = this->_M[1].si128();
-    res[2] = this->_M[2].si128();
+    res[0] = this->_M[0].intrinEXT();
+    res[1] = this->_M[1].intrinEXT();
+    res[2] = this->_M[2].intrinEXT();
     return res;
 }
 inline glm2::mat<4, 2, float>::operator glm2::mat<4, 3, float>(void) const
 {
     mat<4, 3, float> res;
-    res[0] = this->_M[0].si128();
-    res[1] = this->_M[1].si128();
-    res[2] = this->_M[2].si128();
-    res[3] = this->_M[3].si128();
+    res[0] = this->_M[0].intrinEXT();
+    res[1] = this->_M[1].intrinEXT();
+    res[2] = this->_M[2].intrinEXT();
+    res[3] = this->_M[3].intrinEXT();
     return res;
 }
 inline glm2::mat<4, 2, float>::operator glm2::mat<4, 4, float>(void) const
 {
     mat<4, 4, float> res;
-    res[0] = this->_M[0].si128();
-    res[1] = this->_M[1].si128();
-    res[2] = this->_M[2].si128();
-    res[3] = this->_M[3].si128();
+    res[0] = this->_M[0].intrinEXT();
+    res[1] = this->_M[1].intrinEXT();
+    res[2] = this->_M[2].intrinEXT();
+    res[3] = this->_M[3].intrinEXT();
     return res;
 }   
 
@@ -187,15 +187,15 @@ inline glm2::mat<4, 2, float>::operator glm2::mat<2, 2, double>(void) const
 inline glm2::mat<4, 2, float>::operator glm2::mat<2, 3, double>(void) const
 {
     mat<2, 3, double> res;
-    res[0] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[0].si128()));
-    res[1] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[1].si128()));  
+    res[0] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[0].intrinEXT()));
+    res[1] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[1].intrinEXT()));  
     return res;
 }
 inline glm2::mat<4, 2, float>::operator glm2::mat<2, 4, double>(void) const
 {
     mat<2, 4, double> res;
-    res[0] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[0].si128()));
-    res[1] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[1].si128()));
+    res[0] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[0].intrinEXT()));
+    res[1] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[1].intrinEXT()));
     return res;
 }
 inline glm2::mat<4, 2, float>::operator glm2::mat<3, 2, double>(void) const
@@ -209,17 +209,17 @@ inline glm2::mat<4, 2, float>::operator glm2::mat<3, 2, double>(void) const
 inline glm2::mat<4, 2, float>::operator glm2::mat<3, 3, double>(void) const
 {
     mat<3, 3, double> res;
-    res[0] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[0].si128()));
-    res[1] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[1].si128()));  
-    res[2] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[2].si128())); 
+    res[0] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[0].intrinEXT()));
+    res[1] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[1].intrinEXT()));  
+    res[2] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[2].intrinEXT())); 
     return res;
 }
 inline glm2::mat<4, 2, float>::operator glm2::mat<3, 4, double>(void) const
 {
     mat<3, 4, double> res;
-    res[0] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[0].si128()));
-    res[1] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[1].si128()));  
-    res[2] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[2].si128())); 
+    res[0] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[0].intrinEXT()));
+    res[1] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[1].intrinEXT()));  
+    res[2] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[2].intrinEXT())); 
     return res;
 }
 inline glm2::mat<4, 2, float>::operator glm2::mat<4, 2, double>(void) const
@@ -234,19 +234,19 @@ inline glm2::mat<4, 2, float>::operator glm2::mat<4, 2, double>(void) const
 inline glm2::mat<4, 2, float>::operator glm2::mat<4, 3, double>(void) const
 {
     mat<4, 3, double> res;
-    res[0] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[0].si128()));
-    res[1] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[1].si128()));  
-    res[2] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[2].si128())); 
-    res[3] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[3].si128())); 
+    res[0] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[0].intrinEXT()));
+    res[1] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[1].intrinEXT()));  
+    res[2] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[2].intrinEXT())); 
+    res[3] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[3].intrinEXT())); 
     return res;
 }
 inline glm2::mat<4, 2, float>::operator glm2::mat<4, 4, double>(void) const
 {
     mat<4, 4, double> res;
-    res[0] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[0].si128()));
-    res[1] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[1].si128()));  
-    res[2] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[2].si128())); 
-    res[3] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[3].si128())); 
+    res[0] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[0].intrinEXT()));
+    res[1] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[1].intrinEXT()));  
+    res[2] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[2].intrinEXT())); 
+    res[3] = _mm256_castpd128_pd256(_mm_cvtps_pd(this->_M[3].intrinEXT())); 
     return res;
 }
 

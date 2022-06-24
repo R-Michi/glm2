@@ -13,13 +13,13 @@
 
 inline glm2::vec<2, float>::operator glm2::vec<2, double>(void) const
 {
-    return _mm_cvtps_pd(this->si128());
+    return _mm_cvtps_pd(this->intrinEXT());
 }
 inline glm2::vec<2, float>::operator glm2::vec<2, int32_t>(void) const
 {
-    return _mm_cvt_ps2pi(this->si128());
+    return _mm_cvt_ps2pi(this->intrinEXT());
 }
 inline glm2::vec<2, float>::operator glm2::vec<2, uint32_t>(void) const
 {
-    return _mm_cvt_ps2pi(this->si128());
+    return _mm_cvt_ps2pi(this->intrinEXT());
 }

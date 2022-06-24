@@ -35,39 +35,39 @@ inline genType glm2::abs(genType x)
 
 template<> inline glm2::vec<2, float> glm2::abs(const vec<2, float>& x)
 {
-    return detail::core::common::abs::_default_fv(x.si128());
+    return detail::core::common::abs::_default_fv(x.intrinEXT());
 }
 template<> inline glm2::vec<3, float> glm2::abs(const vec<3, float>& x)
 {
-    return detail::core::common::abs::_default_fv(x());
+    return detail::core::common::abs::_default_fv(x.intrin());
 }
 template<> inline glm2::vec<4, float> glm2::abs(const vec<4, float>& x)
 {
-    return detail::core::common::abs::_default_fv(x());
+    return detail::core::common::abs::_default_fv(x.intrin());
 }
 
 template<> inline glm2::vec<2, double> glm2::abs(const vec<2, double>& x)
 {
-    return detail::core::common::abs::_default_dv2(x());
+    return detail::core::common::abs::_default_dv2(x.intrin());
 }
 template<> inline glm2::vec<3, double> glm2::abs(const vec<3, double>& x)
 {
-    return detail::core::common::abs::_default_dv(x());
+    return detail::core::common::abs::_default_dv(x.intrin());
 }
 template<> inline glm2::vec<4, double> glm2::abs(const vec<4, double>& x)
 {
-    return detail::core::common::abs::_default_dv(x());
+    return detail::core::common::abs::_default_dv(x.intrin());
 }
 
 template<> inline glm2::vec<2, int32_t> glm2::abs(const vec<2, int32_t>& x)
 {
-    return detail::core::common::abs::_default_i32v(x.si128());
+    return detail::core::common::abs::_default_i32v(x.intrinEXT());
 }
 template<> inline glm2::vec<3, int32_t> glm2::abs(const vec<3, int32_t>& x)
 {
-    return detail::core::common::abs::_default_i32v(x());
+    return detail::core::common::abs::_default_i32v(x.intrin());
 }
 template<> inline glm2::vec<4, int32_t> glm2::abs(const vec<4, int32_t>& x)
 {
-    return detail::core::common::abs::_default_i32v(x());
+    return detail::core::common::abs::_default_i32v(x.intrin());
 }

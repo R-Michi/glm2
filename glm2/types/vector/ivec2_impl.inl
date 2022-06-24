@@ -45,11 +45,6 @@ template<typename T> inline glm2::vec<2, T, sizeof(int32_t)>& glm2::vec<2, T, si
     this->_v = _mm_set1_pi32((int32_t)i);
     return *this;
 }
-template<typename T> inline glm2::vec<2, T, sizeof(int32_t)>& glm2::vec<2, T, sizeof(int32_t)>::operator= (const T* iv)
-{
-    this->_v = intrin::_m_load_pi32((const int32_t*)iv);
-    return *this;
-}
 template<typename T> inline glm2::vec<2, T, sizeof(int32_t)>& glm2::vec<2, T, sizeof(int32_t)>::operator= (const __m64& v)
 {
     this->_v = intrin::_m_move_si64(v);
@@ -410,15 +405,6 @@ template<> inline glm2::vec<2, uint32_t, sizeof(int32_t)>& glm2::vec<2, uint32_t
     return *this;
 }
 
-template<typename T> inline __m64 glm2::vec<2, T, sizeof(int32_t)>::operator() (void) const
-{
-    return this->_v;
-}
-template<typename T> inline __m128i glm2::vec<2, T, sizeof(int32_t)>::si128(void) const
-{
-    __m128i xmm0 = _mm_movpi64_epi64(this->_v);
-    return xmm0;
-}
 template<typename T> inline T glm2::vec<2, T, sizeof(int32_t)>::operator[] (uint32_t i) const
 {
     T ret[2];
@@ -432,6 +418,24 @@ template<typename T> inline T glm2::vec<2, T, sizeof(int32_t)>::insert(uint32_t 
     tmp[i] = f;
     this->_v = intrin::_m_load_pi32(tmp);
     return f;
+}
+template<typename T> inline glm2::vec<2, T, sizeof(int32_t)>& glm2::vec<2, T, sizeof(int32_t)>::load(const T* src)
+{
+    this->_v = intrin::_m_load_pi32((const int32_t*)src);
+    return *this;
+}
+template<typename T> inline void glm2::vec<2, T, sizeof(int32_t)>::store(T* dst) const
+{
+    intrin::_m_store_pi32((int32_t*)dst, this->_v);
+}
+template<typename T> inline __m64 glm2::vec<2, T, sizeof(int32_t)>::intrin(void) const
+{
+    return this->_v;
+}
+template<typename T> inline __m128i glm2::vec<2, T, sizeof(int32_t)>::intrinEXT(void) const
+{
+    __m128i xmm0 = _mm_movpi64_epi64(this->_v);
+    return xmm0;
 }
 
 template<typename T> inline T glm2::vec<2, T, sizeof(int32_t)>::x(void) const

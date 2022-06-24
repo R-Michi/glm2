@@ -25,7 +25,7 @@ inline glm2::vec<4, float>::vec(float x, float y, float z, float w)
 }
 inline glm2::vec<4, float>::vec(const float* fv)
 {
-    this->_v = _mm_load_ps(fv);
+    this->_v = _mm_loadu_ps(fv);
 }
 inline glm2::vec<4, float>::vec(const __m128& v)
 {
@@ -39,11 +39,6 @@ inline glm2::vec<4, float>::vec(const vec& v)
 inline glm2::vec<4, float>& glm2::vec<4, float>::operator= (float f)
 {
     this->_v = _mm_set_ps1(f);
-    return *this;
-}
-inline glm2::vec<4, float>& glm2::vec<4, float>::operator= (const float* fv)
-{
-    this->_v = _mm_load_ps(fv);
     return *this;
 }
 inline glm2::vec<4, float>& glm2::vec<4, float>::operator= (const __m128& v)
@@ -199,10 +194,6 @@ inline glm2::vec<4, float>& glm2::vec<4, float>::operator/= (const vec& v)
     return *this;
 }
 
-inline __m128 glm2::vec<4, float>::operator() (void) const
-{
-    return this->_v;
-}
 inline float glm2::vec<4, float>::operator[] (uint32_t i) const
 {
     return this->_v[i];
@@ -210,6 +201,19 @@ inline float glm2::vec<4, float>::operator[] (uint32_t i) const
 inline float glm2::vec<4, float>::insert(uint32_t i, float f)
 {
     return (this->_v[i] = f);
+}
+inline glm2::vec<4, float>& glm2::vec<4, float>::load(const float* src)
+{
+    this->_v = _mm_loadu_ps(src);
+    return *this;
+}
+inline void glm2::vec<4, float>::store(float* dst) const
+{
+    _mm_storeu_ps(dst, this->_v);
+}
+inline __m128 glm2::vec<4, float>::intrin(void) const
+{
+    return this->_v;
 }
 
 inline float glm2::vec<4, float>::x(void) const

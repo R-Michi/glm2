@@ -33,8 +33,21 @@ If you want to run the test or benchmark, you have to install the glm and google
 6) Run benchmark.exe or run test.exe.
 
 # version
-Version: 1.0.0-dev-2
+Version: 1.0.0-dev-3
 NOTE: This library hasn't been completed yet, not even it's core functionality!
+
+# v1.0.0-dev-3
+- removed type-pointer assignment operator from vector and matrix
+- added .load() methods for vector and matrix instead of the type-pointer assignment operator
+- added .store() methods for vector and matrix, its the oppisite of .load()
+- To load data via pointer into a vector or matrix, the pointer had to be aligned to some number of bytes.
+  This was a bug and is now fixed. Therefore .load() and .store() don't need any specific alignment.
+  Moreover .load() and .store() for matrices don't requiere padding values inbetween vectors any more (especially inbetween vec3s).
+  However, at the very end of a buffer is one padding value requiered (especially for vec3, and matrices that contain vec3s).
+- Made constructors explicit that are the equivalent of the .load() methods.
+- Changed the function operator 'operator()', which returned the internal intrinsic value, to the method .intrinsic().
+- Changed the method .si128(), which returned an __m128 for 2-component-vector-types, to .intrinsicEXT().
+- Improved integer functions: findLSB(), uaddCarry(), usubBorrow()
 
 # requirements
 - To run this library your CPU must at least be capable of the AVX2, FMA and F16C instruction set!
@@ -43,7 +56,7 @@ NOTE: This library hasn't been completed yet, not even it's core functionality!
 
 # TODO
 - implement matrix transformation functions (perspective, lookAt, etc.)
-- implement extended features (for example: noise and intersect functions)
+- implement extended features
 
 # functions or operations where my library performs worse:
 - transpose mat3
@@ -53,8 +66,3 @@ NOTE: This library hasn't been completed yet, not even it's core functionality!
 - ivecX div, mod
 - ivec2 bitCount
 - uvec2 bitCount
-- uvec2 findLSB
-- uvec2 uaddCarry
-- uvec2 usubBorrow
-- ivec2 imulExtended
-- uvec2 umulExtended

@@ -22,27 +22,27 @@ template<> inline double glm2::degrees(double radians)
 
 template<> inline glm2::vec<2, float> glm2::degrees(const vec<2, float>& radians)
 {
-    return detail::core::trigonometric::degrees::_default_fv(radians.si128());
+    return detail::core::trigonometric::degrees::_default_fv(radians.intrinEXT());
 }
 template<> inline glm2::vec<3, float> glm2::degrees(const vec<3, float>& radians)
 {
-    return detail::core::trigonometric::degrees::_default_fv(radians());
+    return detail::core::trigonometric::degrees::_default_fv(radians.intrin());
 }
 template<> inline glm2::vec<4, float> glm2::degrees(const vec<4, float>& radians)
 {
-    return detail::core::trigonometric::degrees::_default_fv(radians());
+    return detail::core::trigonometric::degrees::_default_fv(radians.intrin());
 }
 
 
 template<> inline glm2::vec<2, double> glm2::degrees(const vec<2, double>& radians)
 {
-    return detail::core::trigonometric::degrees::_default_dv2(radians());
+    return detail::core::trigonometric::degrees::_default_dv2(radians.intrin());
 }
 template<> inline glm2::vec<3, double> glm2::degrees(const vec<3, double>& radians)
 {
-    return detail::core::trigonometric::degrees::_default_dv(radians());
+    return detail::core::trigonometric::degrees::_default_dv(radians.intrin());
 }
 template<> inline glm2::vec<4, double> glm2::degrees(const vec<4, double>& radians)
 {
-    return detail::core::trigonometric::degrees::_default_dv(radians());
+    return detail::core::trigonometric::degrees::_default_dv(radians.intrin());
 }

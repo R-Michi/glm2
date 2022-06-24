@@ -17,8 +17,8 @@ inline glm2::mat<2, 3, float>::col_type glm2::mat<2, 3, float>::operator* (const
     __m128 xmm0, xmm1;
     xmm0 = _mm_broadcast_ss(row_type::value_ptr(v) + 0);
     xmm1 = _mm_broadcast_ss(row_type::value_ptr(v) + 1);
-    xmm0 = _mm_mul_ps(xmm0, this->_M[0]());
-    xmm0 = _mm_fmadd_ps(xmm1, this->_M[1](), xmm0);
+    xmm0 = _mm_mul_ps(xmm0, this->_M[0].intrin());
+    xmm0 = _mm_fmadd_ps(xmm1, this->_M[1].intrin(), xmm0);
     return col_type(xmm0);
 }
 
@@ -96,8 +96,8 @@ inline glm2::mat<2, 3, float>::operator glm2::mat<2, 2, float>(void) const
 inline glm2::mat<2, 3, float>::operator glm2::mat<2, 4, float>(void) const
 {
     mat<2, 4, float> res;
-    res[0] = this->_M[0]();
-    res[1] = this->_M[1]();
+    res[0] = this->_M[0].intrin();
+    res[1] = this->_M[1].intrin();
     return res;
 }
 inline glm2::mat<2, 3, float>::operator glm2::mat<3, 2, float>(void) const
@@ -117,8 +117,8 @@ inline glm2::mat<2, 3, float>::operator glm2::mat<3, 3, float>(void) const
 inline glm2::mat<2, 3, float>::operator glm2::mat<3, 4, float>(void) const
 {
     mat<3, 4, float> res;
-    res[0] = this->_M[0]();
-    res[1] = this->_M[1]();
+    res[0] = this->_M[0].intrin();
+    res[1] = this->_M[1].intrin();
     return res;
 }
 inline glm2::mat<2, 3, float>::operator glm2::mat<4, 2, float>(void) const
@@ -138,8 +138,8 @@ inline glm2::mat<2, 3, float>::operator glm2::mat<4, 3, float>(void) const
 inline glm2::mat<2, 3, float>::operator glm2::mat<4, 4, float>(void) const
 {
     mat<4, 4, float> res;
-    res[0] = this->_M[0]();
-    res[1] = this->_M[1]();
+    res[0] = this->_M[0].intrin();
+    res[1] = this->_M[1].intrin();
     return res;
 }
 
@@ -160,8 +160,8 @@ inline glm2::mat<2, 3, float>::operator glm2::mat<2, 3, double>(void) const
 inline glm2::mat<2, 3, float>::operator glm2::mat<2, 4, double>(void) const
 {
     mat<2, 4, double> res;
-    res[0] = _mm256_cvtps_pd(this->_M[0]());
-    res[1] = _mm256_cvtps_pd(this->_M[1]());
+    res[0] = _mm256_cvtps_pd(this->_M[0].intrin());
+    res[1] = _mm256_cvtps_pd(this->_M[1].intrin());
     return res;
 }
 inline glm2::mat<2, 3, float>::operator glm2::mat<3, 2, double>(void) const
@@ -181,8 +181,8 @@ inline glm2::mat<2, 3, float>::operator glm2::mat<3, 3, double>(void) const
 inline glm2::mat<2, 3, float>::operator glm2::mat<3, 4, double>(void) const
 {
     mat<3, 4, double> res;
-    res[0] = _mm256_cvtps_pd(this->_M[0]());
-    res[1] = _mm256_cvtps_pd(this->_M[1]());
+    res[0] = _mm256_cvtps_pd(this->_M[0].intrin());
+    res[1] = _mm256_cvtps_pd(this->_M[1].intrin());
     return res;
 }
 inline glm2::mat<2, 3, float>::operator glm2::mat<4, 2, double>(void) const
@@ -202,7 +202,7 @@ inline glm2::mat<2, 3, float>::operator glm2::mat<4, 3, double>(void) const
 inline glm2::mat<2, 3, float>::operator glm2::mat<4, 4, double>(void) const
 {
     mat<4, 4, double> res;
-    res[0] = _mm256_cvtps_pd(this->_M[0]());
-    res[1] = _mm256_cvtps_pd(this->_M[1]());
+    res[0] = _mm256_cvtps_pd(this->_M[0].intrin());
+    res[1] = _mm256_cvtps_pd(this->_M[1].intrin());
     return res;
 }

@@ -27,9 +27,9 @@ namespace glm2
         inline vec(void);
         inline vec(float f);
         inline vec(float x, float y);
-        inline vec(const float* fv);
         inline vec(const __m64& v);
         inline vec(const __m128& v);
+        explicit inline vec(const float* fv);
 
         /* conversion constructors according to the GLSL 4.6 specification 5.4.2. Vector and Matrix Constructors */
         inline vec(const vec& v);
@@ -39,7 +39,6 @@ namespace glm2
 
         /* default copy operators */
         inline vec& operator= (float f);
-        inline vec& operator= (const float* fv);
         inline vec& operator= (const __m64& v);
         inline vec& operator= (const __m128& v);
         inline vec& operator= (const vec& v);
@@ -75,10 +74,12 @@ namespace glm2
         inline vec& operator/= (const vec& v);
 
         /* common operators and methods */
-        inline __m64 operator() (void) const;
-        inline __m128 si128(void) const;
         inline float operator[] (uint32_t i) const;
         inline float insert(uint32_t i, float f);
+        inline vec& load(const float* src);
+        inline void store(float* dst) const;
+        inline __m64 intrin(void) const;
+        inline __m128 intrinEXT(void) const;
 
         /* Implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator vec<2, double>(void) const;
@@ -117,8 +118,8 @@ namespace glm2
         inline vec(void);
         inline vec(float f);
         inline vec(float x, float y, float z);
-        inline vec(const float* fv);
         inline vec(const __m128& v);
+        explicit inline vec(const float* fv);
 
         /* conversion constructors according to the GLSL 4.6 specification 5.4.2. Vector and Matrix Constructors */
         inline vec(const vec<2, float>& xy, float z);
@@ -130,7 +131,6 @@ namespace glm2
 
         /* default copy operators */
         inline vec& operator= (float f);
-        inline vec& operator= (const float* fv);
         inline vec& operator= (const __m128& v);
         inline vec& operator= (const vec& v);
 
@@ -165,9 +165,11 @@ namespace glm2
         inline vec& operator/= (const vec& v);
 
         /* common operators and methods */
-        inline __m128 operator() (void) const;
         inline float operator[] (uint32_t i) const;
         inline float insert(uint32_t i, float f);
+        inline vec& load(const float* src);
+        inline void store(float* dst) const;
+        inline __m128 intrin(void) const;
 
         /* Implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator vec<2, float>(void) const;
@@ -214,8 +216,8 @@ namespace glm2
         inline vec(void);
         inline vec(float f);
         inline vec(float x, float y, float z, float w);
-        inline vec(const float* fv);
         inline vec(const __m128& v);
+        explicit inline vec(const float* fv);
 
         /* conversion constructors according to the GLSL 4.6 specification 5.4.2. Vector and Matrix Constructors */
         inline vec(const vec<2, float>& xy, float z, float w);
@@ -231,7 +233,6 @@ namespace glm2
 
         /* default copy operators */
         inline vec& operator= (float f);
-        inline vec& operator= (const float* fv);
         inline vec& operator= (const __m128& v);
         inline vec& operator= (const vec& v);
 
@@ -266,9 +267,11 @@ namespace glm2
         inline vec& operator/= (const vec& v);
 
         /* common operators and methods */
-        inline __m128 operator() (void) const;
         inline float operator[] (uint32_t i) const;
         inline float insert(uint32_t i, float f);
+        inline vec& load(const float* src);
+        inline void store(float* dst) const;
+        inline __m128 intrin(void) const;
 
         /* Implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator vec<2, float>(void) const;
@@ -324,8 +327,8 @@ namespace glm2
         inline vec(void);
         inline vec(double d);
         inline vec(double x, double y);
-        inline vec(const double* dv);
         inline vec(const __m128d& v);
+        explicit inline vec(const double* dv);
 
         /* conversion constructors according to the GLSL 4.6 specification 5.4.2. Vector and Matrix Constructors */
         inline vec(const vec& v);
@@ -335,7 +338,6 @@ namespace glm2
 
         /* default copy operators */
         inline vec& operator= (double d);
-        inline vec& operator= (const double* fv);
         inline vec& operator= (const __m128d& v);
         inline vec& operator= (const vec& v);
 
@@ -370,9 +372,11 @@ namespace glm2
         inline vec& operator/= (const vec& v);
 
         /* common operators and methods */
-        inline __m128d operator() (void) const;
         inline double operator[] (uint32_t i) const;
         inline double insert(uint32_t i, double d);
+        inline vec& load(const double* src);
+        inline void store(double* dst) const;
+        inline __m128d intrin(void) const;
 
         /* Implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator vec<2, float>(void) const;
@@ -411,8 +415,8 @@ namespace glm2
         inline vec(void);
         inline vec(double d);
         inline vec(double x, double y, double z);
-        inline vec(const double* dv);
         inline vec(const __m256d& v);
+        explicit inline vec(const double* dv);
 
         /* conversion constructors according to the GLSL 4.6 specification 5.4.2. Vector and Matrix Constructors */
         inline vec(const vec<2, double>& xy, double z);
@@ -424,7 +428,6 @@ namespace glm2
 
         /* default copy operators */
         inline vec& operator= (double d);
-        inline vec& operator= (const double* fv);
         inline vec& operator= (const __m256d& v);
         inline vec& operator= (const vec& v);
 
@@ -459,9 +462,11 @@ namespace glm2
         inline vec& operator/= (const vec& v);
 
         /* common operators and methods */
-        inline __m256d operator() (void) const;
         inline double operator[] (uint32_t i) const;
         inline double insert(uint32_t i, double d);
+        inline vec& load(const double* src);
+        inline void store(double* dst) const;
+        inline __m256d intrin(void) const;
 
         /* Implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator vec<2, float>(void) const;
@@ -508,8 +513,8 @@ namespace glm2
         inline vec(void);
         inline vec(double d);
         inline vec(double x, double y, double z, double w);
-        inline vec(const double* dv);
         inline vec(const __m256d& v);
+        explicit inline vec(const double* dv);
 
         /* conversion constructors according to the GLSL 4.6 specification 5.4.2. Vector and Matrix Constructors */
         inline vec(const vec<2, double>& xy, double z, double w);
@@ -525,7 +530,6 @@ namespace glm2
 
         /* default copy operators */
         inline vec& operator= (double d);
-        inline vec& operator= (const double* fv);
         inline vec& operator= (const __m256d& v);
         inline vec& operator= (const vec& v);
 
@@ -560,9 +564,11 @@ namespace glm2
         inline vec& operator/= (const vec& v);
 
         /* common operators and methods */
-        inline __m256d operator() (void) const;
         inline double operator[] (uint32_t i) const;
         inline double insert(uint32_t i, double d);
+        inline vec& load(const double* src);
+        inline void store(double* dst) const;
+        inline __m256d intrin(void) const;
 
         /* Implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator vec<2, float>(void) const;
@@ -620,9 +626,9 @@ namespace glm2
         inline vec(void);
         inline vec(T i);
         inline vec(T i0, T i1);
-        inline vec(const T* iv);
         inline vec(const __m64& v);
         inline vec(const __m128i& v);
+        explicit inline vec(const T* iv);
 
         /* conversion constructors according to the GLSL 4.6 specification 5.4.2. Vector and Matrix Constructors */
         inline vec(const vec& v);
@@ -632,7 +638,6 @@ namespace glm2
 
         /* default copy operators */
         inline vec& operator= (T i);
-        inline vec& operator= (const T* iv);
         inline vec& operator= (const __m64& v);
         inline vec& operator= (const __m128i& v);
         inline vec& operator= (const vec& v);
@@ -695,10 +700,12 @@ namespace glm2
         inline vec& operator>>= (const vec& i);
 
         /* common operators and methods */
-        inline __m64 operator() (void) const;
-        inline __m128i si128(void) const;
         inline T operator[] (uint32_t i) const;
         inline T insert(uint32_t i, T x);
+        inline vec& load(const T* src);
+        inline void store(T* dst) const;
+        inline __m64 intrin(void) const;
+        inline __m128i intrinEXT(void) const;
 
         /* Implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator vec<2, float>(void) const;
@@ -740,8 +747,8 @@ namespace glm2
         inline vec(void);
         inline vec(T i);
         inline vec(T i0, T i1, T i2);
-        inline vec(const T* iv);
         inline vec(const __m128i& v);
+        explicit inline vec(const T* iv);
 
         /* conversion constructors according to the GLSL 4.6 specification 5.4.2. Vector and Matrix Constructors */
         inline vec(const vec<2, T, 4>& xy, T z);
@@ -753,7 +760,6 @@ namespace glm2
 
         /* default copy operators */
         inline vec& operator= (T i);
-        inline vec& operator= (const T* iv);
         inline vec& operator= (const __m128i& v);
         inline vec& operator= (const vec& v);
 
@@ -815,9 +821,11 @@ namespace glm2
         inline vec& operator>>= (const vec& v);
 
         /* common operators and methods */
-        inline __m128i operator() (void) const;
         inline T operator[] (uint32_t i) const;
         inline T insert(uint32_t i, T x);
+        inline vec& load(const T* src);
+        inline void store(T* dst) const;
+        inline __m128i intrin(void) const;
 
         /* Implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator vec<2, float>(void) const;
@@ -866,8 +874,8 @@ namespace glm2
         inline vec(void);
         inline vec(T i);
         inline vec(T i0, T i1, T i2, T i3);
-        inline vec(const T* iv);
         inline vec(const __m128i& v);
+        explicit inline vec(const T* iv);
 
         /* conversion constructors according to the GLSL 4.6 specification 5.4.2. Vector and Matrix Constructors */
         inline vec(const vec<2, T, 4>& xy, T z, T w);
@@ -883,7 +891,6 @@ namespace glm2
 
         /* default copy operators */
         inline vec& operator= (T i);
-        inline vec& operator= (const T* iv);
         inline vec& operator= (const __m128i& v);
         inline vec& operator= (const vec& v);
 
@@ -945,9 +952,11 @@ namespace glm2
         inline vec& operator>>= (const vec& v);
 
         /* common operators and methods */
-        inline __m128i operator() (void) const;
         inline T operator[] (uint32_t i) const;
         inline T insert(uint32_t i, T x);
+        inline vec& load(const T* src);
+        inline void store(T* dst) const;
+        inline __m128i intrin(void) const;
 
         /* Implicit cast operators */
         GLM2_EXPLICIT_CAST inline operator vec<2, float>(void) const;

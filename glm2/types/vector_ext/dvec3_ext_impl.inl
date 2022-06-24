@@ -14,7 +14,7 @@
 inline glm2::vec<3, double>::vec(const vec<2, double>& xy, double z)
 {
     __m128d xmm0 = _mm_set_sd(z);
-    this->_v = _mm256_insertf128_pd(this->_v, xy(), 0x0);
+    this->_v = _mm256_insertf128_pd(this->_v, xy.intrin(), 0x0);
     this->_v = _mm256_insertf128_pd(this->_v, xmm0, 0x1);
 }
 
@@ -22,7 +22,7 @@ inline glm2::vec<3, double>::vec(double x, const vec<2, double>& yz)
 {
     __m128d xmm0 = _mm_set_pd(x, 0.0);
     this->_v = _mm256_insertf128_pd(this->_v, xmm0, 0x0);
-    this->_v = _mm256_insertf128_pd(this->_v, yz(), 0x1);
+    this->_v = _mm256_insertf128_pd(this->_v, yz.intrin(), 0x1);
     this->_v = _mm256_permute4x64_pd(this->_v, 0x39);
 }
 

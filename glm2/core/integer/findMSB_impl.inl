@@ -22,13 +22,13 @@ inline int32_t glm2::findMSB(genIType x)
 
 template<typename T> inline glm2::vec<2, int32_t> glm2::findMSB(const vec<2, T>& x)
 {
-    return detail::core::integer::findMSB::_default_u32v(x.si128(), 2);
+    return detail::core::integer::findMSB::_default_u32v(x.intrinEXT(), 2);
 }
 template<typename T> inline glm2::vec<3, int32_t> glm2::findMSB(const vec<3, T>& x)
 {
-    return detail::core::integer::findMSB::_default_u32v(x(), 3);
+    return detail::core::integer::findMSB::_default_u32v(x.intrin(), 3);
 }
 template<typename T> inline glm2::vec<4, int32_t> glm2::findMSB(const vec<4, T>& x)
 {
-    return detail::core::integer::findMSB::_default_u32v(x(), 4);
+    return detail::core::integer::findMSB::_default_u32v(x.intrin(), 4);
 }

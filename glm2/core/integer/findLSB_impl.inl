@@ -14,21 +14,18 @@
 template<typename genIType>
 inline int32_t glm2::findLSB(genIType x)
 {
-    int32_t ret;
-    __m128 xmm0 = detail::core::integer::findLSB::_default_u32v(_mm_loadu_si32(&x), 1);
-    _mm_storeu_si32(&ret, xmm0);
-    return ret;
+    return detail::core::integer::findLSB::_default_u32(static_cast<uint32_t>(x));
 }
 
 template<typename T> inline glm2::vec<2, int32_t> glm2::findLSB(const vec<2, T>& x)
 {
-    return detail::core::integer::findLSB::_default_u32v(x.si128(), 2);
+    return detail::core::integer::findLSB::_default_u32v(x.intrinEXT());
 }
 template<typename T> inline glm2::vec<3, int32_t> glm2::findLSB(const vec<3, T>& x)
 {
-    return detail::core::integer::findLSB::_default_u32v(x(), 3);
+    return detail::core::integer::findLSB::_default_u32v(x.intrin());
 }
 template<typename T> inline glm2::vec<4, int32_t> glm2::findLSB(const vec<4, T>& x)
 {
-    return detail::core::integer::findLSB::_default_u32v(x(), 4);
+    return detail::core::integer::findLSB::_default_u32v(x.intrin());
 }

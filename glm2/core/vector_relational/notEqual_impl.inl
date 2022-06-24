@@ -13,52 +13,52 @@
 
 template<> inline glm2::vec<2, glm2::bool32_t> glm2::notEqual(const vec<2, float>& x, const vec<2, float>& y)
 {
-    return detail::core::vector_relational::notEqual::_default_fv(x.si128(), y.si128());
+    return detail::core::vector_relational::notEqual::_default_fv(x.intrinEXT(), y.intrinEXT());
 }
 template<> inline glm2::vec<3, glm2::bool32_t> glm2::notEqual(const vec<3, float>& x, const vec<3, float>& y)
 {
-    return detail::core::vector_relational::notEqual::_default_fv(x(), y());
+    return detail::core::vector_relational::notEqual::_default_fv(x.intrin(), y.intrin());
 }
 template<> inline glm2::vec<4, glm2::bool32_t> glm2::notEqual(const vec<4, float>& x, const vec<4, float>& y)
 {
-    return detail::core::vector_relational::notEqual::_default_fv(x(), y());
+    return detail::core::vector_relational::notEqual::_default_fv(x.intrin(), y.intrin());
 }
 
 template<> inline glm2::vec<2, glm2::bool32_t> glm2::notEqual(const vec<2, double>& x, const vec<2, double>& y)
 {
-    return detail::core::vector_relational::notEqual::_default_dv2(x(), y());
+    return detail::core::vector_relational::notEqual::_default_dv2(x.intrin(), y.intrin());
 }
 template<> inline glm2::vec<3, glm2::bool32_t> glm2::notEqual(const vec<3, double>& x, const vec<3, double>& y)
 {
-    return detail::core::vector_relational::notEqual::_default_dv(x(), y());
+    return detail::core::vector_relational::notEqual::_default_dv(x.intrin(), y.intrin());
 }
 template<> inline glm2::vec<4, glm2::bool32_t> glm2::notEqual(const vec<4, double>& x, const vec<4, double>& y)
 {
-    return detail::core::vector_relational::notEqual::_default_dv(x(), y());
+    return detail::core::vector_relational::notEqual::_default_dv(x.intrin(), y.intrin());
 }
 
 template<> inline glm2::vec<2, glm2::bool32_t> glm2::notEqual(const vec<2, int32_t>& x, const vec<2, int32_t>& y)
 {
-    return detail::core::vector_relational::notEqual::_default_i32v(x.si128(), y.si128());
+    return detail::core::vector_relational::notEqual::_default_i32v(x.intrinEXT(), y.intrinEXT());
 }
 template<> inline glm2::vec<3, glm2::bool32_t> glm2::notEqual(const vec<3, int32_t>& x, const vec<3, int32_t>& y)
 {
-    return detail::core::vector_relational::notEqual::_default_i32v(x(), y());
+    return detail::core::vector_relational::notEqual::_default_i32v(x.intrin(), y.intrin());
 }
 template<> inline glm2::vec<4, glm2::bool32_t> glm2::notEqual(const vec<4, int32_t>& x, const vec<4, int32_t>& y)
 {
-    return detail::core::vector_relational::notEqual::_default_i32v(x(), y());
+    return detail::core::vector_relational::notEqual::_default_i32v(x.intrin(), y.intrin());
 }
 
 template<> inline glm2::vec<2, glm2::bool32_t> glm2::notEqual(const vec<2, uint32_t>& x, const vec<2, uint32_t>& y)
 {
-    return detail::core::vector_relational::notEqual::_default_i32v(x.si128(), y.si128());
+    return detail::core::vector_relational::notEqual::_default_i32v(x.intrinEXT(), y.intrinEXT());
 }
 template<> inline glm2::vec<3, glm2::bool32_t> glm2::notEqual(const vec<3, uint32_t>& x, const vec<3, uint32_t>& y)
 {
-    return detail::core::vector_relational::notEqual::_default_i32v(x(), y());
+    return detail::core::vector_relational::notEqual::_default_i32v(x.intrin(), y.intrin());
 }
 template<> inline glm2::vec<4, glm2::bool32_t> glm2::notEqual(const vec<4, uint32_t>& x, const vec<4, uint32_t>& y)
 {
-    return detail::core::vector_relational::notEqual::_default_i32v(x(), y());
+    return detail::core::vector_relational::notEqual::_default_i32v(x.intrin(), y.intrin());
 }
